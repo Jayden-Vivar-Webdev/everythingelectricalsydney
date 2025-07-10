@@ -7,7 +7,7 @@ export default function Banner() {
           <svg viewBox="0 0 2 2" aria-hidden="true" className="mx-2 inline size-0.5 fill-current">
             <circle r={1} cx={1} cy={1} />
           </svg>
-          Contact Us your trusted emergency electrical service. &nbsp;<span aria-hidden="true">&rarr;</span>
+          Contact Us Now. &nbsp;<span aria-hidden="true">&rarr;</span>
         </a>
       </p>
       <div className="flex flex-1 justify-end">
