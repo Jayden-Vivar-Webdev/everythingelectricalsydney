@@ -5,7 +5,7 @@
   --foreground: #171717;
   --primary-color: #0056D2; /* Deep, strong blue */
   --secondary-color: #da1818; /* Clean, energetic yellow */
-
+  --secondary-color-light: #e53e3e;
 }
 
 @theme inline {
@@ -34,6 +34,9 @@
   }
   .secondary-text{
     color: var(--secondary-color);
+  }
+  .sectionary-bg-light{
+    background-color: var(--secondary-color-light);
   }
 }
 

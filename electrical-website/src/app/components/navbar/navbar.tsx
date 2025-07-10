@@ -56,7 +56,7 @@ export default function NavBar() {
     <header className="fixed top-0 left-0 w-full bg-white shadow z-50">
       <nav aria-label="Global" className="mx-auto flex max-w-7xl items-center justify-between px-6 py-2 lg:px-8">
         <div className="flex lg:flex-1">
-          <a href="#" className="flex relative w-[22rem] max-h-[5rem] overflow-hidden justify-center items-center">
+          <a href="#" className="flex relative max-h-[5rem] p-2 overflow-hidden justify-center items-center">
             <span className="sr-only">Everything Electrical Sydney</span>
             <img
               alt="Everything Electrical Sydney"

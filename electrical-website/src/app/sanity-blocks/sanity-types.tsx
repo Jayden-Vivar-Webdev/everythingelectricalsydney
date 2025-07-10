@@ -32,15 +32,7 @@ export interface GridInfoBlock {
   
 }
 
-export interface StatsSectionBlock {
-  _type: "statsSection";
-  header: string;
-  subheader?: string;
-  stats: Array<{
-    number: string;
-    label: string;
-  }>;
-}
+
 
 export interface HeroSectionBlock {
   _type: 'heroSection';
@@ -114,6 +106,16 @@ export interface ServicesSectionBlock {
     };
   }[];
 }
+export interface StatsSectionBlock {
+  _type: "statsSection";
+  title: string;
+  description: string;
+  stats: Array<{
+    name: string;
+    value: string;
+  }>;
+}
+
 
 
 

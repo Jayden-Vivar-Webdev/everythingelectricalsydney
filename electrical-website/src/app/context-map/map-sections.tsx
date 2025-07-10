@@ -5,6 +5,7 @@ import Link from 'next/link';
 import HeroMain from '../components/hero/hero-main';
 import HeroContact from '../components/hero/hero-contact';
 import Services from '../components/services/servicesList';
+import Stats from '../components/stats/stats';
 
 
 export const contentMap: Record<string, (block: { _type: string; [key: string]: unknown}, index: number) => React.ReactElement
@@ -13,7 +14,9 @@ export const contentMap: Record<string, (block: { _type: string; [key: string]: 
     const components: PortableTextComponents = {
       block: {
         normal: ({ children }) => <p className="mb-6 text-lg md:text-xl text-light/90 leading-10">{children}</p>,
-        
+       
+        strong: ({ children }) =>  <strong className="mb-6 text-black">{children}</strong>,
+
         h1: ({ children }) => (
           <h1 className="stat-number text-4xl md:text-5xl lg:text-6xl font-bold pb-6">
             {children}
@@ -309,52 +312,31 @@ export const contentMap: Record<string, (block: { _type: string; [key: string]: 
     );
   },
 
+  
+
   statsSection: (block, index) => {
     interface StatsSectionBlock {
       _type: 'statsSection';
-      header: string;
-      subheader?: string;
+      title: string;
+      description?: string;
       stats: Array<{
-        number: string;
-        label: string;
+        name: string;
+        value: string;
       }>;
     }
   
     const statsBlock = block as unknown as StatsSectionBlock;
   
     return (
-      <section key={index} className="my-8 sm:my-12 py-8 sm:py-12 bg-gray-900 rounded-xl border border-gray-800">
-  <div className="container mx-auto px-4 sm:px-6 max-w-6xl">
-    <div className="text-center mb-8 sm:mb-10">
-      <h2 className="text-2xl sm:text-3xl font-bold text-white mb-2 sm:mb-3">
-        {statsBlock.header}
-      </h2>
-      {statsBlock.subheader && (
-        <p className="text-base sm:text-lg text-gray-300 max-w-2xl mx-auto px-2 sm:px-0">
-          {statsBlock.subheader}
-        </p>
-      )}
-    </div>
-
-    <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
-      {statsBlock.stats.map((stat, i) => (
-        <div 
-          key={i}
-          className="bg-gray-800 p-4 sm:p-6 rounded-lg hover:bg-gray-750 transition-all duration-300 border border-gray-700 group"
-        >
-          <p className="text-3xl sm:text-4xl font-bold mb-2 sm:mb-3">
-            <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
-              {stat.number}
-            </span>
-          </p>
-          <p className="text-base sm:text-lg font-medium text-gray-300 group-hover:text-white transition-colors">
-            {stat.label}
-          </p>
-        </div>
-      ))}
-    </div>
-  </div>
-</section>
+    
+      <Stats
+      key={index}
+      title={statsBlock.title}
+      description={statsBlock.description}
+      stats={statsBlock.stats}
+    />
+      
+      
     );
   },
   
