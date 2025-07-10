@@ -14,7 +14,10 @@ export default function RootLayout({
         
       >
         <NavBar />
-        {children}
+        <main className="pt-[6rem]">
+          {children}
+        </main>
+        
       </body>
     </html>
   );
