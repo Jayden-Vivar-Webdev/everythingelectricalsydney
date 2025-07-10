@@ -27,7 +27,7 @@ const ContactFormCta = () => {
   return (
     <>
       {/* Header */}
-      <div className='flex w-full h-[42rem] sm:h-[40rem] md:h-[28rem] lg:h-[25rem] '>
+      <div className='relative  w-full h-[42rem] sm:h-[33rem] md:h-[28rem] lg:h-[20rem] '>
 
       
         {/* Form */}
@@ -37,12 +37,11 @@ const ContactFormCta = () => {
         left-1/2 
         -translate-x-1/2 
         space-y-6 bg-white 
-        bottom-1
-        translate-y-3/4
-        sm:translate-y-6/6
-        md:translate-y-6/6
-        lg:bottom-10
-        lg:translate-y-10/8
+        top-1
+        -translate-y-1/4
+        sm:-translate-y-2/6
+        md:-translate-y-2/6
+        lg:-translate-y-3/6
         p-10 
         rounded-xl 
         shadow-[0_20px_40px_rgba(0,0,0,0.1)]">
