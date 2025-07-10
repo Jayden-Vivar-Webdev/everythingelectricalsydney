@@ -60,7 +60,7 @@ export default function NavBar() {
             <span className="sr-only">Everything Electrical Sydney</span>
             <img
               alt="Everything Electrical Sydney"
-              src="/images/Everything Electrical/1.svg"
+              src="/images/logos/1.svg"
               className="h-full w-full object-cover object-center"
             />
           </a>
