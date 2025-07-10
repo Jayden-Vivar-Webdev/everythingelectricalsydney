@@ -54,38 +54,67 @@ export const customSections = defineType({
             }),
           ],
         },
+        // {
+        //   name: 'statsSection',
+        //   title: 'Stats Section',
+        //   type: 'object',
+        //   fields: [
+        //     defineField({
+        //       name: 'header',
+        //       title: 'Header',
+        //       type: 'string',
+        //     }),
+        //     defineField({
+        //       name: 'subheader',
+        //       title: 'Subheader',
+        //       type: 'text',
+        //     }),
+        //     defineField({
+        //       name: 'stats',
+        //       title: 'Stats',
+        //       type: 'array',
+        //       of: [
+        //         {
+        //           name: 'stat',
+        //           title: 'Stat',
+        //           type: 'object',
+        //           fields: [
+        //             defineField({ name: 'number', title: 'Number', type: 'string' }),
+        //             defineField({ name: 'label', title: 'Label', type: 'string' }),
+        //           ],
+        //         },
+        //       ],
+        //     }),
+        //   ],
+        // },
         {
           name: 'statsSection',
           title: 'Stats Section',
           type: 'object',
-          fields: [
+          fields:[
             defineField({
-              name: 'header',
-              title: 'Header',
-              type: 'string',
+              name:'title', title: 'Title', type: 'string'
             }),
             defineField({
-              name: 'subheader',
-              title: 'Subheader',
-              type: 'text',
+              name:'description', title: 'description', type: 'string'
             }),
             defineField({
-              name: 'stats',
-              title: 'Stats',
+              name: 'statsItem',
+              title: 'Stats Item',
               type: 'array',
               of: [
                 {
-                  name: 'stat',
-                  title: 'Stat',
                   type: 'object',
+                  name: 'stat',
+                  title: 'Stat Item',
                   fields: [
-                    defineField({ name: 'number', title: 'Number', type: 'string' }),
-                    defineField({ name: 'label', title: 'Label', type: 'string' }),
-                  ],
-                },
-              ],
-            }),
-          ],
+                    defineField({name:'name', title: 'Stats Name', type: 'string'}),
+                    defineField({name:'value', title: 'Stats Value', type: 'string'})
+                  ]
+                }
+              ]
+            })
+          ]
         },
         {
           name: 'ctaSection',
