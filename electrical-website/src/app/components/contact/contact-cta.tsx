@@ -38,11 +38,11 @@ const ContactFormCta = () => {
         -translate-x-1/2 
         space-y-6 bg-white 
         bottom-1
-        translate-y-1/3
-        sm:translate-y-4/6
-        md:translate-y-3/6
+        translate-y-3/4
+        sm:translate-y-6/6
+        md:translate-y-6/6
         lg:bottom-10
-        lg:translate-y-5/8
+        lg:translate-y-10/8
         p-10 
         rounded-xl 
         shadow-[0_20px_40px_rgba(0,0,0,0.1)]">
@@ -165,7 +165,7 @@ const ContactFormCta = () => {
             <div className="flex-1">
               <button
                 type="submit"
-                className="w-full bg-cyan-500 text-white font-semibold py-3 px-8 rounded-md hover:bg-cyan-600 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
+                className="w-full secondary-bg text-white font-semibold py-3 px-8 rounded-md hover:bg-yellow-500 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
               >
                 Book now
               </button>

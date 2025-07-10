@@ -56,12 +56,12 @@ export default function NavBar() {
     <header className="relative isolate z-10">
       <nav aria-label="Global" className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8">
         <div className="flex lg:flex-1">
-          <a href="#" className="-m-1.5 p-1.5">
-            <span className="sr-only">Your Company</span>
+          <a href="#" className="flex w-[20rem] max-h-[5rem] overflow-hidden justify-center items-cente">
+            <span className="sr-only">Everything Electrical Sydney</span>
             <img
-              alt=""
-              src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=600"
-              className="h-8 w-auto"
+              alt="Everything Electrical Sydney"
+              src="/images/logo.png"
+              className="h-full w-full object-cover"
             />
           </a>
         </div>
@@ -145,10 +145,10 @@ export default function NavBar() {
         <DialogPanel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white p-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           <div className="flex items-center justify-between">
             <a href="#" className="-m-1.5 p-1.5">
-              <span className="sr-only">Your Company</span>
+              <span className="sr-only">Everything Electrical Sydney</span>
               <img
-                alt=""
-                src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=600"
+                alt="Everything Electrical Sydney"
+                src="/images/logo.png"
                 className="h-8 w-auto"
               />
             </a>
