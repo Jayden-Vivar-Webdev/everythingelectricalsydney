@@ -1,5 +1,3 @@
-'use client'
-
 import { client } from '@/app/sanity/client';
 import type { PortableTextBlock } from '@sanity/types';
 import RenderContent from './context-map/render-sections';
