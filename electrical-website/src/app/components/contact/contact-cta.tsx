@@ -140,7 +140,6 @@ const ContactFormCta = () => {
                 <option value="maintenance">Maintenance</option>
                 <option value="inspection">Inspection</option>
                 <option value="replacement">Replacement</option>
-                <option value="renovation">Renovation</option>
                 <option value="other">Other</option>
               </select>
             </div>
