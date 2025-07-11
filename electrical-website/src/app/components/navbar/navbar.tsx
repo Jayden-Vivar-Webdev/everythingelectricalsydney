@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Link from 'next/link'
 import {
   Dialog,
   DialogPanel,
@@ -16,11 +17,12 @@ import {
   Bars3Icon,
   ChartPieIcon,
   CursorArrowRaysIcon,
+  DocumentTextIcon,
   FingerPrintIcon,
   SquaresPlusIcon,
   XMarkIcon,
 } from '@heroicons/react/24/outline'
-import { ChevronDownIcon, PhoneIcon,  PlayCircleIcon, RectangleGroupIcon } from '@heroicons/react/20/solid'
+import { ChevronDownIcon, PhoneIcon, RectangleGroupIcon } from '@heroicons/react/20/solid'
 
 const products = [
   {
@@ -44,9 +46,9 @@ const products = [
   },
 ]
 const callsToAction = [
-  
   { name: 'Contact Us', href: '#', icon: PhoneIcon },
   { name: 'View all Services', href: '#', icon: RectangleGroupIcon },
+  { name: 'Request a Quote', href: '#', icon: DocumentTextIcon },
 ]
 
 export default function NavBar() {
@@ -56,14 +58,14 @@ export default function NavBar() {
     <header className="fixed top-0 left-0 w-full bg-white shadow z-50">
       <nav aria-label="Global" className="mx-auto flex max-w-7xl items-center justify-between px-6 py-2 lg:px-8">
         <div className="flex lg:flex-1">
-          <a href="#" className="flex relative max-h-[5rem] p-2 overflow-hidden justify-center items-center">
+          <Link href="/" className="flex relative max-h-[5rem] p-2 overflow-hidden justify-center items-center">
             <span className="sr-only">Everything Electrical Sydney</span>
             <img
               alt="Everything Electrical Sydney"
               src="/images/logos/1.svg"
               className="h-full w-full object-cover object-center"
             />
-          </a>
+          </Link>
         </div>
         <div className="flex lg:hidden">
           <button
@@ -95,7 +97,7 @@ export default function NavBar() {
                       <div className="flex size-11 items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
                         <item.icon aria-hidden="true" className="size-6 text-gray-600 group-hover:text-indigo-600" />
                       </div>
-                      <a href={item.href} className="mt-6 block font-semibold text-gray-900">
+                      <a href={item.href} className="mt-6 block font-semibold secondary-text">
                         {item.name}
                         <span className="absolute inset-0" />
                       </a>
@@ -144,14 +146,14 @@ export default function NavBar() {
         <div className="fixed inset-0 z-50" />
         <DialogPanel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white p-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           <div className="flex items-center justify-between">
-            <a href="#" className="-m-1.5 p-1.5">
+            <Link href="/" className="h-[5rem] w-[15rem]">
               <span className="sr-only">Everything Electrical Sydney</span>
               <img
                 alt="Everything Electrical Sydney"
                 src="/images/logos/1.svg"
-                className="h-8 w-auto"
+                className="w-full h-full object-cover"
               />
-            </a>
+            </Link>
             <button
               type="button"
               onClick={() => setMobileMenuOpen(false)}
@@ -175,7 +177,7 @@ export default function NavBar() {
                         key={item.name}
                         as="a"
                         href={item.href}
-                        className="block rounded-lg py-2 pl-6 pr-3 text-sm/7 font-semibold text-gray-900 hover:bg-gray-50"
+                        className="block rounded-lg py-2 pl-6 pr-3 text-sm/7 font-semibold secondary-text hover:bg-gray-50"
                       >
                         {item.name}
                       </DisclosureButton>
@@ -202,12 +204,7 @@ export default function NavBar() {
                 </a>
               </div>
               <div className="py-6">
-                <a
-                  href="#"
-                  className="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
-                >
-                  Log in
-                </a>
+                
               </div>
             </div>
           </div>
