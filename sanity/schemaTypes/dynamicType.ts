@@ -320,7 +320,7 @@ export const customSections = defineType({
             defineField({
               name: 'secondaryCtaUrl',
               title: 'Secondary CTA URL',
-              type: 'url',
+              type: 'string',
             }),
           ],
           preview: {
