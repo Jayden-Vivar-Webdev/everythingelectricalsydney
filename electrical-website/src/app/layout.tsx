@@ -1,7 +1,7 @@
 import NavBar from "./components/navbar/navbar";
 import ContactWidget from "./components/widgets/contact-float";
 import '@/app/globals.css'
-
+import FooterBanner from "./components/banner/nexa-banner";
 export const metadata = {
   title: 'Everything Electricals — Licensed Electricians for Camden & Campbelltown',
   description: 'Everything Electricals provides expert residential and commercial electrical services in Camden, Campbelltown, Oran Park, and nearby suburbs. Emergency callouts, installations & more.',
@@ -74,6 +74,7 @@ export default function RootLayout({
           {children}
         </main>
         <ContactWidget />
+        <FooterBanner />
         
       </body>
     </html>

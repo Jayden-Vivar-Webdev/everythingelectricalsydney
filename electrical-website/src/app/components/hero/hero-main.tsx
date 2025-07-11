@@ -67,7 +67,7 @@ export default function HeroMain({
               <div className="mt-10 flex items-center justify-center gap-x-6">
                 {primaryCtaText && (
                   <a
-                    href={primaryCtaUrl}
+                    href="tel:0449003526"
                     className="rounded-md secondary-bg px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-red-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-400"
                   >
                     {primaryCtaText}

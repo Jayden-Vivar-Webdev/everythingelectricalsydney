@@ -1,0 +1,27 @@
+'use client'
+export default function FooterBanner() {
+
+  return (
+    <div className="z-50 bg-gray-900 px-4 py-3 shadow-lg">
+      <div className="mx-auto max-w-7xl">
+        <div className="flex items-center justify-center gap-4">
+          <p className="text-sm text-white flex">
+            © {new Date().getFullYear()} All rights reserved. 
+            <span className="px-2 hidden sm:inline"> • </span>
+            <br className="sm:hidden" />
+            Powered by
+            <a 
+              href="https://nexawebdev.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="ml-1 ont-semibold text-blue-400 hover:text-blue-300 transition-colors"
+            >
+              Nexa Web Development
+            </a>
+          </p>
+          
+        </div>
+      </div>
+    </div>
+  )
+}

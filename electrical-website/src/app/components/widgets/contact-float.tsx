@@ -21,13 +21,13 @@ export default function ContactWidget() {
           </div>
           
           <a 
-            href="tel:0412345678" 
+            href="tel:0449003526" 
             className="flex items-center gap-3 text-sm text-gray-700 hover:text-red-600 transition-colors"
           >
             <div className="bg-red-50 p-2 rounded-full">
               <PhoneIcon className="h-5 w-5 text-red-600" />
             </div>
-            <span>0412 345 678</span>
+            <span>0449 003 526</span>
           </a>
           
           <a 
