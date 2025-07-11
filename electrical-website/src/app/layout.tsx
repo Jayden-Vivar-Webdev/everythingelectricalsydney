@@ -2,6 +2,61 @@ import NavBar from "./components/navbar/navbar";
 
 import '@/app/globals.css'
 
+export const metadata = {
+  title: 'Everything Electricals — Licensed Electricians for Camden & Campbelltown',
+  description: 'Everything Electricals provides expert residential and commercial electrical services in Camden, Campbelltown, Oran Park, and nearby suburbs. Emergency callouts, installations & more.',
+  applicationName: 'Everything Electricals',
+  keywords: [
+    'electrician Camden',
+    'emergency electrician Campbelltown',
+    'licensed electricians Oran Park',
+    'residential electrical services',
+    'commercial electrical contractor',
+    'electrical installations',
+    'Camden electricians',
+  ],
+  authors: [{ name: 'Everything Electricals' }],
+  openGraph: {
+    type: 'website',
+    locale: 'en_AU',
+    url: 'https://everythingelectricalsydney.com.au/',
+    siteName: 'Everything Electricals',
+    title: 'Everything Electricals — Licensed Electricians for Liverpool & Campbelltown Regions',
+    description: 'Everything Electricals provides expert residential and commercial electrical services in Camden, Campbelltown, Liverpool, and nearby suburbs. Emergency callouts, installations & more.',
+    images: [
+      {
+        url: 'https://everythingelectricalsydney.com.au/images/electrical_og.png',
+        width: 1200,
+        height: 630,
+        alt: 'Everything Electricals - Local Electricians in Camden & Campbelltown',
+        type: 'image/png',
+      },
+    ],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    nosnippet: false,
+    noimageindex: false,
+    noarchive: false,
+    maxSnippet: -1,
+    maxImagePreview: 'large',
+    maxVideoPreview: -1,
+  },
+  icons: {
+    icon: '/favicon.ico',
+    apple: 'https://everythingelectricalsydney.com.au/favicon.ico',
+  },
+  alternates: {
+    canonical: 'https://www.everythingelectricalsydney.com.au/',
+    languages: {
+      en: 'https://www.everythingelectricalsydney.com.au/',
+    },
+  },
+};
+
+
+
 
 export default function RootLayout({
   children,
@@ -10,6 +65,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      
       <body
         
       >
