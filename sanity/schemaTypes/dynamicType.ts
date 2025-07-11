@@ -88,19 +88,97 @@ export const customSections = defineType({
         //   ],
         // },
         {
-          name: 'statsSection',
-          title: 'Stats Section',
+          name: 'contentSection',
+          title: 'Content Section',
+          type: 'object',
+          fields: [
+            defineField({
+              name:'tag', title: 'Tag', type: 'string'
+            }),
+            defineField({
+              name:'header', title: 'header', type: 'string'
+            }),
+            defineField({
+              name:'description', title: 'Description', type: 'string'
+            }),
+            defineField({
+              name:'subHeader', title: 'Sub Header', type: 'text'
+            }),
+            defineField({
+              name:'content', title: 'Content', type: 'text'
+            }),
+            defineField({
+              name:'images', 
+              title: 'Images', 
+              type: 'array',
+              of : [
+                {
+                  type: 'object',
+                  name: 'imageWithAlt',
+                  title: 'Image',
+                  fields: [
+                    {
+                      name: 'image',
+                      title: 'Image',
+                      type: 'image',
+                      options:{hotspot: true},
+                    },
+                    {
+                      name: 'alt',
+                      title: 'Alt Text',
+                      type: 'string',
+                      validation: Rule => Rule.required().error('Alt Text is Required'),
+                    }
+                  ]
+
+                }
+              ]
+            }),
+            defineField({
+              name:'statsHeader', title: 'statsHeader', type: 'string'
+            }),
+            defineField({
+              name: 'stats',
+              title: 'Stats',
+              type: 'array',
+              of: [
+                {
+                  type: 'object',
+                  name: 'statItem',
+                  title: 'Stat Item',
+                  fields: [
+                    {
+                      name: 'stat',
+                      title: 'Stat Label',
+                      type: 'string',
+                      validation: Rule => Rule.required().error('Stat is required'),
+                    },
+                    {
+                      name: 'value',
+                      title: 'Stat Value',
+                      type: 'string',
+                      validation: Rule => Rule.required().error('Value is required'),
+                    },
+                  ],
+                },
+              ],
+            }), 
+          ]
+        },
+        {
+          name: 'featureSection',
+          title: 'Feature Section',
           type: 'object',
           fields:[
             defineField({
               name:'title', title: 'Title', type: 'string'
             }),
             defineField({
-              name:'description', title: 'description', type: 'string'
+              name:'description', title: 'description', type: 'text'
             }),
             defineField({
-              name: 'statsItem',
-              title: 'Stats Item',
+              name: 'featureItems',
+              title: 'Feature Item',
               type: 'array',
               of: [
                 {
@@ -108,8 +186,8 @@ export const customSections = defineType({
                   name: 'stat',
                   title: 'Stat Item',
                   fields: [
-                    defineField({name:'name', title: 'Stats Name', type: 'string'}),
-                    defineField({name:'value', title: 'Stats Value', type: 'string'})
+                    defineField({name:'name', title: 'Feature Title', type: 'string'}),
+                    defineField({name:'value', title: 'Feature Paragraph', type: 'text'})
                   ]
                 }
               ]
@@ -232,7 +310,7 @@ export const customSections = defineType({
             defineField({
               name: 'primaryCtaUrl',
               title: 'Primary CTA URL',
-              type: 'url',
+              type: 'string',
             }),
             defineField({
               name: 'secondaryCtaText',
