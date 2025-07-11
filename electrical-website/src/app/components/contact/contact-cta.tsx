@@ -31,7 +31,11 @@ const ContactFormCta = () => {
 
       
         {/* Form */}
-        <form onSubmit={handleSubmit} className="absolute 
+        <form onSubmit={handleSubmit} 
+        id="contactForm"
+        action="https://api.web3forms.com/submit"
+        method="POST"
+        className="absolute 
         w-[90%] 
         max-w-7xl 
         left-1/2 
@@ -45,6 +49,13 @@ const ContactFormCta = () => {
         p-10 
         rounded-xl 
         shadow-[0_20px_40px_rgba(0,0,0,0.1)]">
+
+        <input type="hidden" name="access_key" value="c43ccbbd-5723-4c58-be1a-7acbd449696c" />
+        <input type="hidden" name="subject" value="New Contact Form Submission" />
+        {/* <input type="hidden" name="redirect" value="" /> Contact section for thankyou message */}
+        <input type="checkbox" name="botcheck" style={{ display: 'none' }} />
+
+
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-gray-800 mb-4">
             Describe your <span className="secondary-text">electrical</span> requirement to get a quote
@@ -164,7 +175,7 @@ const ContactFormCta = () => {
             <div className="flex-1">
               <button
                 type="submit"
-                className="w-full secondary-bg text-white font-semibold py-3 px-8 rounded-md hover:bg-yellow-500 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
+                className="w-full secondary-bg text-white font-semibold py-3 px-8 rounded-md hover:bg-red-400 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
               >
                 Book now
               </button>
