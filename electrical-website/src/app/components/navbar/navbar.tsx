@@ -58,7 +58,7 @@ export default function NavBar() {
             <span className="sr-only">Everything Electrical Sydney</span>
             <img
               alt="Everything Electrical Sydney"
-              src="/images/logos/1.svg"
+              src="/images/logos/6.svg"
               className="h-full w-full object-cover object-center"
             />
           </Link>
@@ -146,7 +146,7 @@ export default function NavBar() {
               <span className="sr-only">Everything Electrical Sydney</span>
               <img
                 alt="Everything Electrical Sydney"
-                src="/images/logos/1.svg"
+                src="/images/logos/6.svg"
                 className="w-full h-full object-cover"
               />
             </Link>
