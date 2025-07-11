@@ -20,33 +20,33 @@ import {
   SquaresPlusIcon,
   XMarkIcon,
 } from '@heroicons/react/24/outline'
-import { ChevronDownIcon, PhoneIcon, PlayCircleIcon, RectangleGroupIcon } from '@heroicons/react/20/solid'
+import { ChevronDownIcon, PhoneIcon,  PlayCircleIcon, RectangleGroupIcon } from '@heroicons/react/20/solid'
 
 const products = [
   {
-    name: 'Analytics',
-    description: 'Get a better understanding where your traffic is coming from',
-    href: '#',
+    name: 'Emergency Electrician',
+    description: 'Get fast effective solutions for your electrical needs',
+    href: '/services',
     icon: ChartPieIcon,
   },
   {
-    name: 'Engagement',
+    name: 'Level 2 Electrician',
     description: 'Speak directly to your customers with our engagement tool',
     href: '#',
     icon: CursorArrowRaysIcon,
   },
-  { name: 'Security', description: 'Your customers’ data will be safe and secure', href: '#', icon: FingerPrintIcon },
+  { name: 'Switch Board Upgrades', description: 'Switch board upgrades onsite', href: '#', icon: FingerPrintIcon },
   {
-    name: 'Integrations',
-    description: 'Your customers’ data will be safe and secure',
+    name: 'EV Charger Installation',
+    description: 'Secure your at home EV charger now',
     href: '#',
     icon: SquaresPlusIcon,
   },
 ]
 const callsToAction = [
-  { name: 'Watch demo', href: '#', icon: PlayCircleIcon },
-  { name: 'Contact sales', href: '#', icon: PhoneIcon },
-  { name: 'View all products', href: '#', icon: RectangleGroupIcon },
+  
+  { name: 'Contact Us', href: '#', icon: PhoneIcon },
+  { name: 'View all Services', href: '#', icon: RectangleGroupIcon },
 ]
 
 export default function NavBar() {
