@@ -106,14 +106,38 @@ export interface ServicesSectionBlock {
     };
   }[];
 }
-export interface StatsSectionBlock {
-  _type: "statsSection";
+export interface FeatureSectionBlock {
+  _type: "featureSection";
   title: string;
   description: string;
-  stats: Array<{
+  featureItems: Array<{
     name: string;
     value: string;
   }>;
+}
+
+export interface ContentSectionBlock {
+  _type: "contactSection",
+  tag: string,
+  header: string,
+  description: string,
+  subHeader: string,
+  content: string,
+  images: Array<{
+    image: {
+      _type: "image";
+      asset: {
+        _ref: string;
+        _type: "reference";
+      };
+    };
+    alt: string;
+  }>;
+  statsHeader: string,
+  stats: Array<{
+    stat: string,
+    value: string
+  }>
 }
 
 
@@ -124,8 +148,9 @@ export type CustomBlock =
   | SanityImage
   | ImageGridBlock
   | GridInfoBlock
-  | StatsSectionBlock
+  | FeatureSectionBlock
   | HeroSectionBlock
   | HeroContactBlock
+  | ContentSectionBlock
   | ServicesSectionBlock
   | CtaSectionBlock;

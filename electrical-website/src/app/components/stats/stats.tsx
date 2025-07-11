@@ -1,48 +1,62 @@
+import { CheckIcon } from '@heroicons/react/24/solid';
 
-  type statItems = {
+  
+  type featureItem = {
     id?: number;
     name?: string;
     value?: string;
   }
-  type StatsProps = {
+  type FeaturesProps = {
     title: string
     description?: string;
-    stats: statItems[]
+    featureItems: featureItem[]
   }
 
   
-  export default function Stats({title, description, stats}: StatsProps) {
+  export default function Features({ title, description, featureItems }: FeaturesProps) {
+    
     return (
-        <div className="sectionary-bg-light py-24 sm:py-32">
-            <div className="mx-auto max-w-7xl px-6 lg:px-8">
-                <div className="mx-auto max-w-full">
-                <div className="text-center space-y-5 max-w-6xl mx-auto">
-                    <h2 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl">
+        <section className="bg-gradient-to-b from-gray-950 to-gray-900 py-32 sm:py-40">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+            <div className="mx-auto max-w-4xl text-center">
+                <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
                     {title}
-                    </h2>
-                    <div className="mx-auto w-20 h-1 bg-white rounded-full"></div>
-                    {description?.split('\n\n').map((para, i) => (
-                    <p key={i} className="text-lg text-white leading-relaxed pt-10">
-                        <strong>{para}</strong>
+                </h2>
+                
+                <div className="mx-auto mt-8 w-32 h-1 bg-gradient-to-r from-red-500 to-red-600 rounded-full" />
+                
+                {description?.split('\n\n').map((para, i) => (
+                    <p key={i} className="mt-8 text-xl leading-8 text-gray-300/90 font-light">
+                        {para}
                     </p>
-                    ))}
-
-                </div>
-                <div className="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
-                    {stats?.map((item, index) => (
+                ))}
+            </div>
+            
+            <div className="mt-24 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+                {featureItems?.map((item, index) => (
                     <div
                         key={item.id ?? index}
-                        className="flex flex-col rounded-xl bg-white/10 p-7 border border-white/20 shadow-lg hover:bg-white/20 transition duration-300 ease-in-out"
+                        className="group relative flex flex-col rounded-xl bg-white/5 p-8 backdrop-blur-sm border border-white/10 shadow-2xl hover:border-white/20 transition-all duration-500 ease-in-out hover:shadow-3xl hover:-translate-y-2"
                     >
-                        <dt className="text-xl font-semibold text-white mb-2 text-whites">✔️ {item.name}</dt>
-                        <dd className="text-white/80 text-base leading-relaxed flex-grow">{item.value}</dd>
+                        {/* Gradient glow effect */}
+                        <div className="absolute -inset-0.5 bg-gradient-to-r from-red-500/30 to-red-600/30 rounded-xl opacity-0 group-hover:opacity-100 blur-md transition-opacity duration-500" />
+                        
+                        
+                        <div className="relative flex items-start mb-6 space-x-4">
+                            <div className="flex-shrink-0 flex items-center justify-center w-12 h-12 rounded-lg bg-gradient-to-br from-red-600 to-red-700 shadow-lg">
+                                <CheckIcon className="h-6 w-6 text-white" />
+                            </div>
+                            <h3 className="text-xl font-semibold text-white leading-snug">{item.name}</h3>
+                        </div>
+                        
+                        <p className="relative mt-2 text-gray-300/80 leading-relaxed flex-grow font-light">
+                            {item.value}
+                        </p>
                     </div>
-                    ))}
-                </div>
-                </div>
+                ))}
             </div>
         </div>
-
-    )
-  }
+    </section>
+    );
+}
   

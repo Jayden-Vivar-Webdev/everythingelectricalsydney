@@ -6,6 +6,7 @@ import HeroMain from '../components/hero/hero-main';
 import HeroContact from '../components/hero/hero-contact';
 import Services from '../components/services/servicesList';
 import Stats from '../components/stats/stats';
+import ContentSection from '../components/content/contentSection';
 
 
 export const contentMap: Record<string, (block: { _type: string; [key: string]: unknown}, index: number) => React.ReactElement
@@ -314,31 +315,79 @@ export const contentMap: Record<string, (block: { _type: string; [key: string]: 
 
   
 
-  statsSection: (block, index) => {
-    interface StatsSectionBlock {
-      _type: 'statsSection';
+  featureSection: (block, index) => {
+    interface featureSection {
+      _type: 'featureSection';
       title: string;
       description?: string;
-      stats: Array<{
+      featureItems: Array<{
         name: string;
         value: string;
       }>;
     }
   
-    const statsBlock = block as unknown as StatsSectionBlock;
+    const statsBlock = block as unknown as featureSection;
   
     return (
-    
       <Stats
       key={index}
       title={statsBlock.title}
       description={statsBlock.description}
-      stats={statsBlock.stats}
+      featureItems={statsBlock.featureItems}
     />
-      
-      
+
     );
   },
+
+  contentSection: (block, index) => {
+    interface ContentSectionBlock {
+      _type: 'contentSection';
+      tag: string;
+      header: string;
+      description: string;
+      subHeader: string;
+      content: string;
+      images: Array<{
+        image: {
+          _type: "image";
+          asset: {
+            _ref: string;
+            _type: "reference";
+          };
+        };
+        alt: string;
+      }>;
+      statsHeader: string;
+      stats: Array<{
+        stat: string;
+        value: string;
+      }>;
+    }
+  
+    const contentBlock = block as unknown as ContentSectionBlock;
+  
+    // Convert Sanity image refs to URLs
+    const images = contentBlock.images.map(({ image, alt }) => ({
+      alt,
+      src: urlFor(image.asset._ref).url(),
+    }));
+  
+    return (
+      <ContentSection
+        key={index}
+        tag={contentBlock.tag}
+        header={contentBlock.header}
+        description={contentBlock.description}
+        subHeader={contentBlock.subHeader}
+        content={contentBlock.content}
+        images={images} // mapped images with URLs
+        statsHeader={contentBlock.statsHeader}
+        stats={contentBlock.stats}
+      />
+    );
+  },
+  
+  
   
     
 

@@ -148,7 +148,7 @@ export default function NavBar() {
               <span className="sr-only">Everything Electrical Sydney</span>
               <img
                 alt="Everything Electrical Sydney"
-                src="/images/logo.png"
+                src="/images/logos/1.svg"
                 className="h-8 w-auto"
               />
             </a>
