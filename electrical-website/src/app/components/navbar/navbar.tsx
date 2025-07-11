@@ -15,34 +15,30 @@ import {
 } from '@headlessui/react'
 import {
   Bars3Icon,
-  ChartPieIcon,
-  CursorArrowRaysIcon,
   DocumentTextIcon,
-  FingerPrintIcon,
-  SquaresPlusIcon,
   XMarkIcon,
 } from '@heroicons/react/24/outline'
-import { ChevronDownIcon, PhoneIcon, RectangleGroupIcon } from '@heroicons/react/20/solid'
+import { ChevronDownIcon, WrenchScrewdriverIcon, Cog8ToothIcon, Battery100Icon, BoltIcon, PhoneIcon, RectangleGroupIcon } from '@heroicons/react/20/solid'
 
 const products = [
   {
     name: 'Emergency Electrician',
     description: 'Get fast effective solutions for your electrical needs',
     href: '/services',
-    icon: ChartPieIcon,
+    icon: BoltIcon,
   },
   {
     name: 'Level 2 Electrician',
     description: 'Speak directly to your customers with our engagement tool',
     href: '#',
-    icon: CursorArrowRaysIcon,
+    icon: WrenchScrewdriverIcon,
   },
-  { name: 'Switch Board Upgrades', description: 'Switch board upgrades onsite', href: '#', icon: FingerPrintIcon },
+  { name: 'Switch Board Upgrades', description: 'Switch board upgrades onsite', href: '#', icon: Cog8ToothIcon },
   {
     name: 'EV Charger Installation',
     description: 'Secure your at home EV charger now',
     href: '#',
-    icon: SquaresPlusIcon,
+    icon: Battery100Icon,
   },
 ]
 const callsToAction = [
@@ -95,7 +91,7 @@ export default function NavBar() {
                   {products.map((item) => (
                     <div key={item.name} className="group relative rounded-lg p-6 text-sm/6 hover:bg-gray-50">
                       <div className="flex size-11 items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                        <item.icon aria-hidden="true" className="size-6 text-gray-600 group-hover:text-indigo-600" />
+                        <item.icon aria-hidden="true" className="size-6 text-gray-600 group-hover:text-red-600" />
                       </div>
                       <a href={item.href} className="mt-6 block font-semibold secondary-text">
                         {item.name}

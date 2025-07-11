@@ -1,5 +1,5 @@
 import NavBar from "./components/navbar/navbar";
-
+import ContactWidget from "./components/widgets/contact-float";
 import '@/app/globals.css'
 
 export const metadata = {
@@ -73,6 +73,7 @@ export default function RootLayout({
         <main className="pt-[6rem]">
           {children}
         </main>
+        <ContactWidget />
         
       </body>
     </html>
