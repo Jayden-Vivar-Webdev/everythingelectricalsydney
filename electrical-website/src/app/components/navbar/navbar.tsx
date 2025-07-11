@@ -130,7 +130,7 @@ export default function NavBar() {
           <a href="#" className="text-sm/6 font-semibold ">
             Blog
           </a>
-          <a href="#" className="text-sm/6 secondary-bg text-white px-4 py-1 rounded-lg font-semibold hover:bg-yellow-400/90">
+          <a href="#" className="text-sm/6 secondary-bg text-white px-4 py-1 rounded-lg font-semibold hover:bg-red-500">
             Contact Us<span aria-hidden="true"></span>
           </a>
         </PopoverGroup>
