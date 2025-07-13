@@ -141,6 +141,25 @@ export interface ContentSectionBlock {
 }
 
 
+export interface GoogleReviewsBlock {
+  _type: 'googleReviewsBlock';
+  title: string;
+  subtitle: string;
+  overallRating: number;
+  totalReviews: number;
+  theme: 'light' | 'dark';
+  showViewAllButton: boolean;
+  reviews: Array<{
+    _type: 'review'
+    id: number;
+    name: string;
+    avatar: string;
+    rating: number;
+    timeAgo: string;
+    text: string;
+    helpful: number;
+  }>
+}
 
 
 export type CustomBlock =
@@ -153,4 +172,5 @@ export type CustomBlock =
   | HeroContactBlock
   | ContentSectionBlock
   | ServicesSectionBlock
+  | GoogleReviewsBlock
   | CtaSectionBlock;

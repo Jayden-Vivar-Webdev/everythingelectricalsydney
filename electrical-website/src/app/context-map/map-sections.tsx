@@ -7,11 +7,13 @@ import HeroContact from '../components/hero/hero-contact';
 import Services from '../components/services/servicesList';
 import Stats from '../components/stats/stats';
 import ContentSection from '../components/content/contentSection';
+import GoogleReviews from '../components/testimonials/google-reviews';
 
 
 export const contentMap: Record<string, (block: { _type: string; [key: string]: unknown}, index: number) => React.ReactElement
 > = {
   block: (block, index) => {
+    
     const components: PortableTextComponents = {
       block: {
         normal: ({ children }) => <p className="mb-6 text-lg md:text-xl text-light/90 leading-10">{children}</p>,
@@ -327,7 +329,7 @@ export const contentMap: Record<string, (block: { _type: string; [key: string]: 
     }
   
     const statsBlock = block as unknown as featureSection;
-  
+    
     return (
       <Stats
       key={index}
@@ -365,7 +367,7 @@ export const contentMap: Record<string, (block: { _type: string; [key: string]: 
     }
   
     const contentBlock = block as unknown as ContentSectionBlock;
-  
+    
     // Convert Sanity image refs to URLs
     const images = contentBlock.images.map(({ image, alt }) => ({
       alt,
@@ -386,9 +388,46 @@ export const contentMap: Record<string, (block: { _type: string; [key: string]: 
       />
     );
   },
-  
-  
-  
+
+  googleReviewsBlock: (block, index) => {
+    
+    interface GoogleReviewsBlock {
+    _type: 'googleReviewsBlock';
+    title: string;
+    subtitle: string;
+    overallRating: number;
+    totalReviews: number;
+    theme: 'light' | 'dark';
+    showViewAllButton: boolean;
+    reviews: Array<{
+      _type: 'review'
+      id: number;
+      name: string;
+      avatar: string;
+      rating: number;
+      timeAgo: string;
+      text: string;
+      helpful: number;
+    }>
+  }
+
+  const contentBlock = block as unknown as GoogleReviewsBlock;
+  console.log('GoogleReviews block:', block);
+  return (
+    
+    <GoogleReviews
+      key={index}
+      title={contentBlock.title}
+      subtitle={contentBlock.subtitle}
+      overallRating={contentBlock.overallRating}
+      totalReviews={contentBlock.totalReviews}
+      theme={contentBlock.theme}
+      showViewAllButton={contentBlock.showViewAllButton}
+      reviews={contentBlock.reviews}
+    />
+  );
+},
+
     
 
   ctaSection: (block, index) => {

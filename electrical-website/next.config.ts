@@ -9,6 +9,12 @@ const nextConfig = {
         pathname: '/images/**',
       },
     ],
+    domains: [
+      'upload.wikimedia.org',
+      'www.gstatic.com',
+      'lh3.googleusercontent.com',
+      'ssl.gstatic.com'
+    ],
   },
 };
 
