@@ -412,21 +412,20 @@ export const contentMap: Record<string, (block: { _type: string; [key: string]: 
   }
 
   const contentBlock = block as unknown as GoogleReviewsBlock;
-  console.log('GoogleReviews block:', block);
-  return (
-    
-    <GoogleReviews
-      key={index}
-      title={contentBlock.title}
-      subtitle={contentBlock.subtitle}
-      overallRating={contentBlock.overallRating}
-      totalReviews={contentBlock.totalReviews}
-      theme={contentBlock.theme}
-      showViewAllButton={contentBlock.showViewAllButton}
-      reviews={contentBlock.reviews}
-    />
-  );
-},
+    return (
+      
+      <GoogleReviews
+        key={index}
+        title={contentBlock.title}
+        subtitle={contentBlock.subtitle}
+        overallRating={contentBlock.overallRating}
+        totalReviews={contentBlock.totalReviews}
+        theme={contentBlock.theme}
+        showViewAllButton={contentBlock.showViewAllButton}
+        reviews={contentBlock.reviews}
+      />
+    );
+  },
 
     
 
