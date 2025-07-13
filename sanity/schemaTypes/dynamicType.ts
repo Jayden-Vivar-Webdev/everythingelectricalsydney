@@ -1,5 +1,5 @@
 import { defineType, defineField } from 'sanity';
-
+import { googleReviews } from './types/googleReviews';
 export const customSections = defineType({
   name: 'customSections',
   title: 'Custom Section',
@@ -54,6 +54,9 @@ export const customSections = defineType({
             }),
           ],
         },
+        
+        googleReviews,
+
         // {
         //   name: 'statsSection',
         //   title: 'Stats Section',
