@@ -1,7 +1,7 @@
 import { defineField } from 'sanity';
 
 export const googleReviews = {
-  name: 'googleReviewsBlock',
+  name: 'googleReviewsBlockSection',
   title: 'Google Reviews',
   type: 'object',
   fields: [
