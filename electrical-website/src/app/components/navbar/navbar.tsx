@@ -12,40 +12,122 @@ import {
   PopoverButton,
   PopoverGroup,
   PopoverPanel,
+  
 } from '@headlessui/react'
 import {
   Bars3Icon,
+  BellAlertIcon,
+  BuildingOfficeIcon,
+  ClipboardDocumentCheckIcon,
+  DevicePhoneMobileIcon,
   DocumentTextIcon,
+  FireIcon,
+  HomeIcon,
+  SparklesIcon,
+  SunIcon,
+  VideoCameraIcon,
+  WrenchIcon,
   XMarkIcon,
 } from '@heroicons/react/24/outline'
-import { ChevronDownIcon, WrenchScrewdriverIcon, Cog8ToothIcon, Battery100Icon, BoltIcon, PhoneIcon, RectangleGroupIcon } from '@heroicons/react/20/solid'
+import { ChevronDownIcon, AdjustmentsHorizontalIcon, WrenchScrewdriverIcon, Cog8ToothIcon, Battery100Icon, BoltIcon, PhoneIcon, RectangleGroupIcon } from '@heroicons/react/20/solid'
 
 
 const products = [
   {
     name: 'Emergency Electrician',
-    description: 'Get fast effective solutions for your electrical needs',
-    href: '/services',
+    description: 'Rapid 24/7 response across Sydney for faults, outages & hazards.',
+    href: '/emergency-electrician',
     icon: BoltIcon,
   },
   {
     name: 'Level 2 Electrician',
-    description: 'Speak directly to your customers with our engagement tool',
-    href: '#',
+    description: 'Expert Level 2 electricians for advanced electrical needs.',
+    href: '/level-2-electrician',
     icon: WrenchScrewdriverIcon,
   },
-  { name: 'Switch Board Upgrades', description: 'Switch board upgrades onsite', href: '#', icon: Cog8ToothIcon },
+  {
+    name: 'Switch Board Upgrades',
+    description: 'Fast upgrades to improve safety and performance.',
+    href: '/switchboard-upgrades',
+    icon: Cog8ToothIcon,
+  },
   {
     name: 'EV Charger Installation',
-    description: 'Secure your at home EV charger now',
-    href: '#',
+    description: 'Fast and efficient EV charger installations at your home.',
+    href: '/ev-chargers',
     icon: Battery100Icon,
+  },
+  {
+    name: 'Hot Water Systems',
+    description: 'Installation and maintenance of electric hot water systems.',
+    href: '/hot-water-systems',
+    icon: FireIcon,
+  },
+  {
+    name: 'Electrical Repairs',
+    description: 'Prompt and reliable electrical repairs for home or business.',
+    href: '/electrical-repairs',
+    icon: WrenchIcon,
+  },
+  {
+    name: 'Ceiling Fans',
+    description: 'Installations for year-round comfort and energy efficiency.',
+    href: '/ceiling-fans',
+    icon: DevicePhoneMobileIcon,
+  },
+  {
+    name: 'CCTV Installation',
+    description: 'High-quality surveillance for home and business security.',
+    href: '/cctv-installation',
+    icon: VideoCameraIcon,
+  },
+  {
+    name: 'Air Conditioning Services',
+    description: 'Licensed aircon wiring & installation of split/ducted systems.',
+    href: '/air-conditioning',
+    icon: SunIcon,
+  },
+  {
+    name: 'Residential Electrical',
+    description: 'Complete electrical solutions for homes and renovations.',
+    href: '/residential-electrical',
+    icon: HomeIcon,
+  },
+  {
+    name: 'Commercial Electrical',
+    description: 'Fit-outs, maintenance & energy-efficient solutions for business.',
+    href: '/commercial-electrical',
+    icon: BuildingOfficeIcon,
+  },
+  {
+    name: 'Electrical Maintenance & Repairs',
+    description: 'Emergency & scheduled servicing for all property types.',
+    href: '/electrical-maintenance',
+    icon: AdjustmentsHorizontalIcon,
+  },
+  {
+    name: 'Smart Home, Alarms & Connected Systems',
+    description: 'Smart lighting, alarms & climate control accessible from your phone.',
+    href: '/smart-home',
+    icon: SparklesIcon,
+  },
+  {
+    name: 'Smoke Alarms & Compliance',
+    description: 'Certified installations & testing to meet NSW safety standards.',
+    href: '/smoke-alarms',
+    icon: BellAlertIcon,
+  },
+  {
+    name: 'Real Estate & Strata Services',
+    description: 'Reliable support & maintenance for property managers.',
+    href: '/real-estate-strata',
+    icon: ClipboardDocumentCheckIcon,
   },
 ]
 const callsToAction = [
-  { name: 'Contact Us', href: '#', icon: PhoneIcon },
-  { name: 'View all Services', href: '#', icon: RectangleGroupIcon },
-  { name: 'Request a Quote', href: '#', icon: DocumentTextIcon },
+  { name: 'Contact Us', href: 'tel:0449003526', icon: PhoneIcon },
+  { name: 'View all Services', href: '/services', icon: RectangleGroupIcon },
+  { name: 'Request a Quote', href: '/contact', icon: DocumentTextIcon },
 ]
 
 export default function NavBar() {
@@ -86,7 +168,7 @@ export default function NavBar() {
 
             <PopoverPanel
               transition
-              className="absolute inset-x-0 top-16 bg-white transition data-[closed]:-translate-y-1 data-[closed]:opacity-0 data-[enter]:duration-200 data-[leave]:duration-150 data-[enter]:ease-out data-[leave]:ease-in"
+              className="absolute inset-x-0 top-20 bg-white transition data-[closed]:-translate-y-1 data-[closed]:opacity-0 data-[enter]:duration-200 data-[leave]:duration-150 data-[enter]:ease-out data-[leave]:ease-in"
             >
               {/* Presentational element used to render the bottom shadow, if we put the shadow on the actual panel it pokes out the top, so we use this shorter element to hide the top of the shadow */}
               <div aria-hidden="true" className="absolute inset-0 top-1/2 bg-white shadow-lg ring-1 ring-gray-900/5" />
@@ -105,16 +187,16 @@ export default function NavBar() {
                     </div>
                   ))}
                 </div>
-                <div className="bg-gray-50">
+                <div className="bg-red-600">
                   <div className="mx-auto max-w-7xl px-6 lg:px-8">
                     <div className="grid grid-cols-3 divide-x divide-gray-900/5 border-x border-gray-900/5">
                       {callsToAction.map((item) => (
                         <a
                           key={item.name}
                           href={item.href}
-                          className="flex items-center justify-center gap-x-2.5 p-3 text-sm/6 font-semibold text-gray-900 hover:bg-gray-100"
+                          className="flex text-white items-center justify-center gap-x-2.5 p-3 text-sm/6 font-semibold text-gray-900 hover:bg-red-500"
                         >
-                          <item.icon aria-hidden="true" className="size-5 flex-none text-gray-400" />
+                          <item.icon aria-hidden="true" className="size-5 flex-none text-white" />
                           {item.name}
                         </a>
                       ))}
@@ -125,18 +207,22 @@ export default function NavBar() {
             </PopoverPanel>
           </Popover>
 
-          <a href="#" className="text-sm/6 font-semibold ">
+          <a href="/about" className="text-sm/6 font-semibold ">
             About
           </a>
-          <a href="#" className="text-sm/6 font-semibold ">
+          <a href="/contact" className="text-sm/6 font-semibold ">
             Contact
           </a>
-          <a href="#" className="text-sm/6 font-semibold ">
+          <a href="/blog" className="text-sm/6 font-semibold ">
             Blog
           </a>
-          <a href="#" className="text-sm/6 secondary-bg text-white px-4 py-1 rounded-lg font-semibold hover:bg-red-500">
-            Contact Us<span aria-hidden="true"></span>
-          </a>
+          
+            
+            <a href="tel:" className="text-sm/6 secondary-bg text-white px-4 py-1 rounded-lg font-semibold hover:bg-red-500 inline-flex items-center gap-2">
+              <PhoneIcon className="h-5 w-5" />
+              Call Us
+            </a>
+          
         </PopoverGroup>
         
           

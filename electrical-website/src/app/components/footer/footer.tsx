@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-
+import Image from 'next/image';
 const navigation = {
   services: [
     { name: 'Electrical Installations', href: '/services/installations' },
@@ -66,9 +66,11 @@ export default function Footer() {
             {/* Brand Info */}
             <div className="space-y-4">
               <div className="flex items-center w-[10rem] h-[2rem] md:w-[15rem]">
-                <img
+                <Image
                   alt="Everything Electrical Sydney"
                   src="/images/white-logo.png"
+                  width={400}
+                  height={200}
                   className="w-full h-full object-cover object-left"
                 />
                 
