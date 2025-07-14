@@ -5,7 +5,7 @@ export default function FooterBanner() {
     <div className="z-50 bg-gray-900 px-4 py-3 shadow-lg">
       <div className="mx-auto max-w-7xl">
         <div className="flex items-center justify-center gap-4">
-          <p className="text-sm text-white flex">
+          <p className="text-[0.8rem] text-white flex">
             © {new Date().getFullYear()} All rights reserved. 
             <span className="px-2 hidden sm:inline"> • </span>
             <br className="sm:hidden" />

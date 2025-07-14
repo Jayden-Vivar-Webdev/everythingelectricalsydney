@@ -1,3 +1,4 @@
+'use client';
 import React from 'react';
 
 // TypeScript interfaces for the component props
@@ -27,31 +28,22 @@ interface ContentData {
 interface EnhancedTestimonialSectionProps {
   isDarkMode?: boolean;
   contentInfo: ContentData;
-  onCtaClick?: () => void;
   className?: string;
 }
 
 const EnhancedTestimonialSection: React.FC<EnhancedTestimonialSectionProps> = ({ 
   isDarkMode = false, 
   contentInfo,
-  onCtaClick,
   className = ""
 }) => {
-  const handleCtaClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    if (onCtaClick) {
-      e.preventDefault();
-      onCtaClick();
-    }
-  };
-
   return (
-    <div className={`${isDarkMode ? 'bg-gray-900' : 'bg-white'} py-24 sm:py-32 ${className}`}>
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mx-auto grid max-w-2xl grid-cols-1 items-center gap-x-12 gap-y-16 sm:gap-y-24 lg:mx-0 lg:max-w-none lg:grid-cols-2">
+    <div className={`${isDarkMode ? 'bg-gray-900' : 'bg-white'} py-12 sm:py-16 md:py-24 lg:py-32 ${className}`}>
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto grid max-w-full grid-cols-1 items-start gap-x-8 gap-y-12 sm:gap-y-16 lg:mx-0 lg:grid-cols-1">
           
           {/* Enhanced Testimonial Card */}
-          <div className="lg:pr-4">
-            <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 p-8 shadow-2xl ring-1 ring-white/10 sm:p-12 lg:max-w-lg">
+          <div className="lg:pr-4 w-full">
+            <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 p-6 shadow-2xl ring-1 ring-white/10 sm:p-8 md:p-10">
               
               {/* Background Image with Better Overlay */}
               <div className="absolute inset-0 overflow-hidden rounded-2xl">
@@ -60,7 +52,7 @@ const EnhancedTestimonialSection: React.FC<EnhancedTestimonialSectionProps> = ({
                   src={contentInfo.image.src}
                   className="h-full w-full object-cover opacity-20"
                 />
-                <div className="absolute inset-0 bg-gradient-to-br from-slate-900/90 via-slate-800/95 to-slate-900/90" />
+                <div className="absolute inset-0 bg-gradient-to-br from-slate-900/50 via-slate-800/50 to-slate-900/90" />
               </div>
               
               {/* Refined Decorative Element */}
@@ -68,19 +60,19 @@ const EnhancedTestimonialSection: React.FC<EnhancedTestimonialSectionProps> = ({
               <div className="absolute -bottom-4 -left-4 h-24 w-24 rounded-full bg-gradient-to-br from-red-500/20 to-red-600/20 blur-xl" />
               
               {/* Content */}
-              <div className="relative z-10">
+              <div className="relative z-10 p-10">
                 {/* Logo */}
-                <div className="mb-8">
+                <div className="mb-6 sm:mb-8 w-full h-[10rem]">
                   <img
                     alt={contentInfo.logoImage.alt}
                     src={contentInfo.logoImage.src}
-                    className="h-10 w-auto brightness-0 invert"
+                    className="w-full h-full object-cover object-center"
                   />
                 </div>
                 
                 {/* Quote */}
-                <blockquote className="text-lg font-medium leading-relaxed text-white sm:text-xl">
-                  <svg className="mb-4 h-8 w-8 text-red-400" fill="currentColor" viewBox="0 0 24 24">
+                <blockquote className="text-base pt-10 sm:text-lg md:text-xl font-medium leading-relaxed text-white">
+                  <svg className="mb-3 h-6 w-6 sm:h-8 sm:w-8 text-red-400" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-10zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z"/>
                   </svg>
                   <p className="relative">
@@ -89,8 +81,8 @@ const EnhancedTestimonialSection: React.FC<EnhancedTestimonialSectionProps> = ({
                 </blockquote>
                 
                 {/* Attribution */}
-                <div className="mt-8 border-t border-white/20 pt-6">
-                  <p className="text-sm text-slate-300">
+                <div className="mt-6 sm:mt-8 border-t border-white/20 pt-4 sm:pt-6">
+                  <p className="text-xs sm:text-sm text-slate-300">
                     <span className="font-semibold text-white">
                       {contentInfo.companyName || "Company Name"}
                     </span>
@@ -104,11 +96,11 @@ const EnhancedTestimonialSection: React.FC<EnhancedTestimonialSectionProps> = ({
           
           {/* Enhanced Content Section */}
           <div className="lg:pl-4">
-            <div className={`text-base leading-7 ${isDarkMode ? 'text-slate-300' : 'text-slate-700'}`}>
+            <div className={`text-sm sm:text-base leading-7 ${isDarkMode ? 'text-slate-300' : 'text-slate-700'}`}>
               
               {/* Label with Better Styling */}
-              <div className="mb-4">
-                <span className={`inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold ring-1 ${
+              <div className="mb-3 sm:mb-4">
+                <span className={`inline-flex items-center rounded-full px-2.5 py-1 text-xs font-semibold ring-1 ${
                   isDarkMode 
                     ? 'bg-red-900/20 text-red-400 ring-red-800' 
                     : 'bg-red-50 text-red-700 ring-red-200'
@@ -118,42 +110,45 @@ const EnhancedTestimonialSection: React.FC<EnhancedTestimonialSectionProps> = ({
               </div>
               
               {/* Enhanced Title */}
-              <h1 className={`text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>
+              <h1 className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>
                 <span className="block">{contentInfo.title.split(' ').slice(0, 2).join(' ')}</span>
                 <span className="block text-red-600">{contentInfo.title.split(' ').slice(2).join(' ')}</span>
               </h1>
               
-              {/* Enhanced Description */}
-              <div className={`mt-6 max-w-xl text-lg leading-8 ${isDarkMode ? 'text-slate-400' : 'text-slate-600'}`}>
-                {contentInfo.description}
+             
+
+            {contentInfo.description?.split('\n\n').map((para, i) => (
+              <div key={i} className={`mt-6 text-xl leading-8 text-gray-600 ${isDarkMode ? 'text-slate-400' : 'text-slate-600'}`}>
+                {para}
               </div>
+            ))}
             </div>
             
             {/* Enhanced Stats Grid */}
-            <div className={`mt-12 grid grid-cols-2 gap-6 border-t pt-10 sm:grid-cols-4 ${
-              isDarkMode ? 'border-slate-700' : 'border-slate-200'
-            }`}>
-              {contentInfo.stats.map((stat, statIdx) => (
+            <div className={`mt-12 border-t ${isDarkMode ? 'border-gray-800' : 'border-gray-100'} pt-12`}>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+                {contentInfo.stats.map((stat, statIdx) => (
                 <div key={statIdx} className="text-center">
-                  <div className={`text-3xl font-bold sm:text-4xl ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>
-                    {stat.value}
-                  </div>
-                  <div className={`mt-2 text-sm font-medium ${isDarkMode ? 'text-slate-400' : 'text-slate-600'}`}>
+                    <div className={`text-4xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
+                    <span className="text-red-600">{stat.value}</span>
+                    </div>
+                    <div className={`mt-3 text-xs font-medium tracking-widest uppercase ${isDarkMode ? 'text-gray-400' : 'text-gray-500'}`}>
                     {stat.label}
-                  </div>
+                    </div>
+                    <div className={`mt-4 mx-auto h-0.5 w-12 ${isDarkMode ? 'bg-gray-700' : 'bg-gray-200'}`}></div>
                 </div>
-              ))}
+                ))}
+            </div>
             </div>
             
             {/* Enhanced CTA */}
-            <div className="mt-10">
+            <div className="mt-8 sm:mt-10 flex w-full justify-center pt-10">
               <a 
-                href="#" 
-                onClick={handleCtaClick}
-                className="group inline-flex items-center gap-2 rounded-lg bg-red-600 px-6 py-3 text-base font-semibold text-white shadow-lg transition-all duration-200 hover:bg-red-700 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
+                href="#contact" 
+                className="group inline-flex items-center gap-2 rounded-lg bg-red-600 px-6 py-3 sm:px-6 sm:py-3 text-md font-semibold text-white shadow-lg transition-all duration-200 hover:bg-red-700 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
               >
                 {contentInfo.cta}
-                <svg className="h-5 w-5 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg className="h-4 w-4 sm:h-5 sm:w-5 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
               </a>
@@ -165,55 +160,4 @@ const EnhancedTestimonialSection: React.FC<EnhancedTestimonialSectionProps> = ({
   );
 };
 
-// Example usage component with sample data
-const ExampleUsage: React.FC = () => {
-  const sampleContentInfo: ContentData = {
-    image: {
-      alt: "Electrical installation work",
-      src: "/api/placeholder/400/600"
-    },
-    logoImage: {
-      alt: "Everything Electrical Logo",
-      src: "/api/placeholder/120/48"
-    },
-    quote: "Outstanding service and professionalism. They transformed our electrical system with precision and care.",
-    label: "TRUSTED PROFESSIONALS",
-    title: "Sydney's Premier Electrical Services",
-    description: "With over two decades of experience, we deliver exceptional electrical solutions for residential and commercial properties across Sydney. Our certified electricians combine technical expertise with unmatched customer service.",
-    stats: [
-      { label: "Years Experience", value: "20+" },
-      { label: "Projects Completed", value: "5,000+" },
-      { label: "Happy Customers", value: "98%" },
-      { label: "Team Members", value: "25+" }
-    ],
-    cta: "Get Your Free Quote Today",
-    companyName: "Everything Electrical",
-    location: "Sydney"
-  };
-
-  const handleCtaClick = () => {
-    console.log("CTA clicked!");
-    // Add your CTA logic here
-  };
-
-  return (
-    <div className="space-y-8">
-      {/* Light Mode Example */}
-      <EnhancedTestimonialSection 
-        contentInfo={sampleContentInfo}
-        onCtaClick={handleCtaClick}
-        isDarkMode={false}
-      />
-      
-      {/* Dark Mode Example */}
-      <EnhancedTestimonialSection 
-        contentInfo={sampleContentInfo}
-        onCtaClick={handleCtaClick}
-        isDarkMode={true}
-      />
-    </div>
-  );
-};
-
-export default ExampleUsage;
 export { EnhancedTestimonialSection, type ContentData, type EnhancedTestimonialSectionProps };

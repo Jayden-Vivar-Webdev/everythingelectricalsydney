@@ -8,8 +8,9 @@ import Services from '../components/services/servicesList';
 import Stats from '../components/stats/stats';
 import ContentSection from '../components/content/contentSection';
 import GoogleReviews from '../components/testimonials/google-reviews';
-
-
+import { ContentSectionImageBlock } from '../sanity-blocks/sanity-types';
+import {EnhancedTestimonialSection} from '../components/content/content-image';
+import { ContentData } from '../components/content/content-image';
 export const contentMap: Record<string, (block: { _type: string; [key: string]: unknown}, index: number) => React.ReactElement
 > = {
   block: (block, index) => {
@@ -389,7 +390,7 @@ export const contentMap: Record<string, (block: { _type: string; [key: string]: 
     );
   },
 
-  googleReviewsBlock: (block, index) => {
+  googleReviewsBlockSection: (block, index) => {
     
     interface GoogleReviewsBlock {
     _type: 'googleReviewsBlockSection';
@@ -427,13 +428,41 @@ export const contentMap: Record<string, (block: { _type: string; [key: string]: 
     );
   },
 
-  // ContentSectionImage: (block, index) {
-  //    ContentSectionImageBlock
+  contentSectionImage: (block, index) => {
+     
+     const contentBlock = block as unknown as ContentSectionImageBlock;
 
-  //    const contentBlock = block as unknown as ContentSectionImageBlock;
+     const content: ContentData = {
+      image: {
+        alt: contentBlock.backgroundImage?.alt ?? '',
+        src: contentBlock.backgroundImage?.asset?._ref ? urlFor(contentBlock.backgroundImage.asset._ref).url() : '',
+      },
+      logoImage: {
+        alt: contentBlock.logoImage?.alt ?? '',
+        src: contentBlock.logoImage?.asset?._ref ? urlFor(contentBlock.logoImage.asset._ref).url() : '',
+      },
+      quote: contentBlock.quote,
+      label: contentBlock.label,
+      title: contentBlock.title,
+      description: contentBlock.description,
+      stats: contentBlock.stats,
+      cta: "Get Your Free Quote Today",
+      companyName: "Everything Electrical",
+      location: "Sydney"
+     }
 
+     
 
-  // }
+     return(
+      
+      <EnhancedTestimonialSection 
+        key={index}
+        contentInfo={content}
+        isDarkMode={false}
+      />
+      
+     )
+  },
 
     
 
