@@ -392,7 +392,7 @@ export const contentMap: Record<string, (block: { _type: string; [key: string]: 
   googleReviewsBlock: (block, index) => {
     
     interface GoogleReviewsBlock {
-    _type: 'googleReviewsBlock';
+    _type: 'googleReviewsBlockSection';
     title: string;
     subtitle: string;
     overallRating: number;

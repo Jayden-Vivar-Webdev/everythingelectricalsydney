@@ -142,7 +142,7 @@ export interface ContentSectionBlock {
 
 
 export interface GoogleReviewsBlock {
-  _type: 'googleReviewsBlock';
+  _type: 'googleReviewsBlockSection';
   title: string;
   subtitle: string;
   overallRating: number;
