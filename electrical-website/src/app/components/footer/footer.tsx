@@ -73,7 +73,7 @@ export default function Footer() {
           <div className="grid grid-cols-2 gap-8 md:grid-cols-2 lg:grid-cols-4">
             {/* Brand Info */}
             <div className="space-y-4">
-              <div className="flex items-center w-[13rem] h-[2rem] md:w-[15rem]">
+              <div className="flex items-center w-[10rem] h-[2rem] md:w-[15rem]">
                 <img
                   alt="Everything Electrical Sydney"
                   src="/images/white-logo.png"
