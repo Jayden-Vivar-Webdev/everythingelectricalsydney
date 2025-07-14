@@ -427,6 +427,14 @@ export const contentMap: Record<string, (block: { _type: string; [key: string]: 
     );
   },
 
+  // ContentSectionImage: (block, index) {
+  //    ContentSectionImageBlock
+
+  //    const contentBlock = block as unknown as ContentSectionImageBlock;
+
+
+  // }
+
     
 
   ctaSection: (block, index) => {

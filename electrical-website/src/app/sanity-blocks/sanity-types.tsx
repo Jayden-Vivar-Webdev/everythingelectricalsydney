@@ -161,6 +161,36 @@ export interface GoogleReviewsBlock {
   }>
 }
 
+export interface ContentSectionImageBlock {
+  _type: 'contentSectionImage';
+  backgroundImage: {
+    _type: 'image';
+    asset: {
+      _ref: string;
+      _type: 'reference';
+    };
+    alt?: string;
+  };
+  logoImage: {
+    _type: 'image';
+    asset: {
+      _ref: string;
+      _type: 'reference';
+    };
+    alt?: string;
+  };
+  label: string;
+  quote: string;
+  title: string;
+  description: string;
+  stats: Array<{
+    value: string;
+    label: string;
+  }>
+
+
+}
+
 
 export type CustomBlock =
   | Block
@@ -173,4 +203,5 @@ export type CustomBlock =
   | ContentSectionBlock
   | ServicesSectionBlock
   | GoogleReviewsBlock
+  | ContentSectionImageBlock
   | CtaSectionBlock;
