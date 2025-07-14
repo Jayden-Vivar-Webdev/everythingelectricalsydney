@@ -3,6 +3,7 @@ import ContactWidget from "./components/widgets/contact-float";
 import '@/app/globals.css'
 import FooterBanner from "./components/banner/nexa-banner";
 import { Analytics } from "@vercel/analytics/next"
+import Footer from "./components/footer/footer";
 
 export const metadata = {
   title: 'Everything Electricals — Licensed Electricians for Camden & Campbelltown',
@@ -58,16 +59,9 @@ export const metadata = {
 };
 
 
-
-
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      
       <body
         
       >
@@ -76,9 +70,9 @@ export default function RootLayout({
           {children}
         </main>
         <ContactWidget />
+        <Footer />
         <FooterBanner />
         <Analytics />
-        
       </body>
     </html>
   );
