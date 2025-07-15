@@ -1,10 +1,10 @@
-import React from 'react'
-import { BuildingOffice2Icon, EnvelopeIcon, PhoneIcon } from '@heroicons/react/24/outline'
+'use client'
+import React, { useState } from 'react'
+import { BuildingOffice2Icon, EnvelopeIcon, PhoneIcon, CheckCircleIcon, XCircleIcon } from '@heroicons/react/24/outline'
 import Image from 'next/image'
-
 type ContactFormProps = {
   title?: string
-  backgroundImage: string;
+  backgroundImage?: string;
   description?: React.ReactNode
   address?: {
     line1: string
@@ -25,15 +25,94 @@ export default function HeroContact({
     </>
   ),
   address = {
-    line1: '545 Mavis Island',
+    line1: 'Sydney',
     line2: '',
-    cityStateZip: 'Chicago, IL 99191',
+    cityStateZip: 'NSW, AUS 2000',
   },
-  phone = '+1 (555) 234-5678',
-  email = 'hello@example.com',
-  backgroundImage = '#',
-  onSubmit,
+  phone = '',
+  email = 'info@everythingelectricalsydney.com.au',
+  backgroundImage = 'https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80',
+  
 }: ContactFormProps) {
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
+  const [errorMessage, setErrorMessage] = useState('')
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    message: '',
+    robotCheck: false
+  })
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value, type } = e.target
+    setFormData(prev => ({
+      ...prev,
+      [name]: type === 'checkbox' ? (e.target as HTMLInputElement).checked : value
+    }))
+  }
+
+  const handleSubmit = async (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault()
+    setIsSubmitting(true)
+    setSubmitStatus('idle')
+    setErrorMessage('')
+
+    try {
+      // Validate required fields
+      if (!formData.firstName || !formData.lastName || !formData.email || !formData.message) {
+        throw new Error('Please fill in all required fields')
+      }
+
+      if (!formData.robotCheck) {
+        throw new Error('Please confirm you are not a robot')
+      }
+
+      // Create FormData object
+      const submitData = new FormData()
+      submitData.append('access_key', 'e8509236-870e-4538-89ee-0a4f591bcd26')
+      submitData.append('subject', 'New Contact Form Submission')
+      submitData.append('first-name', formData.firstName)
+      submitData.append('last-name', formData.lastName)
+      submitData.append('email', formData.email)
+      submitData.append('phone-number', formData.phone)
+      submitData.append('message', formData.message)
+
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: submitData
+      })
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`)
+      }
+
+      const result = await response.json()
+      
+      if (result.success) {
+        setSubmitStatus('success')
+        // Reset form
+        setFormData({
+          firstName: '',
+          lastName: '',
+          email: '',
+          phone: '',
+          message: '',
+          robotCheck: false
+        })
+      } else {
+        throw new Error(result.message || 'Form submission failed')
+      }
+    } catch (error) {
+      setSubmitStatus('error')
+      setErrorMessage(error instanceof Error ? error.message : 'An unexpected error occurred')
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
+
   return (
     <>
      <div className="relative isolate">
@@ -44,7 +123,7 @@ export default function HeroContact({
             <Image
                 src={backgroundImage}
                 alt="Background decoration"
-                width={400}
+                width={500}
                 height={800}
                 className="absolute inset-0 h-full w-full object-cover opacity-[0.2]"
             />
@@ -54,8 +133,8 @@ export default function HeroContact({
             />
             </div>
             <h2 className="text-pretty text-white text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">{title}</h2>
-            <div className='px-3 py-1 secondary-bg inline-flex mt-6 rounded-xl'>
-                <strong className=" text-lg/8 text-white text-white">{description}</strong>
+            <div className='px-3 py-1 bg-red-600 inline-flex mt-6 rounded-xl'>
+                <strong className=" text-lg/8 text-white">{description}</strong>
             </div>
             
             <dl className="mt-10 space-y-4 text-base/7 text-white">
@@ -96,59 +175,90 @@ export default function HeroContact({
             </dl>
           </div>
         </div>
-        <form
-          action="#"
-          method="POST"
-          onSubmit={onSubmit}
-          className="px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-48"
-        >
+        <div className="px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-48">
           <div className="flex flex-col w-full px-1 sm:px-6 md:px-10 justify-center lg:px-5 xl:px-20">
-            
             <h2 className='text-3xl font-bold text-gray-800 mb-4'>Contact Us</h2>
+            
+            {/* Success Message */}
+            {submitStatus === 'success' && (
+              <div className="mb-6 rounded-md bg-green-50 p-4 border-l-4 border-green-400">
+                <div className="flex">
+                  <CheckCircleIcon className="h-5 w-5 text-green-400" />
+                  <div className="ml-3">
+                    <h3 className="text-sm font-medium text-green-800">
+                      Message sent successfully!
+                    </h3>
+                    <p className="mt-1 text-sm text-green-700">
+                      Thank you for reaching out. We&apos;ll get back to you within 24 hours.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* Error Message */}
+            {submitStatus === 'error' && (
+              <div className="mb-6 rounded-md bg-red-50 p-4 border-l-4 border-red-400">
+                <div className="flex">
+                  <XCircleIcon className="h-5 w-5 text-red-400" />
+                  <div className="ml-3">
+                    <h3 className="text-sm font-medium text-red-800">
+                      Error sending message
+                    </h3>
+                    <p className="mt-1 text-sm text-red-700">
+                      {errorMessage || 'There was a problem sending your message. Please try again.'}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            )}
+
             <div className="grid grid-rows gap-4 text-sm text-gray-600">
-              
               <div className="flex items-center gap-2">
                 <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                <span>Have any questions? Feel free to ask. </span>
+                <span>Have any questions? Feel free to ask.</span>
               </div>
               <div className="flex items-center gap-2 pb-10">
                 <div className="w-3 h-3 bg-green-500 rounded-full"></div>
                 <span>We&apos;re here to help and will respond within 24 hours.</span>
               </div>
             </div>
+            
             <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
               <div>
-                <label htmlFor="first-name" className="block text-sm font-medium leading-6 text-black">
+                <label htmlFor="firstName" className="block text-sm font-medium leading-6 text-gray-700">
                   First name <span className="text-red-500">*</span>
                 </label>
                 <div className="mt-2">
                   <input
-                    id="first-name"
-                    name="first-name"
+                    id="firstName"
+                    name="firstName"
                     type="text"
+                    value={formData.firstName}
+                    onChange={handleInputChange}
                     required
-                    autoComplete="given-name"
-                    className="block w-full rounded-md border-0 bg-white/5 px-3.5 py-2 text-black shadow-sm ring-1 ring-inset ring-black/10 focus:ring-2 focus:ring-inset focus:ring-red-500 sm:text-sm sm:leading-6"
+                    className="block w-full rounded-md border border-gray-300 px-3.5 py-2 text-gray-900 shadow-sm focus:ring-2 focus:ring-red-600 focus:border-red-600 sm:text-sm sm:leading-6"
                   />
                 </div>
               </div>
               <div>
-                <label htmlFor="last-name" className="block text-sm font-medium leading-6 text-black">
+                <label htmlFor="lastName" className="block text-sm font-medium leading-6 text-gray-700">
                   Last name <span className="text-red-500">*</span>
                 </label>
                 <div className="mt-2">
                   <input
-                    id="last-name"
-                    name="last-name"
+                    id="lastName"
+                    name="lastName"
                     type="text"
+                    value={formData.lastName}
+                    onChange={handleInputChange}
                     required
-                    autoComplete="family-name"
-                    className="block w-full rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
+                    className="block w-full rounded-md border border-gray-300 px-3.5 py-2 text-gray-900 shadow-sm focus:ring-2 focus:ring-red-600 focus:border-red-600 sm:text-sm sm:leading-6"
                   />
                 </div>
               </div>
               <div className="sm:col-span-2">
-                <label htmlFor="email" className="block text-sm font-medium leading-6 text-black">
+                <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-700">
                   Email <span className="text-red-500">*</span>
                 </label>
                 <div className="mt-2">
@@ -156,28 +266,30 @@ export default function HeroContact({
                     id="email"
                     name="email"
                     type="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
                     required
-                    autoComplete="email"
-                    className="block w-full rounded-md border-0 bg-white/5 px-3.5 py-2 text-black shadow-sm ring-1 ring-inset ring-black/10 focus:ring-2 focus:ring-inset focus:ring-red-500 sm:text-sm sm:leading-6"
+                    className="block w-full rounded-md border border-gray-300 px-3.5 py-2 text-gray-900 shadow-sm focus:ring-2 focus:ring-red-600 focus:border-red-600 sm:text-sm sm:leading-6"
                   />
                 </div>
               </div>
               <div className="sm:col-span-2">
-                <label htmlFor="phone-number" className="block text-sm font-medium leading-6 text-black">
+                <label htmlFor="phone" className="block text-sm font-medium leading-6 text-gray-700">
                   Phone number
                 </label>
                 <div className="mt-2">
                   <input
-                    id="phone-number"
-                    name="phone-number"
+                    id="phone"
+                    name="phone"
                     type="tel"
-                    autoComplete="tel"
-                    className="block w-full rounded-md border-0 bg-white/5 px-3.5 py-2 text-black shadow-sm ring-1 ring-inset ring-black/10 focus:ring-2 focus:ring-inset focus:ring-red-500 sm:text-sm sm:leading-6"
+                    value={formData.phone}
+                    onChange={handleInputChange}
+                    className="block w-full rounded-md border border-gray-300 px-3.5 py-2 text-gray-900 shadow-sm focus:ring-2 focus:ring-red-600 focus:border-red-600 sm:text-sm sm:leading-6"
                   />
                 </div>
               </div>
               <div className="sm:col-span-2">
-                <label htmlFor="message" className="block text-sm font-medium leading-6 text-black">
+                <label htmlFor="message" className="block text-sm font-medium leading-6 text-gray-700">
                   Message <span className="text-red-500">*</span>
                 </label>
                 <div className="mt-2">
@@ -185,20 +297,53 @@ export default function HeroContact({
                     id="message"
                     name="message"
                     rows={4}
+                    value={formData.message}
+                    onChange={handleInputChange}
                     required
-                    className="block w-full rounded-md border-0 bg-white/5 px-3.5 py-2 text-black shadow-sm ring-1 ring-inset ring-black/10 focus:ring-2 focus:ring-inset focus:ring-red-500 sm:text-sm sm:leading-6"
-                    defaultValue={''}
+                    className="block w-full rounded-md border border-gray-300 px-3.5 py-2 text-gray-900 shadow-sm focus:ring-2 focus:ring-red-600 focus:border-red-600 sm:text-sm sm:leading-6"
                   />
                 </div>
               </div>
             </div>
+            
+            <div className="flex items-center gap-2 mt-4">
+              <input
+                type="checkbox"
+                id="robotCheck"
+                name="robotCheck"
+                checked={formData.robotCheck}
+                onChange={handleInputChange}
+                className="w-4 h-4 text-cyan-500 border-gray-300 rounded focus:ring-cyan-500"
+                required
+              />
+              <label htmlFor="robotCheck" className="text-sm text-gray-600">
+                I&apos;m not a robot
+              </label>
+            </div>
+            
             <div className="mt-8 flex justify-end">
-            <button type="submit" className="w-full secondary-bg text-white font-semibold py-3 px-8 rounded-md hover:secondary-light-bg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2">
-              Send Message
-            </button>
+              <button 
+                type="button"
+                onClick={handleSubmit}
+                disabled={isSubmitting}
+                className="w-full bg-red-600 text-white font-semibold py-3 px-8 rounded-md hover:bg-red-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+              >
+                {isSubmitting ? (
+                  <>
+                    <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    Sending...
+                  </>
+                ) : (
+                  'Send Message'
+                )}
+              </button>
             </div>
           </div>
-        </form>
+        </div>
+
       </div>
     </div>
     
