@@ -5,15 +5,13 @@ import Link from 'next/link'
 import {
   Dialog,
   DialogPanel,
-  Disclosure,
-  DisclosureButton,
-  DisclosurePanel,
   Popover,
   PopoverButton,
   PopoverGroup,
   PopoverPanel,
   
 } from '@headlessui/react'
+import { ChevronDown, ChevronRight } from 'lucide-react';
 import {
   Bars3Icon,
   BellAlertIcon,
@@ -130,8 +128,14 @@ const callsToAction = [
   { name: 'Request a Quote', href: '/contact', icon: DocumentTextIcon },
 ]
 
+
+
 export default function NavBar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [isServicesOpen, setIsServicesOpen] = useState(false);
+
+  // Sample data - replace with your actual data
+ 
 
   return (
     <>
@@ -252,49 +256,100 @@ export default function NavBar() {
             </button>
           </div>
           <div className="mt-6 flow-root">
-            <div className="-my-6 divide-y divide-gray-500/10">
-              <div className="space-y-2 py-6">
-                <Disclosure as="div" className="-mx-3">
-                  <DisclosureButton className="group flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">
-                    Services
-                    <ChevronDownIcon aria-hidden="true" className="size-5 flex-none group-data-[open]:rotate-180" />
-                  </DisclosureButton>
-                  <DisclosurePanel className="mt-2 space-y-2">
-                    {[...products, ...callsToAction].map((item) => (
-                      <DisclosureButton
+          <div className="bg-white">
+      <div className="px-2 py-1">
+        <div className="space-y-1">
+          {/* Services Dropdown */}
+          <div className="relative">
+            <button
+              onClick={() => setIsServicesOpen(!isServicesOpen)}
+              className="group flex w-full items-center justify-between rounded-lg px-4 py-3 text-left text-base font-medium text-gray-900 hover:bg-gradient-to-r hover:from-red-50 hover:to-indigo-50 hover:text-red-700 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
+            >
+              <span className="flex items-center">
+                <span className="text-lg">Services</span>
+              </span>
+              <ChevronDown 
+                className={`h-5 w-5 text-gray-500 transition-transform duration-200 ${
+                  isServicesOpen ? 'rotate-180 text-red-600' : ''
+                }`}
+              />
+            </button>
+            
+              {isServicesOpen && (
+                <div className="mt-2 ml-4 space-y-1 border-l-2 border-red-100 pl-4">
+                  {products.map((item) => (
+                    <a
+                      key={item.name}
+                      href={item.href}
+                      className="group flex items-start rounded-lg px-4 py-3 hover:bg-gray-50 transition-colors duration-150"
+                    >
+                      <div className="flex-1">
+                        <p className="text-sm font-medium text-gray-900 group-hover:text-red-700">
+                          {item.name}
+                        </p>
+                        <p className="text-xs text-gray-500 mt-1">
+                          {item.description}
+                        </p>
+                      </div>
+                      <ChevronRight className="h-4 w-4 text-gray-400 mt-0.5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    </a>
+                  ))}
+                  
+                  {/* Call to Action Items */}
+                  <div className="border-t border-gray-100 pt-3 mt-3">
+                    {callsToAction.map((item) => (
+                      <a
                         key={item.name}
-                        as="a"
                         href={item.href}
-                        className="block rounded-lg py-2 pl-6 pr-3 text-sm/7 font-semibold secondary-text hover:bg-gray-50"
+                        className="block rounded-lg px-4 py-2 text-sm font-semibold text-red-600 hover:bg-red-50 hover:text-red-700 transition-colors duration-150"
                       >
                         {item.name}
-                      </DisclosureButton>
+                      </a>
                     ))}
-                  </DisclosurePanel>
-                </Disclosure>
-                <a
-                  href="#"
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
-                >
-                  About
-                </a>
-                <a
-                  href="#"
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
-                >
-                  Contact
-                </a>
-                <a
-                  href="#"
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
-                >
-                  Blog
-                </a>
-              </div>
-              <div className="py-6">
-                
-              </div>
+                  </div>
+                </div>
+              )}
             </div>
+
+            {/* Main Navigation Links */}
+            <a
+              href="/about"
+              className="group flex items-center justify-between rounded-lg px-4 py-3 text-base font-medium text-gray-900 hover:bg-gradient-to-r hover:from-gray-50 hover:to-gray-100 hover:text-gray-700 transition-all duration-200"
+            >
+              <span>About</span>
+              <ChevronRight className="h-4 w-4 text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity" />
+            </a>
+
+            <a
+              href="/contact"
+              className="group flex items-center justify-between rounded-lg px-4 py-3 text-base font-medium text-gray-900 hover:bg-gradient-to-r hover:from-gray-50 hover:to-gray-100 hover:text-gray-700 transition-all duration-200"
+            >
+              <span>Contact</span>
+              <ChevronRight className="h-4 w-4 text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity" />
+            </a>
+
+            <a
+              href="/blog"
+              className="group flex items-center justify-between rounded-lg px-4 py-3 text-base font-medium text-gray-900 hover:bg-gradient-to-r hover:from-gray-50 hover:to-gray-100 hover:text-gray-700 transition-all duration-200"
+            >
+              <span>Blog</span>
+              <ChevronRight className="h-4 w-4 text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity" />
+            </a>
+          </div>
+
+          {/* Action Section */}
+          <div className="mt-6 pt-6 border-t border-gray-200">
+            <div className="space-y-3">
+              <button onClick={() => {window.location.href = '/contact'; }} className="w-full secondary-bg text-white font-semibold py-3 px-4 rounded-lg hover:from-red-700 hover:to-indigo-700 transform hover:scale-101 transition-all duration-200 shadow-md hover:shadow-lg">
+                Get Started Today
+              </button>
+              <button onClick={() => {window.location.href = '/services'; }} className="w-full border-2 border-gray-300 text-gray-700 font-semibold py-3 px-4 rounded-lg hover:border-gray-400 hover:bg-gray-50 transition-all duration-200">
+                Learn More
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
           </div>
         </DialogPanel>
       </Dialog>
@@ -304,3 +359,10 @@ export default function NavBar() {
     </>
   )
 }
+
+
+
+
+
+
+

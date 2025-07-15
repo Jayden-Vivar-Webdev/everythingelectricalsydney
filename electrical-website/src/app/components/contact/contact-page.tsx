@@ -33,7 +33,7 @@ const ContactPageBottom = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {/* Phone Support */}
           <div className="group bg-white p-10 rounded-lg shadow-lg hover:shadow-2xl transition-all duration-500 border border-slate-200 hover:border-red-200 relative overflow-hidden">
             <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-red-500 to-red-600"></div>
@@ -241,7 +241,7 @@ const ContactPageBottom = () => {
       <section className="py-20 bg-gray-900">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <span className="inline-block bg-red-600 text-white px-4 py-2 rounded-full text-sm font-medium mb-4">
+            <span className="inline-block bg-red-600 text-white px-4 py-2 rounded-full text-xs font-semibold mb-4">
               Frequently Asked Questions
             </span>
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
