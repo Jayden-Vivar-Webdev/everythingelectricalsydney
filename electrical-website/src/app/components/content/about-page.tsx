@@ -171,7 +171,7 @@ export default function AboutPageSection() {
         </div>
         <dl className="mt-16 grid grid-cols-1 gap-x-8 gap-y-12 sm:mt-20 sm:grid-cols-2 sm:gap-y-16 lg:mt-28 lg:grid-cols-4">
           {stats.map((stat, statIdx) => (
-            <div key={statIdx} className="flex flex-col-reverse gap-y-3 border-l border-gray-300 pl-6">
+            <div key={statIdx} className="flex flex-col-reverse gap-y-3 border-l-2 border-red-600 pl-6">
               <dt className="text-base text-gray-600">{stat.label}</dt>
               <dd className="text-3xl font-bold tracking-tight text-gray-900">{stat.value}</dd>
             </div>
@@ -181,18 +181,18 @@ export default function AboutPageSection() {
     </div>
 
     {/* Image section */}
-    <div className="mt-32 sm:mt-40 xl:mx-auto xl:max-w-7xl xl:px-8">
+    <div className="mt-10 h-[25rem] sm:mt-20 sm:h-[30rem] md:h-[40rem] lg:h-[50rem] p-5 xl:mx-auto xl:max-w-7xl xl:px-8">
       <Image
         alt="Professional Electrical Services"
         src="/images/assets/google-images/electrical-tools.jpg"
         width={1500}
         height={700}
-        className="aspect-[9/4] w-full object-cover xl:rounded-lg"
+        className="aspect-[9/4] w-full h-full rounded-lg object-cover xl:rounded-lg"
       />
     </div>
 
     {/* Values section */}
-    <div className='bg-gray-900 mt-32 sm:mt-40 px-10 py-15'>
+    <div className='bg-gray-900 mt-10 sm:mt-20 px-10 py-15'>
     <div className="mx-auto max-w-7xl px-6 lg:px-8">
       <div className="mx-auto flex flex-wrap w-full justify-between lg:mx-0">
         <div>
