@@ -2,7 +2,7 @@ import RenderContent from '@/app/context-map/render-sections';
 import { client } from '@/app/sanity/client';
 import type { PortableTextBlock } from '@sanity/types';
 type Params = Promise<{ slug: string[] }>;
-
+import { redirect } from 'next/navigation'
 
 
 const POST_QUERY = `*[_type == "customSections" && slug.current == $slug][0]{
@@ -17,10 +17,7 @@ export async function generateMetadata({ params }: { params: Params }) {
   const post = await client.fetch(POST_QUERY, { slug: slug });
 
   if (!post) {
-    return {
-      title: 'Page not found — Everything Electrical Sydney',
-      description: 'This page could not be found.',
-    };
+    redirect('/services')  // Redirect to services page
   }
 
   const pageTitle = `Everything Electrical Sydney — ${post.title}`;

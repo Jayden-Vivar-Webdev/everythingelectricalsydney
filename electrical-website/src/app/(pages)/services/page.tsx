@@ -5,6 +5,7 @@ import ServiceLocations from '@/app/components/locations/service-locations';
 
 import MapLocations from '@/app/components/locations/map-locations';
 import ServicesGrid from '@/app/context-map/reusable/services-grid';
+import { redirect } from 'next/navigation';
 
 const POST_QUERY = `*[_type == "customSections" && slug.current == $slug][0]{
   title,
@@ -24,7 +25,7 @@ export default async function Services() {
  
 
   if (!data) {
-    return <p>Post not found</p>;
+    redirect('/services')  // Redirect to services page
   }
   
  

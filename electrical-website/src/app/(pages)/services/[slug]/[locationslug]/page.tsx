@@ -2,6 +2,7 @@ import { client } from '@/app/sanity/client';
 import type { PortableTextBlock } from '@sanity/types';
 import RenderContent from '@/app/context-map/render-sections';
 import HeroContact from '@/app/components/hero/hero-contact';
+import { redirect } from 'next/navigation';
 
 type Params = Promise<{
   slug: string;
@@ -67,11 +68,11 @@ export default async function PostPage({ params }: { params: Params }) {
 
   const post = await client.fetch(POST_QUERY, { slug: slug });
 
-  if (!post) return <p>Post not found</p>;
-
   const locationName = locationslug.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
   const postTitle = `${post.title} in ${locationName}`
-  
+  if (!post) {
+    redirect('/services')  // Redirect to services page
+  }
   return (
     <>
     <HeroContact
