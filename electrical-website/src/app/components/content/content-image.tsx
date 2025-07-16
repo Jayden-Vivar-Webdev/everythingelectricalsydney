@@ -1,5 +1,9 @@
-'use client';
+import { PortableText, PortableTextComponents } from '@portabletext/react';
 import React from 'react';
+
+import {
+  PortableTextBlock
+} from '@portabletext/types';
 
 // TypeScript interfaces for the component props
 interface ImageData {
@@ -18,7 +22,7 @@ interface ContentData {
   quote: string;
   label: string;
   title: string;
-  description: string;
+  description: PortableTextBlock[];
   stats: StatData[];
   cta: string;
   companyName?: string;
@@ -29,12 +33,14 @@ interface EnhancedTestimonialSectionProps {
   isDarkMode?: boolean;
   contentInfo: ContentData;
   className?: string;
+  portableTextComponents?: PortableTextComponents;
 }
 
 const EnhancedTestimonialSection: React.FC<EnhancedTestimonialSectionProps> = ({ 
   isDarkMode = false, 
   contentInfo,
-  className = ""
+  className = "",
+  portableTextComponents
 }) => {
   return (
     <div className={`${isDarkMode ? 'bg-gray-900' : 'bg-white'} py-12 sm:py-16 md:py-24 lg:py-32 ${className}`}>
@@ -117,11 +123,12 @@ const EnhancedTestimonialSection: React.FC<EnhancedTestimonialSectionProps> = ({
               
              
 
-            {contentInfo.description?.split('\n\n').map((para, i) => (
-              <div key={i} className={`mt-6 text-xl leading-8 text-gray-600 ${isDarkMode ? 'text-slate-400' : 'text-slate-600'}`}>
-                {para}
+            
+              <div className={`mt-6 text-xl leading-8 text-gray-600 ${isDarkMode ? 'text-slate-400' : 'text-slate-600'}`}>
+              <PortableText value={contentInfo.description} components={portableTextComponents} />
+
               </div>
-            ))}
+           
             </div>
             
             {/* Enhanced Stats Grid */}

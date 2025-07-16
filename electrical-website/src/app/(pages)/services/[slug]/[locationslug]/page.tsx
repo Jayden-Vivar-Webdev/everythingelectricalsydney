@@ -73,6 +73,7 @@ export default async function PostPage({ params }: { params: Params }) {
   if (!post) {
     redirect('/services')  // Redirect to services page
   }
+  
   return (
     <>
     <HeroContact

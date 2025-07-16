@@ -1,4 +1,4 @@
-import { defineType, defineField } from 'sanity'
+import {defineField } from 'sanity'
 
 export const contentImage = {
   name: 'contentSectionImage',
@@ -51,9 +51,39 @@ export const contentImage = {
     defineField({
       name: 'description',
       title: 'Description',
-      type: 'text',
-      rows: 3,
+      type: 'array',
+      of: [
+        {
+          type: 'block',
+          styles: [
+            { title: 'Normal', value: 'normal' },
+            { title: 'Heading 2', value: 'h2' },
+            { title: 'Heading 3', value: 'h3' }
+          ],
+          marks: {
+            decorators: [
+              { title: 'Bold', value: 'strong' },
+              { title: 'Italic', value: 'em' }
+            ],
+            annotations: [
+              {
+                name: 'link',
+                type: 'object',
+                title: 'External Link',
+                fields: [
+                  {
+                    name: 'href',
+                    type: 'url',
+                    title: 'URL'
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
     }),
+    
     defineField({
       name: 'stats',
       title: 'Stats',

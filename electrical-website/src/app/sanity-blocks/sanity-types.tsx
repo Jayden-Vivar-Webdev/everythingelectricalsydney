@@ -1,3 +1,4 @@
+import { PortableTextBlock } from "@sanity/types";
 import React from "react";
 
 export interface SanityImage {
@@ -182,7 +183,7 @@ export interface ContentSectionImageBlock {
   label: string;
   quote: string;
   title: string;
-  description: string;
+  description: PortableTextBlock[];
   stats: Array<{
     value: string;
     label: string;

@@ -11,58 +11,56 @@ import GoogleReviews from '../components/testimonials/google-reviews';
 import { ContentSectionImageBlock } from '../sanity-blocks/sanity-types';
 import {EnhancedTestimonialSection} from '../components/content/content-image';
 import { ContentData } from '../components/content/content-image';
+import ServiceHeroSection from '../components/servicehero/service-hero'; 
+import {
+  PortableTextBlock,
+  
+} from '@portabletext/types';
 export const contentMap: Record<string, (block: { _type: string; [key: string]: unknown}, index: number) => React.ReactElement
 > = {
   block: (block, index) => {
     
     const components: PortableTextComponents = {
       block: {
-        normal: ({ children }) => <p className="mb-6 text-lg md:text-xl text-light/90 leading-10">{children}</p>,
-       
+        normal: ({ children }) => <p className="mb-6 text-lg md:text-xl text-black">{children}</p>,
         strong: ({ children }) =>  <strong className="mb-6 text-black">{children}</strong>,
-
         h1: ({ children }) => (
-          <h1 className="stat-number text-4xl md:text-5xl lg:text-6xl font-bold pb-6">
+          <h1 className="text-black text-4xl md:text-5xl lg:text-6xl font-bold pb-6">
             {children}
           </h1>
         ),
-    
         h2: ({ children }) => (
-          <h2 className="text-3xl md:text-4xl font-semibold pb-5">
+          <h2 className="text-black text-3xl md:text-4xl font-semibold pb-5">
             {children}
           </h2>
         ),
-    
         h3: ({ children }) => (
-          <h3 className="text-2xl md:text-3xl font-semibold pb-4">
+          <h3 className="text-black text-2xl md:text-3xl font-semibold pb-4">
             {children}
           </h3>
         ),
-    
         h4: ({ children }) => (
-          <h4 className="md:text-2xl font-semibold pb-3">
+          <h4 className="text-black md:text-2xl font-semibold pb-3">
             {children}
           </h4>
         ),
-    
         h5: ({ children }) => (
-          <h5 className="text-lg md:text-xl font-semibold pb-3">
+          <h5 className="text-black text-lg md:text-xl font-semibold pb-3">
             {children}
           </h5>
         ),
       },
-      
       list: {
         bullet: ({ children }) => (
-          <ul className="list-disc list-inside space-y-2 mb-6 text-light/90 text-lg md:text-xl">{children}</ul>
+          <ul className="text-black list-disc list-inside space-y-2 mb-6 text-lg md:text-xl">{children}</ul>
         ),
         number: ({ children }) => (
-          <ol className="list-decimal list-inside space-y-2 mb-6 text-light/90 text-lg md:text-xl">{children}</ol>
+          <ol className="text-black list-decimal list-inside space-y-2 mb-6 text-lg md:text-xl">{children}</ol>
         ),
       },
       listItem: {
-        bullet: ({ children }) => <li className="ml-3 text-lg md:text-xl">{children}</li>,
-        number: ({ children }) => <li className="ml-3 text-lg md:text-xl">{children}</li>,
+        bullet: ({ children }) => <li className="text-black ml-3 text-lg md:text-xl">{children}</li>,
+        number: ({ children }) => <li className="text-black ml-3 text-lg md:text-xl">{children}</li>,
       },
     };
   
@@ -138,6 +136,40 @@ export const contentMap: Record<string, (block: { _type: string; [key: string]: 
     );
   },
   
+  serviceHeroBlock: (block, index) => {
+    const serviceBlock = block as {
+      _type: 'serviceHeroBlock',
+      theme: string,
+      image: {
+        _type: 'image';
+        asset: { _ref: string; _type: 'reference' };
+        alt?: string;
+      };
+      badge?: string;
+      title?: string;
+      description?: string;
+      stats?: Array<{
+        id: number;
+        name: string;
+        value: string
+      }>;
+      imagePosition: string;
+    }
+    console.log(serviceBlock)
+    return(
+      <ServiceHeroSection
+        key={index}
+        theme={['light', 'dark'].includes(serviceBlock.theme) ? serviceBlock.theme as 'light' | 'dark' : 'light'}
+        imageUrl={urlFor(serviceBlock.image?.asset._ref)?.url()}
+        imageAlt = {serviceBlock.image?.alt}
+        badge={serviceBlock.badge}
+        title={serviceBlock.title}
+        description={serviceBlock.description}
+        stats={serviceBlock.stats}
+        imagePosition={['left', 'right'].includes(serviceBlock.imagePosition) ? serviceBlock.imagePosition as 'left' | 'right' : 'left'}
+      />
+    )
+  },
   
 
   
@@ -429,10 +461,53 @@ export const contentMap: Record<string, (block: { _type: string; [key: string]: 
   },
 
   contentSectionImage: (block, index) => {
-     
-     const contentBlock = block as unknown as ContentSectionImageBlock;
-
-     const content: ContentData = {
+    const contentBlock = block as unknown as ContentSectionImageBlock;
+  
+    const components: PortableTextComponents = {
+      block: {
+        normal: ({ children }) => <p className="mb-6 text-lg md:text-xl text-black">{children}</p>,
+        strong: ({ children }) =>  <strong className="mb-6 text-black">{children}</strong>,
+        h1: ({ children }) => (
+          <h1 className="text-black text-4xl md:text-5xl lg:text-6xl font-bold pb-6">
+            {children}
+          </h1>
+        ),
+        h2: ({ children }) => (
+          <h2 className="text-black text-3xl md:text-4xl font-semibold pb-5">
+            {children}
+          </h2>
+        ),
+        h3: ({ children }) => (
+          <h3 className="text-black text-2xl md:text-3xl font-semibold pb-4">
+            {children}
+          </h3>
+        ),
+        h4: ({ children }) => (
+          <h4 className="text-black md:text-2xl font-semibold pb-3">
+            {children}
+          </h4>
+        ),
+        h5: ({ children }) => (
+          <h5 className="text-black text-lg md:text-xl font-semibold pb-3">
+            {children}
+          </h5>
+        ),
+      },
+      list: {
+        bullet: ({ children }) => (
+          <ul className="pt-3 text-black list-disc list-inside space-y-2 mb-6 text-lg md:text-xl">{children}</ul>
+        ),
+        number: ({ children }) => (
+          <ol className="text-black list-decimal list-inside space-y-2 mb-6 text-lg md:text-xl">{children}</ol>
+        ),
+      },
+      listItem: {
+        bullet: ({ children }) => <li className="text-black ml-3 text-lg mb-5 md:text-xl">{children}</li>,
+        number: ({ children }) => <li className="text-black ml-3 text-lg md:text-xl">{children}</li>,
+      },
+    };
+  
+    const content: ContentData = {
       image: {
         alt: contentBlock.backgroundImage?.alt ?? '',
         src: contentBlock.backgroundImage?.asset?._ref ? urlFor(contentBlock.backgroundImage.asset._ref).url() : '',
@@ -444,25 +519,23 @@ export const contentMap: Record<string, (block: { _type: string; [key: string]: 
       quote: contentBlock.quote,
       label: contentBlock.label,
       title: contentBlock.title,
-      description: contentBlock.description,
+      description: contentBlock.description as PortableTextBlock[],
       stats: contentBlock.stats,
       cta: "Get Your Free Quote Today",
       companyName: "Everything Electrical",
       location: "Sydney"
-     }
-
-     
-
-     return(
-      
-      <EnhancedTestimonialSection 
+    };
+  
+    return (
+      <EnhancedTestimonialSection
         key={index}
         contentInfo={content}
         isDarkMode={false}
+        portableTextComponents={components}  // Pass it here!
       />
-      
-     )
+    );
   },
+  
 
     
 
