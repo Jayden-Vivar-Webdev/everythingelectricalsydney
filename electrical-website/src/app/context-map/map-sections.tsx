@@ -19,10 +19,9 @@ import {
 export const contentMap: Record<string, (block: { _type: string; [key: string]: unknown}, index: number) => React.ReactElement
 > = {
   block: (block, index) => {
-    
     const components: PortableTextComponents = {
       block: {
-        normal: ({ children }) => <p className="mb-6 text-lg md:text-xl text-black">{children}</p>,
+        normal: ({ children }) => <p className="mb-6 text-lg md:text-xl text-gray-600">{children}</p>,
         strong: ({ children }) =>  <strong className="mb-6 text-black">{children}</strong>,
         h1: ({ children }) => (
           <h1 className="text-black text-4xl md:text-5xl lg:text-6xl font-bold pb-6">
@@ -52,24 +51,26 @@ export const contentMap: Record<string, (block: { _type: string; [key: string]: 
       },
       list: {
         bullet: ({ children }) => (
-          <ul className="text-black list-disc list-inside space-y-2 mb-6 text-lg md:text-xl">{children}</ul>
+          <ul className="pt-3 text-gray-600 list-disc list-inside space-y-2 mb-6 text-lg md:text-xl">{children}</ul>
         ),
         number: ({ children }) => (
-          <ol className="text-black list-decimal list-inside space-y-2 mb-6 text-lg md:text-xl">{children}</ol>
+          <ol className="text-gray-600 list-decimal list-inside space-y-2 mb-6 text-lg md:text-xl">{children}</ol>
         ),
       },
       listItem: {
-        bullet: ({ children }) => <li className="text-black ml-3 text-lg md:text-xl">{children}</li>,
-        number: ({ children }) => <li className="text-black ml-3 text-lg md:text-xl">{children}</li>,
+        bullet: ({ children }) => <li className="text-gray-600 ml-3 text-lg mb-5 md:text-xl">{children}</li>,
+        number: ({ children }) => <li className="text-gray-600  ml-3 text-lg md:text-xl">{children}</li>,
       },
+        
     };
   
     return (
-      <div key={index} className="text-light/90">
-        <PortableText value={[block]} components={components} />
+      <div key={index} className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-light/90">
+        <PortableText value={block} components={components} />
       </div>
     );
   },
+
   heroSection: (block, index) => {
     const heroSection = block as {
       _type: 'heroSection';
@@ -103,6 +104,8 @@ export const contentMap: Record<string, (block: { _type: string; [key: string]: 
       />
     );
   },
+  
+
 
   heroContact: (block, index) => {
     const contactForm = block as {
@@ -374,6 +377,7 @@ export const contentMap: Record<string, (block: { _type: string; [key: string]: 
     );
   },
 
+
   contentSection: (block, index) => {
     interface ContentSectionBlock {
       _type: 'contentSection';
@@ -465,7 +469,7 @@ export const contentMap: Record<string, (block: { _type: string; [key: string]: 
   
     const components: PortableTextComponents = {
       block: {
-        normal: ({ children }) => <p className="mb-6 text-lg md:text-xl text-black">{children}</p>,
+        normal: ({ children }) => <p className="mb-6 text-lg md:text-xl text-gray-600">{children}</p>,
         strong: ({ children }) =>  <strong className="mb-6 text-black">{children}</strong>,
         h1: ({ children }) => (
           <h1 className="text-black text-4xl md:text-5xl lg:text-6xl font-bold pb-6">
@@ -495,27 +499,33 @@ export const contentMap: Record<string, (block: { _type: string; [key: string]: 
       },
       list: {
         bullet: ({ children }) => (
-          <ul className="pt-3 text-black list-disc list-inside space-y-2 mb-6 text-lg md:text-xl">{children}</ul>
+          <ul className="pt-3 text-gray-600 list-disc list-inside space-y-2 mb-6 text-lg md:text-xl">{children}</ul>
         ),
         number: ({ children }) => (
-          <ol className="text-black list-decimal list-inside space-y-2 mb-6 text-lg md:text-xl">{children}</ol>
+          <ol className="text-gray-600 list-decimal list-inside space-y-2 mb-6 text-lg md:text-xl">{children}</ol>
         ),
       },
       listItem: {
-        bullet: ({ children }) => <li className="text-black ml-3 text-lg mb-5 md:text-xl">{children}</li>,
-        number: ({ children }) => <li className="text-black ml-3 text-lg md:text-xl">{children}</li>,
+        bullet: ({ children }) => <li className="text-gray-600 ml-3 text-lg mb-5 md:text-xl">{children}</li>,
+        number: ({ children }) => <li className="text-gray-600  ml-3 text-lg md:text-xl">{children}</li>,
       },
     };
   
     const content: ContentData = {
-      image: {
-        alt: contentBlock.backgroundImage?.alt ?? '',
-        src: contentBlock.backgroundImage?.asset?._ref ? urlFor(contentBlock.backgroundImage.asset._ref).url() : '',
-      },
-      logoImage: {
-        alt: contentBlock.logoImage?.alt ?? '',
-        src: contentBlock.logoImage?.asset?._ref ? urlFor(contentBlock.logoImage.asset._ref).url() : '',
-      },
+      image: contentBlock.backgroundImage && contentBlock.backgroundImage.asset?._ref
+        ? {
+            alt: contentBlock.backgroundImage.alt,
+            src: urlFor(contentBlock.backgroundImage.asset._ref).url(),
+          }
+        : undefined,
+    
+      logoImage: contentBlock.logoImage && contentBlock.logoImage.asset?._ref
+        ? {
+            alt: contentBlock.logoImage.alt,
+            src: urlFor(contentBlock.logoImage.asset._ref).url(),
+          }
+        : undefined,
+    
       quote: contentBlock.quote,
       label: contentBlock.label,
       title: contentBlock.title,
@@ -523,8 +533,9 @@ export const contentMap: Record<string, (block: { _type: string; [key: string]: 
       stats: contentBlock.stats,
       cta: "Get Your Free Quote Today",
       companyName: "Everything Electrical",
-      location: "Sydney"
+      location: "Sydney",
     };
+    
   
     return (
       <EnhancedTestimonialSection

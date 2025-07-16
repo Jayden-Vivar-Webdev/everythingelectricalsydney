@@ -17,7 +17,6 @@ export const contentImage = {
           type: 'string',
         }),
       ],
-      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'logoImage',
@@ -31,7 +30,7 @@ export const contentImage = {
           type: 'string',
         }),
       ],
-      validation: (Rule) => Rule.required(),
+      
     }),
     defineField({
       name: 'label',
