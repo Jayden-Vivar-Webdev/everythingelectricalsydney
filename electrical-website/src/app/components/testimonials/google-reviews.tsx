@@ -181,7 +181,7 @@ const GoogleReviews: React.FC<GoogleReviewsProps> = ({
 
         {showViewAllButton && (
           <div className="mt-12 text-center">
-            <Link href='https://g.co/kgs/pe57ta6' className={`inline-flex items-center gap-2 px-6 py-3 ${styles.button} font-semibold rounded-lg transition-colors`}>
+            <Link href='https://www.google.com/search?sca_esv=4aa5e2d623e5cb5b&cs=0&sxsrf=AE3TifOtyhLPTevLg37IV-tAjk5zUN_Hrw:1752635837282&si=AMgyJEtREmoPL4P1I5IDCfuA8gybfVI2d5Uj7QMwYCZHKDZ-E_BrlSgmRx-EOxuNNUDKdhET4PZUGcqygSqS6sTRD_9MT86C9S3RqYZirX2hmj7h7LsK4g6onPmnybh8WryNLoJMidzoeH2T1qsHJ26iIXePQyaPpw%3D%3D&q=Everything+Electrical+Sydney+Reviews&sa=X&ved=2ahUKEwiDy4GktcCOAxX44zgGHZWmNWQQ0bkNegQIIhAD&biw=1367&bih=1233&dpr=1' className={`inline-flex items-center gap-2 px-6 py-3 ${styles.button} font-semibold rounded-lg transition-colors`}>
             <Image
                 src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg"
                 alt="Google"
