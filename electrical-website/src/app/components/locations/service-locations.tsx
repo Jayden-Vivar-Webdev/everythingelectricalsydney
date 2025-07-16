@@ -3,7 +3,7 @@ import MobileLocationService from './search-locations';
 const ServiceLocations = () => {
 
   return (
-    <section className="relative py-20 md:py-32 overflow-hidden">
+    <section id='locations' className="relative py-20 md:py-32 overflow-hidden">
       {/* Background decorative elements */}
       
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

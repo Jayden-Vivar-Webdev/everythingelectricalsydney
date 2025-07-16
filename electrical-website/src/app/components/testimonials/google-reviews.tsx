@@ -117,7 +117,6 @@ const GoogleReviews: React.FC<GoogleReviewsProps> = ({
   };
  
   const styles = themeClasses[theme];
-  console.log("Rendering GoogleReviews with reviews:", reviews);
 
   return (
     <section className={`${styles.section} py-24 sm:py-32`}>
