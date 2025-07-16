@@ -59,40 +59,7 @@ export const customSections = defineType({
         
         googleReviews,
         contentImage,
-
-        // {
-        //   name: 'statsSection',
-        //   title: 'Stats Section',
-        //   type: 'object',
-        //   fields: [
-        //     defineField({
-        //       name: 'header',
-        //       title: 'Header',
-        //       type: 'string',
-        //     }),
-        //     defineField({
-        //       name: 'subheader',
-        //       title: 'Subheader',
-        //       type: 'text',
-        //     }),
-        //     defineField({
-        //       name: 'stats',
-        //       title: 'Stats',
-        //       type: 'array',
-        //       of: [
-        //         {
-        //           name: 'stat',
-        //           title: 'Stat',
-        //           type: 'object',
-        //           fields: [
-        //             defineField({ name: 'number', title: 'Number', type: 'string' }),
-        //             defineField({ name: 'label', title: 'Label', type: 'string' }),
-        //           ],
-        //         },
-        //       ],
-        //     }),
-        //   ],
-        // },
+        
         {
           name: 'contentSection',
           title: 'Content Section',
@@ -281,7 +248,7 @@ export const customSections = defineType({
             defineField({
               name: 'announcementLink',
               title: 'Announcement Link',
-              type: 'url',
+              type: 'string',
             }),
             defineField({
               name: 'headline',
