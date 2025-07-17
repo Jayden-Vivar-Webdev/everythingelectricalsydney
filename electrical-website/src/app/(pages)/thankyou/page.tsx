@@ -19,11 +19,11 @@ export default function ThankYou(){
            
             <div className="text-center">
               <h1 className="text-balance text-5xl font-semibold tracking-tight text-white sm:text-7xl">
-                Thank You For Contact Everything Electrical Sydney
+                Thank You For Contacting Everything Electrical Sydney
               </h1>
               
                 <p className="mt-8 text-pretty text-lg font-medium text-gray-200 sm:text-xl/8">
-                  We will get back to your shortly. If you would like to speak to us immediately please click the &rdquo;Call Now&ldquo; button below.
+                  We will get back to you shortly. If you would like to speak to us immediately please click the &rdquo;Call Now&ldquo; button below.
                 </p>
               
               <div className="mt-10 flex items-center justify-center gap-x-6">
