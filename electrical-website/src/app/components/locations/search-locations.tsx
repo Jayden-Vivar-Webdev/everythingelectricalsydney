@@ -241,7 +241,9 @@ export default function MobileLocationService() {
                   return location ? (
                     <Link
                       key={location.slug}
-                      href={`/all-services/${location.slug}`}
+                      // CHANGE BACK TO SLUG
+                      // href={`/all-services/${location.slug}`}
+                      href={'#contact'}
                       className="flex items-center px-4 py-3 rounded-lg text-sm font-medium text-gray-700 bg-white hover:bg-red-600 hover:text-white border border-gray-200 hover:border-red-600 transition-all duration-200 hover:shadow-sm"
                     >
                       <MapPin className="w-4 h-4 mr-2 flex-shrink-0" />
