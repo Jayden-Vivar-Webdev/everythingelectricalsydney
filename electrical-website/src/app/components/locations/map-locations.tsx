@@ -62,9 +62,10 @@ export default function MapLocations(){
                     <div>
                       <h4 className="font-semibold text-slate-900 mb-1">Business Hours</h4>
                       <div className="text-slate-600 text-sm">
-                        <p>Monday - Friday: 6:00 AM - 5:30 PM</p>
+                        {/* <p>Monday - Friday: 6:00 AM - 5:30 PM</p>
                         <p>Saturday: 8:00 AM - 12:00 PM</p>
-                        <p>Sunday: Closed</p>
+                        <p>Sunday: Closed</p> */}
+                        24/7 
                       </div>
                     </div>
                   </div>
