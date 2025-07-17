@@ -23,7 +23,7 @@ export default function ThankYou(){
               </h1>
               
                 <p className="mt-8 text-pretty text-lg font-medium text-gray-200 sm:text-xl/8">
-                  We will get back to you shortly. If you would like to speak to us immediately please click the &rdquo;Call Now&ldquo; button below.
+                  We will get back to you shortly. If you would like to speak to us immediately please click the &ldquo;Call Now&rdquo; button below.
                 </p>
               
               <div className="mt-10 flex items-center justify-center gap-x-6">
