@@ -139,7 +139,7 @@ export default function NavBar() {
 
   return (
     <>
-    <header className="fixed top-0 left-0 w-full bg-white shadow z-50">
+    <header className=" fixed top-0 left-0 w-full bg-white shadow z-50">
       <nav aria-label="Global" className="mx-auto flex max-w-7xl items-center justify-between px-6 py-2 lg:px-8">
         <div className="flex lg:flex-1">
           <Link href="/" className="flex relative max-h-[5rem] p-2 overflow-hidden justify-center items-center lg:w-[30rem]">
@@ -163,7 +163,7 @@ export default function NavBar() {
             <Bars3Icon aria-hidden="true" className="size-6" />
           </button>
         </div>
-        <PopoverGroup className="hidden lg:flex lg:gap-x-12">
+        <PopoverGroup className="lg:flex lg:gap-x-12">
           <Popover>
             <PopoverButton className="flex items-center gap-x-1 text-sm/6 font-semibold ">
               Services
@@ -257,6 +257,8 @@ export default function NavBar() {
           </div>
           <div className="mt-6 flow-root">
           <div className="bg-white">
+
+            {/* MAKESURE TO REMOVE HIDDEN */}
       <div className="px-2 py-1">
         <div className="space-y-1">
           {/* Services Dropdown */}
@@ -311,7 +313,7 @@ export default function NavBar() {
               )}
             </div>
 
-            {/* Main Navigation Links */}
+            {/* Main Navigation Links MAKESURE TO REMOVE HIDDEN */}
             <a
               href="/about"
               className="group flex items-center justify-between rounded-lg px-4 py-3 text-base font-medium text-gray-900 hover:bg-gradient-to-r hover:from-gray-50 hover:to-gray-100 hover:text-gray-700 transition-all duration-200"
