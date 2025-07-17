@@ -2,7 +2,7 @@
 export default function FooterBanner() {
 
   return (
-    <div className="z-50 bg-gray-900 px-4 py-3 shadow-lg">
+    <div className="z-50 bg-gray-900 px-4 py-3 pb-25 shadow-lg md:pb-3">
       <div className="mx-auto max-w-7xl">
         <div className="flex items-center justify-center gap-4">
           <p className="text-[0.8rem] text-white flex">

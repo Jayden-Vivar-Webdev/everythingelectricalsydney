@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
+import { useRouter } from 'next/navigation';
+
+
 
 const ContactFormCta = () => {
+  const router = useRouter(); 
   const [formData, setFormData] = useState({
     fullName: '',
     mobile: '',
@@ -57,6 +61,8 @@ const ContactFormCta = () => {
           serviceType: '',
           description: ''
         });
+        
+        router.push('/thankyou');
         
         // Hide confirmation after 5 seconds
         setTimeout(() => {
@@ -271,7 +277,6 @@ const ContactFormCta = () => {
               onChange={handleChange}
               rows={4}
               className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent resize-none"
-              required
               disabled={isSubmitting}
             />
           </div>
