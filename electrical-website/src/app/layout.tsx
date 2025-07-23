@@ -4,6 +4,7 @@ import '@/app/globals.css'
 import FooterBanner from "./components/banner/nexa-banner";
 import { Analytics } from "@vercel/analytics/next"
 // import Footer from "./components/footer/footer";
+import NavBarTemp from "./components/navbar/temp";
 
 export const metadata = {
   title: 'Everything Electricals — Licensed Electricians for Camden & Campbelltown',
@@ -66,6 +67,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         
       >
         {/* <NavBar /> */}
+        <NavBarTemp/>
         {/* <main className="pt-[6rem]"> */}
         <main className="">
           {children}
