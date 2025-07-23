@@ -68,7 +68,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       >
         {/* <NavBar /> */}
         <NavBarTemp/>
-        {/* <main className="pt-[6rem]"> */}
+        <main className="pt-[6rem]">
         <main className="">
           {children}
         </main>
