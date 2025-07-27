@@ -159,9 +159,9 @@ export default function Footer() {
         </div>
 
         {/* Bottom Footer */}
-        <div className="border-t border-gray-800 py-8">
+        <div className="border-t border-gray-800 pt-8">
           <div className="flex flex-col items-center justify-between md:flex-row">
-            <div className="flex space-x-6">
+            <div className="flex space-x-15">
               <a href="/privacy" className="text-sm hover:text-white">
                 Privacy Policy
               </a>
@@ -172,7 +172,7 @@ export default function Footer() {
                 Licenses
               </a>
             </div>
-            <p className="mt-4 text-sm md:mt-0">
+            <p className="mt-4 text-sm md:mt-0 px-10 text-center">
               &copy; {new Date().getFullYear()} Everything Electrical Sydney. All rights reserved. ABN: 73 633 557 810 
             </p>
           </div>
