@@ -346,7 +346,12 @@ export const contentMap: Record<string, SanityBlockRenderer> = {
           titleSpan={HeroSection.titleSpan}
           subtitle={HeroSection.subtitle}
           description={HeroSection.description}
-          backgroundImage={urlFor(HeroSection.backgroundImage.asset._ref).url()}
+          backgroundImage={urlFor(HeroSection.backgroundImage.asset._ref)
+            .width(1200)        // Set to appropriate width for your layout
+            .height(700)        // Optional: maintain visual consistency
+            .fit('max')         // Avoid upscaling
+            .auto('format')     // Serve WebP or AVIF automatically
+            .url()}
           ctaText={HeroSection.ctaText}
           services={HeroSection.services}
         />
