@@ -1,5 +1,6 @@
 'use client'
 import Image from 'next/image'
+import Link from 'next/link'
 import {
   BoltIcon,
   ChatBubbleLeftRightIcon,
@@ -345,12 +346,12 @@ export default function AboutPageSection() {
                       Schedule Consultation
                       <span aria-hidden="true">→</span>
                     </a>
-                    <a 
-                      href="#portfolio" 
+                    <Link
+                      href="/services" 
                       className="z-10 inline-flex items-center justify-center gap-x-3 rounded-xl border border-slate-600 bg-transparent px-8 py-4 text-sm font-semibold text-white hover:bg-slate-800 transition-all duration-200"
                     >
-                      View Portfolio
-                    </a>
+                      View Services
+                    </Link>
                   </div>
                 </div>
               </div>
