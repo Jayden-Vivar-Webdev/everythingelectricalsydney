@@ -56,6 +56,8 @@ const ServiceHeroSection = ({
         src={imageUrl}
         height={1000}
         width={500}
+        priority // <-- This tells Next.js to preload the image
+        fetchPriority="high" // Optional, but explicit
         className={`h-56 w-full bg-gray-50 object-cover lg:absolute lg:inset-y-0 ${imageClasses} lg:h-full lg:w-1/2`}
       />
       <div className="mx-auto grid max-w-7xl lg:grid-cols-2">
