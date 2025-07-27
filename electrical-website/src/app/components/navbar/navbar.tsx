@@ -277,10 +277,10 @@ export default function NavBar() {
           <div className="relative">
             <button
               onClick={() => setIsServicesOpen(!isServicesOpen)}
-              className="group flex w-full items-center justify-between rounded-lg px-4 py-3 text-left text-base font-medium text-gray-900 hover:bg-gradient-to-r hover:from-red-50 hover:to-indigo-50 hover:text-red-700 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
+              className="group flex w-full items-center justify-between rounded-lg px-4 py-3 text-left text-base font-medium text-gray-900 hover:bg-gradient-to-r hover:from-red-50 hover:to-red-50 hover:text-red-700 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
             >
               <span className="flex items-center">
-                <span className="text-lg">Services</span>
+                <span className="text-base font-medium">Services</span>
               </span>
               <ChevronDown 
                 className={`h-5 w-5 text-gray-500 transition-transform duration-200 ${
