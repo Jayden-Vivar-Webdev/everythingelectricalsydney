@@ -53,13 +53,13 @@ export const metadata = {
 };
 
 interface PageProps {
-  searchParams?: {
-    page?: string;
-  }
+  searchParams?: Promise<{ page?: string }>;
 }
 
+
 export default async function IndexPage({ searchParams }: PageProps) {
-  const currentPage = parseInt(searchParams?.page ?? '1', 10);
+  const params = await searchParams;
+  const currentPage = parseInt(params?.page ?? '1', 10);
   const start = (currentPage - 1) * POSTS_PER_PAGE;
   const end = start + POSTS_PER_PAGE;
 
