@@ -17,8 +17,9 @@ const POST_QUERY = `*[_type == "customSections" && slug.current == $slug][0]{
 
 export async function generateMetadata({ params }: { params: Params }) {
   const { slug, locationslug } = await params;
-  
-  const post = await client.fetch(POST_QUERY, { slug: slug });
+  const fullSlug = `/services/${slug}`;
+
+  const post = await client.fetch(POST_QUERY, { slug: fullSlug });
 
   if (!post) {
     return {
@@ -65,9 +66,9 @@ export async function generateMetadata({ params }: { params: Params }) {
 
 export default async function PostPage({ params }: { params: Params }) {
   const { slug, locationslug } = await params;
-
-  const post = await client.fetch(POST_QUERY, { slug: slug });
-
+  const fullSlug = `/services/${slug}`;
+  const post = await client.fetch(POST_QUERY, { slug: fullSlug });
+  
   const locationName = locationslug.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
   const postTitle = `${post.title} in ${locationName}`
   if (!post) {

@@ -1,22 +1,146 @@
-"use client"
-import FAQ from '@/app/components/faq/faq';
-import {
-    PhoneIcon,
-    
-  } from '@heroicons/react/24/outline'
-import MapLocations from '../locations/map-locations';
+import HeroMain from "@/app/components/hero/hero-main";
+import { redirect } from "next/navigation";
+import { EnhancedTestimonialSection } from "@/app/components/content/content-image";
+import type { ContentData } from "@/app/components/content/content-image";
+import generateLongDescription from "@/app/lib/generateLongDescription";
+import { PortableTextComponents } from '@portabletext/react';
+import MapLocations from "@/app/components/locations/map-locations";
+type Params = Promise<{slug: string}>
 import { Phone, Mail, MapPin } from 'lucide-react';
-  
+
+export async function generateMetadata({params}: {params: Params}){
+    const {slug} = await params
+    const fullslug = `/all-services/${slug}`
+    const updatedSlug = slug.replace('-', ' ')
+    const titleCaseSlug = updatedSlug.split(' ').map(word => word[0].toUpperCase() + word.slice(1))
+    if (!fullslug) {
+        return redirect('/services');
+    }
+    return {
+    
+    title: `Everything Electrical Sydney ${(slug)[0].toUpperCase}`,
+    description: `Everything Electrical Sydney provides mutiple services across ${(slug)[0].toUpperCase}.
+    These services include commercial and residential work, along with Level 2 Electrical Services. Everything Electrical Sydney also
+    provides 24/7 Emergency Electrical Services.
+    `,
+    alternates: {
+      canonical: `https://everythingelectricalsydney.com.au/${fullslug}`,
+    },
+    openGraph: {
+      url: `https://everythingelectricalsydney.com.au/${fullslug}`,
+      title: `Everything Electrical Sydney ${titleCaseSlug}`,
+      description: `Everything Electrical Sydney provides mutiple services across ${titleCaseSlug}.
+    These services include commercial and residential work, along with Level 2 Electrical Services. Everything Electrical Sydney also
+    provides 24/7 Emergency Electrical Services.
+    `,
+      images: [
+        {
+          url: 'https://everythingelectricalsydney.com.au/images/electrical_og.png',
+          width: 1200,
+          height: 630,
+          alt: `Everything Electrical Sydney Providing Services to ${titleCaseSlug} and surrounding locations`,
+          type: 'image/png',
+        },
+      ],
+      siteName: 'Everything Electrical Sydney', // ✅ correct key
+    },
+    keywords: [
+      `Everything Electrical Sydney ${titleCaseSlug}`,
+      `${titleCaseSlug} Electrical services`,
+      'CCTV Installation',
+      `${titleCaseSlug} Electrician`,
+      `${titleCaseSlug} Electrician`,
+    ],
+    authors: [{ name: 'Nexa Web' }],
+  }
+}
 
 
 
-const ContactPageBottom = () => {
+export default async function AllServices({params}: {params: Params}){
 
-  return (
-    <>
+    const {slug} = await params
+    const updatedSlug = slug.replace('-', ' ')
+    const titleCaseSlug = updatedSlug.split(' ').map(word => word[0].toUpperCase() + word.slice(1)).join(' ');
 
-      {/* Contact Methods */}
-      <section className="py-24 bg-gray-900">
+    const content: ContentData = {
+      title: `Comprehensive Electrical Services in ${titleCaseSlug}`,
+      label: "Areas We Serve",
+      quote: `We've proudly helped hundreds of homeowners and businesses in ${titleCaseSlug} with reliable and efficient electrical services.`,
+      image: {
+        src: "/images/electrician.jpg",
+        alt: `Electrical services in ${titleCaseSlug}`
+      },
+      logoImage: {
+        src: "https://cdn.sanity.io/images/8dp3bjvf/production/1b7e474f74450217589bd452389ec3f836edbce3-1250x1250.png",
+        alt: "Everything Electrical Sydney"
+      },
+      companyName: "Everything Electrical Sydney",
+      location: `Everything Electrical Sydney and ${titleCaseSlug}`,
+      description: [
+        {
+          _type: 'block',
+          style: 'normal',
+          children: [
+            {
+              _type: 'span',
+              text: generateLongDescription(titleCaseSlug.toString()),
+            },
+            
+          ],
+          markDefs: []
+        }
+      ],
+      stats: [
+        { label: "Jobs Completed", value: "3,000+" },
+        { label: "Emergency Services", value: "24/7" },
+        { label: "Years Experience", value: "10+" },
+        { label: "Star Rating", value: "5.0" },
+      ],
+      cta: "Get a Free Quote",
+    };
+    const portableTextComponents: PortableTextComponents = {
+      block: {
+        normal: ({ children }) => <p className="mb-4">{children}</p>,
+      },
+    };
+
+    if(!slug){
+        redirect('/services')
+    }
+    return(
+        <>
+        
+        <HeroMain 
+        announcementText={`Professional Electrical Services ${titleCaseSlug}`}
+        announcementLink={'#contact'}
+        headline={`${titleCaseSlug} Electrical Services Sydney`}
+        subheadline={`Everything Electrical Your Trusted Electrical Provider In ${titleCaseSlug}`}
+        backgroundImage={'/images/electrician.jpg'}
+        backgroundImageAlt={`Electrical Services in ${titleCaseSlug}`}
+        primaryCtaText={'Call Now'}
+        primaryCtaUrl={`tel:0449003526`}
+        secondaryCtaText={`Book Now`}
+        secondaryCtaUrl={'/contact'}
+        />
+    
+        <EnhancedTestimonialSection 
+          contentInfo={content} 
+          isDarkMode={false}
+          portableTextComponents={portableTextComponents}
+        />
+        <div className='py-10 bg-white'>
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 pb-10">
+        <span className="mr-2">Servicing Location</span>
+        <span className="text-red-600">Mapped View </span>
+        
+        </h1>
+          <MapLocations />
+        </div> 
+        </div>
+        
+         <section className="py-24 mt-30 bg-gray-900">
       <div className="container mx-auto px-4">
         <div className="text-center mb-20">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight">
@@ -132,73 +256,9 @@ const ContactPageBottom = () => {
         </div>
       </div>
     </section>
+        </>
+    )
+   
 
-      {/* Location Section */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-              Our Service Locations
-            </h2>
-            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-              Conveniently located to assist with your electrical service needs across Sydney.
-            </p>
-          </div>
-
-          <MapLocations />
-
-         
-        </div>
-      </section>
-
-      {/* FAQ Section */}
-      <section className="py-20 bg-gray-900">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <span className="inline-block bg-red-600 text-white px-4 py-2 rounded-full text-xs font-semibold mb-4">
-              Frequently Asked Questions
-            </span>
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Common Questions About Our Services
-            </h2>
-            <p className="text-lg text-white max-w-2xl mx-auto">
-              Find answers to the most frequently asked questions about our electrical services and solutions.
-            </p>
-          </div>
-          
-        </div>
-        <FAQ />
-        <div className="flex relative py-[15rem] bg-cover bg-center bg-no-repeat text-white" style={{ backgroundImage: "url('/images/assets/electrical-switchbox.jpg')" }}>
-        <div className="absolute inset-0 bg-black/70 z-0"></div> {/* Overlay behind content */}
-
-        <div className="relative z-10 container mx-auto px-4 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Ready to inquire about your next electrical service?
-            </h2>
-            <p className="text-xl max-w-2xl mx-auto mb-8 text-white">
-            Schedule a free consultation with our certified electrical specialists today.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a 
-                href="#contact" 
-                className="inline-flex items-center justify-center bg-white text-red-600 px-8 py-4 rounded-lg font-bold hover:bg-red-50 transition-all duration-200 shadow-lg hover:shadow-xl"
-            >
-                Get Free Consultation
-            </a>
-            <a 
-                href="tel:0449003526" 
-                className="inline-flex items-center justify-center border-2 border-white text-white hover:bg-white hover:text-red-600 px-8 py-4 rounded-lg font-bold transition-all duration-200"
-            >
-                <PhoneIcon className="h-5 w-5 mr-2" />
-                Call 0449 003 526
-            </a>
-            </div>
-        </div>
-        </div>
-      </section>
-      
-    </>
-  );
-};
-
-export default ContactPageBottom;
+    
+}

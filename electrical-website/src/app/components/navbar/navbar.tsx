@@ -12,12 +12,12 @@ import {
   
 } from '@headlessui/react'
 import { ChevronDown, ChevronRight } from 'lucide-react';
+import { usePathname } from 'next/navigation';
 import {
   Bars3Icon,
   BellAlertIcon,
   BuildingOfficeIcon,
   ClipboardDocumentCheckIcon,
-  DevicePhoneMobileIcon,
   DocumentTextIcon,
   FireIcon,
   HomeIcon,
@@ -27,98 +27,87 @@ import {
   WrenchIcon,
   XMarkIcon,
 } from '@heroicons/react/24/outline'
-import { ChevronDownIcon, AdjustmentsHorizontalIcon, WrenchScrewdriverIcon, Cog8ToothIcon, Battery100Icon, BoltIcon, PhoneIcon, RectangleGroupIcon } from '@heroicons/react/20/solid'
+import { ChevronDownIcon, WrenchScrewdriverIcon, Cog8ToothIcon, Battery100Icon, BoltIcon, PhoneIcon, RectangleGroupIcon } from '@heroicons/react/20/solid'
 
 
 const products = [
   {
     name: 'Emergency Electrician',
     description: 'Rapid 24/7 response across Sydney for faults, outages & hazards.',
-    href: '/emergency-electrician',
+    href: '/services/emergency-electrician',
     icon: BoltIcon,
   },
   {
     name: 'Level 2 Electrician',
     description: 'Expert Level 2 electricians for advanced electrical needs.',
-    href: '/level-2-electrician',
+    href: '/services/level-2-electrician',
     icon: WrenchScrewdriverIcon,
   },
   {
     name: 'Switch Board Upgrades',
     description: 'Fast upgrades to improve safety and performance.',
-    href: '/switchboard-upgrades',
+    href: '/services/switchboard-upgrades',
     icon: Cog8ToothIcon,
   },
   {
     name: 'EV Charger Installation',
     description: 'Fast and efficient EV charger installations at your home.',
-    href: '/ev-chargers',
+    href: '/services/ev-chargers',
     icon: Battery100Icon,
   },
   {
     name: 'Hot Water Systems',
     description: 'Installation and maintenance of electric hot water systems.',
-    href: '/hot-water-systems',
+    href: '/services/hot-water-systems',
     icon: FireIcon,
   },
   {
-    name: 'Electrical Repairs',
+    name: 'Electrical Repairs & Maintenance',
     description: 'Prompt and reliable electrical repairs for home or business.',
-    href: '/electrical-repairs',
+    href: '/services/electrical-repairs-maintenance',
     icon: WrenchIcon,
-  },
-  {
-    name: 'Ceiling Fans',
-    description: 'Installations for year-round comfort and energy efficiency.',
-    href: '/ceiling-fans',
-    icon: DevicePhoneMobileIcon,
   },
   {
     name: 'CCTV Installation',
     description: 'High-quality surveillance for home and business security.',
-    href: '/cctv-installation',
+    href: '/services/cctv-installation',
     icon: VideoCameraIcon,
   },
   {
     name: 'Air Conditioning Services',
     description: 'Licensed aircon wiring & installation of split/ducted systems.',
-    href: '/air-conditioning',
+    href: '/services/air-conditioning',
     icon: SunIcon,
   },
   {
     name: 'Residential Electrical',
     description: 'Complete electrical solutions for homes and renovations.',
-    href: '/residential-electrical',
+    href: '/services/residential-electrical',
     icon: HomeIcon,
   },
   {
     name: 'Commercial Electrical',
     description: 'Fit-outs, maintenance & energy-efficient solutions for business.',
-    href: '/commercial-electrical',
+    href: '/services/commercial-electrical',
     icon: BuildingOfficeIcon,
   },
-  {
-    name: 'Electrical Maintenance & Repairs',
-    description: 'Emergency & scheduled servicing for all property types.',
-    href: '/electrical-maintenance',
-    icon: AdjustmentsHorizontalIcon,
-  },
+  
   {
     name: 'Smart Home, Alarms & Connected Systems',
     description: 'Smart lighting, alarms & climate control accessible from your phone.',
-    href: '/smart-home',
+    href: '/services/smart-home',
     icon: SparklesIcon,
   },
   {
     name: 'Smoke Alarms & Compliance',
     description: 'Certified installations & testing to meet NSW safety standards.',
-    href: '/smoke-alarms',
+    href: '/services/smoke-alarms',
     icon: BellAlertIcon,
   },
   {
     name: 'Real Estate & Strata Services',
     description: 'Reliable support & maintenance for property managers.',
-    href: '/real-estate-strata',
+    href: '/services/real-estate-strata',
     icon: ClipboardDocumentCheckIcon,
   },
 ]
@@ -135,11 +124,11 @@ export default function NavBar() {
   const [isServicesOpen, setIsServicesOpen] = useState(false);
 
   // Sample data - replace with your actual data
- 
+  const pathname = usePathname();
 
   return (
     <>
-    <header className=" fixed top-0 left-0 w-full bg-white shadow z-50">
+    <header className="fixed top-0 left-0 w-full bg-white shadow z-50">
       <nav aria-label="Global" className="mx-auto flex max-w-7xl items-center justify-between px-6 py-2 lg:px-8">
         <div className="flex lg:flex-1">
           <Link href="/" className="flex relative max-h-[5rem] p-2 overflow-hidden justify-center items-center lg:w-[30rem]">
@@ -153,7 +142,7 @@ export default function NavBar() {
             />
           </Link>
         </div>
-        <div className="flex lg:hidden">
+        <div className="flex xl:hidden">
           <button
             type="button"
             onClick={() => setMobileMenuOpen(true)}
@@ -163,9 +152,16 @@ export default function NavBar() {
             <Bars3Icon aria-hidden="true" className="size-6" />
           </button>
         </div>
-        <PopoverGroup className="lg:flex lg:gap-x-12">
+        <PopoverGroup className="hidden xl:flex items-center gap-x-10">
+
           <Popover>
-            <PopoverButton className="flex items-center gap-x-1 text-sm/6 font-semibold ">
+          <PopoverButton
+              className={`flex items-center gap-x-1 text-sm/6 font-semibold transition-all duration-200 border-b-2 ${
+                pathname.startsWith('/services') 
+                  ? 'border-red-600 text-red-700' 
+                  : 'border-transparent text-gray-700 hover:text-red-600 hover:border-red-300'
+              }`}
+            >
               Services
               <ChevronDownIcon aria-hidden="true" className="size-5 flex-none text-gray-400" />
             </PopoverButton>
@@ -198,7 +194,7 @@ export default function NavBar() {
                         <a
                           key={item.name}
                           href={item.href}
-                          className="flex text-white items-center justify-center gap-x-2.5 p-3 text-sm/6 font-semibold text-gray-900 hover:bg-red-500"
+                          className={`flex text-white items-center justify-center gap-x-2.5 p-3 text-sm/6 font-semibold text-gray-900 hover:bg-red-500  `}
                         >
                           <item.icon aria-hidden="true" className="size-5 flex-none text-white" />
                           {item.name}
@@ -211,28 +207,44 @@ export default function NavBar() {
             </PopoverPanel>
           </Popover>
 
-          <a href="/about" className="text-sm/6 font-semibold ">
+          <Link
+            href="/about"
+            className={`text-sm/6 font-semibold border-b-2 ${
+              pathname === '/about' ? 'border-red-600 text-red-600' : 'border-transparent'
+            } hover:border-red-400`}
+          >
             About
-          </a>
-          <a href="/contact" className="text-sm/6 font-semibold ">
+          </Link>
+
+          <Link href="/areas"className={`text-sm/6 font-semibold border-b-2 ${
+              pathname === '/areas' ? 'border-red-600 text-red-600' : 'border-transparent'
+            } hover:border-red-400`}>
+            Areas
+          </Link>
+          <Link href="/contact" className={`text-sm/6 font-semibold border-b-2 ${
+              pathname === '/contact' ? 'border-red-600 text-red-600' : 'border-transparent'
+            } hover:border-red-400`}>
             Contact
-          </a>
-          <a href="/blog" className="text-sm/6 font-semibold ">
+          </Link>
+          <Link href="/blog" className={`text-sm/6 font-semibold border-b-2 ${
+              pathname === '/blog' ? 'border-red-600 text-red-600' : 'border-transparent'
+            } hover:border-red-400`}>
             Blog
-          </a>
+          </Link>
           
-            
-            <a href="tel:" className="text-sm/6 secondary-bg text-white px-4 py-1 rounded-lg font-semibold hover:bg-red-500 inline-flex items-center gap-2">
+            <a
+              href="tel:0449003526"
+              id="tel:0449003526"
+              className="rounded-md inline-flex gap-1 secondary-bg px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:secondary-bg-light focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-400"
+            >
               <PhoneIcon className="h-5 w-5" />
-              Call Us
+              Call Now
             </a>
           
         </PopoverGroup>
-        
-          
-        
+
       </nav>
-      <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden">
+      <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="xl:hidden">
         <div className="fixed inset-0 z-50" />
         <DialogPanel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white p-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           <div className="flex items-center justify-between">
@@ -281,20 +293,28 @@ export default function NavBar() {
                 <div className="mt-2 ml-4 space-y-1 border-l-2 border-red-100 pl-4">
                   {products.map((item) => (
                     <a
-                      key={item.name}
-                      href={item.href}
-                      className="group flex items-start rounded-lg px-4 py-3 hover:bg-gray-50 transition-colors duration-150"
-                    >
-                      <div className="flex-1">
-                        <p className="text-sm font-medium text-gray-900 group-hover:text-red-700">
-                          {item.name}
-                        </p>
-                        <p className="text-xs text-gray-500 mt-1">
-                          {item.description}
-                        </p>
-                      </div>
-                      <ChevronRight className="h-4 w-4 text-gray-400 mt-0.5 opacity-0 group-hover:opacity-100 transition-opacity" />
-                    </a>
+                    key={item.name}
+                    href={item.href}
+                    className={`group flex items-start rounded-lg px-4 py-3 transition-colors duration-150
+                      ${pathname === item.href ? 'bg-gray-50' : 'hover:bg-gray-50'}`}
+                  >
+                    <div className="flex-1">
+                      <p
+                        className={`text-sm font-medium ${
+                          pathname === item.href ? 'text-red-700' : 'text-gray-900 group-hover:text-red-700'
+                        }`}
+                      >
+                        {item.name}
+                      </p>
+                      <p className="text-xs text-gray-500 mt-1">{item.description}</p>
+                    </div>
+                    <ChevronRight
+                      className={`h-4 w-4 mt-0.5 transition-opacity ${
+                        pathname === item.href ? 'text-red-700 opacity-100' : 'text-gray-400 opacity-0 group-hover:opacity-100'
+                      }`}
+                    />
+                  </a>
+                  
                   ))}
                   
                   {/* Call to Action Items */}
@@ -314,29 +334,37 @@ export default function NavBar() {
             </div>
 
             {/* Main Navigation Links MAKESURE TO REMOVE HIDDEN */}
-            <a
+            <Link
               href="/about"
               className="group flex items-center justify-between rounded-lg px-4 py-3 text-base font-medium text-gray-900 hover:bg-gradient-to-r hover:from-gray-50 hover:to-gray-100 hover:text-gray-700 transition-all duration-200"
             >
               <span>About</span>
               <ChevronRight className="h-4 w-4 text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity" />
-            </a>
+            </Link>
 
-            <a
+            <Link
+              href="/areas"
+              className="group flex items-center justify-between rounded-lg px-4 py-3 text-base font-medium text-gray-900 hover:bg-gradient-to-r hover:from-gray-50 hover:to-gray-100 hover:text-gray-700 transition-all duration-200"
+            >
+              <span>Areas</span>
+              <ChevronRight className="h-4 w-4 text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity" />
+            </Link>
+
+            <Link
               href="/contact"
               className="group flex items-center justify-between rounded-lg px-4 py-3 text-base font-medium text-gray-900 hover:bg-gradient-to-r hover:from-gray-50 hover:to-gray-100 hover:text-gray-700 transition-all duration-200"
             >
               <span>Contact</span>
               <ChevronRight className="h-4 w-4 text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity" />
-            </a>
+            </Link>
 
-            <a
+            <Link
               href="/blog"
               className="group flex items-center justify-between rounded-lg px-4 py-3 text-base font-medium text-gray-900 hover:bg-gradient-to-r hover:from-gray-50 hover:to-gray-100 hover:text-gray-700 transition-all duration-200"
             >
               <span>Blog</span>
               <ChevronRight className="h-4 w-4 text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity" />
-            </a>
+            </Link>
           </div>
 
           {/* Action Section */}

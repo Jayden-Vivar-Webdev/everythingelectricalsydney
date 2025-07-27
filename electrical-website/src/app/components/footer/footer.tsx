@@ -3,11 +3,11 @@ import React from 'react';
 import Image from 'next/image';
 const navigation = {
   services: [
-    { name: 'Electrical Installations', href: '/services/installations' },
-    { name: 'Switchboard Upgrades', href: '/services/switchboards' },
-    { name: 'Lighting Solutions', href: '/services/lighting' },
-    { name: 'Safety Inspections', href: '/services/inspections' },
-    { name: 'Emergency Repairs', href: '/services/emergency' },
+    { name: 'Level 2 Electrician Services', href: '/services/level-2-electrician' },
+    { name: 'Switchboard Upgrades', href: '/services/switchboard-upgrades' },
+    { name: 'Residential Solutions', href: '/services/residential-electrical' },
+    { name: 'Commercial Electrical', href: '/services/commercial-electrical' },
+    { name: 'Emergency Repairs', href: '/services/emergency-electrician' },
   ],
   areas: [
     { name: 'Sydney CBD', href: '/areas/cbd' },
@@ -18,28 +18,26 @@ const navigation = {
   ],
   company: [
     { name: 'About Us', href: '/about' },
-    { name: 'Our Team', href: '/team' },
-    { name: 'Testimonials', href: '/testimonials' },
-    { name: 'Careers', href: '/careers' },
+    { name: 'Services', href: '/services' },
   ],
   contact: [
     { name: 'Call: 0449 003 526', href: 'tel:0449003526' },
-    { name: 'Contact Form', href: '#contact' }
+    { name: 'Contact Form', href: '/contact' }
   ],
   social: [
-    {
-      name: 'Facebook',
-      href: 'https://facebook.com/everythingelectricalsydney',
-      icon: (props: React.SVGProps<SVGSVGElement>) => (
-        <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
-          <path
-            fillRule="evenodd"
-            d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
-            clipRule="evenodd"
-          />
-        </svg>
-      ),
-    },
+    // {
+    //   name: 'Facebook',
+    //   href: 'https://facebook.com/everythingelectricalsydney',
+    //   icon: (props: React.SVGProps<SVGSVGElement>) => (
+    //     <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
+    //       <path
+    //         fillRule="evenodd"
+    //         d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
+    //         clipRule="evenodd"
+    //       />
+    //     </svg>
+    //   ),
+    // },
     {
       name: 'Instagram',
       href: 'https://instagram.com/everythingelectricalsydney',

@@ -1,9 +1,11 @@
 // import NavBar from "./components/navbar/navbar";
 import ContactWidget from "./components/widgets/contact-float";
 import '@/app/globals.css'
+import NavBar from "./components/navbar/navbar";
 import FooterBanner from "./components/banner/nexa-banner";
 import { Analytics } from "@vercel/analytics/next"
-// import Footer from "./components/footer/footer";
+import Footer from "./components/footer/footer";
+
 
 export const metadata = {
   title: 'Everything Electricals — Licensed Electricians for Camden & Campbelltown',
@@ -65,13 +67,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body
         
       >
-        {/* <NavBar /> */}
-        {/* <main className="pt-[6rem]"> */}
-        <main className="">
+        <NavBar />
+        
+        <main className="pt-[6rem]">
           {children}
         </main>
         <ContactWidget />
-        {/* <Footer /> */}
+        <Footer />
         <FooterBanner />
         <Analytics />
       </body>

@@ -49,7 +49,7 @@ export default function HeroMain({
                   {announcementLink && (
                     <a href={announcementLink} className="font-semibold text-white">
                       <span aria-hidden="true" className="absolute inset-0" />
-                      Read more <span aria-hidden="true">&rarr;</span>
+                       Contact Us <span aria-hidden="true">&rarr;</span>
                     </a>
                   )}
                 </div>

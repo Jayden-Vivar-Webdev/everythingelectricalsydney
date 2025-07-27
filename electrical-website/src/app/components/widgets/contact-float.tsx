@@ -1,14 +1,13 @@
 'use client'
-import { useState } from 'react';
-import { PhoneIcon, EnvelopeIcon, ChatBubbleBottomCenterTextIcon, XMarkIcon } from '@heroicons/react/24/outline';
+import { PhoneIcon} from '@heroicons/react/24/outline';
 
 export default function ContactWidget() {
-  const [open, setOpen] = useState(false);
+  // const [open, setOpen] = useState(false);
 
   return (
     <>
       {/* Available Now Status Indicator */}
-      <div className="fixed bottom-6 left-6 z-50">
+      <div className="fixed bottom-6 right-6 z-50">
         <div className="bg-white rounded-2xl shadow-2xl border border-gray-100 px-5 py-3 backdrop-blur-sm">
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-3">
@@ -40,7 +39,7 @@ export default function ContactWidget() {
       </div>
 
       {/* Contact Widget */}
-      <div className="hidden fixed bottom-6 right-6 z-50">
+      {/* <div className="fixed bottom-6 right-6 z-50">
         {open && (
           <div className="mb-3 p-6 bg-white rounded-2xl shadow-2xl border border-gray-100 space-y-4 min-w-[280px] backdrop-blur-sm">
             <div className="flex justify-between items-center border-b border-gray-100 pb-3">
@@ -80,7 +79,7 @@ export default function ContactWidget() {
               </div>
             </a>
             
-            {/* <button className="flex items-center gap-4 text-gray-700 hover:text-red-600 transition-all duration-200 group w-full p-3 rounded-xl hover:bg-red-50">
+            <button className="flex items-center gap-4 text-gray-700 hover:text-red-600 transition-all duration-200 group w-full p-3 rounded-xl hover:bg-red-50">
               <div className="bg-red-600 p-3 rounded-full shadow-lg group-hover:bg-red-700 transition-colors">
                 <ChatBubbleBottomCenterTextIcon className="h-5 w-5 text-white" />
               </div>
@@ -88,7 +87,7 @@ export default function ContactWidget() {
                 <span className="text-xs font-medium text-gray-500 uppercase tracking-wide">Chat</span>
                 <span className="text-sm font-semibold text-gray-800 group-hover:text-red-600">Live Chat</span>
               </div>
-            </button> */}
+            </button>
           </div>
         )}
         <div className='flex w-full justify-end'>
@@ -106,7 +105,7 @@ export default function ContactWidget() {
             )}
           </button>
         </div>
-      </div>
+      </div> */}
     </>
   );
 }

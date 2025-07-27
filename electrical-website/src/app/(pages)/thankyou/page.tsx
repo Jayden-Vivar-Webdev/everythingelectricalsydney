@@ -1,14 +1,51 @@
 import MapLocations from "@/app/components/locations/map-locations"
 import Link from "next/link"
+import Image from "next/image";
+export const metadata = {
+  title: 'Thank You — Everything Electrical Sydney | We’ve Received Your Message',
+  description:
+    'Thanks for contacting Everything Electrical Sydney. Your enquiry has been received and our team will be in touch shortly to assist with your electrical needs.',
+  alternates: {
+    canonical: 'https://everythingelectricalsydney.com.au/thankyou',
+  },
+  openGraph: {
+    url: 'https://everythingelectricalsydney.com.au/thankyou',
+    title: 'Thank You — Everything Electrical Sydney',
+    description:
+      'We appreciate you getting in touch! A member of the Everything Electrical Sydney team will respond shortly to assist with your enquiry.',
+    images: [
+      {
+        url: 'https://everythingelectricalsydney.com.au/images/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Thank You – Everything Electrical Sydney',
+        type: 'image/png',
+      },
+    ],
+    siteName: 'Everything Electrical Sydney',
+  },
+  keywords: [
+    'thank you page',
+    'contact confirmation',
+    'Everything Electrical Sydney message received',
+    'electrical enquiry confirmation',
+    'Sydney electrician contact',
+  ],
+  authors: [{ name: 'Everything Electrical Sydney' }],
+};
+
+
 export default function ThankYou(){
     return(
         <>
         <div className="bg-gray-900 relative">
       <div className="relative isolate overflow-hidden pt-14 pb-[10rem]">
-        <img
-          alt='Thank you for contacting everythign electrical'
-          src='/images/assets/electrical-switchbox.jpg'
-          className="absolute inset-0 -z-10 w-full h-full object-cover opacity-[0.2]"
+      <Image
+          alt="Thank you for contacting Everything Electrical"
+          src="/images/assets/electrical-switchbox.jpg"
+          fill
+          className="object-cover opacity-20 -z-10"
+          style={{ position: 'absolute', inset: 0 }}
         />
         <div
           aria-hidden="true"

@@ -15,7 +15,7 @@ type ContentSectionProps = {
   header: string;
   description: string;
   subHeader: string;
-  content: string;
+  content: React.ReactNode;
   images: ImageProps[];
   statsHeader: string;
   stats: StatItemProps[];
@@ -54,9 +54,9 @@ export default function ContentSection({
             <h2 className="text-2xl font-bold tracking-tight text-gray-900">
               {subHeader}
             </h2>
-            <p className="mt-6 text-base leading-7 text-gray-600">
+            <div className="mt-6 text-xl leading-8 text-gray-600">
               {content}
-            </p>
+            </div>
           </div>
 
           {/* Image Gallery */}
@@ -83,28 +83,36 @@ export default function ContentSection({
           </div>
 
           {/* Stats Section */}
-          <div className="lg:col-span-1">
-            <div className="border-t border-gray-200 pt-8">
-              <p className="text-base font-semibold leading-7 secondary-text">
+          <div className="pt-10 lg:col-span-2">
+            {/* Red divider */}
+            
+
+            <h3 className="text-base font-medium text-slate-700 mb-2 uppercase tracking-wide">
                 {statsHeader}
-              </p>
-              <dl className="mt-6 grid grid-cols-1 gap-8 sm:grid-cols-2">
-                {stats.slice(0, 4).map((stat, index) => (
-                  <div
-                    key={index}
-                    className={`flex flex-col border-b border-gray-200 pb-6 ${
-                      index === 2 ? "sm:border-b sm:pb-6" : ""
-                    }`}
-                  >
-                    <dt className="text-sm font-medium text-gray-600">
-                      {stat.stat}
-                    </dt>
-                    <dd className="mt-2 text-3xl font-bold tracking-tight text-gray-900">
-                      {stat.value}
-                    </dd>
+              </h3>
+              <div className="w-16 h-[2px] bg-red-600 mb-6"></div>
+
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+              {stats.slice(0, 4).map((stat, index) => (
+                <div
+                  key={index}
+                  className="group p-6 border border-slate-200 rounded-xl hover:shadow-md hover:bg-slate-50 transition duration-200"
+                >
+                  <div className="flex flex-col justify-between h-full">
+                    <div>
+                      <dt className="text-sm font-medium text-slate-600 mb-1">
+                        {stat.stat}
+                      </dt>
+                      <dd className="text-2xl font-semibold text-slate-900 tabular-nums">
+                        {stat.value}
+                      </dd>
+                    </div>
+
+                    {/* Bottom accent bar */}
+                    <div className="mt-4 h-1 w-12 bg-red-300 group-hover:bg-red-600 transition-colors duration-200"></div>
                   </div>
-                ))}
-              </dl>
+                </div>
+              ))}
             </div>
           </div>
         </div>

@@ -1,4 +1,4 @@
-import { PortableText, PortableTextComponents } from '@portabletext/react';
+import { PortableText} from '@portabletext/react';
 import Image from 'next/image';
 import { urlFor } from '../sanity/imagebuilder';
 import Link from 'next/link';
@@ -8,86 +8,29 @@ import Services from '../components/services/servicesList';
 import Stats from '../components/stats/stats';
 import ContentSection from '../components/content/contentSection';
 import GoogleReviews from '../components/testimonials/google-reviews';
-import { ContentSectionImageBlock } from '../sanity-blocks/sanity-types';
+import * as SanityTypes from '../sanity-blocks/sanity-types';
 import {EnhancedTestimonialSection} from '../components/content/content-image';
 import { ContentData } from '../components/content/content-image';
 import ServiceHeroSection from '../components/servicehero/service-hero'; 
-import {
-  PortableTextBlock,
-  
-} from '@portabletext/types';
-export const contentMap: Record<string, (block: { _type: string; [key: string]: unknown}, index: number) => React.ReactElement
-> = {
+import {PortableTextBlock} from '@portabletext/types';
+import ServicesHero from '../components/hero/hero-services';
+import { portableTextComponents } from './text-components';
+
+export type SanityBlockRenderer = (block: { _type: string; [key: string]: unknown }, index: number) => React.ReactElement;
+
+
+
+export const contentMap: Record<string, SanityBlockRenderer> = {
   block: (block, index) => {
-    const components: PortableTextComponents = {
-      block: {
-        normal: ({ children }) => <p className="mb-6 text-lg md:text-xl text-gray-600">{children}</p>,
-        strong: ({ children }) =>  <strong className="mb-6 text-black">{children}</strong>,
-        h1: ({ children }) => (
-          <h1 className="text-black text-4xl md:text-5xl lg:text-6xl font-bold pb-6">
-            {children}
-          </h1>
-        ),
-        h2: ({ children }) => (
-          <h2 className="text-black text-3xl md:text-4xl font-semibold pb-5">
-            {children}
-          </h2>
-        ),
-        h3: ({ children }) => (
-          <h3 className="text-black text-2xl md:text-3xl font-semibold pb-4">
-            {children}
-          </h3>
-        ),
-        h4: ({ children }) => (
-          <h4 className="text-black md:text-2xl font-semibold pb-3">
-            {children}
-          </h4>
-        ),
-        h5: ({ children }) => (
-          <h5 className="text-black text-lg md:text-xl font-semibold pb-3">
-            {children}
-          </h5>
-        ),
-      },
-      list: {
-        bullet: ({ children }) => (
-          <ul className="pt-3 text-gray-600 list-disc list-inside space-y-2 mb-6 text-lg md:text-xl">{children}</ul>
-        ),
-        number: ({ children }) => (
-          <ol className="text-gray-600 list-decimal list-inside space-y-2 mb-6 text-lg md:text-xl">{children}</ol>
-        ),
-      },
-      listItem: {
-        bullet: ({ children }) => <li className="text-gray-600 ml-3 text-lg mb-5 md:text-xl">{children}</li>,
-        number: ({ children }) => <li className="text-gray-600  ml-3 text-lg md:text-xl">{children}</li>,
-      },
-        
-    };
-  
     return (
       <div key={index} className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-light/90">
-        <PortableText value={block} components={components} />
+        <PortableText value={block} components={portableTextComponents} />
       </div>
     );
   },
 
   heroSection: (block, index) => {
-    const heroSection = block as {
-      _type: 'heroSection';
-      announcementText?: string;
-      announcementLink?: string;
-      headline: string;
-      subheadline?: string;
-      backgroundImage: {
-        _type: 'image';
-        asset: { _ref: string; _type: 'reference' };
-        alt?: string;
-      };
-      primaryCtaText?: string;
-      primaryCtaUrl?: string;
-      secondaryCtaText?: string;
-      secondaryCtaUrl?: string;
-    };
+    const heroSection = block as unknown as SanityTypes.HeroSectionBlock
   
     return (
       <HeroMain
@@ -108,23 +51,7 @@ export const contentMap: Record<string, (block: { _type: string; [key: string]: 
 
 
   heroContact: (block, index) => {
-    const contactForm = block as {
-      _type: 'heroContact';
-      title: string;
-      description?: string;
-      backgroundImage: {
-        _type: 'image';
-        asset: { _ref: string; _type: 'reference' };
-        alt?: string;
-      };
-      address: {
-        line1: string;
-        line2?: string;
-        cityStateZip: string;
-      };
-      phone: string;
-      email: string;
-    };
+    const contactForm = block as unknown as SanityTypes.HeroContactBlock
   
     return (
       <HeroContact
@@ -140,25 +67,8 @@ export const contentMap: Record<string, (block: { _type: string; [key: string]: 
   },
   
   serviceHeroBlock: (block, index) => {
-    const serviceBlock = block as {
-      _type: 'serviceHeroBlock',
-      theme: string,
-      image: {
-        _type: 'image';
-        asset: { _ref: string; _type: 'reference' };
-        alt?: string;
-      };
-      badge?: string;
-      title?: string;
-      description?: string;
-      stats?: Array<{
-        id: number;
-        name: string;
-        value: string
-      }>;
-      imagePosition: string;
-    }
-    console.log(serviceBlock)
+    const serviceBlock = block as unknown as SanityTypes.ServiceHeroBlock
+
     return(
       <ServiceHeroSection
         key={index}
@@ -247,17 +157,8 @@ export const contentMap: Record<string, (block: { _type: string; [key: string]: 
   },
   
 
-  imageGrid: (block, index) => {
-    type SanityImage = {
-      _type: 'image';
-      alt?: string;
-      asset: {
-        _ref: string;
-        _type: 'reference';
-      };
-    };
-  
-    const images = (block.images ?? []) as SanityImage[];
+  imageGrid: (block, index) => {  
+    const images = (block.images ?? []) as SanityTypes.SanityImage[];
   
     return (
       <div key={index} className="grid grid-cols-1 md:grid-cols-2 gap-4 my-6 py-10">
@@ -286,12 +187,7 @@ export const contentMap: Record<string, (block: { _type: string; [key: string]: 
   
 
   gridInfo: (block, index) => {
-    interface Feature {
-      icon: React.ReactNode;
-      title: string;
-      description: string;
-    }
-    const features = block.features as Feature[];
+    const features = block.features as SanityTypes.Feature[];
 
     return(
       <div key={index} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 py-15">
@@ -309,25 +205,7 @@ export const contentMap: Record<string, (block: { _type: string; [key: string]: 
 
 
   servicesSection: (block, index) => {
-    const section = block as {
-      _type: 'servicesSection';
-      header: string;
-      subheader?: string;
-      services: {
-        title?: string;
-        href?: string;
-        description?: string;
-        image?: {
-          asset: { _ref: string };
-          alt?: string;
-        };
-        subtitle?: string;
-        icon?: {
-          name?: string;
-        
-        };
-      }[];
-    };
+    const section = block as unknown as SanityTypes.ServicesSectionBlock
   
     const serviceItems = section.services?.map((item, i) => ({
       id: i,
@@ -354,17 +232,8 @@ export const contentMap: Record<string, (block: { _type: string; [key: string]: 
   
 
   featureSection: (block, index) => {
-    interface featureSection {
-      _type: 'featureSection';
-      title: string;
-      description?: string;
-      featureItems: Array<{
-        name: string;
-        value: string;
-      }>;
-    }
-  
-    const statsBlock = block as unknown as featureSection;
+    
+    const statsBlock = block as unknown as SanityTypes.FeatureSectionBlock;
     
     return (
       <Stats
@@ -379,31 +248,9 @@ export const contentMap: Record<string, (block: { _type: string; [key: string]: 
 
 
   contentSection: (block, index) => {
-    interface ContentSectionBlock {
-      _type: 'contentSection';
-      tag: string;
-      header: string;
-      description: string;
-      subHeader: string;
-      content: string;
-      images: Array<{
-        image: {
-          _type: "image";
-          asset: {
-            _ref: string;
-            _type: "reference";
-          };
-        };
-        alt: string;
-      }>;
-      statsHeader: string;
-      stats: Array<{
-        stat: string;
-        value: string;
-      }>;
-    }
+    
   
-    const contentBlock = block as unknown as ContentSectionBlock;
+    const contentBlock = block as unknown as SanityTypes.ContentSectionBlock;
     
     // Convert Sanity image refs to URLs
     const images = contentBlock.images.map(({ image, alt }) => ({
@@ -418,7 +265,13 @@ export const contentMap: Record<string, (block: { _type: string; [key: string]: 
         header={contentBlock.header}
         description={contentBlock.description}
         subHeader={contentBlock.subHeader}
-        content={contentBlock.content}
+        content={contentBlock.content
+          .split('\n\n')
+          .map((para, idx) => (
+            <p key={idx} className="mb-4">
+              {para}
+            </p>
+          ))}
         images={images} // mapped images with URLs
         statsHeader={contentBlock.statsHeader}
         stats={contentBlock.stats}
@@ -428,27 +281,7 @@ export const contentMap: Record<string, (block: { _type: string; [key: string]: 
 
   googleReviewsBlockSection: (block, index) => {
     
-    interface GoogleReviewsBlock {
-    _type: 'googleReviewsBlockSection';
-    title: string;
-    subtitle: string;
-    overallRating: number;
-    totalReviews: number;
-    theme: 'light' | 'dark';
-    showViewAllButton: boolean;
-    reviews: Array<{
-      _type: 'review'
-      id: number;
-      name: string;
-      avatar: string;
-      rating: number;
-      timeAgo: string;
-      text: string;
-      helpful: number;
-    }>
-  }
-
-  const contentBlock = block as unknown as GoogleReviewsBlock;
+  const contentBlock = block as unknown as SanityTypes.GoogleReviewsBlock;
     return (
       
       <GoogleReviews
@@ -465,51 +298,7 @@ export const contentMap: Record<string, (block: { _type: string; [key: string]: 
   },
 
   contentSectionImage: (block, index) => {
-    const contentBlock = block as unknown as ContentSectionImageBlock;
-  
-    const components: PortableTextComponents = {
-      block: {
-        normal: ({ children }) => <p className="mb-6 text-lg md:text-xl text-gray-600">{children}</p>,
-        strong: ({ children }) =>  <strong className="mb-6 text-black">{children}</strong>,
-        h1: ({ children }) => (
-          <h1 className="text-black text-4xl md:text-5xl lg:text-6xl font-bold pb-6">
-            {children}
-          </h1>
-        ),
-        h2: ({ children }) => (
-          <h2 className="text-black text-3xl md:text-4xl font-semibold pb-5">
-            {children}
-          </h2>
-        ),
-        h3: ({ children }) => (
-          <h3 className="text-black text-2xl md:text-3xl font-semibold pb-4">
-            {children}
-          </h3>
-        ),
-        h4: ({ children }) => (
-          <h4 className="text-black md:text-2xl font-semibold pb-3">
-            {children}
-          </h4>
-        ),
-        h5: ({ children }) => (
-          <h5 className="text-black text-lg md:text-xl font-semibold pb-3">
-            {children}
-          </h5>
-        ),
-      },
-      list: {
-        bullet: ({ children }) => (
-          <ul className="pt-3 text-gray-600 list-disc list-inside space-y-2 mb-6 text-lg md:text-xl">{children}</ul>
-        ),
-        number: ({ children }) => (
-          <ol className="text-gray-600 list-decimal list-inside space-y-2 mb-6 text-lg md:text-xl">{children}</ol>
-        ),
-      },
-      listItem: {
-        bullet: ({ children }) => <li className="text-gray-600 ml-3 text-lg mb-5 md:text-xl">{children}</li>,
-        number: ({ children }) => <li className="text-gray-600  ml-3 text-lg md:text-xl">{children}</li>,
-      },
-    };
+    const contentBlock = block as unknown as SanityTypes.ContentSectionImageBlock;
   
     const content: ContentData = {
       image: contentBlock.backgroundImage && contentBlock.backgroundImage.asset?._ref
@@ -542,27 +331,34 @@ export const contentMap: Record<string, (block: { _type: string; [key: string]: 
         key={index}
         contentInfo={content}
         isDarkMode={false}
-        portableTextComponents={components}  // Pass it here!
+        portableTextComponents={portableTextComponents}  // Pass it here!
       />
     );
+  },
+  
+  serviceHeroDynamic: (block, index) => {
+      const HeroSection = block as unknown as SanityTypes.ServiceHeroDynamic;
+
+      return(
+        <ServicesHero
+          key={index}
+          title={HeroSection.title}
+          titleSpan={HeroSection.titleSpan}
+          subtitle={HeroSection.subtitle}
+          description={HeroSection.description}
+          backgroundImage={urlFor(HeroSection.backgroundImage.asset._ref).url()}
+          ctaText={HeroSection.ctaText}
+          services={HeroSection.services}
+        />
+      )
   },
   
 
     
 
   ctaSection: (block, index) => {
-    interface CtaSectionBlock {
-      _type: 'ctaSection';
-      title: string;
-      description: string;
-      buttons: Array<{
-        label: string;
-        url: string;
-        style: 'primary' | 'secondary';
-      }>;
-    }
 
-    const ctablock = block as unknown as CtaSectionBlock;
+    const ctablock = block as unknown as SanityTypes.CtaSectionBlock;
 
     return (
 

@@ -30,7 +30,6 @@ export interface ImageGridBlock {
 export interface GridInfoBlock {
   _type: "gridInfo";
   features: Feature[];
-  
 }
 
 
@@ -118,12 +117,12 @@ export interface FeatureSectionBlock {
 }
 
 export interface ContentSectionBlock {
-  _type: "contactSection",
-  tag: string,
-  header: string,
-  description: string,
-  subHeader: string,
-  content: string,
+  _type: 'contentSection';
+  tag: string;
+  header: string;
+  description: string;
+  subHeader: string;
+  content: string;
   images: Array<{
     image: {
       _type: "image";
@@ -134,11 +133,11 @@ export interface ContentSectionBlock {
     };
     alt: string;
   }>;
-  statsHeader: string,
+  statsHeader: string;
   stats: Array<{
-    stat: string,
-    value: string
-  }>
+    stat: string;
+    value: string;
+  }>;
 }
 
 
@@ -188,9 +187,51 @@ export interface ContentSectionImageBlock {
     value: string;
     label: string;
   }>
-
-
 }
+
+export interface ServiceHeroBlock {
+  _type: 'serviceHeroBlock',
+  theme: string,
+  image: {
+    _type: 'image';
+    asset: { _ref: string; _type: 'reference' };
+    alt?: string;
+  };
+  badge?: string;
+  title?: string;
+  description?: string;
+  stats?: Array<{
+    id: number;
+    name: string;
+    value: string
+  }>;
+  imagePosition: string;
+}
+
+export interface ServiceHeroDynamic {
+  _id: string;
+  _type: 'serviceHeroDynamic';
+  slug: {
+    current: string;
+  };
+  title: string;
+  titleSpan: string;
+  subtitle: string;
+  description: string;
+  backgroundImage: {
+    asset: {
+      _ref: string;
+      _type: 'reference';
+    };
+  };
+  services: {
+    title: string;
+    description: string;
+    features: string[];
+  }[];
+  ctaText: string;
+}
+
 
 
 export type CustomBlock =
@@ -204,5 +245,6 @@ export type CustomBlock =
   | ContentSectionBlock
   | ServicesSectionBlock
   | GoogleReviewsBlock
+  | ServiceHeroDynamic
   | ContentSectionImageBlock
   | CtaSectionBlock;

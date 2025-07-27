@@ -20,8 +20,7 @@ export default function HeroContact({
   title = 'Get in touch',
   description = (
     <>
-      Proin volutpat consequat porttitor cras nullam gravida at. Orci molestie a eu arcu. Sed ut tincidunt
-      integer elementum id sem. Arcu sed malesuada et magna.
+      Learn More About Our Services
     </>
   ),
   address = {
@@ -29,9 +28,9 @@ export default function HeroContact({
     line2: '',
     cityStateZip: 'NSW, AUS 2000',
   },
-  phone = '',
+  phone = '0449 003 526',
   email = 'info@everythingelectricalsydney.com.au',
-  backgroundImage = 'https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80',
+  backgroundImage = '/images/electrician.jpg',
   
 }: ContactFormProps) {
   const [isSubmitting, setIsSubmitting] = useState(false)

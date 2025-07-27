@@ -12,7 +12,41 @@ const POST_QUERY = `*[_type == "customSections" && slug.current == $slug][0]{
   content,
 }`;
 
-  
+export const metadata = {
+  title: 'Our Electrical Services — Everything Electrical Sydney | Residential, Commercial & Strata',
+  description:
+    'Explore a full range of licensed electrical services with Everything Electrical Sydney. We service homes, businesses, and strata properties across Sydney with reliable, safe, and high-quality electrical solutions.',
+  alternates: {
+    canonical: 'https://everythingelectricalsydney.com.au/services',
+  },
+  openGraph: {
+    url: 'https://everythingelectricalsydney.com.au/services',
+    title: 'Electrical Services Sydney — Everything Electrical Sydney',
+    description:
+      'From general electrical work to Level 2 services, our expert electricians provide trusted, efficient, and code-compliant solutions across residential, commercial, and strata sectors in Sydney.',
+    images: [
+      {
+        url: 'https://everythingelectricalsydney.com.au/images/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Electrical Services by Everything Electrical Sydney – Licensed Sydney Electricians',
+        type: 'image/png',
+      },
+    ],
+    siteName: 'Everything Electrical Sydney',
+  },
+  keywords: [
+    'electrical services Sydney',
+    'residential electrician Sydney',
+    'commercial electrical services Sydney',
+    'strata electrician Sydney',
+    'Level 2 electrician Sydney',
+    'Everything Electrical Sydney services',
+    'licensed electrician Sydney',
+  ],
+  authors: [{ name: 'Everything Electrical Sydney' }],
+};
+
   
   
 
@@ -32,7 +66,7 @@ export default async function Services() {
   
   return (
     <>  
-
+      
       <RenderContent content={data.content as PortableTextBlock[]} />
       <ServicesGrid />
 
