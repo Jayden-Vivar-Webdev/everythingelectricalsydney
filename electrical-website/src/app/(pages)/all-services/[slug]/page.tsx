@@ -114,7 +114,7 @@ export default async function AllServices({params}: {params: Params}){
         <HeroMain 
         announcementText={`Professional Electrical Services ${titleCaseSlug}`}
         announcementLink={'#contact'}
-        headline={`${titleCaseSlug} Electrical Services Sydney`}
+        headline={`${titleCaseSlug} Electrical Services`}
         subheadline={`Everything Electrical Your Trusted Electrical Provider In ${titleCaseSlug}`}
         backgroundImage={'/images/electrician.jpg'}
         backgroundImageAlt={`Electrical Services in ${titleCaseSlug}`}

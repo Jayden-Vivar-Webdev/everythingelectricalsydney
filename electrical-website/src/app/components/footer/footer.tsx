@@ -10,11 +10,11 @@ const navigation = {
     { name: 'Emergency Repairs', href: '/services/emergency-electrician' },
   ],
   areas: [
-    { name: 'Sydney CBD', href: '/areas/cbd' },
-    { name: 'Eastern Suburbs', href: '/areas/eastern' },
-    { name: 'Northern Beaches', href: '/areas/northern' },
-    { name: 'Inner West', href: '/areas/inner-west' },
-    { name: 'Western Sydney', href: '/areas/western' },
+    { name: 'Sydney CBD', href: '/all-services/sydney' },
+    { name: 'Eastern Suburbs', href: '/all-services/eastern-suburbs' },
+    { name: 'Northern Beaches', href: '/all-services/northern-beaches' },
+    { name: 'Inner West', href: '/all-services/inner-west' },
+    { name: 'Western Sydney', href: '/all-services/western-sydney' },
   ],
   company: [
     { name: 'About Us', href: '/about' },

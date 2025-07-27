@@ -280,7 +280,11 @@ export default function NavBar() {
               className="group flex w-full items-center justify-between rounded-lg px-4 py-3 text-left text-base font-medium text-gray-900 hover:bg-gradient-to-r hover:from-red-50 hover:to-red-50 hover:text-red-700 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
             >
               <span className="flex items-center">
-                <span className="text-base font-medium">Services</span>
+                <span className={`text-base font-medium ${
+                pathname.startsWith('/services') 
+                  ? 'border-red-600 text-red-600' : 'border-transparent'
+            } hover:border-red-400'
+              }`}>Services</span>
               </span>
               <ChevronDown 
                 className={`h-5 w-5 text-gray-500 transition-transform duration-200 ${
@@ -336,7 +340,12 @@ export default function NavBar() {
             {/* Main Navigation Links MAKESURE TO REMOVE HIDDEN */}
             <Link
               href="/about"
-              className="group flex items-center justify-between rounded-lg px-4 py-3 text-base font-medium text-gray-900 hover:bg-gradient-to-r hover:from-gray-50 hover:to-gray-100 hover:text-gray-700 transition-all duration-200"
+              onClick={() => {setMobileMenuOpen(false)}}
+              className={`group flex items-center justify-between rounded-lg 
+                px-4 py-3 text-base font-medium text-gray-900 
+                hover:bg-red-100 hover:text-red-700 transition-all duration-200 ${
+              pathname === '/about' ? 'border-red-600 text-red-600' : 'border-transparent'
+            } hover:border-red-400`}
             >
               <span>About</span>
               <ChevronRight className="h-4 w-4 text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -344,7 +353,12 @@ export default function NavBar() {
 
             <Link
               href="/areas"
-              className="group flex items-center justify-between rounded-lg px-4 py-3 text-base font-medium text-gray-900 hover:bg-gradient-to-r hover:from-gray-50 hover:to-gray-100 hover:text-gray-700 transition-all duration-200"
+              onClick={() => {setMobileMenuOpen(false)}}
+              className={`group flex items-center justify-between rounded-lg 
+                px-4 py-3 text-base font-medium text-gray-900 
+                hover:bg-red-100 hover:text-red-700 transition-all duration-200 ${
+              pathname === '/areas' ? 'border-red-600 text-red-600' : 'border-transparent'
+            } hover:border-red-400`}
             >
               <span>Areas</span>
               <ChevronRight className="h-4 w-4 text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -352,7 +366,12 @@ export default function NavBar() {
 
             <Link
               href="/contact"
-              className="group flex items-center justify-between rounded-lg px-4 py-3 text-base font-medium text-gray-900 hover:bg-gradient-to-r hover:from-gray-50 hover:to-gray-100 hover:text-gray-700 transition-all duration-200"
+              onClick={() => {setMobileMenuOpen(false)}}
+              className={`group flex items-center justify-between rounded-lg 
+                px-4 py-3 text-base font-medium text-gray-900 
+                hover:bg-red-100 hover:text-red-700 transition-all duration-200 ${
+              pathname === '/contact' ? 'border-red-600 text-red-600' : 'border-transparent'
+            } hover:border-red-400`}
             >
               <span>Contact</span>
               <ChevronRight className="h-4 w-4 text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -360,7 +379,12 @@ export default function NavBar() {
 
             <Link
               href="/blog"
-              className="group flex items-center justify-between rounded-lg px-4 py-3 text-base font-medium text-gray-900 hover:bg-gradient-to-r hover:from-gray-50 hover:to-gray-100 hover:text-gray-700 transition-all duration-200"
+              onClick={() => {setMobileMenuOpen(false)}}
+              className={`group flex items-center justify-between rounded-lg 
+                px-4 py-3 text-base font-medium text-gray-900 
+                hover:bg-red-100 hover:text-red-700 transition-all duration-200 ${
+              pathname === '/blog' ? 'border-red-600 text-red-600' : 'border-transparent'
+            } hover:border-red-400`}
             >
               <span>Blog</span>
               <ChevronRight className="h-4 w-4 text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity" />
