@@ -2,7 +2,7 @@ import { defineType, defineField } from 'sanity';
 import { googleReviews } from './types/googleReviews';
 import {contentImage} from './types/content-image'
 import { serviceHeroSection } from './types/service-hero';
-
+import { dynamicServiceHero } from './types/service-dynamic-hero';
 export const customSections = defineType({
   name: 'customSections',
   title: 'Custom Section',
@@ -61,7 +61,7 @@ export const customSections = defineType({
         googleReviews,
         contentImage,
         serviceHeroSection,
-        
+        dynamicServiceHero,
         {
           name: 'contentSection',
           title: 'Content Section',

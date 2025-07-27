@@ -72,7 +72,7 @@ export const contentImage = {
                 fields: [
                   {
                     name: 'href',
-                    type: 'url',
+                    type: 'string',
                     title: 'URL'
                   }
                 ]
