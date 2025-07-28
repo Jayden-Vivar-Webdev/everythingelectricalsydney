@@ -79,7 +79,12 @@ export const contentMap: Record<string, SanityBlockRenderer> = {
       <ServiceHeroSection
         key={index}
         theme={['light', 'dark'].includes(serviceBlock.theme) ? serviceBlock.theme as 'light' | 'dark' : 'light'}
-        imageUrl={urlFor(serviceBlock.image?.asset._ref)?.url()}
+        imageUrl={urlFor(serviceBlock.image?.asset._ref)?.width(1200)
+          .height(1600)
+          .fit('max')
+          .auto('format')
+          .quality(90)
+          .url()}
         imageAlt = {serviceBlock.image?.alt}
         badge={serviceBlock.badge}
         title={serviceBlock.title}
