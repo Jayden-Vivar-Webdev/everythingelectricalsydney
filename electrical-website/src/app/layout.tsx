@@ -5,7 +5,6 @@ import NavBar from "./components/navbar/navbar";
 import FooterBanner from "./components/banner/nexa-banner";
 import { Analytics } from "@vercel/analytics/next"
 import Footer from "./components/footer/footer";
-import FeedbackWidget from "./components/feedbackfish/feedbackfish";
 
 export const metadata = {
   title: 'Everything Electricals — Licensed Electricians for Camden & Campbelltown',
@@ -62,16 +61,10 @@ export const metadata = {
 
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  const userEmail = 'update@example.com';
+  
   return (
     <html lang="en">
-      {/*REMOVE AFTER TESTING PHASE*/}
-      <head>
-      <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
-        />
-      </head>
+      
       <body
         
       >
@@ -82,7 +75,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </main>
         <ContactWidget />
         <Footer />
-        <FeedbackWidget userEmail={userEmail ?? undefined}/>
+        
         <FooterBanner />
         <Analytics />
       </body>
