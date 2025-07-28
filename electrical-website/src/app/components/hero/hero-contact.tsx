@@ -124,6 +124,7 @@ export default function HeroContact({
                 alt="Background decoration"
                 width={500}
                 height={800}
+                priority
                 className="absolute inset-0 h-full w-full object-cover opacity-[0.2]"
             />
             <div

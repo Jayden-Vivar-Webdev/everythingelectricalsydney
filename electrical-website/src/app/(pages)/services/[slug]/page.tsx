@@ -2,8 +2,6 @@ import RenderContent from '@/app/context-map/render-sections';
 import { client } from '@/app/sanity/client';
 import type { PortableTextBlock } from '@sanity/types';
 import { redirect } from 'next/navigation'
-
-
 type Params = Promise<{ slug: string }>
 
 export async function generateStaticParams() {
@@ -74,9 +72,14 @@ export default async function PostPage({ params }: { params: Params }) {
   if (!post) {
     return <p>Post not found</p>;
   }
+
+
+  
+  
+
   return (
     <>
-        
+       
         <RenderContent content={post.content as PortableTextBlock[]} />
             
     </>

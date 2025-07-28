@@ -1,5 +1,5 @@
 'use client';
-
+import Image from 'next/image';
 import React from 'react';
 import ContactFormCta from '../contact/contact-cta';
 type HeroMainProps = {
@@ -31,10 +31,13 @@ export default function HeroMain({
     <>
     <div className="bg-gray-900 relative">
       <div className="relative isolate overflow-hidden pt-14 pb-[10rem]">
-        <img
+      <Image
           alt={backgroundImageAlt}
           src={backgroundImage}
-          className="absolute inset-0 -z-10 w-full h-full object-cover opacity-[0.2]"
+          fill
+          className="absolute inset-0 -z-10 object-cover opacity-[0.2]"
+          priority
+          sizes="100vw"
         />
         <div
           aria-hidden="true"

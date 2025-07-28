@@ -11,7 +11,7 @@ import {
   DocumentTextIcon,
   StarIcon
 } from '@heroicons/react/24/outline'
-
+import Image from 'next/image';
 const iconMap: Record<string, React.ComponentType<React.SVGProps<SVGSVGElement>>> = {
     0: BoltIcon,
     1: ShieldCheckIcon,
@@ -81,12 +81,18 @@ export default function ServicesHero({
       {/* Image Background with White Overlay */}
       <div className="absolute inset-0">
         {/* Background Image */}
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: `url(${backgroundImage})`
-          }}
-        />
+        <div className="relative w-full h-full min-h-screen">
+          <Image
+            src={backgroundImage}
+            alt="Everything Electrical Sydney - Services"
+            fill
+            className="object-cover"
+            priority
+            unoptimized
+          />
+          {/* Overlay content goes here */}
+        </div>
+
         
         {/* Black overlay to darken the background */}
         <div className="absolute inset-0 bg-black/75" />
@@ -191,7 +197,7 @@ export default function ServicesHero({
               <div className="bg-slate-100/80 backdrop-blur-sm px-4 sm:px-6 lg:px-8 py-4 sm:py-6 border-b border-slate-200">
                 <div className="flex items-center justify-between">
                   <div>
-                    <h3 className="text-lg sm:text-xl lg:text-2xl font-semibold text-slate-900">Service Capabilities</h3>
+                    <h2 className="text-lg sm:text-xl lg:text-2xl font-semibold text-slate-900">Service Capabilities</h2>
                     <p className="text-slate-600 text-xs sm:text-sm mt-1">Comprehensive electrical solutions</p>
                   </div>
                   <div className="w-10 h-10 sm:w-12 sm:h-12 bg-red-100 rounded-lg flex items-center justify-center flex-shrink-0">
@@ -226,7 +232,7 @@ export default function ServicesHero({
                         </div>
                         
                         <div className="flex-1 min-w-0">
-                          <h4 className="text-lg sm:text-xl font-semibold text-slate-900 mb-2">{service.title}</h4>
+                          <h3 className="text-lg sm:text-xl font-semibold text-slate-900 mb-2">{service.title}</h3>
                           <p className="text-slate-600 mb-4 leading-relaxed text-sm sm:text-base">{service.description}</p>
                           
                           {isActive && (

@@ -58,7 +58,13 @@ export const contentMap: Record<string, SanityBlockRenderer> = {
         key={index}
         title={contactForm.title}
         description={contactForm.description}
-        backgroundImage={urlFor(contactForm.backgroundImage.asset._ref).url()} // pass image URL or ref as string
+        backgroundImage={urlFor(contactForm.backgroundImage.asset._ref).width(1200)
+          .height(1200)
+          .fit('max')
+          .auto('format')
+          .quality(90)
+          .url()
+        } // pass image URL or ref as string
         address={contactForm.address}
         phone={contactForm.phone}
         email={contactForm.email}
@@ -340,6 +346,7 @@ export const contentMap: Record<string, SanityBlockRenderer> = {
       const HeroSection = block as unknown as SanityTypes.ServiceHeroDynamic;
 
       return(
+
         <ServicesHero
           key={index}
           title={HeroSection.title}
@@ -347,10 +354,11 @@ export const contentMap: Record<string, SanityBlockRenderer> = {
           subtitle={HeroSection.subtitle}
           description={HeroSection.description}
           backgroundImage={urlFor(HeroSection.backgroundImage.asset._ref)
-            .width(1200)        // Set to appropriate width for your layout
-            .height(700)        // Optional: maintain visual consistency
-            .fit('max')         // Avoid upscaling
-            .auto('format')     // Serve WebP or AVIF automatically
+            .width(1200)
+            .height(700)
+            .fit('max')
+            .auto('format')
+            .quality(90)
             .url()}
           ctaText={HeroSection.ctaText}
           services={HeroSection.services}

@@ -174,17 +174,22 @@ export default async function PostPage({ params }: {params: Params}) {
   return (
     <section className="w-full flex justify-center py-20 px-10">
       <div className="w-full max-w-5xl flex flex-col">
-        <h1 className="text-5xl font-bold mb-8 text-black">{post.title}</h1>
+        <h1 className="text-3xl md:text-5xl font-bold mb-8 text-black">{post.title}</h1>
+        <div className="relative w-full h-0 pb-[66%] mb-10"> 
+          {/* 800/1200 = 0.6666 = 66.66% aspect ratio */}
+          {imageUrl && (
+            <Image
+              src={imageUrl}
+              alt={post.title}
+              fill
+              className="rounded-lg object-cover"
+              sizes="(max-width: 768px) 100vw, 1200px"
+              priority
+            />
+          )}
+        </div>
 
-        {imageUrl && (
-          <Image
-            src={imageUrl}
-            alt={post.title}
-            width={1200}
-            height={800}
-            className="mb-8 rounded-lg"
-          />
-        )}
+        
         <p className="mb-6">
           <span className="inline-block px-3 py-1 text-sm font-medium text-red-600 bg-red-50 rounded-full">
             {new Date(post.publishedAt).toLocaleDateString('en-US', {

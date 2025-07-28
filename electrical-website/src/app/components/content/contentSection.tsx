@@ -75,7 +75,8 @@ export default function ContentSection({
                     fill
                     className="object-cover"
                     sizes="(max-width: 768px) 50vw, 25vw"
-                    priority={index < 2} // Prioritize loading first two images
+                    loading="lazy"
+                  
                   />
                 </div>
               ))}
@@ -99,14 +100,14 @@ export default function ContentSection({
                   className="group p-6 border border-slate-200 rounded-xl hover:shadow-md hover:bg-slate-50 transition duration-200"
                 >
                   <div className="flex flex-col justify-between h-full">
-                    <div>
+                    <dl>
                       <dt className="text-sm font-medium text-slate-600 mb-1">
                         {stat.stat}
                       </dt>
                       <dd className="text-2xl font-semibold text-slate-900 tabular-nums">
                         {stat.value}
                       </dd>
-                    </div>
+                    </dl>
 
                     {/* Bottom accent bar */}
                     <div className="mt-4 h-1 w-12 bg-red-300 group-hover:bg-red-600 transition-colors duration-200"></div>
