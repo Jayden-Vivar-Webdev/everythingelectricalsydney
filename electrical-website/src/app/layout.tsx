@@ -7,7 +7,7 @@ import { Analytics } from "@vercel/analytics/next"
 import Footer from "./components/footer/footer";
 
 export const metadata = {
-  title: 'Everything Electricals — Licensed Electricians for Camden & Campbelltown',
+  title: 'Everything Electrical Sydney | Licensed Electricians for Sydney NSW',
   description: 'Everything Electricals provides expert residential and commercial electrical services in Camden, Campbelltown, Oran Park, and nearby suburbs. Emergency callouts, installations & more.',
   applicationName: 'Everything Electricals',
   keywords: [
