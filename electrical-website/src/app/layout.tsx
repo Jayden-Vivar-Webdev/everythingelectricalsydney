@@ -25,7 +25,7 @@ export const metadata = {
     locale: 'en_AU',
     url: 'https://everythingelectricalsydney.com.au/',
     siteName: 'Everything Electricals',
-    title: 'Everything Electricals — Licensed Electricians for Liverpool & Campbelltown Regions',
+    title: 'Everything Electrical Sydney | Licensed Electricians for Sydney NSW',
     description: 'Everything Electricals provides expert residential and commercial electrical services in Camden, Campbelltown, Liverpool, and nearby suburbs. Emergency callouts, installations & more.',
     images: [
       {
