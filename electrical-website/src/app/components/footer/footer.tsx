@@ -161,7 +161,7 @@ export default function Footer() {
         {/* Bottom Footer */}
         <div className="border-t border-gray-800 pt-8">
           <div className="flex flex-col items-center justify-between md:flex-row">
-            <div className="flex space-x-15">
+            <div className="flex space-x-10">
               <a href="/privacy" className="text-sm hover:text-white">
                 Privacy Policy
               </a>

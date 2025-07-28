@@ -65,6 +65,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   const userEmail = 'update@example.com';
   return (
     <html lang="en">
+      {/*REMOVE AFTER TESTING PHASE*/}
       <head>
       <meta
           name="viewport"
