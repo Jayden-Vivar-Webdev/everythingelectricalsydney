@@ -216,7 +216,7 @@ export const contentMap: Record<string, SanityBlockRenderer> = {
     const serviceItems = section.services?.map((item, i) => ({
       id: i,
       title: item.title ?? '',
-      href: item.href ?? '#',
+      href: item.href ?? '',
       description: item.description ?? '',
       imageUrl: item.image?.asset?._ref ? urlFor(item.image.asset._ref).url() : '',
       imageAlt: item.image?.alt ?? '',
