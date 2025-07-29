@@ -8,7 +8,6 @@ const emailUser = String(process.env.EMAIL_USER); // Your team's email
 export async function POST(req: Request) {
   try {
     const body = await req.json();
-    console.log(body)
     const { fullName, email, mobile, serviceType, description, address } = body;
 
     // Validate required fields
@@ -188,7 +187,7 @@ export async function POST(req: Request) {
                     </tbody>
                   </table>
 
-                  <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="width: 100%; max-width: 600px; margin: 0 auto; border-collapse: collapse; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); background-color: #ffffff;">
+                  <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="width: 100%; max-width: 600px; margin: 0 auto; border-collapse: collapse; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); background-color: #ffffff; margin-top: 20px">
                     <thead>
                       <tr>
                         <th style="padding: 18px 20px; background: #2c2c2c; color: #ffffff; text-align: left; font-size: 15px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Contact</th>
