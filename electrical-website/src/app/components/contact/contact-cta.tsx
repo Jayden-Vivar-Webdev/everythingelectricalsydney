@@ -32,20 +32,23 @@ const ContactFormCta = () => {
     setSubmitError('');
     
     try {
-      const submitData = new FormData();
-      submitData.append('access_key', 'e8509236-870e-4538-89ee-0a4f591bcd26');
-      submitData.append('subject', 'New Contact Form Submission');
-      submitData.append('from_name', 'Electrical Services Website');
-      submitData.append('fullName', formData.fullName);
-      submitData.append('mobile', formData.mobile);
-      submitData.append('email', formData.email);
-      submitData.append('address', formData.address);
-      submitData.append('serviceType', formData.serviceType);
-      submitData.append('description', formData.description);
+      const submitData = {
+        from_name: 'Electrical Services Website',
+        subject: 'New Contact Form Submission',
+        fullName: formData.fullName,
+        mobile: formData.mobile,
+        email: formData.email,
+        address: formData.address,
+        serviceType: formData.serviceType,
+        description: formData.description
+      };
       
-      const response = await fetch('https://api.web3forms.com/submit', {
+      const response = await fetch('/api/resend', {
         method: 'POST',
-        body: submitData
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(submitData)
       });
       
       const data = await response.json();
