@@ -229,9 +229,7 @@ export async function POST(req: Request) {
                       <h4 style="margin: 0; padding: 0;box-sizing: border-box;color: #1a1a1a;font-size: 18px;margin-bottom: 15px;text-transform: uppercase;font-weight: 700;letter-spacing: 1px;">Professional Licenses & Certifications</h4>
                       <p style="margin: 0;padding: 0;box-sizing: border-box;color: #444444;font-size: 15px;margin-bottom: 8px;line-height: 1.6;font-weight: 500; font-size: 12px;">• <b style="margin: 0;padding: 0;box-sizing: border-box;">Australian Business Number (ABN):</b> 73 633 557 810</p>
                       <p style="margin: 0;padding: 0;box-sizing: border-box;color: #444444;font-size: 15px;margin-bottom: 8px;line-height: 1.6;font-weight: 500; font-size: 12px;">• <b style="margin: 0;padding: 0;box-sizing: border-box;">NSW Electrical Contractor License:</b> 342944C</p>
-                      <p style="margin: 0;padding: 0;box-sizing: border-box;color: #444444;font-size: 15px;margin-bottom: 8px;line-height: 1.6;font-weight: 500; font-size: 12px;">• <b style="margin: 0;padding: 0;box-sizing: border-box;">Professional Indemnity Insurance:</b> Fully Insured</p>
-                      <p style="margin: 0;padding: 0;box-sizing: border-box;color: #444444;font-size: 15px;margin-bottom: 8px;line-height: 1.6;font-weight: 500; font-size: 12px;">• <b style="margin: 0;padding: 0;box-sizing: border-box;">WorkCover NSW:</b> Compliant & Current</p>
-                      <p style="margin: 0;padding: 0;box-sizing: border-box;color: #444444;font-size: 15px;margin-bottom: 8px;line-height: 1.6;font-weight: 500; font-size: 12px;">• <b style="margin: 0;padding: 0;box-sizing: border-box;">Australian Standards Compliance:</b> AS/NZS 3000:2018</p>
+                      <p style="margin: 0;padding: 0;box-sizing: border-box;color: #444444;font-size: 15px;margin-bottom: 8px;line-height: 1.6;font-weight: 500; font-size: 12px;">• <b style="margin: 0;padding: 0;box-sizing: border-box;">Professional Insurance:</b> Fully Insured</p>
                     </div>
                   </div>
                 </div>
