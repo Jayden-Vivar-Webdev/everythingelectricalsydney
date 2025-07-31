@@ -70,19 +70,24 @@ export default function HeroContact({
       }
 
       // Create FormData object
-      const submitData = new FormData()
-      submitData.append('access_key', 'e8509236-870e-4538-89ee-0a4f591bcd26')
-      submitData.append('subject', 'New Contact Form Submission')
-      submitData.append('first-name', formData.firstName)
-      submitData.append('last-name', formData.lastName)
-      submitData.append('email', formData.email)
-      submitData.append('phone-number', formData.phone)
-      submitData.append('message', formData.message)
+      const submitData = {
+        from_name: 'Electrical Services Website',
+        subject: 'New Contact Form Submission',
+        fullName: `${formData.firstName} ${formData.lastName}`,
+        mobile: formData.phone,
+        email: formData.email,
+        address: 'Not Provided',
+        serviceType: 'Not Provided',
+        description: formData.message
+      };
 
-      const response = await fetch('https://api.web3forms.com/submit', {
+      const response = await fetch('/api/resend', {
         method: 'POST',
-        body: submitData
-      })
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(submitData)
+      });
 
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`)

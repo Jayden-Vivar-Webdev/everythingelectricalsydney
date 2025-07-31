@@ -1,9 +1,8 @@
 import { client } from '@/app/sanity/client';
-import type { PortableTextBlock } from '@sanity/types';
-import RenderContent from '@/app/context-map/render-sections';
+import { PortableText } from 'next-sanity';
 import ServiceLocations from '@/app/components/locations/service-locations';
 import MapLocations from '@/app/components/locations/map-locations';
-
+import { contentMap } from '@/app/context-map/map-sections';
 const POST_QUERY = `*[_type == "customSections" && slug.current == $slug][0]{
   title,
   content,
@@ -53,7 +52,7 @@ export default async function AreasPage(){
     }
     return(
         <>
-        <RenderContent content={data.content as PortableTextBlock[]} />
+        <PortableText value={data.content} components={contentMap} />
         <ServiceLocations />
         <div className='py-10 bg-white'>
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

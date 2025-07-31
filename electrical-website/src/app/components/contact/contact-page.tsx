@@ -7,9 +7,6 @@ import {
 import MapLocations from '../locations/map-locations';
 import { Phone, Mail, MapPin } from 'lucide-react';
   
-
-
-
 const ContactPageBottom = () => {
 
   return (

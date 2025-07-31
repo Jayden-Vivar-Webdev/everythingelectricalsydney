@@ -1,8 +1,9 @@
 import Image from 'next/image'; 
 import { client } from '@/app/sanity/client';
-import { PortableText, PortableTextComponents } from '@portabletext/react';
+import {PortableTextComponents } from '@portabletext/react';
 import imageUrlBuilder from '@sanity/image-url';
 import { Url } from 'next/dist/shared/lib/router/router';
+import { PortableText } from '@portabletext/react';
 
 const builder = imageUrlBuilder(client);
 
@@ -201,7 +202,7 @@ export default async function PostPage({ params }: {params: Params}) {
         </p>
         
 
-        <PortableText value={post.body} components={components} />
+        <PortableText value={post.content} components={components} />
       </div>
     </section>
   );

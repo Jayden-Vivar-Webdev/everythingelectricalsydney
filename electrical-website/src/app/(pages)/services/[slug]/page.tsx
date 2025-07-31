@@ -1,6 +1,6 @@
-import RenderContent from '@/app/context-map/render-sections';
+import { contentMap } from '@/app/context-map/map-sections';
 import { client } from '@/app/sanity/client';
-import type { PortableTextBlock } from '@sanity/types';
+import { PortableText } from 'next-sanity';
 import { redirect } from 'next/navigation'
 type Params = Promise<{ slug: string }>
 
@@ -80,7 +80,7 @@ export default async function PostPage({ params }: { params: Params }) {
   return (
     <>
        
-        <RenderContent content={post.content as PortableTextBlock[]} />
+       <PortableText value={post.content} components={contentMap} />
             
     </>
   );

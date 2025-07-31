@@ -1,8 +1,8 @@
 
 import ContactPageBottom from "@/app/components/contact/contact-page"
 import { client } from '@/app/sanity/client';
-import type { PortableTextBlock } from '@sanity/types';
-import RenderContent from '@/app/context-map/render-sections';
+import { contentMap } from "@/app/context-map/map-sections";
+import { PortableText } from "next-sanity";
 
 const POST_QUERY = `*[_type == "customSections" && slug.current == $slug][0]{
   title,
@@ -52,7 +52,7 @@ export default async function ContactPage(){
     }
     return(
         <>
-        <RenderContent content={data.content as PortableTextBlock[]} />
+        <PortableText value={data.content} components={contentMap} />
         <ContactPageBottom />
         </>
     )

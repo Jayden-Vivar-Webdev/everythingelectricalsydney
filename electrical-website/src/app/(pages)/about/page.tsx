@@ -1,6 +1,6 @@
 import { client } from '@/app/sanity/client';
-import type { PortableTextBlock } from '@sanity/types';
-import RenderContent from '@/app/context-map/render-sections';
+import { PortableText } from 'next-sanity';
+import { contentMap } from '@/app/context-map/map-sections';
 import AboutPageSection from '@/app/components/content/about-page';
 import HeroContact from '@/app/components/hero/hero-contact';
 
@@ -44,9 +44,6 @@ export const metadata = {
   };
   
   
-
-
-
 export default async function ContactPage(){
     const data = await client.fetch(POST_QUERY, { slug: '/about' });
     
@@ -55,7 +52,7 @@ export default async function ContactPage(){
     }
     return(
         <>
-        <RenderContent content={data.content as PortableTextBlock[]} />
+        <PortableText value={data.content} components={contentMap} />
         <AboutPageSection />
         <HeroContact />
         </>

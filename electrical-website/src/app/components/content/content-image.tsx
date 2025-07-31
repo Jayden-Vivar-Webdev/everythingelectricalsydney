@@ -1,5 +1,6 @@
 import { PortableText, PortableTextComponents } from '@portabletext/react';
 import React from 'react';
+import Image from 'next/image';
 
 import {
   PortableTextBlock
@@ -55,11 +56,13 @@ const EnhancedTestimonialSection: React.FC<EnhancedTestimonialSectionProps> = ({
                 {/* Background Image with Better Overlay */}
                 {contentInfo.image && (
                   <div className="absolute inset-0 overflow-hidden rounded-2xl">
-                    <img
-                      alt={contentInfo.image.alt}
-                      src={contentInfo.image.src}
-                      className="h-full w-full object-cover opacity-20"
+                    <Image
+                      src={contentInfo.image.src || '/images/electrician.jpg'}
+                      alt={contentInfo.image.alt || 'Everything Electrical Sydney'}
+                      fill
+                      className="object-cover opacity-20"
                     />
+                    
                     <div className="absolute inset-0 bg-gradient-to-br from-slate-900/50 via-slate-800/50 to-slate-900/90" />
                   </div>
                 )}
@@ -77,10 +80,13 @@ const EnhancedTestimonialSection: React.FC<EnhancedTestimonialSectionProps> = ({
                   {/* Logo - Only show if logoImage exists */}
                   {contentInfo.logoImage && (
                     <div className="mb-6 sm:mb-8 w-full h-[10rem]">
-                      <img
-                        alt={contentInfo.logoImage.alt}
-                        src={contentInfo.logoImage.src}
-                        className="w-full h-full object-cover object-center"
+                      <Image
+                        src={contentInfo.logoImage.src || '/images/logos/1.svg'}
+                        alt={contentInfo.logoImage.alt || 'Logo image'}
+                        fill
+                        className="object-cover object-center"
+                        sizes="(max-width: 768px) 100vw, 10rem"
+                        priority
                       />
                     </div>
                   )}

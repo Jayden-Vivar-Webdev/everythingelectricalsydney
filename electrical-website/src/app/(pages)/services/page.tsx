@@ -1,6 +1,6 @@
 import { client } from '@/app/sanity/client';
-import type { PortableTextBlock } from '@sanity/types';
-import RenderContent from '@/app/context-map/render-sections';
+import { PortableText } from 'next-sanity';
+import { contentMap } from '@/app/context-map/map-sections';
 import ServiceLocations from '@/app/components/locations/service-locations';
 
 import MapLocations from '@/app/components/locations/map-locations';
@@ -67,7 +67,7 @@ export default async function Services() {
   return (
     <>  
       
-      <RenderContent content={data.content as PortableTextBlock[]} />
+      <PortableText value={data.content} components={contentMap} />
       <ServicesGrid />
 
       <ServiceLocations />

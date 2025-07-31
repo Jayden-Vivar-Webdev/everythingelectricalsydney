@@ -1,6 +1,6 @@
 import { client } from '@/app/sanity/client';
-import type { PortableTextBlock } from '@sanity/types';
-import RenderContent from './context-map/render-sections';
+import { PortableText } from 'next-sanity';
+import { contentMap } from './context-map/map-sections';
 import Banner from './components/banner/banner';
 import ServiceLocations from './components/locations/service-locations';
 import FAQ from './components/faq/faq';
@@ -23,7 +23,7 @@ export default async function Home() {
   return (
     <>
       <Banner />  
-      <RenderContent content={data.content as PortableTextBlock[]} />
+      <PortableText value={data.content} components={contentMap} />
       <ServiceLocations />
       <div className='py-10 bg-white'>
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
