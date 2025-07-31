@@ -202,7 +202,7 @@ export default async function PostPage({ params }: {params: Params}) {
         </p>
         
 
-        <PortableText value={post.content} components={components} />
+        <PortableText value={post.body} components={components} />
       </div>
     </section>
   );
