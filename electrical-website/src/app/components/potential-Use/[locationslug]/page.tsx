@@ -1,6 +1,6 @@
 import { client } from '@/app/sanity/client';
-import type { PortableTextBlock } from '@sanity/types';
-import RenderContent from '@/app/context-map/render-sections';
+import { contentMap } from '@/app/context-map/map-sections';
+import { PortableText } from 'next-sanity';
 import HeroContact from '@/app/components/hero/hero-contact';
 import { redirect } from 'next/navigation';
 
@@ -89,7 +89,7 @@ export default async function PostPage({ params }: { params: Params }) {
       phone="0449 003 526"
       email="info@everythingelectricalsydney.com.au"
     />
-    <RenderContent content={post.content as PortableTextBlock[]} />
+    <PortableText value={post.content} components={contentMap} />
     </>
   );
 }
