@@ -35,7 +35,7 @@ export async function POST(req: Request) {
       
       resend.emails.send({
         from: `Everything Electrical Sydney <${emailUser}>`,
-        to: 'contact@nexawebdev.com',
+        to: emailUser,
         replyTo: email,
         subject: `New message from ${fullName}`,
         html: teamEmail
