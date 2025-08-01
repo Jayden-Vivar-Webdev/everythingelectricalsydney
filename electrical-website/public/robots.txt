@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.everythingelectricalsydney.com.au
+
+# Sitemaps
+Sitemap: https://www.everythingelectricalsydney.com.au/sitemap.xml
