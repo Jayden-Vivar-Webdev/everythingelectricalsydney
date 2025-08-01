@@ -84,7 +84,7 @@ const EnhancedTestimonialSection: React.FC<EnhancedTestimonialSectionProps> = ({
                         src={contentInfo.logoImage.src || '/images/logos/1.svg'}
                         alt={contentInfo.logoImage.alt || 'Logo image'}
                         fill
-                        className="object-cover object-center"
+                        className="object-contain object-center"
                         sizes="(max-width: 768px) 100vw, 10rem"
                         priority
                       />
