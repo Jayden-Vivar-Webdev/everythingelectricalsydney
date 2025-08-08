@@ -76,6 +76,9 @@ body {
     background: #b30000 !important;
   }
 }
+.grecaptcha-badge {
+  z-index: 100;
+}
 
 @media screen and (max-height: 972px){
   .services-container {
