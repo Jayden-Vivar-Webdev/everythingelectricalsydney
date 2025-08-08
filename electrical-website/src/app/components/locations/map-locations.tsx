@@ -51,23 +51,9 @@ export default function MapLocations(){
                     <FontAwesomeIcon icon={faEnvelope} className="text-red-600 mt-1 mr-4 h-5 w-5 flex-shrink-0" />
                     <div>
                       <h4 className="font-semibold text-slate-900 mb-1">Email</h4>
-                      <a
-                        href="#"
-                        className="text-red-600 hover:text-red-700 transition break-all cursor-pointer"
-                        onClick={(e) => {
-                          e.preventDefault();
-                          navigator.clipboard.writeText("info@everythingelectricalsydney.com.au")
-                            .then(() => {
-                              alert("Email copied to clipboard!");
-                            })
-                            .catch(() => {
-                              alert("Failed to copy email");
-                            });
-                        }}
-                      >
+                      <div className="text-red-600 hover:text-red-700 transition break-all">
                         info@everythingelectricalsydney.com.au
-                      </a>
-
+                      </div>
                     </div>
                   </div>
 
