@@ -29,7 +29,7 @@ export default function MapLocations(){
             <div className="lg:col-span-1">
               <div className="bg-slate-50 p-8 rounded-2xl h-full">
                 <div className="flex items-center mb-8">
-                  <FontAwesomeIcon icon={faMapMarkerAlt} className="text-red-600 h-8 w-8 mr-4" />
+                  <FontAwesomeIcon icon={faMapMarkerAlt} className="text-red-600 mt-1 mr-4 h-5 w-5 flex-shrink-0" />
                   <div>
                     <h3 className="text-xl font-bold text-slate-900">Service Area</h3>
                     <p className="text-slate-600">Sydney, Australia</p>
@@ -51,7 +51,7 @@ export default function MapLocations(){
                     <FontAwesomeIcon icon={faEnvelope} className="text-red-600 mt-1 mr-4 h-5 w-5 flex-shrink-0" />
                     <div>
                       <h4 className="font-semibold text-slate-900 mb-1">Email</h4>
-                      <a href="info@everythingelectricalsydney.com.au" className="text-red-600 hover:text-red-700 transition break-all">
+                      <a href="mailto:info@everythingelectricalsydney.com.au" className="text-red-600 hover:text-red-700 transition break-all">
                         info@everythingelectricalsydney.com.au
                       </a>
                     </div>
