@@ -1,0 +1,98 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --primary-color: #0056D2; /* Deep, strong blue */
+  --secondary-color: #da1818; /* Clean, energetic yellow */
+  --secondary-color-light: #e53e3e;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+/* @media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+} */
+
+@layer utilities {
+  .primary-bg{
+    background-color: var(--primary-color)
+  }
+  .primary-text{
+    color: var(--primary-color);
+  }
+  .secondary-bg{
+    background-color: var(--secondary-color);
+  }
+  .secondary-text{
+    color: var(--secondary-color);
+  }
+  .sectionary-bg-light{
+    background-color: var(--secondary-color-light);
+  }
+}
+
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Tailwind CSS file (e.g., global.css or inside @layer) */
+@media screen and (max-height: 1103px) {
+  .services-container {
+    height: 45rem !important;
+    overflow-y: scroll !important;
+    overflow-x: hidden !important; 
+    margin-bottom: 10px !important;
+    margin-top: 19px !important;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 7px !important;
+    height: 10rem !important;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px gray !important;
+    border-radius: 7px !important;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: red !important;
+    border-radius: 10px !important;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #b30000 !important;
+  }
+}
+
+@media screen and (max-height: 972px){
+  .services-container {
+    height: 40rem !important;
+  
+  }
+}
+
+@media screen and (max-height: 898px){
+  .services-container {
+    height: 37rem !important;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .grecaptcha-badge {
+    bottom: 70px !important;
+  }
+}
+
