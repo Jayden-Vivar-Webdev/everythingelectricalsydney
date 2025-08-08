@@ -201,16 +201,15 @@ export default function ServicesHero({
         
         {/* Optimized background image with instant loading */}
         <div className="relative h-full overflow-hidden">
-        <img
-          src={backgroundImage}
-          alt="Everything Electrical Sydney - Services"
-          style={{ objectFit: 'cover', transition: 'opacity 0.5s' }}
-          className={`${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
-          sizes="100vw"
-          loading="eager"
-        />
-
+          <img
+            src={backgroundImage}
+            alt="Everything Electrical Sydney - Services"
+            className={`${imageLoaded ? 'opacity-100' : 'opacity-0'} object-cover w-full h-full absolute top-0 left-0`}
+            sizes="100vw"
+            loading="eager"
+          />
         </div>
+
         
         {/* Consistent overlay */}
         <div className="absolute inset-0 bg-black/60" />
