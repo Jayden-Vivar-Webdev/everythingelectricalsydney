@@ -361,12 +361,23 @@ export default async function AllServices({ params }: { params: Params }) {
                     </p>
                     <div className="mt-auto">
                       <p className="text-2xl font-bold text-red-400 mb-2">Email Us</p>
-                      <a 
-                        href="mailto:info@everythingelectricalsydney.com.au"
-                        className="text-gray-400 mb-4 text-lg hover:text-gray-300 transition-colors block break-all"
+                      <a
+                        href="#"
+                        className="text-gray-400 mb-4 text-lg hover:text-gray-300 transition-colors block break-all cursor-pointer"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          navigator.clipboard.writeText("info@everythingelectricalsydney.com.au")
+                            .then(() => {
+                              alert("Email copied to clipboard!");
+                            })
+                            .catch(() => {
+                              alert("Failed to copy email");
+                            });
+                        }}
                       >
                         info@everythingelectricalsydney.com.au
                       </a>
+
                       <div className="bg-gray-700/50 px-6 py-4 rounded-lg border border-gray-600">
                         <p className="text-sm font-semibold text-gray-200">Response Time</p>
                         <p className="text-sm text-gray-300">Professional inquiries within 24 hours</p>

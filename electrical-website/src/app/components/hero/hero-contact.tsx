@@ -205,9 +205,23 @@ export default function HeroContact({
                   <EnvelopeIcon aria-hidden="true" className="h-7 w-6" />
                 </dt>
                 <dd>
-                  <a href={`mailto:${email}`} className="hover:text-gray-200">
-                    {email}
-                  </a>
+                <a
+                  href="#"
+                  className="hover:text-gray-200 cursor-pointer"
+                  onClick={(e) => {
+                    e.preventDefault(); // Stop the normal link behavior
+                    navigator.clipboard.writeText(email)
+                      .then(() => {
+                        alert("Email copied to clipboard!");
+                      })
+                      .catch(() => {
+                        alert("Failed to copy email");
+                      });
+                  }}
+                >
+                  {email}
+                </a>
+
                 </dd>
               </div>
             </dl>
