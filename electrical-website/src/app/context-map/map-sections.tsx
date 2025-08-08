@@ -402,7 +402,10 @@ export const contentMap: PortableTextComponents = {
             titleSpan={HeroSection.titleSpan}
             subtitle={HeroSection.subtitle}
             description={HeroSection.description}
-            backgroundImage={urlFor(HeroSection.backgroundImage.asset._ref).url()}
+            backgroundImage={urlFor(HeroSection.backgroundImage.asset._ref).width(1600)        // matches display width
+              .auto('format')
+              .quality(90)
+              .url()}
             ctaText={HeroSection.ctaText}
             services={HeroSection.services}
           />

@@ -11,7 +11,6 @@ import {
   DocumentTextIcon,
   StarIcon
 } from '@heroicons/react/24/outline'
-import Image from 'next/image'
 
 // Memoized icon mapping - moved outside component to prevent recreation
 const iconMap: Record<string, React.ComponentType<React.SVGProps<SVGSVGElement>>> = {
@@ -202,19 +201,15 @@ export default function ServicesHero({
         
         {/* Optimized background image with instant loading */}
         <div className="relative h-full overflow-hidden">
-          <Image
-            src={backgroundImage}
-            alt="Everything Electrical Sydney - Services"
-            fill
-            sizes="100vw"
-            className={`object-cover transition-opacity duration-500 ${
-              imageLoaded ? 'opacity-100' : 'opacity-0'
-            }`}
-            priority={true}
-            loading="eager"
-            placeholder="empty"
-            unoptimized={false}
-          />
+        <img
+          src={backgroundImage}
+          alt="Everything Electrical Sydney - Services"
+          style={{ objectFit: 'cover', transition: 'opacity 0.5s' }}
+          className={`${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
+          sizes="100vw"
+          loading="eager"
+        />
+
         </div>
         
         {/* Consistent overlay */}
