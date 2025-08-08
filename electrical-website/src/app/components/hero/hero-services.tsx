@@ -160,6 +160,16 @@ export default function ServicesHero({
 }: ServicesHeroProps) {
   const [isVisible, setIsVisible] = useState(false)
   const [activeService, setActiveService] = useState(0)
+  const [imageLoaded, setImageLoaded] = useState(false)
+
+  // Preload the image for instant loading
+  useEffect(() => {
+    const img = new window.Image()
+    img.onload = () => {
+      setImageLoaded(true)
+    }
+    img.src = backgroundImage
+  }, [backgroundImage])
 
   useEffect(() => {
     // Use requestAnimationFrame for smoother animation timing
@@ -185,31 +195,29 @@ export default function ServicesHero({
 
   return (
     <div className="relative min-h-screen bg-white">
-      {/* Fast-Loading Background with Immediate Fallback */}
+      {/* Ultra-Fast Loading Background */}
       <div className="absolute inset-0">
-        {/* Immediate gradient fallback while image loads */}
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900" />
+        {/* High-quality gradient fallback that matches image tone */}
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-800 via-slate-700 to-slate-900" />
         
-        {/* Optimized background image */}
+        {/* Optimized background image with instant loading */}
         <div className="relative h-full overflow-hidden">
           <Image
             src={backgroundImage}
             alt="Everything Electrical Sydney - Services"
             fill
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
-            className="object-cover transition-opacity duration-700"
-            priority
-            quality={75} // Reduced for faster loading
+            sizes="100vw"
+            className={`object-cover transition-opacity duration-500 ${
+              imageLoaded ? 'opacity-100' : 'opacity-0'
+            }`}
+            priority={true}
             loading="eager"
-            placeholder="blur"
-            blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAQABoDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAQFBv/EACUQAAIBAwMEAgMAAAAAAAAAAAECAwAEEQUSITFBURMiYYGRof/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8A2tFuI7m2jlhYPG67lZehBpaggggkEYIOQa8+6Xq19o9wLixkaJ8ghl6MO4PcV6BgmSaGORDuR1BBHcVlJxbXI9Hn8VLj/9k="
-            onLoad={() => {
-              // Force repaint after image loads for smoother transition
-              requestAnimationFrame(() => {})
-            }}
+            placeholder="empty"
+            unoptimized={false}
           />
         </div>
-        {/* Overlay with better performance */}
+        
+        {/* Consistent overlay */}
         <div className="absolute inset-0 bg-black/60" />
       </div>
 

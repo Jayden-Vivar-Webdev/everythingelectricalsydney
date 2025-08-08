@@ -1,6 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
+    formats: ['image/webp', 'image/avif'],
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     remotePatterns: [
       {
         protocol: 'https',
@@ -8,12 +11,30 @@ const nextConfig = {
         port: '',
         pathname: '/images/**',
       },
-    ],
-    domains: [
-      'upload.wikimedia.org',
-      'www.gstatic.com',
-      'lh3.googleusercontent.com',
-      'ssl.gstatic.com'
+      {
+        protocol: 'https',
+        hostname: 'upload.wikimedia.org',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'www.gstatic.com',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'lh3.googleusercontent.com',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'ssl.gstatic.com',
+        port: '',
+        pathname: '/**',
+      },
     ],
   },
   redirects: async () => {
