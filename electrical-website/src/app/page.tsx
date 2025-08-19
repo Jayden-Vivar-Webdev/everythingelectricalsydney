@@ -5,7 +5,6 @@ import Banner from './components/banner/banner';
 import ServiceLocations from './components/locations/service-locations';
 import FAQ from './components/faq/faq';
 import MapLocations from './components/locations/map-locations';
-
 const POST_QUERY = `*[_type == "customSections" && slug.current == $slug][0]{
   title,
   content,
@@ -23,6 +22,7 @@ export default async function Home() {
   return (
     <>
       <Banner />  
+      
       <PortableText value={data.content} components={contentMap} />
       <ServiceLocations />
       <div className='py-10 bg-white'>

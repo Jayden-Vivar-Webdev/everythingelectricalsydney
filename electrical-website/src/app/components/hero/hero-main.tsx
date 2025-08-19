@@ -45,7 +45,7 @@ function HeroMain({
         />
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
-            {announcementText && (
+            {/* {announcementText && (
               <div className="hidden sm:mb-8 sm:flex sm:justify-center">
                 <div className="relative rounded-full px-3 py-1 text-sm/6 text-gray-400 ring-1 ring-white/10 hover:ring-white/20">
                   {announcementText}{' '}
@@ -57,15 +57,22 @@ function HeroMain({
                   )}
                 </div>
               </div>
-            )}
+            )} */}
             <div className="text-center">
               <h1 className="text-balance text-5xl font-semibold tracking-tight text-white sm:text-7xl">
                 {headline}
               </h1>
               {subheadline && (
-                <p className="mt-8 text-pretty text-lg font-medium text-gray-200 sm:text-xl/8">
-                  {subheadline}
-                </p>
+                <div className="mt-8 flex flex-col items-center space-y-2 text-center">
+                  {subheadline.split('.').filter(s => s.trim() !== '').map((sentence, index) => (
+                    <p key={index} className="inline-flex items-center text-white text-sm sm:text-lg font-semibold tracking-wide">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-red-600 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                      </svg>
+                      {sentence.trim()}.
+                    </p>
+                  ))}
+                </div>
               )}
               <div className="mt-10 flex items-center justify-center gap-x-6">
                 {primaryCtaText && (
