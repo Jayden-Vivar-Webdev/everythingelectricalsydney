@@ -78,7 +78,10 @@ export const contentMap: PortableTextComponents = {
   types: {
     heroSection: ({value, index}) => {
       const heroSection = value as unknown as SanityTypes.HeroSectionBlock
-    
+      
+      const backgroundImageUrl = urlFor(heroSection.backgroundImage.asset._ref).url()
+     
+
       return (
         <HeroMain
           key={index}
@@ -86,7 +89,7 @@ export const contentMap: PortableTextComponents = {
           announcementLink={heroSection.announcementLink}
           headline={heroSection.headline}
           subheadline={heroSection.subheadline}
-          backgroundImage={urlFor(heroSection.backgroundImage.asset._ref).url()} // includes alt inside
+          backgroundImage={backgroundImageUrl} // includes alt inside
           primaryCtaText={heroSection.primaryCtaText}
           primaryCtaUrl={heroSection.primaryCtaUrl}
           secondaryCtaText={heroSection.secondaryCtaText}

@@ -170,6 +170,17 @@ export default function ServicesHero({
     img.src = backgroundImage
   }, [backgroundImage])
 
+   // Memoize the background image element
+   const backgroundImageElement = useMemo(() => (
+    <img
+      src={backgroundImage}
+      alt="Everything Electrical Sydney - Services"
+      className={`${imageLoaded ? 'opacity-100' : 'opacity-0'} object-cover w-full h-full absolute top-0 left-0`}
+      sizes="100vw"
+      loading="eager"
+    />
+  ), [backgroundImage, imageLoaded])
+
   useEffect(() => {
     // Use requestAnimationFrame for smoother animation timing
     const timeoutId = requestAnimationFrame(() => {
@@ -201,13 +212,7 @@ export default function ServicesHero({
         
         {/* Optimized background image with instant loading */}
         <div className="relative h-full overflow-hidden">
-          <img
-            src={backgroundImage}
-            alt="Everything Electrical Sydney - Services"
-            className={`${imageLoaded ? 'opacity-100' : 'opacity-0'} object-cover w-full h-full absolute top-0 left-0`}
-            sizes="100vw"
-            loading="eager"
-          />
+          {backgroundImageElement}
         </div>
 
         

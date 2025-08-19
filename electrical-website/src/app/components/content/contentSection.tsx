@@ -91,10 +91,10 @@ export default function ContentSection({
             <h3 className="text-base font-medium text-slate-700 mb-2 uppercase tracking-wide">
                 {statsHeader}
               </h3>
-              <div className="w-16 h-[2px] bg-red-600 mb-6"></div>
+              {stats && <div className="w-16 h-[2px] bg-red-600 mb-6"></div>}
 
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-              {stats.slice(0, 4).map((stat, index) => (
+              {stats?.slice(0, 4).map((stat, index) => (
                 <div
                   key={index}
                   className="group p-6 border border-slate-200 rounded-xl hover:shadow-md hover:bg-slate-50 transition duration-200"

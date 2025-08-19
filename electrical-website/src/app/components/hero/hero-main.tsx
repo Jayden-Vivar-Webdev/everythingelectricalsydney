@@ -15,7 +15,7 @@ type HeroMainProps = {
   secondaryCtaUrl?: string;
 };
 
-export default function HeroMain({
+function HeroMain({
   announcementText,
   announcementLink,
   headline,
@@ -96,3 +96,5 @@ export default function HeroMain({
     </>
   );
 }
+
+export default React.memo(HeroMain)

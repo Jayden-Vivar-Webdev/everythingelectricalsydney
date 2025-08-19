@@ -1,5 +1,7 @@
+'use client'
 import Image from 'next/image';
-import Link from 'next/link';
+import { useState } from 'react';
+
 type ServiceProps = {
   id: number;
   title: string;
@@ -18,6 +20,20 @@ type ServicesProps = {
 };
 
 export default function Services({ services }: ServicesProps) {
+
+  const [viewCount, setViewCount] = useState<number>(6);
+  const [toggleServices, setToggleServices] = useState(false);
+
+  const handleViewMore = () => {
+    setToggleServices(!toggleServices);
+
+    if(toggleServices) {
+      setViewCount(6)
+    }else{
+      setViewCount(13)
+    }
+  }
+
   return (
     <div className="bg-white py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -31,7 +47,7 @@ export default function Services({ services }: ServicesProps) {
         </div>
         
         <div className="mx-auto mt-16 grid max-w-2xl auto-rows-fr grid-cols-1 gap-8 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
-        <article
+        {/* <article
           className="relative isolate flex flex-col justify-end overflow-hidden
             rounded-2xl bg-gray-900 px-8 pb-8 pt-80 sm:pt-48 lg:pt-80
             transition-transform hover:scale-[1.02] lg:col-span-2"
@@ -102,8 +118,9 @@ export default function Services({ services }: ServicesProps) {
               5-Year Warranty
             </div>
           </div>
-        </article>
-          {services.map((service) => (
+        </article> */}
+
+          {services.slice(0, viewCount).map((service) => (
             <article
               key={service.id}
               className="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl bg-gray-900 px-8 pb-8 pt-80 sm:pt-48 lg:pt-80 transition-transform hover:scale-[1.02]"
@@ -154,6 +171,15 @@ export default function Services({ services }: ServicesProps) {
             </article>
           ))}
           
+          
+        </div>
+        <div className="mt-8 sm:mt-10 flex w-full justify-center pt-10">
+            <button onClick={() => {handleViewMore()}} className="group inline-flex items-center gap-2 rounded-lg bg-red-600 px-6 py-3 sm:px-6 sm:py-3 text-md font-semibold text-white shadow-lg transition-all duration-200 hover:bg-red-700 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2">
+              {!toggleServices ? "See More Services" : "Hide Services"}
+              <svg className="h-4 w-4 sm:h-5 sm:w-5 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+              </svg>
+            </button>
         </div>
       </div>
     </div>
