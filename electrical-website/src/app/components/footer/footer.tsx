@@ -173,7 +173,7 @@ export default function Footer() {
               </a>
             </div>
             <p className="mt-4 text-sm md:mt-0 px-10 text-center">
-              &copy; {new Date().getFullYear()} Everything Electrical Sydney. All rights reserved. ABN: 73 633 557 810 
+              &copy; 2025. Everything Electrical Sydney. All rights reserved. ABN: 73 633 557 810 
             </p>
           </div>
           <div className="mt-4 text-center text-xs text-gray-500 md:text-left">
