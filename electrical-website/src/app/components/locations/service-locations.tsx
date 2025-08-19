@@ -19,7 +19,7 @@ const ServiceLocations = () => {
              Everything Electrical Service Locations
             <span className="block text-red-600 text-3xl md:text-4xl font-bold mb-4">Service Excellence</span>
           </h2>
-          <p className="text-secondary-600 mb-4">
+          <p className="mt-6 text-xl leading-8 text-gray-600 mb-4">
             Delivering premium electrical services all across locations in Sydney NSW, Australia
             <br />
             <br />

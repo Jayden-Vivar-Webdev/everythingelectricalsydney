@@ -126,15 +126,15 @@ export default function AboutPageSection() {
             </div>
             <h1 className="text-5xl font-bold tracking-tight text-slate-900 lg:text-7xl">
               Everything Electrical 
-              <span className="block bg-gradient-to-r from-red-600 to-red-700 bg-clip-text text-transparent">
+              <span className="block bg-gradient-to-r from-red-600 to-red-700 bg-clip-text text-transparent pb-5">
                 Sydney
               </span>
             </h1>
-            <div className="mt-10 flex justify-center">
+            <div className="pt-5 flex justify-center">
               <div className="h-1 w-32 bg-gradient-to-r from-red-600 to-red-700 rounded-full"></div>
             </div>
             <p className="mt-8 text-xl leading-8 text-slate-600 max-w-3xl mx-auto font-light">
-              Licensed, insured, and certified electrical professionals delivering uncompromising excellence 
+            Professional, certified electricians delivering uncompromising excellence 
               across Sydney and the Blue Mountains region for over a decade.
             </p>
           </div>
@@ -343,7 +343,7 @@ export default function AboutPageSection() {
                       href="tel:0449003526" 
                       className="z-10 inline-flex items-center gap-2 rounded-lg bg-red-600 px-6 py-3 sm:px-6 sm:py-3 text-md font-semibold text-white shadow-lg transition-all duration-200 hover:bg-red-700 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
                     >
-                      Schedule Consultation
+                      Book Now
                       <span aria-hidden="true">→</span>
                     </a>
                     <Link

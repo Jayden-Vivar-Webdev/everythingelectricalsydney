@@ -66,7 +66,7 @@ const ContactPageBottom = () => {
                 <div className="bg-gray-700/50 px-6 py-4 rounded-lg border border-gray-600">
                   <p className="text-sm font-semibold text-gray-200">Response Time</p>
                   <p className="text-sm text-gray-300">Professional inquiries within 24 hours</p>
-                  <p className="text-sm text-gray-300">Quote requests prioritized</p>
+                  <p className="text-sm text-gray-300">Quote requests prioritised</p>
                 </div>
               </div>
             </div>
@@ -81,14 +81,14 @@ const ContactPageBottom = () => {
               </div>
               <h3 className="text-2xl font-bold text-white mb-4">Service Area</h3>
               <p className="text-gray-300 mb-8 leading-relaxed flex-grow">
-                Comprehensive electrical services delivered across Sydney&apos;s metropolitan area with full licensing and insurance coverage.
+                Comprehensive electrical services delivered across Sydney with full licensing and insurance coverage.
               </p>
               <div className="mt-auto">
-                <p className="text-2xl font-bold text-red-400 mb-2">Sydney Metro</p>
+                <p className="text-2xl font-bold text-red-400 mb-2">Sydney Wide</p>
                 <p className="text-gray-400 mb-4 text-lg">New South Wales, Australia</p>
                 <div className="bg-gray-700/50 px-6 py-4 rounded-lg border border-gray-600">
                   <p className="text-sm font-semibold text-gray-200">Coverage Area</p>
-                  <p className="text-sm text-gray-300">All Sydney metropolitan areas</p>
+                  <p className="text-sm text-gray-300">Sydney including the blue mountains</p>
                   <p className="text-sm text-gray-300">Licensed and insured</p>
                 </div>
               </div>

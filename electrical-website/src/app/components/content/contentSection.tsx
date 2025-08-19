@@ -84,7 +84,7 @@ export default function ContentSection({
           </div>
 
           {/* Stats Section */}
-          <div className="pt-10 lg:col-span-2">
+          {stats && <div className="pt-10 lg:col-span-2">
             {/* Red divider */}
             
 
@@ -115,7 +115,7 @@ export default function ContentSection({
                 </div>
               ))}
             </div>
-          </div>
+          </div>}
         </div>
       </div>
     </section>
