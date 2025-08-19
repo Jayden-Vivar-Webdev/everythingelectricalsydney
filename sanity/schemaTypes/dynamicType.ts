@@ -57,7 +57,6 @@ export const customSections = defineType({
             }),
           ],
         },
-        
         googleReviews,
         contentImage,
         serviceHeroSection,
@@ -74,10 +73,10 @@ export const customSections = defineType({
               name:'header', title: 'header', type: 'string'
             }),
             defineField({
-              name:'description', title: 'Description', type: 'string'
+              name:'description', title: 'Description', type: 'text'
             }),
             defineField({
-              name:'subHeader', title: 'Sub Header', type: 'text'
+              name:'subHeader', title: 'Sub Header', type: 'string'
             }),
             defineField({
               name:'content', title: 'Content', type: 'text'
