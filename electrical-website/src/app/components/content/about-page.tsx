@@ -341,9 +341,9 @@ export default function AboutPageSection() {
                   
                     <a 
                       href="tel:0449003526" 
-                      className="z-10 inline-flex items-center gap-2 rounded-lg bg-red-600 px-6 py-3 sm:px-6 sm:py-3 text-md font-semibold text-white shadow-lg transition-all duration-200 hover:bg-red-700 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
+                      className="z-10 flex flex-row items-center justify-center gap-2 rounded-lg bg-red-600 px-6 py-3 sm:px-6 sm:py-3 text-md font-semibold text-white shadow-lg transition-all duration-200 hover:bg-red-700 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
                     >
-                      Book Now
+                        Book Now
                       <span aria-hidden="true">→</span>
                     </a>
                     <Link

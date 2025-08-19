@@ -88,7 +88,7 @@ const ContactPageBottom = () => {
                 <p className="text-gray-400 mb-4 text-lg">New South Wales, Australia</p>
                 <div className="bg-gray-700/50 px-6 py-4 rounded-lg border border-gray-600">
                   <p className="text-sm font-semibold text-gray-200">Coverage Area</p>
-                  <p className="text-sm text-gray-300">Sydney including the blue mountains</p>
+                  <p className="text-sm text-gray-300">Sydney including the Blue Mountains</p>
                   <p className="text-sm text-gray-300">Licensed and insured</p>
                 </div>
               </div>
