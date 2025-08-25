@@ -33,7 +33,7 @@ import { ChevronDownIcon, WrenchScrewdriverIcon, Cog8ToothIcon, Battery100Icon, 
 const products = [
   {
     name: 'Emergency Electrician',
-    description: 'Rapid 24/7 response across Sydney for faults, outages & hazards.',
+    description: 'Fast, licensed 24/7 electrical response for outages, faults, and urgent hazards.',
     href: '/services/emergency-electrician',
     icon: BoltIcon,
   },

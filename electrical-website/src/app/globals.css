@@ -22,6 +22,37 @@
   }
 } */
 
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@400;600&display=swap');
+
+/* Import local Plato font */
+@font-face {
+  font-family: 'Plato';
+  src: url('/fonts/Plato-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+/* Apply fonts globally using @layer base */
+@layer base {
+  /* Headings */
+  h1 {
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  /* Subheadings */
+  h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+  }
+
+  /* Paragraphs / Main content */
+  p, span, li, div {
+    font-family: 'Plato', serif;
+  }
+}
+
+
 @layer utilities {
   .primary-bg{
     background-color: var(--primary-color)
