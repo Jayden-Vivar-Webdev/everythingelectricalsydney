@@ -22,17 +22,7 @@
   }
 } */
 
-/* Import Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@400;600&display=swap');
-
-/* Import local Plato font */
-@font-face {
-  font-family: 'Plato';
-  src: url('/fonts/Plato-Regular.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
-}
-
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@400;600&family=Merriweather:wght@400;700&display=swap');
 
 /* Apply fonts globally using @layer base */
 @layer base {
@@ -48,7 +38,7 @@
 
   /* Paragraphs / Main content */
   p, span, li, div {
-    font-family: 'Plato', serif;
+    font-family: 'Merriweather', serif;
   }
 }
 
