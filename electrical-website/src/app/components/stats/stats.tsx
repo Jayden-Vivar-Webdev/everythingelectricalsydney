@@ -31,25 +31,27 @@ import { CheckIcon } from '@heroicons/react/24/solid';
                     </p>
                 ))}
             </div>
-            
-            <div className="mt-24 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+            <div className={`mt-24 grid gap-6 sm:gap-8 ${
+                featureItems.length === 6 
+                    ? 'grid-cols-2 md:grid-cols-3' 
+                    : 'grid-cols-2'
+            }`}>
                 {featureItems?.map((item, index) => (
                     <div
                         key={item.id ?? index}
-                        className="group relative flex flex-col rounded-xl bg-white/5 p-8 backdrop-blur-sm border border-white/10 shadow-2xl hover:border-white/20 transition-all duration-500 ease-in-out hover:shadow-3xl hover:-translate-y-2"
+                        className="group relative flex flex-col rounded-xl bg-white/5 p-6 sm:p-8 backdrop-blur-sm border border-white/10 shadow-2xl hover:border-white/20 transition-all duration-500 ease-in-out hover:shadow-3xl hover:-translate-y-2"
                     >
                         {/* Gradient glow effect */}
                         <div className="absolute -inset-0.5 bg-gradient-to-r from-red-500/30 to-red-600/30 rounded-xl opacity-0 group-hover:opacity-100 blur-md transition-opacity duration-500" />
                         
-                        
-                        <div className="relative flex items-start mb-6 space-x-4">
-                            <div className="flex-shrink-0 flex items-center justify-center w-12 h-12 rounded-lg bg-gradient-to-br from-red-600 to-red-700 shadow-lg">
-                                <CheckIcon className="h-6 w-6 text-white" />
+                        <div className="relative flex items-start mb-4 sm:mb-6 space-x-3 sm:space-x-4">
+                            <div className="w-10 h-10 flex-shrink-0 flex items-center justify-center sm:w-12 sm:h-12 rounded-lg bg-gradient-to-br from-red-600 to-red-700 shadow-lg">
+                                <CheckIcon className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
                             </div>
-                            <h3 className="text-xl font-semibold text-white leading-snug">{item.name}</h3>
+                            <h3 className="text-base sm:text-lg lg:text-xl font-semibold text-white leading-snug">{item.name}</h3>
                         </div>
                         
-                        <p className="relative mt-2 text-gray-300/80 leading-relaxed flex-grow font-light">
+                        <p className="relative mt-2 text-sm sm:text-base text-gray-300/80 leading-relaxed flex-grow font-light">
                             {item.value}
                         </p>
                     </div>

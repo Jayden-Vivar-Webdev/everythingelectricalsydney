@@ -7,10 +7,12 @@ const navigation = {
     { name: 'Switchboard Upgrades', href: '/services/switchboard-upgrades' },
     { name: 'Residential Solutions', href: '/services/residential-electrical' },
     { name: 'Commercial Electrical', href: '/services/commercial-electrical' },
+    { name: 'Air conditioning', href: '/services//air-conditioning' },
     { name: 'Emergency Repairs', href: '/services/emergency-electrician' },
   ],
   areas: [
     { name: 'Sydney CBD', href: '/all-services/sydney' },
+    { name: 'Blue Mountains', href: '/all-services/blue-mountains'},
     { name: 'Eastern Suburbs', href: '/all-services/eastern-suburbs' },
     { name: 'Northern Beaches', href: '/all-services/northern-beaches' },
     { name: 'Inner West', href: '/all-services/inner-west' },
@@ -74,7 +76,7 @@ export default function Footer() {
                 
               </div>
               <p className="text-sm">
-                Licensed, insured electrical contractors serving Sydney since 2010. 24/7 emergency services available.
+              Licensed and insured electrical and air conditioning contractors serving Sydney since 2010, available 24/7 for emergency services.
               </p>
               <div className="flex space-x-4 ml-2">
                 {navigation.social.map((item) => (
@@ -151,8 +153,7 @@ export default function Footer() {
                 <h4 className="text-sm font-semibold uppercase tracking-wider text-white">
                   Business Hours
                 </h4>
-                <p className="mt-2 text-[15px]">Mon-Fri: 7am - 5pm</p>
-                <p className="text-[15px]">Sat-Sun: Emergency only</p>
+                <p className="mt-2 text-[15px]">24/7 </p>
               </div>
             </div>
           </div>

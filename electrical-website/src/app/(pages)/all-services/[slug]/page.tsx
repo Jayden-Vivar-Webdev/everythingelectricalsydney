@@ -19,7 +19,10 @@ const validLocations = [
   { name: "Liverpool", slug: "liverpool" },
   { name: "Blacktown", slug: "blacktown" },
   { name: "Penrith", slug: "penrith" },
+  { name: "Blue Mountains", slug: "blue-mountains"},
   { name: "Campbelltown", slug: "campbelltown" },
+  { name: "Eastern Suburbs", slug: "Eastern Suburbs"},
+
   { name: "Camden", slug: "camden" },
   { name: "Oran Park", slug: "oran-park" },
   { name: "Narellan", slug: "narellan" },
@@ -32,12 +35,15 @@ const validLocations = [
   { name: "Ashfield", slug: "ashfield" },
   { name: "Leichhardt", slug: "leichhardt" },
   { name: "Marrickville", slug: "marrickville" },
+  { name: 'Inner West', slug: "inner-west"},
+  {name: "Western Sydney", slug: "western-sydney"},
 
   // Eastern Suburbs
   { name: "Bondi", slug: "bondi" },
   { name: "Randwick", slug: "randwick" },
   { name: "Maroubra", slug: "maroubra" },
   { name: "Coogee", slug: "coogee" },
+  { name: "Northern Beaches", slug:"northern-beaches"},
 
   // Western Sydney
   { name: "Mount Druitt", slug: "mount-druitt" },

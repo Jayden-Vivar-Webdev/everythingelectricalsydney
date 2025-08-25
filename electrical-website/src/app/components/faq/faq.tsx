@@ -5,32 +5,45 @@ const faqs = [
     {
       question: "Do you offer emergency electrical services?",
       answer:
-        "Yes, we provide 24/7 emergency electrical services across Sydney. Whether it's a power outage, burning smell, or tripped circuit, our licensed electricians can respond quickly to keep your home or business safe.",
+        "Yes, our licensed electricians provide 24/7 emergency electrical services across Sydney. From power outages and tripped circuits to urgent repairs, we respond quickly to keep your home or business safe.",
     },
     {
-      question: "How much does it cost to get an electrician out?",
-      answer:
-        "Our call-out fees are competitive and transparent. Pricing depends on the type of service, but we provide upfront quotes before any work begins so there are no surprises.",
+      question: "Do you provide free quotes?",
+      answer:"Absolutely. We offer free, no-obligation quotes for all non-emergency work. Emergency call-outs do have a standard call-out fee, but we always provide upfront pricing before starting any work.",
     },
     {
       question: "Are your electricians licensed and insured?",
       answer:
-        "Absolutely. All of our electricians are fully licensed and insured, ensuring every job is done to Australian standards with safety and quality as top priorities.",
+        "Yes. All of our electricians are fully licensed and insured, working to Australian standards to ensure every job is safe, professional, and reliable.",
     },
     {
       question: "Can you help with switchboard upgrades?",
-      answer:
-        "Yes, we specialize in switchboard upgrades to modern, safer systems. If your switchboard is old, frequently trips, or lacks safety switches, it's likely time for an upgrade.",
+      answer:"Definitely. We specialise in upgrading old or unsafe switchboards to modern, reliable systems, including safety switches and enhanced performance.",
     },
     {
       question: "Do you handle commercial electrical work?",
       answer:
-        "We sure do. From offices and retail fit-outs to warehouses and industrial maintenance, we offer tailored commercial electrical services backed by years of experience.",
+        "Yes, we provide tailored commercial electrical services for offices, retail spaces, warehouses, and industrial facilities, backed by years of experience.",
+    },
+    {
+      question: "Do you install air conditioning systems?",
+      answer:
+        "Yes, our team can handle air conditioning installation, repairs, and maintenance for homes and businesses across Sydney.",
+    },
+    {
+      question: "Can you perform Level 2 electrical work?",
+      answer:
+        "Absolutely. Our licensed electricians are qualified to carry out Level 2 electrical services, including meter upgrades, mains connections, and other specialist tasks.",
+    },
+    {
+      question: "Do you install CCTV and security systems?",
+      answer:
+        "Yes, we offer professional CCTV and security system installations to help protect your home or business, with reliable setup and ongoing support.",
     },
     {
       question: "What areas do you service?",
       answer:
-        "We’re based in Sydney and service all surrounding areas, including Campbelltown, Camden, Oran Park, and beyond. If you're unsure whether we cover your area, feel free to contact us.",
+        "We’re provide services right across Sydney. If you’re unsure whether we cover your area, get in touch and we’ll confirm.",
     },
   ];
   
@@ -41,7 +54,7 @@ export default function FAQ() {
       <div className="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8 lg:py-40">
         <div className="mx-auto max-w-4xl">
           <h2 className="text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
-            Frequently asked questions
+            Frequently Asked Questions
           </h2>
           <dl className="mt-16 divide-y divide-gray-900/10">
             {faqs.map((faq) => (

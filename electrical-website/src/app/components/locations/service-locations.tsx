@@ -1,5 +1,5 @@
-import Link from 'next/link';
 import MobileLocationService from './search-locations';
+import Link from 'next/link';
 const ServiceLocations = () => {
 
   return (
@@ -16,18 +16,25 @@ const ServiceLocations = () => {
             </svg>
           </div>
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-             Everything Electrical Service Locations
-            <span className="block text-red-600 text-3xl md:text-4xl font-bold mb-4">Service Excellence</span>
+              Everything Electrical 
+            <span className="block text-red-600 text-3xl md:text-4xl font-bold mb-4">Service Areas</span>
           </h2>
           <p className="mt-6 text-xl leading-8 text-gray-600 mb-4">
-            Delivering premium electrical services all across locations in Sydney NSW, Australia
+          Providing reliable, professional electrical and air conditioning services across Sydney, NSW, Australia.
             <br />
             <br />
-            <strong>Can’t find your location? No worries! We cover many more areas than listed here. Please get in touch with us, we’re happy to help and confirm if we service your area.</strong>
+            <strong>Can’t see your suburb listed? Don’t worry we cover many more areas. Get in touch and we’ll confirm if we can service your location.</strong>
           </p>
           <div className="mt-8 flex justify-center">
             <div className="h-1 w-24 bg-[#ae1414] rounded-full"></div>
           </div>
+
+          <Link href={"#contact"} className="mt-10 group inline-flex items-center gap-2 rounded-lg bg-red-600 px-6 py-3 sm:px-6 sm:py-3 text-md font-semibold text-white shadow-lg transition-all duration-200 hover:bg-red-700 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2">
+            Request Service in your area
+            <svg className="h-4 w-4 sm:h-5 sm:w-5 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+            </svg>
+          </Link>
         </div>
         
         {/* Main Content Card */}
@@ -60,35 +67,7 @@ const ServiceLocations = () => {
         
 
         {/* Call to Action */}
-        <div className="text-center mt-16">
-          <div className="relative rounded-2xl p-8 md:p-12 shadow-2xl overflow-hidden">
-            {/* Background Image */}
-            <div className="absolute inset-0 bg-[url(/images/assets/electrical-switchbox.jpg)] bg-cover bg-center"></div>
-
-            
-            {/* Gradient Overlay */}
-            <div className="absolute inset-0 bg-black/60"></div>
-            
-            {/* Content */}
-            <div className="relative z-10">
-              <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
-                Ready to Get Started?
-              </h3>
-              <p className="text-white text-lg mb-8 max-w-2xl mx-auto">
-                Connect with our experts and discover how we can help.
-              </p>
-              <Link
-                href="#contact"
-                className="inline-flex items-center px-8 py-4 bg-white text-red-600 font-semibold rounded-xl shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-200 group"
-              >
-                Request Service in Your Area
-                <svg className="ml-3 w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </Link>
-            </div>
-          </div>
-        </div>
+        <div/>
       </div>
     </section>
     

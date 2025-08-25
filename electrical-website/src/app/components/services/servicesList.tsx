@@ -39,10 +39,11 @@ export default function Services({ services }: ServicesProps) {
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:max-w-4xl text-center">
           <h2 className="text-balance text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
-            Comprehensive Electrical Services in <span className="secondary-text">Sydney</span>
+           
+           Complete Electrical Solutions Across <span className="secondary-text">Sydney</span>
           </h2>
           <p className="mt-4 text-lg text-gray-600 leading-7">
-            Professional, certified electricians delivering fast and reliable services across Sydney, available 24/7 for your emergency needs.
+            Our trusted and qualified electricians are here for all your electrical needs.  From routine jobs to emergency calls outs, we’ve got Sydney covered 24/7
           </p>
         </div>
         

@@ -40,19 +40,39 @@ export default function ContactFormInputs({handleSubmit, submitError, formData, 
 
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-gray-800 mb-4">
-            Describe your <span className="secondary-text">electrical</span> requirement to get a quote
+            Describe your <span className="secondary-text">electrical</span> or air conditioning needs
           </h1>
           
           {/* Security badges */}
-          <div className="flex flex-wrap gap-4 text-sm text-gray-600">
+          <div className="flex flex-wrap gap-5 text-sm text-gray-600">
+          <div className="flex flex-col gap-1">
             <div className="flex items-center gap-2">
               <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-              <span>Your information is 100% safe and secure</span>
+              <span className="font-bold">
+                Tell us about your electrical or air conditioning needs
+              </span>
             </div>
+
+            <span className="flex gap-2">
+            <div className="w-3 h-3 rounded-full"></div>
+              No job is too big or too small. Fill out the form with your details and a brief
+              description so we can provide an accurate quote.
+            </span>
+          </div>
+            
+          <div className="flex flex-col gap-1">
             <div className="flex items-center gap-2">
               <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-              <span>You will receive a response within minutes</span>
+              <span className="font-bold">
+              We’ll get back to you promptly
+              </span>
             </div>
+
+            <span className="flex gap-2">
+            <div className="w-3 h-3 rounded-full"></div>
+              Our friendly team will review your request and respond as quickly as possible with the right solution for your home or business.
+            </span>
+          </div>
           </div>
         </div>
 
@@ -188,7 +208,7 @@ export default function ContactFormInputs({handleSubmit, submitError, formData, 
                   Submitting...
                 </>
               ) : (
-                'Book now'
+                'Submit Now'
               )}
             </button>
           </div>
