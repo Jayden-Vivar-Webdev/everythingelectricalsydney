@@ -57,7 +57,7 @@ const products = [
   },
   {
     name: 'Hot Water Systems',
-    description: 'Installation and maintenance of electric hot water systems.',
+    description: 'Fast Repairs & Professional Installations',
     href: '/services/hot-water-systems',
     icon: FireIcon,
   },
@@ -80,14 +80,14 @@ const products = [
     icon: SunIcon,
   },
   {
-    name: 'Residential Electrical',
-    description: 'Complete electrical solutions for homes and renovations.',
+    name: 'Residential Electrical Services',
+    description: 'Safe, Modern & Reliable Home Services',
     href: '/services/residential-electrical',
     icon: HomeIcon,
   },
   {
-    name: 'Commercial Electrical',
-    description: 'Fit-outs, maintenance & energy-efficient solutions for business.',
+    name: 'Commercial Electrical Services',
+    description: 'Reliable, Compliant Electrical Solutions for Businesses',
     href: '/services/commercial-electrical',
     icon: BuildingOfficeIcon,
   },

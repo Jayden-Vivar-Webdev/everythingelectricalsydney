@@ -33,7 +33,7 @@ import { CheckIcon } from '@heroicons/react/24/solid';
             </div>
             <div className={`mt-24 grid gap-6 sm:gap-8 ${
                 featureItems.length === 6 
-                    ? 'grid-cols-1 md:grid-cols-2' 
+                    ? 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3' 
                     : 'grid-cols-2'
             }`}>
                 {featureItems?.map((item, index) => (

@@ -77,7 +77,7 @@ const ServiceHeroSection = ({
                 if (trimmed.startsWith('•')) {
                   return (
                     <span key={i} className="flex items-start gap-2">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 flex justify-center text-red-600 mr-2 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 flex justify-center text-red-600 mr-2 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7"></path></svg>
                       <span>{trimmed.slice(1).trim()}</span>
                     </span>
                   );
