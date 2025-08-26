@@ -13,7 +13,7 @@ type StatItemProps = {
 type ContentSectionProps = {
   tag: string;
   header: string;
-  description: string;
+  description: React.ReactNode;
   subHeader: string;
   content: React.ReactNode;
   images: ImageProps[];
@@ -42,9 +42,9 @@ export default function ContentSection({
           <h1 className="mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
             {header}
           </h1>
-          <p className="mt-6 text-xl leading-8 text-gray-600">
+          <div className="mt-6 text-xl leading-8 text-gray-600">
             {description}
-          </p>
+          </div>
         </div>
 
         {/* Main Content Grid */}

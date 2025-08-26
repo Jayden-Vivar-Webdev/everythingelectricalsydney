@@ -44,14 +44,14 @@ const products = [
     icon: WrenchScrewdriverIcon,
   },
   {
-    name: 'Switch Board Upgrades',
-    description: 'Fast upgrades to improve safety and performance.',
+    name: 'Switchboard Upgrades',
+    description: 'Safe & Compliant Electrical Solutions',
     href: '/services/switchboard-upgrades',
     icon: Cog8ToothIcon,
   },
   {
     name: 'EV Charger Installation',
-    description: 'Fast and efficient EV charger installations at your home.',
+    description: 'Fast, Professional EV Solutions',
     href: '/services/ev-chargers',
     icon: Battery100Icon,
   },
@@ -63,7 +63,7 @@ const products = [
   },
   {
     name: 'Electrical Repairs & Maintenance',
-    description: 'Prompt and reliable electrical repairs for home or business.',
+    description: 'Reliable Residential & Commercial Repair Solutions',
     href: '/services/electrical-repairs-maintenance',
     icon: WrenchIcon,
   },

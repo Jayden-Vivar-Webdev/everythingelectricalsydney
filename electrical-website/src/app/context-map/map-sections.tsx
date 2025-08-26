@@ -315,7 +315,54 @@ export const contentMap: PortableTextComponents = {
           key={index}
           tag={contentBlock.tag}
           header={contentBlock.header}
-          description={contentBlock.description}
+          description={contentBlock.description
+            .replace(/\r\n/g, '\n')
+            .split(/\n/)
+            .map((line, idx) => {
+              const trimmed = line.trim();
+              if (!trimmed) return <br key={idx} />;
+          
+              // 🔹 Case 1: bullet points (• or .)
+              if (trimmed.startsWith("•") || trimmed.startsWith(".")) {
+                return (
+                  <div key={idx} className="flex items-start">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-5 w-5 text-red-600 mr-2 mt-1 flex-shrink-0"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={3}
+                        d="M5 13l4 4L19 7"
+                      />
+                    </svg>
+                    <span>{trimmed.replace(/^•\s*|^\.\s*/, "")}</span>
+                  </div>
+                );
+              }
+          
+              const colonIndex = trimmed.indexOf(":");
+              if (colonIndex > -1) {
+                return (
+                  <div key={idx} className="text-gray-600">
+                    <strong className='text-black'>{trimmed.slice(0, colonIndex + 1)}</strong>
+                    {trimmed.slice(colonIndex + 1)}
+                  </div>
+                );
+              }
+              // 🔹 Default case
+              return (
+                <div key={idx} className="text-gray-600">
+                  {trimmed}
+                </div>
+              );
+            })
+          }
+          
           subHeader={contentBlock.subHeader}
           content={contentBlock.content
             .replace(/\r\n/g, '\n')
@@ -342,6 +389,16 @@ export const contentMap: PortableTextComponents = {
                       />
                     </svg>
                     <span>{trimmed.replace(/^•\s*|^\.\s*/, "")}</span>
+                  </div>
+                );
+              }
+              // Case 2: check for colon
+              const colonIndex = trimmed.indexOf(":");
+              if (colonIndex > -1) {
+                return (
+                  <div key={idx} className="text-gray-600">
+                    <strong className='text-black'>{trimmed.slice(0, colonIndex + 1)}</strong>
+                    {trimmed.slice(colonIndex + 1)}
                   </div>
                 );
               }
