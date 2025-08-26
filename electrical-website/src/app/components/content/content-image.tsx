@@ -123,7 +123,7 @@ const EnhancedTestimonialSection: React.FC<EnhancedTestimonialSectionProps> = ({
             </div>
           )}
           
-          {/* Enhanced Content Section */}
+          {/* Enhanced Content Section  */}
           <div className="lg:pl-4">
             <div className={`text-sm sm:text-base leading-7 ${isDarkMode ? 'text-slate-300' : 'text-slate-700'}`}>
               
