@@ -171,7 +171,7 @@ export default function HeroContact({
             />
             </div>
             <h2 className="text-pretty text-white text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">{title}</h2>
-            <div className='px-3 py-1 bg-red-600 inline-flex mt-6 rounded-xl'>
+            <div className='py-1 inline-flex mt-6 rounded-xl'>
                 <strong className=" text-lg/8 text-white">{description}</strong>
             </div>
             
@@ -179,7 +179,7 @@ export default function HeroContact({
               <div className="flex gap-x-4">
                 <dt className="flex-none">
                   <span className="sr-only">Address</span>
-                  <BuildingOffice2Icon aria-hidden="true" className="h-7 w-6" />
+                  <BuildingOffice2Icon aria-hidden="true" className="h-7 w-6 bg-red-600 p-1 rounded-lg" />
                 </dt>
                 <dd>
                   {address.line1}
@@ -191,7 +191,7 @@ export default function HeroContact({
               <div className="flex gap-x-4">
                 <dt className="flex-none">
                   <span className="sr-only">Telephone</span>
-                  <PhoneIcon aria-hidden="true" className="h-7 w-6 text" />
+                  <PhoneIcon aria-hidden="true" className="h-7 w-6 text bg-red-600 p-1 rounded-lg" />
                 </dt>
                 <dd>
                   <a href={`tel:${phone}`} className="hover:text-gray-200">
@@ -202,7 +202,7 @@ export default function HeroContact({
               <div className="flex gap-x-4">
                 <dt className="flex-none">
                   <span className="sr-only">Email</span>
-                  <EnvelopeIcon aria-hidden="true" className="h-7 w-6" />
+                  <EnvelopeIcon aria-hidden="true" className="h-7 w-6 bg-red-600 p-1 rounded-lg" />
                 </dt>
                 <dd>
                   <a href={'#'} className="hover:text-gray-200">

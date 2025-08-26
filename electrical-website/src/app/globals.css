@@ -31,14 +31,14 @@
     font-family: 'Montserrat', sans-serif;
   }
 
-  /* Subheadings */
+  Subheadings
   h2, h3, h4, h5, h6 {
     font-family: 'Poppins', sans-serif;
   }
 
   /* Paragraphs / Main content */
   p, span, li, div {
-    font-family: 'Merriweather', serif;
+    font-family: 'Poppins', sans-serif;
   }
 }
 

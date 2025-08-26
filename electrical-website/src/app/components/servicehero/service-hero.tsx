@@ -69,8 +69,25 @@ const ServiceHeroSection = ({
               {title}
             </p>
             <p className={`mt-6 text-lg/8 ${themeClasses.description}`}>
-              {description}
+              {description.split('\n').map((line, i) => {
+                const trimmed = line.trim();
+
+                if (!trimmed) return <br key={i} /> // preserve empty lines
+
+                if (trimmed.startsWith('•')) {
+                  return (
+                    <span key={i} className="flex items-start gap-2">
+                      <span className="text-red-500 flex-shrink-0">✔</span>
+                      <span>{trimmed.slice(1).trim()}</span>
+                    </span>
+                  );
+                }
+
+                return <span key={i}>{line}</span>; // normal line, keep as inline
+              })}
             </p>
+
+
             {stats.length > 0 && (
               <dl className="mt-16 grid max-w-xl grid-cols-1 gap-8 sm:mt-20 sm:grid-cols-2 xl:mt-16">
                 {stats.map((stat) => (

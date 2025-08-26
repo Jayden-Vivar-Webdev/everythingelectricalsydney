@@ -37,6 +37,7 @@ interface EnhancedTestimonialSectionProps {
   portableTextComponents?: PortableTextComponents;
 }
 
+
 const EnhancedTestimonialSection: React.FC<EnhancedTestimonialSectionProps> = ({ 
   isDarkMode = false, 
   contentInfo,

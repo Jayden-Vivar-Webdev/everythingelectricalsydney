@@ -38,8 +38,8 @@ const products = [
     icon: BoltIcon,
   },
   {
-    name: 'Level 2 Electrician',
-    description: 'Expert Level 2 electricians for advanced electrical needs.',
+    name: 'Level 2 Electricians',
+    description: 'Sydney licensed experts for advanced and complex electrical connections.',
     href: '/services/level-2-electrician',
     icon: WrenchScrewdriverIcon,
   },

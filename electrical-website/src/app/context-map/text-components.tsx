@@ -33,14 +33,32 @@ export const portableTextComponents: PortableTextComponents = {
   },
   list: {
     bullet: ({ children }) => (
-      <ul className="pt-3 text-gray-600 list-disc list-inside space-y-2 mb-6 text-lg md:text-xl">{children}</ul>
+      <ul className="py-1 text-gray-600 list-disc list-inside space-y-2 mb-6 text-lg md:text-xl">{children}</ul>
     ),
     number: ({ children }) => (
       <ol className="text-gray-600 list-decimal list-inside space-y-2 mb-6 text-lg md:text-xl">{children}</ol>
     ),
   },
   listItem: {
-    bullet: ({ children }) => <li className="text-gray-600 ml-3 text-lg mb-5 md:text-xl">{children}</li>,
+    bullet: ({ children }) => (
+      <li className="flex items-start gap-2 text-lg md:text-xl mb-5">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-5 w-5 text-red-600 flex-shrink-0 mt-1"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={3}
+            d="M5 13l4 4L19 7"
+          />
+        </svg>
+        <span>{children}</span>
+      </li>
+    ),
     number: ({ children }) => <li className="text-gray-600 ml-3 text-lg md:text-xl">{children}</li>,
   },
   marks: {
