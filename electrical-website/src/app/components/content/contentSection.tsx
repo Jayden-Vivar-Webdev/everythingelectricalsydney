@@ -1,5 +1,6 @@
+'use client'
 import Image from "next/image";
-
+import { usePathname } from "next/navigation";
 type ImageProps = {
   alt: string;
   src: string;
@@ -21,6 +22,17 @@ type ContentSectionProps = {
   stats: StatItemProps[];
 };
 
+function Separator(){
+
+  const pathname = usePathname();
+  const slug = pathname.split('/')[1]
+
+  if(slug === 'areas'){
+    return(<div className='pt-30 sm:pt-35 md:pt-20'></div>)
+  }
+
+}
+
 export default function ContentSection({
   tag,
   header,
@@ -32,6 +44,8 @@ export default function ContentSection({
   stats,
 }: ContentSectionProps) {
   return (
+    <>
+    {Separator()}
     <section className="bg-white py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         {/* Header Section */}
@@ -119,5 +133,6 @@ export default function ContentSection({
         </div>
       </div>
     </section>
+    </>
   );
 }

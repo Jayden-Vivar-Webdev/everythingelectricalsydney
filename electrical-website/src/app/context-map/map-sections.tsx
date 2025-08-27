@@ -202,7 +202,7 @@ export const contentMap: PortableTextComponents = {
           );
     
         case 'blank':
-          return <div key={index} className="py-10" />;
+          return <div key={index} className="py-20 md:py-10 lg:py-3" />;
     
         default:
           return (

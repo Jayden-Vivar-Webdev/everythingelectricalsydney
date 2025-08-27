@@ -1,10 +1,11 @@
+
 import { PortableText, PortableTextComponents } from '@portabletext/react';
 import React from 'react';
 import Image from 'next/image';
-
 import {
   PortableTextBlock
 } from '@portabletext/types';
+
 
 // TypeScript interfaces for the component props
 interface ImageData {
@@ -42,9 +43,11 @@ const EnhancedTestimonialSection: React.FC<EnhancedTestimonialSectionProps> = ({
   isDarkMode = false, 
   contentInfo,
   className = "",
+  
   portableTextComponents
 }) => {
   return (
+    
     <div className={`${isDarkMode ? 'bg-gray-900' : 'bg-white'} py-12 sm:py-16 md:py-24 lg:py-32 ${className}`}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto grid max-w-full grid-cols-1 items-start gap-x-8 gap-y-12 sm:gap-y-16 lg:mx-0 lg:grid-cols-1">

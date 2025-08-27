@@ -4,6 +4,8 @@ import { contentMap } from '@/app/context-map/map-sections';
 import AboutPageSection from '@/app/components/content/about-page';
 import HeroContact from '@/app/components/hero/hero-contact';
 
+
+
 const POST_QUERY = `*[_type == "customSections" && slug.current == $slug][0]{
   title,
   content,
@@ -42,7 +44,8 @@ export const metadata = {
     ],
     authors: [{ name: 'Everything Electrical Sydney' }],
   };
-  
+
+
   
 export default async function ContactPage(){
     const data = await client.fetch(POST_QUERY, { slug: '/about' });
@@ -53,6 +56,7 @@ export default async function ContactPage(){
     return(
         <>
         <PortableText value={data.content} components={contentMap} />
+        <div className='pt-40 sm:pt-30 md:pt-20'></div>
         <AboutPageSection />
         <HeroContact />
         </>
