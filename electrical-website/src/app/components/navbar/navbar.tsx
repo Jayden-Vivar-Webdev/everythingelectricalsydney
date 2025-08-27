@@ -74,8 +74,8 @@ const products = [
     icon: VideoCameraIcon,
   },
   {
-    name: 'Air Conditioning Services',
-    description: 'Licensed aircon wiring & installation of split/ducted systems.',
+    name: 'Air Conditioning',
+    description: 'Safe & Compliant Cooling Solutions',
     href: '/services/air-conditioning',
     icon: SunIcon,
   },
