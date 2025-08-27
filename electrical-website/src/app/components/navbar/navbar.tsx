@@ -94,7 +94,7 @@ const products = [
   
   {
     name: 'Smart Home, Alarms & Connected Systems',
-    description: 'Smart lighting, alarms & climate control accessible from your phone.',
+    description: 'Smarter living',
     href: '/services/smart-home',
     icon: SparklesIcon,
   },
@@ -105,8 +105,8 @@ const products = [
     icon: BellAlertIcon,
   },
   {
-    name: 'Real Estate & Strata Services',
-    description: 'Reliable support & maintenance for property managers.',
+    name: 'Strata & Real Estate Electrical Services',
+    description: 'Safe, Compliant & Reliable Property Solutions',
     href: '/services/real-estate-strata',
     icon: ClipboardDocumentCheckIcon,
   },
