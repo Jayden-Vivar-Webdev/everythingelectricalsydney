@@ -69,7 +69,7 @@ const products = [
   },
   {
     name: 'CCTV Installation',
-    description: 'High-quality surveillance for home and business security.',
+    description: 'Secure, Compliant & Professional',
     href: '/services/cctv-installation',
     icon: VideoCameraIcon,
   },
@@ -100,7 +100,7 @@ const products = [
   },
   {
     name: 'Smoke Alarms & Compliance',
-    description: 'Certified installations & testing to meet NSW safety standards.',
+    description: 'Protecting Your Home & Business',
     href: '/services/smoke-alarms',
     icon: BellAlertIcon,
   },
