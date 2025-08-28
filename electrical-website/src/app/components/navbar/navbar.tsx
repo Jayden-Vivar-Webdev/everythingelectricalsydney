@@ -31,6 +31,7 @@ import { ChevronDownIcon, WrenchScrewdriverIcon, Cog8ToothIcon, Battery100Icon, 
 
 
 const products = [
+  
   {
     name: 'Emergency Electrician',
     description: 'Fast, licensed 24/7 electrical response for outages, faults, and urgent hazards.',
