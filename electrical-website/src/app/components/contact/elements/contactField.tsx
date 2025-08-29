@@ -46,12 +46,13 @@ export default function ContactFormInputs({handleSubmit, submitError, formData, 
           {/* Security badges */}
           <div className="flex flex-wrap gap-5 text-sm text-gray-600">
           <div className="flex flex-col gap-1">
-            <div className="flex items-center gap-2">
-              <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-              <span className="font-bold">
-                Tell us about your electrical or air conditioning needs
-              </span>
-            </div>
+          <div className="flex items-center gap-2">
+            <div className="w-3 h-3 bg-green-500 rounded-full shrink-0"></div>
+            <span className="font-bold">
+              Tell us about your electrical or air conditioning needs
+            </span>
+          </div>
+
 
             <span className="flex gap-2">
             <div className="w-3 h-3 rounded-full"></div>
@@ -62,7 +63,7 @@ export default function ContactFormInputs({handleSubmit, submitError, formData, 
             
           <div className="flex flex-col gap-1">
             <div className="flex items-center gap-2">
-              <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+              <div className="w-3 h-3 bg-green-500 rounded-full shrink-0"></div>
               <span className="font-bold">
               We’ll get back to you promptly
               </span>
