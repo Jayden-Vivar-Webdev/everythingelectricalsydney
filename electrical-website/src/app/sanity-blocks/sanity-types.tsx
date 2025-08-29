@@ -224,11 +224,11 @@ export interface ServiceHeroDynamic {
       _type: 'reference';
     };
   };
-  services: {
-    title: string;
-    description: string;
-    features: string[];
-  }[];
+  // services: {
+  //   title: string;
+  //   description: string;
+  //   features: string[];
+  // }[];
   ctaText: string;
 }
 

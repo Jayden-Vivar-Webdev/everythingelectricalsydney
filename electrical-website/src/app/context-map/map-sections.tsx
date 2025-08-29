@@ -492,7 +492,6 @@ export const contentMap: PortableTextComponents = {
               .quality(90)
               .url()}
             ctaText={HeroSection.ctaText}
-            services={HeroSection.services}
           />
         )
     },
