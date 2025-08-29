@@ -10,7 +10,7 @@ import {
 } from '@heroicons/react/20/solid'
 
 const stats = [
-  { label: 'Business Established', value: '2014' },
+  { label: 'Business Established', value: '2010' },
   { label: 'Projects Completed', value: '5,000+' },
   { label: 'Years of Excellence', value: '10+' },
   { label: 'Satisfied Clients', value: '1,000+' },
