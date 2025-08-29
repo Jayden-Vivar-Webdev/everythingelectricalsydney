@@ -179,10 +179,18 @@ export default function NavBar() {
                       <div className="flex size-11 items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
                         <item.icon aria-hidden="true" className="size-6 text-gray-600 group-hover:text-red-600" />
                       </div>
-                      <a href={item.href} className="mt-6 block font-semibold secondary-text">
+                      <a
+                        href={item.href}
+                        className={`mt-6 block font-semibold ${
+                          pathname === item.href
+                            ? 'text-red-600'
+                            : 'text-gray-700 hover:text-red-600'
+                        }`}
+                      >
                         {item.name}
                         <span className="absolute inset-0" />
                       </a>
+
                       <p className="mt-1 text-gray-600">{item.description}</p>
                     </div>
                   ))}

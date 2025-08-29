@@ -20,18 +20,18 @@ type ContactFormProps = {
 }
 
 export default function HeroContact({
-  title = 'Get in touch',
+  title = 'Your Local Sydney Electricians',
   description = (
     <>
-      Learn More About Our Services
+      For over a decade, we’ve been proud to keep Sydney powered with safe, reliable electrical solutions. Whether it’s a small home repair, a major commercial upgrade, or a 24/7 emergency call-out, we’re here to help.
     </>
   ),
   address = {
-    line1: 'Sydney',
-    line2: '',
-    cityStateZip: 'NSW, AUS 2000',
+    line1: 'Licensed & insured team',
+    line2: '24/7 emergency response',
+    cityStateZip: 'Same day service across Sydney',
   },
-  phone = '0449 003 526',
+  phone = 'Call us today on 0449 003 526 to book your local Sydney electrician.',
   email = 'info@everythingelectricalsydney.com.au',
   backgroundImage = '/images/electrician.jpg',
   

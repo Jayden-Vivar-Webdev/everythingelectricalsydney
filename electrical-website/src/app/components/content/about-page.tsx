@@ -1,10 +1,8 @@
 'use client'
 import Image from 'next/image'
-import Link from 'next/link'
 import {
   BoltIcon,
   ChatBubbleLeftRightIcon,
-  CheckCircleIcon,
   ClockIcon,
   ShieldCheckIcon,
   StarIcon,
@@ -20,33 +18,33 @@ const stats = [
 
 const values = [
   {
-    name: 'Safety Excellence',
-    description: 'Comprehensive safety protocols protecting clients, workforce, and community through rigorous industry standards and continuous monitoring.',
+    name: 'Licensed & Insured',
+    description: 'All our electricians are fully licensed and insured for complete peace of mind.',
     icon: ShieldCheckIcon,
   },
   {
-    name: 'Technical Mastery',
-    description: 'Advanced technical expertise combined with precision services, delivering installations that exceed industry benchmarks.',
+    name: 'Transparent Pricing',
+    description: 'Upfront quotes, no hidden costs, no surprises.',
     icon: WrenchScrewdriverIcon,
   },
   {
-    name: 'Clear Communication',
-    description: 'Transparent project communication with detailed progress updates and comprehensive upfront pricing without hidden costs.',
+    name: 'Safety First',
+    description: 'We follow strict safety protocols to protect your home, family, or workplace.',
     icon: ChatBubbleLeftRightIcon,
   },
   {
-    name: 'Reliable Partnership',
-    description: 'Consistent delivery excellence through punctual service, precise execution, and accountability.',
+    name: 'Same-Day Service',
+    description: 'Available across Sydney for urgent jobs and emergencies.',
     icon: ClockIcon,
   },
   {
-    name: 'Innovation Focus',
-    description: 'Continuous advancement through emerging technologies, industry best practices, and ongoing professional development.',
+    name: '24/7 Emergency Respons',
+    description: ' Faults, outages, hazards we’re here when you need us most.',
     icon: BoltIcon,
   },
   {
-    name: 'Client Success',
-    description: 'Complete satisfaction guarantee through exceptional service delivery and enduring professional relationships.',
+    name: 'Best Price Guarantee',
+    description: 'We’ll beat any written quote from a competitor.',
     icon: StarIcon,
   },
 ]
@@ -102,14 +100,6 @@ const portfolio = [
   },
 ]
 
-const serviceHighlights = [
-  'Round-the-Clock Emergency Response',
-  'Full-Spectrum Electrical Solutions',
-  'Rapid Professional Deployment',
-  'Certified 5-Star Service Rating',
-  'Decade-Plus Industry Leadership',
-  'Complete Sydney Metro Coverage',
-]
 
 export default function AboutPageSection() {
   return (
@@ -125,7 +115,7 @@ export default function AboutPageSection() {
               </span>
             </div>
             <h1 className="text-5xl font-bold tracking-tight text-slate-900 lg:text-7xl">
-              Everything Electrical 
+            Local, Trusted & Reliable Electricians Since 2010
               <span className="block bg-gradient-to-r from-red-600 to-red-700 bg-clip-text text-transparent pb-5">
                 Sydney
               </span>
@@ -133,9 +123,17 @@ export default function AboutPageSection() {
             <div className="pt-5 flex justify-center">
               <div className="h-1 w-32 bg-gradient-to-r from-red-600 to-red-700 rounded-full"></div>
             </div>
-            <p className="mt-8 text-xl leading-8 text-slate-600 max-w-3xl mx-auto font-light">
-            Professional, certified electricians delivering uncompromising excellence 
-              across Sydney and the Blue Mountains region for over a decade.
+            <p className="space-y-6 pt-10 text-lg text-slate-600 leading-relaxed mb-6 text-lg md:text-xl text-gray-600">
+            At Everything Electrical Sydney, we’ve been powering homes, businesses, 
+            and communities across Sydney and the Blue Mountains since 2010. 
+            Over the past decade, we’ve built our reputation on one simple promise: safe, 
+            reliable, and professional electrical services you can trust.
+            What started as a small local business has grown into one of Sydney’s 
+            most trusted electrical teams. With thousands of successful projects behind us 
+            from family homes and apartments to large commercial and industrial sites 
+            our goal has always stayed the same: deliver quality work, honest advice, and real peace of mind.
+
+
             </p>
           </div>
         </div>
@@ -149,22 +147,19 @@ export default function AboutPageSection() {
             <div className="space-y-8">
               <div>
                 <h2 className="text-4xl font-bold text-slate-900 lg:text-5xl">
-                  Industry Leadership Through Excellence
+                More Than a Decade of Service You Can Rely On
+
                 </h2>
                 <div className="mt-6 h-1 w-24 bg-gradient-to-r from-red-600 to-red-700 rounded-full"></div>
               </div>
               <div className="space-y-6 text-lg text-slate-600 leading-relaxed mb-6 text-lg md:text-xl text-gray-600">
+
+              
                 <p>
-                  Our decade plus industry leadership spans comprehensive electrical solutions across residential, 
-                  commercial, and industrial sectors. Through unwavering commitment to excellence, safety protocols, 
-                  and client satisfaction, we&apos;ve established ourselves as Sydney&apos;s most trusted electrical services provider.
+                With over 5,000 projects completed and more than 1,000 satisfied clients, our experience speaks for itself. We know every customer, every home, and every business is different, which is why we take the time to listen, explain, and deliver solutions that work long-term — not quick fixes.
                 </p>
-                <p>
-                  From sophisticated installations and system modernisations to critical maintenance and emergency 
-                  responses, we deliver unmatched expertise with complete transparency and reliability. 
-                  Our qualifications and insurance coverage ensures your investment remains protected 
-                  by industry leading professionals.
-                </p>
+                
+                
               </div>
             </div>
             
@@ -216,12 +211,12 @@ export default function AboutPageSection() {
       <section className="bg-slate-900 py-20 lg:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-white lg:text-5xl">Our Professional Standards</h2>
+            <h2 className="text-4xl font-bold text-white lg:text-5xl">Why Sydney Chooses Everything Electrical</h2>
             <div className="mt-6 flex justify-center">
               <div className="h-1 w-24 bg-gradient-to-r from-red-600 to-red-700 rounded-full"></div>
             </div>
             <p className="mt-6 text-xl text-slate-300 max-w-3xl mx-auto">
-              Every engagement reflects our commitment to integrity, reliability, and superior service
+            We understand that inviting an electrician into your home or business requires trust. That’s why we keep things simple, transparent, and stress free.
             </p>
           </div>
 
@@ -304,7 +299,9 @@ export default function AboutPageSection() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-slate-900 to-slate-800 shadow-2xl">
             <div className="absolute inset-0"></div>
+
             <div className="grid lg:grid-cols-2 items-center">
+              {/* Left side image */}
               <div className="relative h-80 lg:h-full">
                 <Image
                   alt="Professional Electrician - Everything Electrical Sydney"
@@ -314,44 +311,138 @@ export default function AboutPageSection() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-r from-slate-900/60 to-transparent"></div>
               </div>
-              <div className="p-12 lg:p-16">
-                <div className="max-w-md">
-                  <h2 className="text-3xl font-bold text-white lg:text-4xl leading-tight">
-                    Partner With 
-                    <span className="block text-red-400">Industry Professionals</span>
-                  </h2>
-                  <div className="mt-6 h-1 w-20 bg-gradient-to-r from-red-600 to-red-700 rounded-full"></div>
-                  <p className="mt-6 text-lg text-slate-300 leading-relaxed">
-                    Experience electrical services that consistently exceed industry standards for quality, 
-                    safety, and professional excellence.
-                  </p>
-                  
-                  <div className="mt-10 space-y-4">
-                    {serviceHighlights.map((highlight, index) => (
-                      <div key={index} className="flex items-center gap-x-3">
-                        <div className="flex-shrink-0 w-6 h-6 bg-red-600 rounded-full flex items-center justify-center">
-                          <CheckCircleIcon className="h-4 w-4 text-white" />
+
+              {/* Right side content */}
+              <div className="bg-white py-12 sm:py-16 md:py-24 lg:py-32">
+                <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                  <div className="mx-auto grid max-w-full grid-cols-1 items-start gap-x-8 gap-y-12 sm:gap-y-16 lg:mx-0 lg:grid-cols-1">
+                    <div className="lg:pl-4">
+                      <div className="text-sm sm:text-base leading-7 text-slate-700">
+                        {/* Heading */}
+                        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900">
+                          <span className="block">Our Commitment</span>
+                          <span className="block text-red-600">to You</span>
+                        </h1>
+
+                        {/* Intro text */}
+                        <div className="mt-6 text-xl leading-8 text-gray-600 text-slate-600">
+                          <p className="mb-6 text-lg md:text-xl text-gray-600">
+                            We’re proud to say our business is built on repeat customers
+                            and referrals. People come back to us because we’re not just
+                            here to “fix a job” we’re here to build trust and long-term
+                            partnerships.
+                          </p>
+
+                          {/* Values list */}
+                          <ul className="py-1 text-gray-600 list-disc list-inside space-y-2 mb-6 text-lg md:text-xl">
+                            <li className="flex items-start gap-2 text-lg md:text-xl mb-5">
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                className="h-5 w-5 text-red-600 flex-shrink-0 mt-1"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                              >
+                                <path
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  strokeWidth="3"
+                                  d="M5 13l4 4L19 7"
+                                />
+                              </svg>
+                              <span>Integrity:&nbsp;We do what we say, when we say it.</span>
+                            </li>
+
+                            <li className="flex items-start gap-2 text-lg md:text-xl mb-5">
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                className="h-5 w-5 text-red-600 flex-shrink-0 mt-1"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                              >
+                                <path
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  strokeWidth="3"
+                                  d="M5 13l4 4L19 7"
+                                />
+                              </svg>
+                              <span>
+                                Clear Communication:&nbsp;We explain the work, update you
+                                along the way, and keep pricing upfront.
+                              </span>
+                            </li>
+
+                            <li className="flex items-start gap-2 text-lg md:text-xl mb-5">
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                className="h-5 w-5 text-red-600 flex-shrink-0 mt-1"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                              >
+                                <path
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  strokeWidth="3"
+                                  d="M5 13l4 4L19 7"
+                                />
+                              </svg>
+                              <span>
+                                Reliability:&nbsp;We turn up on time, prepared, and ready
+                                to get the job done right.
+                              </span>
+                            </li>
+
+                            <li className="flex items-start gap-2 text-lg md:text-xl mb-5">
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                className="h-5 w-5 text-red-600 flex-shrink-0 mt-1"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                              >
+                                <path
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  strokeWidth="3"
+                                  d="M5 13l4 4L19 7"
+                                />
+                              </svg>
+                              <span>
+                                Innovation:&nbsp;From smart home automation to
+                                energy-efficient upgrades, we keep up with the latest
+                                technology.
+                              </span>
+                            </li>
+
+                            <li className="flex items-start gap-2 text-lg md:text-xl mb-5">
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                className="h-5 w-5 text-red-600 flex-shrink-0 mt-1"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                              >
+                                <path
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  strokeWidth="3"
+                                  d="M5 13l4 4L19 7"
+                                />
+                              </svg>
+                              <span>
+                                Community Focus:&nbsp;As a local Sydney team, we’re proud
+                                to support families, businesses, and property managers
+                                across the region.
+                              </span>
+                            </li>
+                          </ul>
                         </div>
-                        <span className="text-slate-300 font-medium">{highlight}</span>
+                        {/* End intro */}
                       </div>
-                    ))}
-                  </div>
-                  
-                  <div className="mt-12 flex flex-col sm:flex-row gap-4">
-                  
-                    <a 
-                      href="tel:0449003526" 
-                      className="z-10 flex flex-row items-center justify-center gap-2 rounded-lg bg-red-600 px-6 py-3 sm:px-6 sm:py-3 text-md font-semibold text-white shadow-lg transition-all duration-200 hover:bg-red-700 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
-                    >
-                        Book Now
-                      <span aria-hidden="true">→</span>
-                    </a>
-                    <Link
-                      href="/services" 
-                      className="z-10 inline-flex items-center justify-center gap-x-3 rounded-xl border border-slate-600 bg-transparent px-8 py-4 text-sm font-semibold text-white hover:bg-slate-800 transition-all duration-200"
-                    >
-                      View Services
-                    </Link>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -359,6 +450,7 @@ export default function AboutPageSection() {
           </div>
         </div>
       </section>
+
     </div>
   )
 }
