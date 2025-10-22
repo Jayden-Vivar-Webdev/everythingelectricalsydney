@@ -11,7 +11,10 @@ import GoogleCaptchaWrapper from "./GoogleCaptchaWrapper";
 export const metadata = {
   title: 'Everything Electrical Sydney | Licensed Electricians for Sydney NSW',
   description: 'Everything Electricals provides expert residential and commercial electrical services in Camden, Campbelltown, Oran Park, and nearby suburbs. Emergency callouts, installations & more.',
-  applicationName: 'Everything Electricals',
+  verification: {
+    google: "50YV_0shYlW5h7ImZ5R9fF4VzAr51qPqkTxOWXE8eVk",
+  },
+  applicationName: 'Everything Electrical Sydney',
   keywords: [
     'electrician Camden',
     'emergency electrician Campbelltown',
