@@ -51,7 +51,7 @@ const ServiceLocations = () => {
                 <div className="text-sm font-medium text-white uppercase tracking-wider">Years Experience</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-white mb-2">50+</div>
+                <div className="text-3xl font-bold text-white mb-2">550+</div>
                 <div className="text-sm font-medium text-white uppercase tracking-wider">Service Locations</div>
               </div>
               <div className="text-center">
@@ -64,8 +64,6 @@ const ServiceLocations = () => {
             <MobileLocationService />
           </div>
         </div>
-        
-
         {/* Call to Action */}
         <div/>
       </div>
