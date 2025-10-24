@@ -1091,7 +1091,7 @@ export default async function AllServices({ params }: { params: Params }) {
             secondaryCtaText={`Book Now`}
             secondaryCtaUrl={'/contact'}
           />
-          <div className="p-10">
+          <div className="p-18 sm:p-4">
           </div>
       
           <EnhancedTestimonialSection 
