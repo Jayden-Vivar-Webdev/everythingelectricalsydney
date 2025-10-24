@@ -56,7 +56,7 @@ export default function ContentSection({
           <h1 className="mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
             {header}
           </h1>
-          <div className="mt-6 text-xl leading-8 text-gray-600">
+          <div className="mt-6 text-lg md:text-xl leading-8 text-gray-600 text-slate-600">
             {description}
           </div>
         </div>
@@ -68,7 +68,7 @@ export default function ContentSection({
             <h2 className="text-2xl font-bold tracking-tight text-gray-900">
               {subHeader}
             </h2>
-            <div className="mt-6 text-xl leading-8 text-gray-600">
+            <div className="mt-6 text-lg md:text-xl leading-8 text-gray-600 text-slate-600">
               {content}
             </div>
           </div>

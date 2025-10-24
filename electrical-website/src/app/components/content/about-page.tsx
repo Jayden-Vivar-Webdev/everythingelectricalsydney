@@ -123,17 +123,15 @@ export default function AboutPageSection() {
             <div className="pt-5 flex justify-center">
               <div className="h-1 w-32 bg-gradient-to-r from-red-600 to-red-700 rounded-full"></div>
             </div>
-            <p className="space-y-6 pt-10 text-lg text-slate-600 leading-relaxed mb-6 text-lg md:text-xl text-gray-600">
-            At Everything Electrical Sydney, we’ve been powering homes, businesses, 
-            and communities across Sydney and the Blue Mountains since 2010. 
-            Over the past decade, we’ve built our reputation on one simple promise: safe, 
-            reliable, and professional electrical services you can trust.
-            What started as a small local business has grown into one of Sydney’s 
-            most trusted electrical teams. With thousands of successful projects behind us 
-            from family homes and apartments to large commercial and industrial sites 
-            our goal has always stayed the same: deliver quality work, honest advice, and real peace of mind.
-
-
+            <p className="space-y-6 mt-6 text-lg md:text-xl leading-8 text-gray-600 text-slate-6000">
+              At Everything Electrical Sydney, we’ve been powering homes, businesses, 
+              and communities across Sydney and the Blue Mountains since 2010. 
+              Over the past decade, we’ve built our reputation on one simple promise: safe, 
+              reliable, and professional electrical services you can trust.
+              What started as a small local business has grown into one of Sydney’s 
+              most trusted electrical teams. With thousands of successful projects behind us 
+              from family homes and apartments to large commercial and industrial sites 
+              our goal has always stayed the same: deliver quality work, honest advice, and real peace of mind.
             </p>
           </div>
         </div>
@@ -152,7 +150,7 @@ export default function AboutPageSection() {
                 </h2>
                 <div className="mt-6 h-1 w-24 bg-gradient-to-r from-red-600 to-red-700 rounded-full"></div>
               </div>
-              <div className="space-y-6 text-lg text-slate-600 leading-relaxed mb-6 text-lg md:text-xl text-gray-600">
+              <div className="space-y-6 mt-6 text-lg md:text-xl leading-8 text-gray-600 text-slate-600">
 
               
                 <p>
