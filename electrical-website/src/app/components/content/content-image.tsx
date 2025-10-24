@@ -153,9 +153,9 @@ const EnhancedTestimonialSection: React.FC<EnhancedTestimonialSectionProps> = ({
               
               {/* Description - Only show if description exists and portableTextComponents is provided */}
               {contentInfo.description && portableTextComponents && (
-                <div className={`mt-6 text-xl leading-8 text-gray-600 ${isDarkMode ? 'text-slate-400' : 'text-slate-600'}`}>
+                <div className={`mt-6 text-lg md:text-xl leading-8 text-gray-600 ${isDarkMode ? 'text-slate-400' : 'text-slate-600'}`}>
                   <PortableText value={contentInfo.description} components={portableTextComponents} />
-                </div>
+                </div> 
               )}
             </div>
             

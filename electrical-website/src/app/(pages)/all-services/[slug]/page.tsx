@@ -1091,6 +1091,8 @@ export default async function AllServices({ params }: { params: Params }) {
             secondaryCtaText={`Book Now`}
             secondaryCtaUrl={'/contact'}
           />
+          <div className="p-10">
+          </div>
       
           <EnhancedTestimonialSection 
             contentInfo={content} 
@@ -1101,12 +1103,12 @@ export default async function AllServices({ params }: { params: Params }) {
           {/* Service Area Map Section */}
           <section className='py-16 bg-white' aria-labelledby="service-area-heading">
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-              <header className="text-center mb-12">
+              <header className="text-left mb-12">
                 <h2 id="service-area-heading" className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900">
                   <span className="mr-2">Service Areas</span>
                   <span className="text-red-600">Interactive Map</span>
                 </h2>
-                <p className="mt-4 text-xl text-gray-600 max-w-3xl mx-auto">
+                <p className="mb-6 mt-5 text-lg md:text-xl text-gray-600">
                   Comprehensive electrical services across {locationName} and surrounding areas
                 </p>
               </header>
@@ -1122,7 +1124,7 @@ export default async function AllServices({ params }: { params: Params }) {
                   Contact Our Team
                 </h2>
                 <div className="w-24 h-1 bg-red-600 mx-auto mb-6" aria-hidden="true"></div>
-                <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+                <p className="mb-6 text-lg md:text-xl text-white">
                   Professional electrical services with multiple convenient ways to reach our certified specialists in {locationName}
                 </p>
               </header>
