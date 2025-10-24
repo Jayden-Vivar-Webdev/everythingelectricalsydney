@@ -19,11 +19,11 @@ const ServiceLocations = () => {
               Everything Electrical 
             <span className="block text-red-600 text-3xl md:text-4xl font-bold mb-4">Service Areas</span>
           </h2>
-          <p className="mt-6 text-xl leading-8 text-gray-600 mb-4">
+          <p className="mt-6 text-lg md:text-xl leading-8 text-gray-600 text-slate-600 text-slate-600">
           Providing reliable, professional electrical and air conditioning services across Sydney, NSW, Australia.
             <br />
             <br />
-            <strong>Can’t see your suburb listed? Don’t worry we cover many more areas. Get in touch and we’ll confirm if we can service your location.</strong>
+            <strong >Can’t see your suburb listed? Don’t worry we cover many more areas. Get in touch and we’ll confirm if we can service your location.</strong>
           </p>
           <div className="mt-8 flex justify-center">
             <div className="h-1 w-24 bg-[#ae1414] rounded-full"></div>
