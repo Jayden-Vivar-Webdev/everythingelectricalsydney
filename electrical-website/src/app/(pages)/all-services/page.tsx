@@ -9,7 +9,7 @@ import { Metadata } from 'next';
 import { cache } from 'react';
 import { Phone, Mail, MapPin } from 'lucide-react';
 
-
+export const dynamic = 'force-dynamic';
 // Define valid locations
 const validLocations = [
   {name: 'Abbotsbury', slug: 'abbotsbury'},
