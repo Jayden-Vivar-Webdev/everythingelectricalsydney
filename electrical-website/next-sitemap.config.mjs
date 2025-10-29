@@ -8,16 +8,18 @@ const sitemapConfig = {
   sitemapSize: 10000, // ✅ increases limit to avoid splitting into sitemap-0.xml
   generateIndexSitemap: true, // ✅ disable sitemap index if desired (optional)
 
-  // additionalPaths: async (config) => {
-  //   const slugs = await client.fetch(`*[_type == "post" && defined(slug.current)].slug.current`);
-
-  //   return slugs.map((slug) => ({
-  //     loc: `${config.siteUrl}/blog/${slug}`,
-  //     changefreq: 'monthly',
-  //     priority: 0.7,
-  //     lastmod: new Date().toISOString(),
-  //   }));
-  // },
+  additionalPaths: async (config) => {
+    // Include only one "canonical" location
+    const location = 'sydney';
+    return [
+      {
+        loc: `${config.siteUrl}/all-services?location=${location}`,
+        changefreq: 'weekly',
+        priority: 0.9,
+        lastmod: new Date().toISOString(),
+      },
+    ];
+  },
 
   robotsTxtOptions: {
     policies: [{ userAgent: '*', allow: '/' }],

@@ -9,7 +9,6 @@ import { Metadata } from 'next';
 import { cache } from 'react';
 import { Phone, Mail, MapPin } from 'lucide-react';
 
-type Params = Promise<{ slug: string }>;
 
 // Define valid locations
 const validLocations = [
@@ -885,6 +884,10 @@ const validLocations = [
   {name: "Yellow Rock", slug: "yellow-rock"}
 ] as const;
 
+interface PageProps {
+  searchParams: Promise<{ location?: string }>;
+}
+
 
 interface LocationInfo {
   name: string;
@@ -896,16 +899,12 @@ const validateLocation = cache((slug: string): LocationInfo | null => {
   return validLocations.find(location => location.slug === slug) || null;
 });
 
-export async function generateStaticParams() {
-  return validLocations.map(location => ({
-    slug: location.slug
-  }));
-}
 
-export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
+
+export async function generateMetadata({ searchParams }: PageProps): Promise<Metadata> {
   try {
-    const { slug } = await params;
-    const location = validateLocation(slug);
+    const locationParam = await searchParams;
+    const location = locationParam.location ? validateLocation(locationParam.location) : null;
 
     if (!location) {
       return {
@@ -915,18 +914,17 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
       };
     }
 
-    const locationName = location.name;
-    const pageTitle = `Everything Electrical Sydney - Professional Electrical Services in ${locationName}`;
-    const pageDescription = `Everything Electrical Sydney provides comprehensive electrical services in ${locationName}. Commercial, residential work, and Level 2 electrical services. 24/7 emergency electrical services available.`;
+    const pageTitle = `Everything Electrical Sydney - Professional Electrical Services in ${locationParam.location}`;
+    const pageDescription = `Everything Electrical Sydney provides comprehensive electrical services in ${locationParam.location}. Commercial, residential work, and Level 2 electrical services. 24/7 emergency electrical services available.`;
 
     return {
       title: pageTitle,
       description: pageDescription,
       alternates: {
-        canonical: `https://everythingelectricalsydney.com.au/all-services/${slug}`,
+        canonical: `https://everythingelectricalsydney.com.au/all-services?location=${locationParam.location}`,
       },
       openGraph: {
-        url: `https://everythingelectricalsydney.com.au/all-services/${slug}`,
+        url: `https://everythingelectricalsydney.com.au/all-services?location=${locationParam.location}`,
         title: pageTitle,
         description: pageDescription,
         images: [
@@ -934,7 +932,7 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
             url: 'https://everythingelectricalsydney.com.au/images/electrical_og.png',
             width: 1200,
             height: 630,
-            alt: `Everything Electrical Sydney - Professional Electrical Services in ${locationName}`,
+            alt: `Everything Electrical Sydney - Professional Electrical Services in ${locationParam.location}`,
             type: 'image/png',
           },
         ],
@@ -948,14 +946,14 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
         images: ['https://everythingelectricalsydney.com.au/images/electrical_og.png'],
       },
       keywords: [
-        `Everything Electrical Sydney ${locationName}`,
-        `${locationName} electrical services`,
-        `${locationName} electrician`,
+        `Everything Electrical Sydney ${locationParam.location}`,
+        `${locationParam.location} electrical services`,
+        `${locationParam.location} electrician`,
         'CCTV installation',
         'Level 2 electrical services',
         '24/7 emergency electrical',
-        `commercial electrician ${locationName}`,
-        `residential electrician ${locationName}`,
+        `commercial electrician ${locationParam.location}`,
+        `residential electrician ${locationParam.location}`,
       ],
       authors: [{ name: 'Everything Electrical Sydney' }],
       robots: {
@@ -979,10 +977,10 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   }
 }
 
-export default async function AllServices({ params }: { params: Params }) {
+export default async function AllServices({ searchParams }: PageProps) {
   try {
-    const { slug } = await params;
-    const location = validateLocation(slug);
+    const locationParam = await searchParams;
+    const location = locationParam.location ? validateLocation(locationParam.location) : null;
 
     if (!location) {
       notFound();
@@ -1045,7 +1043,7 @@ export default async function AllServices({ params }: { params: Params }) {
               "@type": "LocalBusiness",
               "name": "Everything Electrical Sydney",
               "description": `Professional electrical services in ${locationName}`,
-              "url": `https://everythingelectricalsydney.com.au/all-services/${slug}`,
+              "url": `https://everythingelectricalsydney.com.au/all-services?location=${locationParam}`,
               "telephone": "0449003526",
               "email": "info@everythingelectricalsydney.com.au",
               "areaServed": {
