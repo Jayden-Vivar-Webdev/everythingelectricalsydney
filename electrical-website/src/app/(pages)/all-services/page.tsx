@@ -921,7 +921,7 @@ export async function generateMetadata({ searchParams }: PageProps): Promise<Met
       title: pageTitle,
       description: pageDescription,
       alternates: {
-        canonical: `https://everythingelectricalsydney.com.au/all-services?location=${locationParam.location}`,
+        canonical: `https://everythingelectricalsydney.com.au/all-services?location=sydney`,
       },
       openGraph: {
         url: `https://everythingelectricalsydney.com.au/all-services?location=${locationParam.location}`,
