@@ -1,17 +1,23 @@
 type EmailProps = {
-    fullName: string;
-    email: string;
-    mobile: string;
-    serviceType: string;
-    description: string;
-    address: string;
-    formattedDate: string
+  fullName: string;
+  email: string;
+  mobile: string;
+  serviceType: string;
+  description: string;
+  address: string;
+  formattedDate: string;
+};
 
-}
-
-const TeamEmail = ({ fullName, email, mobile, serviceType, description, address, formattedDate }: EmailProps) => {
-    return(
-        `<!doctype html>
+const TeamEmail = ({
+  fullName,
+  email,
+  mobile,
+  serviceType,
+  description,
+  address,
+  formattedDate,
+}: EmailProps) => {
+  return `<!doctype html>
             <html lang="en" style="margin: 0;padding: 0;box-sizing: border-box;">
               <head style="margin: 0;padding: 0;box-sizing: border-box;">
                 <meta charset="UTF-8" style="margin: 0;padding: 0;box-sizing: border-box;">
@@ -46,12 +52,16 @@ const TeamEmail = ({ fullName, email, mobile, serviceType, description, address,
                         <p style="margin: 0; padding: 0; box-sizing: border-box; margin-bottom: 18px; font-size: 16px; color: #444444; line-height: 1.7;">
                             A potential client named 
                             <b style="color: #da1818; font-weight: 600;">${fullName}</b> has requested 
-                            ${serviceType !== 'Not Provided' 
-                                ? `<b>${serviceType}</b> services.` 
-                                : 'services and did not specify a service type.'} 
-                            ${address !== 'Not Provided'
-                                ? `They are located in <b>${address}</b>.` 
-                                : 'They have filled out the form on the banner section, indicating strong interest and awareness of our offerings.'}
+                            ${
+                              serviceType !== "Not Provided"
+                                ? `<b>${serviceType}</b> services.`
+                                : "services and did not specify a service type."
+                            } 
+                            ${
+                              address !== "Not Provided"
+                                ? `They are located in <b>${address}</b>.`
+                                : "They have filled out the form on the banner section, indicating strong interest and awareness of our offerings."
+                            }
                             </p>
 
                         
@@ -85,15 +95,11 @@ const TeamEmail = ({ fullName, email, mobile, serviceType, description, address,
                 </div>
               </body>
             </html>
-        `
-    )
-
-
-}
+        `;
+};
 
 const ClientEmail = (fullName: string) => {
-    return(
-        `<!doctype html>
+  return `<!doctype html>
             <html lang="en" style="margin: 0;padding: 0;box-sizing: border-box;">
               <head style="margin: 0;padding: 0;box-sizing: border-box;">
                 <meta charset="UTF-8" style="margin: 0;padding: 0;box-sizing: border-box;">
@@ -254,10 +260,7 @@ const ClientEmail = (fullName: string) => {
                   </div>
                 </div>
               </body>
-            </html>`
-    )
-}
+            </html>`;
+};
 
-
-
-export {TeamEmail, ClientEmail}
+export { TeamEmail, ClientEmail };

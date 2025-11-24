@@ -12,7 +12,6 @@ export interface SanityImage {
 
 export interface Block {
   _type: string;
-
 }
 
 export interface Feature {
@@ -24,7 +23,6 @@ export interface Feature {
 export interface ImageGridBlock {
   _type: "imageGrid";
   images: SanityImage[];
-  
 }
 
 export interface GridInfoBlock {
@@ -32,19 +30,17 @@ export interface GridInfoBlock {
   features: Feature[];
 }
 
-
-
 export interface HeroSectionBlock {
-  _type: 'heroSection';
+  _type: "heroSection";
   announcementText?: string;
   announcementLink?: string;
   headline: string;
   subheadline?: string;
   backgroundImage: {
-    _type: 'image';
+    _type: "image";
     asset: {
       _ref: string;
-      _type: 'reference';
+      _type: "reference";
     };
     alt?: string;
   };
@@ -53,7 +49,6 @@ export interface HeroSectionBlock {
   secondaryCtaText?: string;
   secondaryCtaUrl?: string;
 }
-
 
 export interface CtaSectionBlock {
   _type: "ctaSection";
@@ -70,10 +65,10 @@ export interface HeroContactBlock {
   title?: string;
   description?: string;
   backgroundImage: {
-    _type: 'image';
+    _type: "image";
     asset: {
       _ref: string;
-      _type: 'reference';
+      _type: "reference";
     };
     alt?: string;
   };
@@ -117,7 +112,7 @@ export interface FeatureSectionBlock {
 }
 
 export interface ContentSectionBlock {
-  _type: 'contentSection';
+  _type: "contentSection";
   tag: string;
   header: string;
   description: string;
@@ -140,17 +135,16 @@ export interface ContentSectionBlock {
   }>;
 }
 
-
 export interface GoogleReviewsBlock {
-  _type: 'googleReviewsBlockSection';
+  _type: "googleReviewsBlockSection";
   title: string;
   subtitle: string;
   overallRating: number;
   totalReviews: number;
-  theme: 'light' | 'dark';
+  theme: "light" | "dark";
   showViewAllButton: boolean;
   reviews: Array<{
-    _type: 'review'
+    _type: "review";
     id: number;
     name: string;
     avatar: string;
@@ -158,24 +152,24 @@ export interface GoogleReviewsBlock {
     timeAgo: string;
     text: string;
     helpful: number;
-  }>
+  }>;
 }
 
 export interface ContentSectionImageBlock {
-  _type: 'contentSectionImage';
+  _type: "contentSectionImage";
   backgroundImage: {
-    _type: 'image';
+    _type: "image";
     asset: {
       _ref: string;
-      _type: 'reference';
+      _type: "reference";
     };
     alt?: string;
   };
   logoImage: {
-    _type: 'image';
+    _type: "image";
     asset: {
       _ref: string;
-      _type: 'reference';
+      _type: "reference";
     };
     alt?: string;
   };
@@ -186,15 +180,15 @@ export interface ContentSectionImageBlock {
   stats: Array<{
     value: string;
     label: string;
-  }>
+  }>;
 }
 
 export interface ServiceHeroBlock {
-  _type: 'serviceHeroBlock',
-  theme: string,
+  _type: "serviceHeroBlock";
+  theme: string;
   image: {
-    _type: 'image';
-    asset: { _ref: string; _type: 'reference' };
+    _type: "image";
+    asset: { _ref: string; _type: "reference" };
     alt?: string;
   };
   badge?: string;
@@ -203,14 +197,14 @@ export interface ServiceHeroBlock {
   stats?: Array<{
     id: number;
     name: string;
-    value: string
+    value: string;
   }>;
   imagePosition: string;
 }
 
 export interface ServiceHeroDynamic {
   _id: string;
-  _type: 'serviceHeroDynamic';
+  _type: "serviceHeroDynamic";
   slug: {
     current: string;
   };
@@ -221,18 +215,11 @@ export interface ServiceHeroDynamic {
   backgroundImage: {
     asset: {
       _ref: string;
-      _type: 'reference';
+      _type: "reference";
     };
   };
-  // services: {
-  //   title: string;
-  //   description: string;
-  //   features: string[];
-  // }[];
   ctaText: string;
 }
-
-
 
 export type CustomBlock =
   | Block

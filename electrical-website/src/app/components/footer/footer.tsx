@@ -1,30 +1,33 @@
-'use client';
-import React from 'react';
-import Image from 'next/image';
+"use client";
+import React from "react";
+import Image from "next/image";
 const navigation = {
   services: [
-    { name: 'Level 2 Electrician Services', href: '/services/level-2-electrician' },
-    { name: 'Switchboard Upgrades', href: '/services/switchboard-upgrades' },
-    { name: 'Residential Solutions', href: '/services/residential-electrical' },
-    { name: 'Commercial Electrical', href: '/services/commercial-electrical' },
-    { name: 'Air conditioning', href: '/services//air-conditioning' },
-    { name: 'Emergency Repairs', href: '/services/emergency-electrician' },
+    {
+      name: "Level 2 Electrician Services",
+      href: "/services/level-2-electrician",
+    },
+    { name: "Switchboard Upgrades", href: "/services/switchboard-upgrades" },
+    { name: "Residential Solutions", href: "/services/residential-electrical" },
+    { name: "Commercial Electrical", href: "/services/commercial-electrical" },
+    { name: "Air conditioning", href: "/services//air-conditioning" },
+    { name: "Emergency Repairs", href: "/services/emergency-electrician" },
   ],
   areas: [
-    { name: 'Sydney CBD', href: '/all-services/sydney' },
-    { name: 'Blue Mountains', href: '/all-services/blue-mountains'},
-    { name: 'Eastern Suburbs', href: '/all-services/eastern-suburbs' },
-    { name: 'Northern Beaches', href: '/all-services/northern-beaches' },
-    { name: 'Inner West', href: '/all-services/inner-west' },
-    { name: 'Western Sydney', href: '/all-services/western-sydney' },
+    { name: "Sydney CBD", href: "/all-services/sydney" },
+    { name: "Blue Mountains", href: "/all-services/blue-mountains" },
+    { name: "Eastern Suburbs", href: "/all-services/eastern-suburbs" },
+    { name: "Northern Beaches", href: "/all-services/northern-beaches" },
+    { name: "Inner West", href: "/all-services/inner-west" },
+    { name: "Western Sydney", href: "/all-services/western-sydney" },
   ],
   company: [
-    { name: 'About Us', href: '/about' },
-    { name: 'Services', href: '/services' },
+    { name: "About Us", href: "/about" },
+    { name: "Services", href: "/services" },
   ],
   contact: [
-    { name: 'Call: 0449 003 526', href: 'tel:0449003526' },
-    { name: 'Contact Form', href: '/contact' }
+    { name: "Call: 0449 003 526", href: "tel:0449003526" },
+    { name: "Contact Form", href: "/contact" },
   ],
   social: [
     // {
@@ -41,8 +44,8 @@ const navigation = {
     //   ),
     // },
     {
-      name: 'Instagram',
-      href: 'https://instagram.com/everythingelectricalsydney',
+      name: "Instagram",
+      href: "https://instagram.com/everythingelectricalsydney",
       icon: (props: React.SVGProps<SVGSVGElement>) => (
         <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
           <path
@@ -53,7 +56,6 @@ const navigation = {
         </svg>
       ),
     },
-    
   ],
 };
 
@@ -73,10 +75,11 @@ export default function Footer() {
                   height={200}
                   className="w-full h-full object-cover object-left"
                 />
-                
               </div>
               <p className="text-sm">
-              Licensed and insured electrical and air conditioning contractors serving Sydney since 2010, available 24/7 for emergency services.
+                Licensed and insured electrical and air conditioning contractors
+                serving Sydney since 2010, available 24/7 for emergency
+                services.
               </p>
               <div className="flex space-x-4 ml-2">
                 {navigation.social.map((item) => (
@@ -160,21 +163,11 @@ export default function Footer() {
         </div>
 
         {/* Bottom Footer */}
-        <div className="border-t border-gray-800 pt-8">
-          <div className="flex flex-col items-center justify-between md:flex-row">
-            {/* <div className="flex space-x-10">
-              <a href="/privacy" className="text-sm hover:text-white">
-                Privacy Policy
-              </a>
-              <a href="/terms" className="text-sm hover:text-white">
-                Terms of Service
-              </a>
-              <a href="/licenses" className="text-sm hover:text-white">
-                Licenses
-              </a>
-            </div> */}
-            <p className="mt-4 text-sm md:mt-0 px-10 text-center">
-              &copy; 2025. Everything Electrical Sydney. All rights reserved. ABN: 73 633 557 810 
+        <div className="border-t border-gray-800 pt-8 text-center sm:text-left">
+          <div className="">
+            <p className="mt-4 text-sm md:mt-0">
+              &copy; 2025. Everything Electrical Sydney. All rights reserved.
+              ABN: 73 633 557 810
             </p>
           </div>
           <div className="mt-4 text-center text-xs text-gray-500 md:text-left">
