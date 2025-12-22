@@ -1,8 +1,9 @@
-import { defineType, defineField } from 'sanity';
-import { googleReviews } from './types/googleReviews';
+import {defineType, defineField} from 'sanity'
+import {googleReviews} from './types/googleReviews'
 import {contentImage} from './types/content-image'
-import { serviceHeroSection } from './types/service-hero';
-import { dynamicServiceHero } from './types/service-dynamic-hero';
+import {serviceHeroSection} from './types/service-hero'
+import {dynamicServiceHero} from './types/service-dynamic-hero'
+import {gallerySection} from './types/gallery'
 export const customSections = defineType({
   name: 'customSections',
   title: 'Custom Section',
@@ -15,34 +16,35 @@ export const customSections = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-        name: 'slug',
-        title: 'Slug',
-        type: 'slug',
-        options: {
-          source: 'title',
-          maxLength: 96,
-        },
-        validation: (Rule) => Rule.required(),
-      }),
+      name: 'slug',
+      title: 'Slug',
+      type: 'slug',
+      options: {
+        source: 'title',
+        maxLength: 96,
+      },
+      validation: (Rule) => Rule.required(),
+    }),
     defineField({
       name: 'content',
       title: 'Content Blocks',
       type: 'array',
       of: [
-        { type: 'block' }, // Portable Text blocks for paragraphs, headings, etc.
+        {type: 'block'}, // Portable Text blocks for paragraphs, headings, etc.
         {
           type: 'image',
-          options: { hotspot: true },
+          options: {hotspot: true},
           fields: [
             defineField({
               name: 'alt',
               title: 'Alternative Text',
               type: 'string',
-              validation: (Rule) => Rule.required().error('You must provide alt text for accessibility'),
+              validation: (Rule) =>
+                Rule.required().error('You must provide alt text for accessibility'),
             }),
           ],
         },
-        
+
         {
           name: 'imageGrid',
           title: 'Image Grid',
@@ -52,12 +54,13 @@ export const customSections = defineType({
               name: 'images',
               title: 'Images',
               type: 'array',
-              of: [{ type: 'image' }],
+              of: [{type: 'image'}],
               validation: (Rule) => Rule.min(2).max(2),
             }),
           ],
         },
         googleReviews,
+        gallerySection,
         contentImage,
         serviceHeroSection,
         dynamicServiceHero,
@@ -67,25 +70,35 @@ export const customSections = defineType({
           type: 'object',
           fields: [
             defineField({
-              name:'tag', title: 'Tag', type: 'string'
+              name: 'tag',
+              title: 'Tag',
+              type: 'string',
             }),
             defineField({
-              name:'header', title: 'header', type: 'string'
+              name: 'header',
+              title: 'header',
+              type: 'string',
             }),
             defineField({
-              name:'description', title: 'Description', type: 'text'
+              name: 'description',
+              title: 'Description',
+              type: 'text',
             }),
             defineField({
-              name:'subHeader', title: 'Sub Header', type: 'string'
+              name: 'subHeader',
+              title: 'Sub Header',
+              type: 'string',
             }),
             defineField({
-              name:'content', title: 'Content', type: 'text'
+              name: 'content',
+              title: 'Content',
+              type: 'text',
             }),
             defineField({
-              name:'images', 
-              title: 'Images', 
+              name: 'images',
+              title: 'Images',
               type: 'array',
-              of : [
+              of: [
                 {
                   type: 'object',
                   name: 'imageWithAlt',
@@ -95,21 +108,22 @@ export const customSections = defineType({
                       name: 'image',
                       title: 'Image',
                       type: 'image',
-                      options:{hotspot: true},
+                      options: {hotspot: true},
                     },
                     {
                       name: 'alt',
                       title: 'Alt Text',
                       type: 'string',
-                      validation: Rule => Rule.required().error('Alt Text is Required'),
-                    }
-                  ]
-
-                }
-              ]
+                      validation: (Rule) => Rule.required().error('Alt Text is Required'),
+                    },
+                  ],
+                },
+              ],
             }),
             defineField({
-              name:'statsHeader', title: 'statsHeader', type: 'string'
+              name: 'statsHeader',
+              title: 'statsHeader',
+              type: 'string',
             }),
             defineField({
               name: 'stats',
@@ -125,30 +139,34 @@ export const customSections = defineType({
                       name: 'stat',
                       title: 'Stat Label',
                       type: 'string',
-                      validation: Rule => Rule.required().error('Stat is required'),
+                      validation: (Rule) => Rule.required().error('Stat is required'),
                     },
                     {
                       name: 'value',
                       title: 'Stat Value',
                       type: 'string',
-                      validation: Rule => Rule.required().error('Value is required'),
+                      validation: (Rule) => Rule.required().error('Value is required'),
                     },
                   ],
                 },
               ],
-            }), 
-          ]
+            }),
+          ],
         },
         {
           name: 'featureSection',
           title: 'Feature Section',
           type: 'object',
-          fields:[
+          fields: [
             defineField({
-              name:'title', title: 'Title', type: 'string'
+              name: 'title',
+              title: 'Title',
+              type: 'string',
             }),
             defineField({
-              name:'description', title: 'description', type: 'text'
+              name: 'description',
+              title: 'description',
+              type: 'text',
             }),
             defineField({
               name: 'featureItems',
@@ -160,21 +178,21 @@ export const customSections = defineType({
                   name: 'stat',
                   title: 'Stat Item',
                   fields: [
-                    defineField({name:'name', title: 'Feature Title', type: 'string'}),
-                    defineField({name:'value', title: 'Feature Paragraph', type: 'text'})
-                  ]
-                }
-              ]
-            })
-          ]
+                    defineField({name: 'name', title: 'Feature Title', type: 'string'}),
+                    defineField({name: 'value', title: 'Feature Paragraph', type: 'text'}),
+                  ],
+                },
+              ],
+            }),
+          ],
         },
         {
           name: 'ctaSection',
           title: 'Call To Action',
           type: 'object',
           fields: [
-            defineField({ name: 'title', title: 'Title', type: 'string' }),
-            defineField({ name: 'description', title: 'Description', type: 'text' }),
+            defineField({name: 'title', title: 'Title', type: 'string'}),
+            defineField({name: 'description', title: 'Description', type: 'text'}),
             defineField({
               name: 'buttons',
               title: 'Buttons',
@@ -185,16 +203,16 @@ export const customSections = defineType({
                   title: 'Button',
                   type: 'object',
                   fields: [
-                    defineField({ name: 'label', title: 'Button Text', type: 'string' }),
-                    defineField({ name: 'url', title: 'URL', type: 'string' }),
+                    defineField({name: 'label', title: 'Button Text', type: 'string'}),
+                    defineField({name: 'url', title: 'URL', type: 'string'}),
                     defineField({
                       name: 'style',
                       title: 'Style',
                       type: 'string',
                       options: {
                         list: [
-                          { title: 'Primary', value: 'primary' },
-                          { title: 'Secondary', value: 'secondary' },
+                          {title: 'Primary', value: 'primary'},
+                          {title: 'Secondary', value: 'secondary'},
                         ],
                         layout: 'radio',
                       },
@@ -216,10 +234,10 @@ export const customSections = defineType({
               type: 'string',
               options: {
                 list: [
-                  { title: 'Line', value: 'line' },
-                  { title: 'Dashed', value: 'dashed' },
-                  { title: 'Stars', value: 'stars' },
-                  { title: 'Blank Space', value: 'blank' },
+                  {title: 'Line', value: 'line'},
+                  {title: 'Dashed', value: 'dashed'},
+                  {title: 'Stars', value: 'stars'},
+                  {title: 'Blank Space', value: 'blank'},
                 ],
                 layout: 'radio',
               },
@@ -231,12 +249,12 @@ export const customSections = defineType({
               return {
                 title: 'Separator',
                 subtitle: 'Visual content break',
-              };
+              }
             },
           },
         },
-        
-       {
+
+        {
           name: 'heroSection',
           title: 'Hero Section',
           type: 'object',
@@ -266,7 +284,7 @@ export const customSections = defineType({
               name: 'backgroundImage',
               title: 'Background Image',
               type: 'image',
-              options: { hotspot: true },
+              options: {hotspot: true},
               fields: [
                 defineField({
                   name: 'alt',
@@ -327,7 +345,7 @@ export const customSections = defineType({
               name: 'backgroundImage',
               title: 'Background Image',
               type: 'image',
-              options: { hotspot: true },
+              options: {hotspot: true},
               fields: [
                 defineField({
                   name: 'alt',
@@ -398,27 +416,22 @@ export const customSections = defineType({
                   title: 'Service Item',
                   type: 'object',
                   fields: [
-                    defineField({ name: 'title', title: 'Title', type: 'string' }),
-                    defineField({ name: 'href', title: 'Link', type: 'string' }),
-                    defineField({ name: 'description', title: 'Description', type: 'text' }),
+                    defineField({name: 'title', title: 'Title', type: 'string'}),
+                    defineField({name: 'href', title: 'Link', type: 'string'}),
+                    defineField({name: 'description', title: 'Description', type: 'text'}),
                     defineField({
                       name: 'image',
                       title: 'Main Image',
                       type: 'image',
-                      options: { hotspot: true },
-                      fields: [
-                        defineField({ name: 'alt', title: 'Alt Text', type: 'string' }),
-                      ],
+                      options: {hotspot: true},
+                      fields: [defineField({name: 'alt', title: 'Alt Text', type: 'string'})],
                     }),
-                    defineField({ name: 'subtitle', title: 'Key Words', type: 'string' }),
+                    defineField({name: 'subtitle', title: 'Key Words', type: 'string'}),
                     defineField({
                       name: 'icon',
                       title: 'Icon',
                       type: 'object',
-                      fields: [
-                        defineField({ name: 'name', title: 'Name', type: 'string' }),
-                        
-                      ],
+                      fields: [defineField({name: 'name', title: 'Name', type: 'string'})],
                     }),
                   ],
                 }),
@@ -430,11 +443,11 @@ export const customSections = defineType({
               return {
                 title: 'Services Section',
                 subtitle: 'Displays a grid of services or posts',
-              };
+              }
             },
           },
-        },        
-        
+        },
+
         {
           name: 'gridInfo',
           title: 'Grid Information',
@@ -444,13 +457,11 @@ export const customSections = defineType({
               name: 'features',
               title: 'Feature Cards',
               type: 'array',
-              of: [{ type: 'featureCard' }],
+              of: [{type: 'featureCard'}],
             }),
           ],
         },
-                    
       ],
     }),
   ],
-});
-
+})

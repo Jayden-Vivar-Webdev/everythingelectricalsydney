@@ -50,6 +50,18 @@ export interface HeroSectionBlock {
   secondaryCtaUrl?: string;
 }
 
+export interface ImageGalleryBlock {
+  _type: "imageGallery";
+  images: {
+    _type: "image";
+    asset: {
+      _ref: string;
+      _type: "reference";
+    };
+    alt?: string;
+  }[];
+}
+
 export interface CtaSectionBlock {
   _type: "ctaSection";
   title: string;
@@ -227,6 +239,7 @@ export type CustomBlock =
   | ImageGridBlock
   | GridInfoBlock
   | FeatureSectionBlock
+  | ImageGalleryBlock
   | HeroSectionBlock
   | HeroContactBlock
   | ContentSectionBlock

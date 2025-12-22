@@ -1,13 +1,18 @@
-import FlexGallery from "@/app/components/gallery/bento-style";
-import fs from "fs";
-import path from "path";
+import { client } from "@/app/sanity/client";
+import { PortableText } from "next-sanity";
+import { contentMap } from "@/app/context-map/map-sections";
 
-export default function GalleryPage() {
-  const gallery = path.join(process.cwd(), "public/images/gallery");
+const POST_QUERY = `*[_type == "customSections" && slug.current == $slug][0]{
+  title,
+  content,
+}`;
 
-  const images = fs.readdirSync(gallery).map((file) => ({
-    src: `images/gallery/${file}`,
-    alt: file,
-  }));
-  return <FlexGallery images={images} />;
+export default async function GalleryPage() {
+  const data = await client.fetch(POST_QUERY, { slug: "/gallery" });
+
+  if (!data) {
+    return <p>Post not found</p>;
+  }
+
+  return <PortableText value={data.content} components={contentMap} />;
 }
