@@ -185,9 +185,9 @@ export default function AboutPageSection() {
           <div className="relative h-[24rem] lg:h-[36rem] rounded-2xl overflow-hidden shadow-2xl">
             <Image
               alt="Professional Electrical Services - Everything Electrical Sydney"
-              src="/images/assets/google-images/electrical-tools.jpg"
+              src="/images/precision-electrical.jpg"
               fill
-              className="object-cover"
+              className="object-cover object-bottcom"
               sizes="(max-width: 768px) 100vw, 100vw"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-slate-900/20 to-transparent"></div>
@@ -303,7 +303,7 @@ export default function AboutPageSection() {
               <div className="relative h-80 lg:h-full">
                 <Image
                   alt="Professional Electrician - Everything Electrical Sydney"
-                  src="/images/assets/electrical-switchbox.jpg"
+                  src="/images/ees-about-image.jpg"
                   fill
                   className="object-cover"
                 />
