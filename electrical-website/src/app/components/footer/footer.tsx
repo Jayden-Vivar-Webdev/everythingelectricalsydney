@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 const navigation = {
   services: [
     {
@@ -10,16 +11,22 @@ const navigation = {
     { name: "Switchboard Upgrades", href: "/services/switchboard-upgrades" },
     { name: "Residential Solutions", href: "/services/residential-electrical" },
     { name: "Commercial Electrical", href: "/services/commercial-electrical" },
-    { name: "Air conditioning", href: "/services//air-conditioning" },
-    { name: "Emergency Repairs", href: "/services/emergency-electrician" },
+    { name: "Air conditioning", href: "/services/air-conditioning" },
+    {
+      name: "Emergency Repairs",
+      href: "/services/sydney-emergency-electrician",
+    },
   ],
   areas: [
-    { name: "Sydney CBD", href: "/all-services/sydney" },
-    { name: "Blue Mountains", href: "/all-services/blue-mountains" },
-    { name: "Eastern Suburbs", href: "/all-services/eastern-suburbs" },
-    { name: "Northern Beaches", href: "/all-services/northern-beaches" },
-    { name: "Inner West", href: "/all-services/inner-west" },
-    { name: "Western Sydney", href: "/all-services/western-sydney" },
+    { name: "Sydney CBD", href: "/all-services?location=sydney" },
+    { name: "Blue Mountains", href: "/all-services?location=blue-mountains" },
+    { name: "Eastern Suburbs", href: "/all-services?location=eastern-suburbs" },
+    {
+      name: "Northern Beaches",
+      href: "/all-services?location=northern-beaches",
+    },
+    { name: "Inner West", href: "/all-services?location=inner-west" },
+    { name: "Western Sydney", href: "/all-services?location=western-sydney" },
   ],
   company: [
     { name: "About Us", href: "/about" },
@@ -157,6 +164,20 @@ export default function Footer() {
                   Business Hours
                 </h4>
                 <p className="mt-2 text-[15px]">24/7 </p>
+              </div>
+              <div className="pt-4">
+                <h4 className="text-sm font-semibold uppercase tracking-wider text-white">
+                  Other
+                </h4>
+                <Link href="/blog" className="mt-2 mr-2 text-[15px]">
+                  Blog
+                </Link>
+                <Link href="/about" className="mt-2 mr-2 text-[15px]">
+                  About Us
+                </Link>
+                <Link href="/gallery" className="mt-2 text-[15px]">
+                  Gallery
+                </Link>
               </div>
             </div>
           </div>

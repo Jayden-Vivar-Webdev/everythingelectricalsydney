@@ -1,5 +1,11 @@
 [
   { "name": "Abbotsbury", "slug": "abbotsbury" },
+  { "name": "Blue Mountains", "slug": "blue-mountains" },
+  { "name": "Eastern Suburbs", "slug": "eastern-suburbs" },
+  { "name": "Northern Beaches", "slug": "northern-beaches" },
+  { "name": "Sydney", "slug": "sydney" },
+  { "name": "Inner West", "slug": "inner-west" },
+  { "name": "Western Sydney", "slug": "western-sydney" },
   { "name": "Acacia Gardens", "slug": "acacia-Gardens" },
   { "name": "Agnes Banks", "slug": "agnes-banks" },
   { "name": "Airds", "slug": "airds" },

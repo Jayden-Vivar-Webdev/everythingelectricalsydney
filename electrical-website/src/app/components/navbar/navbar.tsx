@@ -164,11 +164,13 @@ export default function NavBar() {
               <Bars3Icon aria-hidden="true" className="size-6" />
             </button>
           </div>
+
           <PopoverGroup className="hidden xl:flex items-center gap-x-10">
             <Popover>
               <PopoverButton
                 className={`flex items-center gap-x-1 text-sm/6 font-semibold transition-all duration-200 border-b-2 ${
-                  pathname.startsWith("/services")
+                  pathname.startsWith("/services") &&
+                  !pathname.startsWith("/services/sydney-emergency-electrician")
                     ? "border-red-600 text-red-700"
                     : "border-transparent text-gray-700 hover:text-red-600 hover:border-red-300"
                 }`}
@@ -240,7 +242,6 @@ export default function NavBar() {
                 </div>
               </PopoverPanel>
             </Popover>
-
             <Link
               href="/about"
               className={`text-sm/6 font-semibold border-b-2 ${
@@ -251,7 +252,6 @@ export default function NavBar() {
             >
               About
             </Link>
-
             <Link
               href="/areas"
               className={`text-sm/6 font-semibold border-b-2 ${
@@ -275,7 +275,7 @@ export default function NavBar() {
             <Link
               href="/blog"
               className={`text-sm/6 font-semibold border-b-2 ${
-                pathname === "/blog"
+                pathname === "/about"
                   ? "border-red-600 text-red-600"
                   : "border-transparent"
               } hover:border-red-400`}
@@ -285,7 +285,7 @@ export default function NavBar() {
             <Link
               href="/gallery"
               className={`text-sm/6 font-semibold border-b-2 ${
-                pathname === "/gallery"
+                pathname === "/about"
                   ? "border-red-600 text-red-600"
                   : "border-transparent"
               } hover:border-red-400`}
@@ -333,6 +333,7 @@ export default function NavBar() {
             <div className="mt-6 flow-root">
               <div className="bg-white">
                 {/* MAKESURE TO REMOVE HIDDEN */}
+
                 <div className="px-2 py-1">
                   <div className="space-y-1">
                     {/* Services Dropdown */}
@@ -344,7 +345,10 @@ export default function NavBar() {
                         <span className="flex items-center">
                           <span
                             className={`text-base font-medium ${
-                              pathname.startsWith("/services")
+                              pathname.startsWith("/services") &&
+                              !pathname.startsWith(
+                                "/services/sydney-emergency-electrician",
+                              )
                                 ? "border-red-600 text-red-600"
                                 : "border-transparent"
                             } hover:border-red-400'
@@ -426,7 +430,6 @@ export default function NavBar() {
                       <span>About</span>
                       <ChevronRight className="h-4 w-4 text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity" />
                     </Link>
-
                     <Link
                       href="/areas"
                       onClick={() => {
@@ -460,60 +463,74 @@ export default function NavBar() {
                       <span>Contact</span>
                       <ChevronRight className="h-4 w-4 text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity" />
                     </Link>
-
-                    <Link
-                      href="/blog"
-                      onClick={() => {
-                        setMobileMenuOpen(false);
-                      }}
-                      className={`group flex items-center justify-between rounded-lg 
+                  </div>
+                  <Link
+                    href="/blog"
+                    onClick={() => {
+                      setMobileMenuOpen(false);
+                    }}
+                    className={`group flex items-center justify-between rounded-lg 
                 px-4 py-3 text-base font-medium text-gray-900 
                 hover:bg-red-100 hover:text-red-700 transition-all duration-200 ${
                   pathname === "/blog"
                     ? "border-red-600 text-red-600"
                     : "border-transparent"
                 } hover:border-red-400`}
-                    >
-                      <span>Blog</span>
-                      <ChevronRight className="h-4 w-4 text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity" />
-                    </Link>
-                    <Link
-                      href="/gallery"
-                      onClick={() => {
-                        setMobileMenuOpen(false);
-                      }}
-                      className={`group flex items-center justify-between rounded-lg 
+                  >
+                    <span>Blog</span>
+                    <ChevronRight className="h-4 w-4 text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  </Link>
+                  <Link
+                    href="/gallery"
+                    onClick={() => {
+                      setMobileMenuOpen(false);
+                    }}
+                    className={`group flex items-center justify-between rounded-lg 
                 px-4 py-3 text-base font-medium text-gray-900 
                 hover:bg-red-100 hover:text-red-700 transition-all duration-200 ${
                   pathname === "/gallery"
                     ? "border-red-600 text-red-600"
                     : "border-transparent"
                 } hover:border-red-400`}
-                    >
-                      <span>Gallery</span>
-                      <ChevronRight className="h-4 w-4 text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity" />
-                    </Link>
-                  </div>
+                  >
+                    <span>Gallery</span>
+                    <ChevronRight className="h-4 w-4 text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  </Link>
 
                   {/* Action Section */}
                   <div className="mt-6 pt-6 border-t border-gray-200">
                     <div className="space-y-3">
-                      <button
-                        onClick={() => {
-                          window.location.href = "/contact";
-                        }}
-                        className="w-full secondary-bg text-white font-semibold py-3 px-4 rounded-lg hover:from-red-700 hover:to-indigo-700 transform hover:scale-101 transition-all duration-200 shadow-md hover:shadow-lg"
+                      <a
+                        href="tel:0449003526"
+                        className="inline-flex justify-center w-full items-center gap-2 rounded-lg bg-red-600 px-5 py-3 text-base font-semibold text-white shadow-lg shadow-red-900/40 transition hover:-translate-y-0.5 hover:bg-red-700"
                       >
-                        Get Started Today
-                      </button>
-                      <button
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          className="lucide lucide-phone-call h-5 w-5"
+                          aria-hidden="true"
+                        >
+                          <path d="M13 2a9 9 0 0 1 9 9"></path>
+                          <path d="M13 6a5 5 0 0 1 5 5"></path>
+                          <path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"></path>
+                        </svg>
+                        Call now 0449 003 526
+                      </a>
+                      {/* <button
                         onClick={() => {
                           window.location.href = "/services";
                         }}
                         className="w-full border-2 border-gray-300 text-gray-700 font-semibold py-3 px-4 rounded-lg hover:border-gray-400 hover:bg-gray-50 transition-all duration-200"
                       >
                         Learn More
-                      </button>
+                      </button> */}
                     </div>
                   </div>
                 </div>

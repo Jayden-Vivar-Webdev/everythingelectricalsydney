@@ -14,7 +14,7 @@ const POST_QUERY = `*[_type == "customSections" && slug.current == $slug][0]{
 
 export async function generateStaticParams() {
   const slugs = await client.fetch(
-    `*[_type == "customSections" && defined(slug.current)][].slug.current`
+    `*[_type == "customSections" && defined(slug.current)][].slug.current`,
   );
   console.log("SLUGS");
   console.log(slugs);
@@ -74,7 +74,6 @@ export default async function Services() {
           __html: JSON.stringify(servicesPageStructuredData),
         }}
       />
-      ;
       <PortableText value={data.content} components={contentMap} />
       <ServicesGrid />
       <ServiceLocations />
