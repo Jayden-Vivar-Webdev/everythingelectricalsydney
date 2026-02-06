@@ -49,15 +49,15 @@ export async function generateMetadata({
       title: pageTitle,
       description: pageDescription,
       alternates: {
-        canonical: `https://everythingelectricalsydney.com.au/areas`,
+        canonical: `https://www.everythingelectricalsydney.com.au/areas`,
       },
       openGraph: {
-        url: `https://everythingelectricalsydney.com.au/all-services?location=${locationParam.location}`,
+        url: `https://www.everythingelectricalsydney.com.au/all-services?location=${locationParam.location}`,
         title: pageTitle,
         description: pageDescription,
         images: [
           {
-            url: "https://everythingelectricalsydney.com.au/images/electrical_og.png",
+            url: "https://www.everythingelectricalsydney.com.au/images/electrical_og.png",
             width: 1200,
             height: 630,
             alt: `Everything Electrical Sydney - Professional Electrical Services in ${locationParam.location}`,
@@ -72,7 +72,7 @@ export async function generateMetadata({
         title: pageTitle,
         description: pageDescription,
         images: [
-          "https://everythingelectricalsydney.com.au/images/electrical_og.png",
+          "https://www.everythingelectricalsydney.com.au/images/electrical_og.png",
         ],
       },
       keywords: [

@@ -14,17 +14,17 @@ export const metadata = {
   description:
     "Discover the suburbs and regions covered by Everything Electrical Sydney. We provide trusted, licensed electrical services to homes and businesses throughout Greater Sydney and surrounding areas.",
   alternates: {
-    canonical: "https://everythingelectricalsydney.com.au/areas",
+    canonical: "https://www.everythingelectricalsydney.com.au/areas",
   },
   openGraph: {
-    url: "https://everythingelectricalsydney.com.au/areas",
+    url: "https://www.everythingelectricalsydney.com.au/areas",
     title:
       "Everything Electrical Sydney — Electrical Services Across Sydney & Surrounds",
     description:
       "Everything Electrical Sydney proudly serves residential, commercial, and strata clients across Sydney’s suburbs and nearby areas, delivering quality electrical work you can rely on.",
     images: [
       {
-        url: "https://everythingelectricalsydney.com.au/images/og-image.png",
+        url: "https://www.everythingelectricalsydney.com.au/images/og-image.png",
         width: 1200,
         height: 630,
         alt: "Areas Served by Everything Electrical Sydney – Licensed Electricians",

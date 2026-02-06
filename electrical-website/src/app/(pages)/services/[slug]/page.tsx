@@ -18,7 +18,7 @@ const getCachedSlugs = cache(async () => {
         revalidate: 3600, // Cache for 1 hour
         tags: ["customSections"],
       },
-    }
+    },
   );
 });
 
@@ -35,7 +35,7 @@ const getCachedPost = cache(async (slug: string) => {
         revalidate: 1800, // Cache for 30 minutes
         tags: ["customSections", `post-${slug}`],
       },
-    }
+    },
   );
 });
 
@@ -48,7 +48,7 @@ export async function generateStaticParams() {
       .map((slug: string) => slug.split("/")[2])
       .filter(
         (slugName: string | undefined): slugName is string =>
-          slugName !== undefined
+          slugName !== undefined,
       )
       .map((slugName: string) => ({ slug: slugName }));
   } catch (error) {
@@ -81,15 +81,15 @@ export async function generateMetadata({
       title: pageTitle,
       description: pageDescription,
       alternates: {
-        canonical: `https://everythingelectricalsydney.com.au/services/${slug}`,
+        canonical: `https://www.everythingelectricalsydney.com.au/services/${slug}`,
       },
       openGraph: {
-        url: `https://everythingelectricalsydney.com.au/services/${slug}`,
+        url: `https://www.everythingelectricalsydney.com.au/services/${slug}`,
         title: pageTitle,
         description: pageDescription,
         images: [
           {
-            url: "https://everythingelectricalsydney.com.au/images/electrical_og.png",
+            url: "https://www.everythingelectricalsydney.com.au/images/electrical_og.png",
             width: 1200,
             height: 630,
             alt: `Everything Electrical Sydney - ${post.title}`,
@@ -104,7 +104,7 @@ export async function generateMetadata({
         title: pageTitle,
         description: pageDescription,
         images: [
-          "https://everythingelectricalsydney.com.au/images/electrical_og.png",
+          "https://www.everythingelectricalsydney.com.au/images/electrical_og.png",
         ],
       },
       keywords: [

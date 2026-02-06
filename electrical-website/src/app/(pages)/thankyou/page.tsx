@@ -7,16 +7,16 @@ export const metadata = {
   description:
     "Thanks for contacting Everything Electrical Sydney. Your enquiry has been received and our team will be in touch shortly to assist with your electrical needs.",
   alternates: {
-    canonical: "https://everythingelectricalsydney.com.au/thankyou",
+    canonical: "https://www.everythingelectricalsydney.com.au/thankyou",
   },
   openGraph: {
-    url: "https://everythingelectricalsydney.com.au/thankyou",
+    url: "https://www.everythingelectricalsydney.com.au/thankyou",
     title: "Thank You — Everything Electrical Sydney",
     description:
       "We appreciate you getting in touch! A member of the Everything Electrical Sydney team will respond shortly to assist with your enquiry.",
     images: [
       {
-        url: "https://everythingelectricalsydney.com.au/images/og-image.png",
+        url: "https://www.everythingelectricalsydney.com.au/images/og-image.png",
         width: 1200,
         height: 630,
         alt: "Thank You – Everything Electrical Sydney",

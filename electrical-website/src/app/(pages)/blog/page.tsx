@@ -24,7 +24,7 @@ export const metadata = {
   description:
     "Stay informed with expert electrical tips, safety advice, and industry updates from Everything Electrical Sydney. Helping homeowners, strata managers, and businesses across Sydney.",
   alternates: {
-    canonical: "https://everythingelectricalsydney.com.au/blog",
+    canonical: "https://www.everythingelectricalsydney.com.au/blog",
   },
   openGraph: {
     url: "https://everythingelectricalsydney.com.au/blog",
@@ -131,7 +131,7 @@ export default async function IndexPage({ searchParams }: PageProps) {
                     year: "numeric",
                     month: "long",
                     day: "numeric",
-                  }
+                  },
                 );
 
                 return (

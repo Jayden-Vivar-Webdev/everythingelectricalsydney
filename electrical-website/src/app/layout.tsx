@@ -29,7 +29,7 @@ export const metadata = {
   openGraph: {
     type: "website",
     locale: "en_AU",
-    url: "https://everythingelectricalsydney.com.au/",
+    url: "https://www.everythingelectricalsydney.com.au/",
     siteName: "Everything Electricals",
     title:
       "Everything Electrical Sydney | Licensed Electricians for Sydney NSW",
@@ -37,7 +37,7 @@ export const metadata = {
       "Everything Electricals provides expert residential and commercial electrical services in Camden, Campbelltown, Liverpool, and nearby suburbs. Emergency callouts, installations & more.",
     images: [
       {
-        url: "https://everythingelectricalsydney.com.au/images/electrical_og.png",
+        url: "https://www.everythingelectricalsydney.com.au/images/electrical_og.png",
         width: 1200,
         height: 630,
         alt: "Everything Electricals - Local Electricians in Camden & Campbelltown",

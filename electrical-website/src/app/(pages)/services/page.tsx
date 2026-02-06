@@ -29,16 +29,16 @@ export const metadata = {
   description:
     "Explore a full range of licensed electrical services with Everything Electrical Sydney. We service homes, businesses, and strata properties across Sydney with reliable, safe, and high-quality electrical solutions.",
   alternates: {
-    canonical: "https://everythingelectricalsydney.com.au/services",
+    canonical: "https://www.everythingelectricalsydney.com.au/services",
   },
   openGraph: {
-    url: "https://everythingelectricalsydney.com.au/services",
+    url: "https://www.everythingelectricalsydney.com.au/services",
     title: "Electrical Services Sydney — Everything Electrical Sydney",
     description:
       "From general electrical work to Level 2 services, our expert electricians provide trusted, efficient, and code-compliant solutions across residential, commercial, and strata sectors in Sydney.",
     images: [
       {
-        url: "https://everythingelectricalsydney.com.au/images/og-image.png",
+        url: "https://www.everythingelectricalsydney.com.au/images/og-image.png",
         width: 1200,
         height: 630,
         alt: "Electrical Services by Everything Electrical Sydney – Licensed Sydney Electricians",
