@@ -275,7 +275,7 @@ export default function NavBar() {
             <Link
               href="/blog"
               className={`text-sm/6 font-semibold border-b-2 ${
-                pathname === "/about"
+                pathname === "/blog"
                   ? "border-red-600 text-red-600"
                   : "border-transparent"
               } hover:border-red-400`}
@@ -285,7 +285,7 @@ export default function NavBar() {
             <Link
               href="/gallery"
               className={`text-sm/6 font-semibold border-b-2 ${
-                pathname === "/about"
+                pathname === "/gallery"
                   ? "border-red-600 text-red-600"
                   : "border-transparent"
               } hover:border-red-400`}
