@@ -20,10 +20,10 @@ export default function FlexGallery({ images }: Collection) {
     <>
       <div className="pb-20">
         <div className="flex w-full items-center justify-center px-6 py-10 lg:px-8">
-          <h2 className="text-balance text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
+          <h1 className="text-balance text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
             Everything Electrical Sydney{" "}
             <span className="secondary-text">Gallery</span>
-          </h2>
+          </h1>
         </div>
         <div className="mx-auto max-w-7xl columns-1 sm:columns-2 md:columns-3 lg:columns-3 gap-4 space-y-4 px-6 lg: px-8">
           {images.slice(0, visibleCount).map((image, index) => (
