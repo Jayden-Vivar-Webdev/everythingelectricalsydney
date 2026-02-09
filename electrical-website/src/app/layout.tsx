@@ -7,7 +7,6 @@ import { Analytics } from "@vercel/analytics/next";
 import Script from "next/script";
 import Footer from "./components/footer/footer";
 import GoogleCaptchaWrapper from "./GoogleCaptchaWrapper";
-import { localBusinessData } from "./data/local-business-data";
 export const metadata = {
   title: "Everything Electrical Sydney | Licensed Electricians for Sydney NSW",
   description:
@@ -72,16 +71,9 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  <script
-    type="application/ld+json"
-    dangerouslySetInnerHTML={{
-      __html: JSON.stringify(localBusinessData),
-    }}
-  />;
   return (
     <html lang="en">
-      <body>
-        {/* Google Tag Manager */}
+      <head>
         <Script
           id="gtm-init"
           strategy="afterInteractive"
@@ -93,7 +85,8 @@ export default function RootLayout({
             })(window,document,'script','dataLayer','GTM-MP2GJLD');`,
           }}
         />
-
+      </head>
+      <body>
         {/* Google Tag Manager (noscript) */}
         <noscript>
           <iframe

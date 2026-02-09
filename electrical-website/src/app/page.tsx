@@ -6,6 +6,7 @@ import ServiceLocations from "./components/locations/service-locations";
 import FAQ from "./components/faq/faq";
 import MapLocations from "./components/locations/map-locations";
 import { homePageStructuredData } from "./data/local-business-data";
+import Script from "next/script";
 
 const POST_QUERY = `*[_type == "customSections" && slug.current == $slug][0]{
   title,
@@ -18,15 +19,18 @@ export default async function Home() {
   if (!data) {
     return <p>Post not found</p>;
   }
-  <script
-    type="application/ld+json"
-    dangerouslySetInnerHTML={{
-      __html: JSON.stringify(homePageStructuredData),
-    }}
-  />;
 
   return (
     <>
+      <Script
+        id="home-ld-json"
+        type="application/ld+json"
+        strategy="beforeInteractive"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(homePageStructuredData),
+        }}
+      />
+
       <Banner />
       <PortableText value={data.content} components={contentMap} />
       <ServiceLocations />
@@ -39,7 +43,6 @@ export default async function Home() {
           <MapLocations />
         </div>
       </div>
-
       <FAQ />
     </>
   );
