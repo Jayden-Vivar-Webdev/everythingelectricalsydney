@@ -19,7 +19,7 @@ import FlexGallery from "../components/gallery/bento-style";
 
 export type SanityBlockRenderer = (
   block: { _type: string; [key: string]: unknown },
-  index: number
+  index: number,
 ) => React.ReactElement;
 export const contentMap: PortableTextComponents = {
   block: {
@@ -94,7 +94,7 @@ export const contentMap: PortableTextComponents = {
       const heroSection = value as unknown as SanityTypes.HeroSectionBlock;
 
       const backgroundImageUrl = urlFor(
-        heroSection.backgroundImage.asset._ref
+        heroSection.backgroundImage.asset._ref,
       ).url();
 
       return (
@@ -194,16 +194,11 @@ export const contentMap: PortableTextComponents = {
 
       const formattedImages =
         imageGallery.images?.map((img) => ({
-          src: urlFor(img.asset._ref).url(), // convert Sanity image object to URL
+          src: urlFor(img.asset._ref).url(),
           alt: img.alt || "",
         })) || [];
 
-      return (
-        <FlexGallery
-          key={index}
-          images={formattedImages || []} // pass the images array, default to empty if undefined
-        />
-      );
+      return <FlexGallery key={index} images={formattedImages || []} />;
     },
 
     separator: ({ value, index }) => {

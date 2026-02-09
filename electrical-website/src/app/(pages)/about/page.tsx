@@ -59,6 +59,7 @@ export default async function ContactPage() {
           __html: JSON.stringify(aboutPageStructuredData),
         }}
       />
+
       <PortableText value={data.content} components={contentMap} />
       <div className="pt-40 sm:pt-30 md:pt-20"></div>
       <AboutPageSection />

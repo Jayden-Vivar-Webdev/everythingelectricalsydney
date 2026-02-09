@@ -14,6 +14,10 @@ export const metadata = {
     "Browse completed residential, commercial, strata, and Level 2 electrical projects by Everything Electrical Sydney across Greater Sydney.",
   alternates: {
     canonical: "https://www.everythingelectricalsydney.com.au/gallery",
+    languages: {
+      en: "https://www.everythingelectricalsydney.com.au/gallery",
+      "en-AU": "https://www.everythingelectricalsydney.com.au/gallery",
+    },
   },
   openGraph: {
     url: "https://www.everythingelectricalsydney.com.au/gallery",

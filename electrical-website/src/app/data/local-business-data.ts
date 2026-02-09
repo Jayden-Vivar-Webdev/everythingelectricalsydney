@@ -6,6 +6,14 @@ export const localBusinessData = {
     "Explore a full range of licensed electrical services across Sydney. Residential, commercial, strata, and emergency electrical services.",
   telephone: "0449003526",
   email: "info@everythingelectricalsydney.com.au",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Mobile service across Sydney",
+    addressLocality: "Sydney",
+    addressRegion: "NSW",
+    postalCode: "2000",
+    addressCountry: "AU",
+  },
   areaServed: {
     "@type": "Place",
     name: "Sydney, NSW",
@@ -24,7 +32,7 @@ export const localBusinessData = {
     target: "tel:0449003526",
     name: "Call Now",
   },
-  services: [
+  knowsAbout: [
     "Electrical Installation",
     "Emergency Electrical Services",
     "Level 2 Electrical Services",
@@ -38,7 +46,7 @@ export const localBusinessData = {
 
 export const homePageStructuredData = {
   ...localBusinessData,
-  url: "https://everythingelectricalsydney.com.au",
+  url: "https://www.everythingelectricalsydney.com.au",
   areaServed: [
     { "@type": "Place", name: "Northern Sydney" },
     { "@type": "Place", name: "Western Sydney" },
@@ -51,7 +59,7 @@ export const homePageStructuredData = {
 
 export const servicesPageStructuredData = {
   ...localBusinessData,
-  url: "https://everythingelectricalsydney.com.au/services",
+  url: "https://www.everythingelectricalsydney.com.au/services",
   description:
     "Everything Electrical Sydney provides licensed residential, commercial, and strata electrical services across Sydney. Explore all our professional services.",
 };
@@ -60,14 +68,14 @@ export const blogPageStructuredData = {
   ...localBusinessData,
   name: "Everything Electrical Sydney Blog",
   description: `Professional Electrical Service Sydney`,
-  url: `https://everythingelectricalsydney.com.au/blog`,
+  url: `https://www.everythingelectricalsydney.com.au/blog`,
 };
 
 export const aboutPageStructuredData = {
   ...localBusinessData,
   name: "Everything Electrical Sydney About",
   description: `Professional Electrical Service Sydney`,
-  url: `https://everythingelectricalsydney.com.au/about`,
+  url: `https://www.everythingelectricalsydney.com.au/about`,
 };
 
 export const areasPageStructuredData = {
@@ -80,5 +88,5 @@ export const areasPageStructuredData = {
     { "@type": "Place", name: "Southern Sydney" },
     { "@type": "Place", name: "Eastern Sydney" },
   ],
-  url: `https://everythingelectricalsydney.com.au/areas`,
+  url: `https://www.everythingelectricalsydney.com.au/areas`,
 };
