@@ -24,8 +24,7 @@ export async function generateStaticParams() {
 }
 
 export const metadata = {
-  title:
-    "Our Electrical Services — Everything Electrical Sydney | Residential, Commercial & Strata",
+  title: "Best Electrical Services | Everything Electrical Sydney",
   description:
     "Explore a full range of licensed electrical services with Everything Electrical Sydney. We service homes, businesses, and strata properties across Sydney with reliable, safe, and high-quality electrical solutions.",
   alternates: {

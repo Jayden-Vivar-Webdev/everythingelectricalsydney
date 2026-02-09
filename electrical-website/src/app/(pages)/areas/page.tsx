@@ -9,8 +9,7 @@ const POST_QUERY = `*[_type == "customSections" && slug.current == $slug][0]{
 }`;
 
 export const metadata = {
-  title:
-    "Areas We Serve — Everything Electrical Sydney | Local Electricians Across Sydney",
+  title: "Areas We Serve Across Sydney | Everything Electrical Sydney",
   description:
     "Discover the suburbs and regions covered by Everything Electrical Sydney. We provide trusted, licensed electrical services to homes and businesses throughout Greater Sydney and surrounding areas.",
   alternates: {

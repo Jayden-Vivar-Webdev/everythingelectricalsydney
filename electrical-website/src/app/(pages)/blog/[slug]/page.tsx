@@ -115,9 +115,9 @@ export async function generateMetadata({
           .quality(85)
           .url()
       : "https://www.everythingelectricalsydney.com.au/images/electrical_og.png";
-
+    console.log("Loging Title: ", post);
     const metaDescription = extractMetaDescription(post.body);
-    const pageTitle = `${post.title} | Everything Electrical Sydney Blog`;
+    const pageTitle = `${post.title} | Everything Electrical Sydney`;
 
     return {
       title: pageTitle,
