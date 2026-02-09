@@ -31,6 +31,9 @@ const getCachedPost = cache(async (slug: string) => {
       title,
       publishedAt,
       image,
+      imageAlt,
+      imageSource,
+      meta,
       body,
       _updatedAt,
       "estimatedReadingTime": round(length(pt::text(body)) / 5 / 180 )
@@ -115,9 +118,16 @@ export async function generateMetadata({
           .quality(85)
           .url()
       : "https://www.everythingelectricalsydney.com.au/images/electrical_og.png";
-    console.log("Loging Title: ", post);
-    const metaDescription = extractMetaDescription(post.body);
-    const pageTitle = `${post.title} | Everything Electrical Sydney`;
+
+    const metaDescription =
+      post.meta?.description && post.meta.description.trim().length > 0
+        ? post.meta.description
+        : extractMetaDescription(post.body);
+
+    const pageTitle =
+      post.meta?.title && post.meta.title.trim().length > 0
+        ? post.meta.title
+        : `${post.title} | Everything Electrical Sydney`;
 
     return {
       title: pageTitle,
@@ -199,6 +209,7 @@ export default async function PostPage({ params }: { params: Params }) {
 
     const publishedDate = new Date(post.publishedAt);
     const readingTime = post.estimatedReadingTime || 3;
+    const imageSource = post.imageSource;
 
     return (
       <>
@@ -271,7 +282,7 @@ export default async function PostPage({ params }: { params: Params }) {
               <div className="relative w-full h-0 pb-[66%] mb-10 rounded-lg overflow-hidden">
                 <Image
                   src={imageUrl}
-                  alt={post.title}
+                  alt={post.imageAlt?.trim() || post.title}
                   fill
                   className="object-cover transition-transform duration-300 hover:scale-105"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
@@ -279,6 +290,19 @@ export default async function PostPage({ params }: { params: Params }) {
                   placeholder="blur"
                   blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
                 />
+              </div>
+            )}
+            {imageSource && (
+              <div className="pb-10">
+                <p>
+                  Source:{" "}
+                  <a
+                    className="text-red-600 hover:text-red-800 underline transition-colors duration-200"
+                    href={imageSource.url}
+                  >
+                    {imageSource.name}
+                  </a>
+                </p>
               </div>
             )}
 
