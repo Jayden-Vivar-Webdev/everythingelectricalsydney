@@ -39,18 +39,6 @@ const nextConfig = {
   },
   redirects: async () => {
     return [
-      // Force apex domain to canonical www to avoid host redirect loops
-      {
-        source: "/:path*",
-        has: [
-          {
-            type: "host",
-            value: "everythingelectricalsydney.com.au",
-          },
-        ],
-        destination: "https://www.everythingelectricalsydney.com.au/:path*",
-        permanent: true,
-      },
       {
         source: "/review",
         destination:
