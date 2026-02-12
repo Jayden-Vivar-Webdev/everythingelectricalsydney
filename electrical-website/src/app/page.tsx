@@ -1,12 +1,17 @@
 import { client } from "@/app/sanity/client";
-import { PortableText } from "next-sanity";
-import { contentMap } from "./context-map/map-sections";
+// import { PortableText } from "next-sanity";
+// import { contentMap } from "./context-map/map-sections";
 import Banner from "./components/banner/banner";
 import ServiceLocations from "./components/locations/service-locations";
 import FAQ from "./components/faq/faq";
 import MapLocations from "./components/locations/map-locations";
 import { homePageStructuredData } from "./data/local-business-data";
 import Script from "next/script";
+import HomeHero from "./components/(pages)/home/HomeHero";
+import HomeFeature from "./components/(pages)/home/Features";
+import ServicesGrid from "./context-map/reusable/services-grid";
+import ContentHome from "./components/(pages)/home/ContentHome";
+import GoogleReviews from "./components/testimonials/google-reviews";
 
 const POST_QUERY = `*[_type == "customSections" && slug.current == $slug][0]{
   title,
@@ -30,9 +35,13 @@ export default async function Home() {
           __html: JSON.stringify(homePageStructuredData),
         }}
       />
-
       <Banner />
-      <PortableText value={data.content} components={contentMap} />
+      <HomeHero />
+      <ServicesGrid />
+      <HomeFeature />
+      <ContentHome />
+      <GoogleReviews />
+      {/* <PortableText value={data.content} components={contentMap} /> */}
       <ServiceLocations />
       <div className="py-10 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

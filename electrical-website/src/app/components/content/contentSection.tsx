@@ -18,8 +18,8 @@ type ContentSectionProps = {
   subHeader: string;
   content: React.ReactNode;
   images: ImageProps[];
-  statsHeader: string;
-  stats: StatItemProps[];
+  statsHeader?: string;
+  stats?: StatItemProps[];
 };
 
 function Separator() {
