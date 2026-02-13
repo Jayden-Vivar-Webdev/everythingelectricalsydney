@@ -42,14 +42,14 @@ export async function generateMetadata({
       };
     }
 
-    const pageTitle = `Everything Electrical Sydney - Professional Electrical Services in ${locationParam.location}`;
+    const pageTitle = `Electrician in ${locationParam.location} | Everything Electrical Sydney `;
     const pageDescription = `Everything Electrical Sydney provides comprehensive electrical services in ${locationParam.location}. Commercial, residential work, and Level 2 electrical services. 24/7 emergency electrical services available.`;
 
     return {
       title: pageTitle,
       description: pageDescription,
       alternates: {
-        canonical: `https://www.everythingelectricalsydney.com.au/areas`,
+        canonical: `https://www.everythingelectricalsydney.com.au/all-services?location=${locationParam.location}`,
       },
       openGraph: {
         url: `https://www.everythingelectricalsydney.com.au/all-services?location=${locationParam.location}`,
