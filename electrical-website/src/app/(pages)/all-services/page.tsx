@@ -110,6 +110,7 @@ export async function generateMetadata({
 export default async function AllServices({ searchParams }: PageProps) {
   try {
     const locationParam = await searchParams;
+
     const location = locationParam.location
       ? validateLocation(locationParam.location)
       : null;
@@ -174,7 +175,7 @@ export default async function AllServices({ searchParams }: PageProps) {
               "@type": "LocalBusiness",
               name: "Everything Electrical Sydney",
               description: `Professional electrical services in ${locationName}`,
-              url: `https://everythingelectricalsydney.com.au/all-services?location=${String(locationParam)}`,
+              url: `https://everythingelectricalsydney.com.au/all-services?location=${locationParam.location}`,
               telephone: "0449003526",
               email: "info@everythingelectricalsydney.com.au",
               areaServed: {
