@@ -129,8 +129,6 @@ export async function generateMetadata({
         ? post.meta.title
         : `${post.title} | Everything Electrical Sydney`;
 
-    console.log(pageTitle);
-
     return {
       title: pageTitle,
       description: metaDescription,
