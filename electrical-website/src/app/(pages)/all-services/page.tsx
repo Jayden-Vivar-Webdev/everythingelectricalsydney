@@ -174,7 +174,7 @@ export default async function AllServices({ searchParams }: PageProps) {
               "@type": "LocalBusiness",
               name: "Everything Electrical Sydney",
               description: `Professional electrical services in ${locationName}`,
-              url: `https://everythingelectricalsydney.com.au/all-services?location=${locationParam}`,
+              url: `https://everythingelectricalsydney.com.au/all-services?location=${String(locationParam)}`,
               telephone: "0449003526",
               email: "info@everythingelectricalsydney.com.au",
               areaServed: {
