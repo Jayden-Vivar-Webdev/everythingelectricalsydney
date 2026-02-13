@@ -181,6 +181,14 @@ export default async function AllServices({ searchParams }: PageProps) {
                 "@type": "Place",
                 name: locationName,
               },
+              address: {
+                "@type": "PostalAddress",
+                streetAddress: "Mobile service across Sydney",
+                addressLocality: "Sydney",
+                addressRegion: "NSW",
+                postalCode: "2000",
+                addressCountry: "AU",
+              },
               serviceArea: {
                 "@type": "GeoCircle",
                 geoMidpoint: {
@@ -190,7 +198,7 @@ export default async function AllServices({ searchParams }: PageProps) {
                 },
                 geoRadius: "50000",
               },
-              services: [
+              knowsAbout: [
                 "Electrical Installation",
                 "Emergency Electrical Services",
                 "Level 2 Electrical Services",
@@ -198,7 +206,7 @@ export default async function AllServices({ searchParams }: PageProps) {
                 "Commercial Electrical Work",
                 "Residential Electrical Work",
               ],
-              openingHours: ["Mo-Fr 06:00-17:30", "Sa 08:00-12:00"],
+              openingHours: ["Mo-Su 00:00-23:59"],
               priceRange: "$$",
             }),
           }}

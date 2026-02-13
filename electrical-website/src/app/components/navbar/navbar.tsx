@@ -169,8 +169,7 @@ export default function NavBar() {
             <Popover>
               <PopoverButton
                 className={`flex items-center gap-x-1 text-sm/6 font-semibold transition-all duration-200 border-b-2 ${
-                  pathname.startsWith("/services") &&
-                  !pathname.startsWith("/services/sydney-emergency-electrician")
+                  pathname.startsWith("/services")
                     ? "border-red-600 text-red-700"
                     : "border-transparent text-gray-700 hover:text-red-600 hover:border-red-300"
                 }`}
@@ -345,10 +344,7 @@ export default function NavBar() {
                         <span className="flex items-center">
                           <span
                             className={`text-base font-medium ${
-                              pathname.startsWith("/services") &&
-                              !pathname.startsWith(
-                                "/services/sydney-emergency-electrician",
-                              )
+                              pathname.startsWith("/services")
                                 ? "border-red-600 text-red-600"
                                 : "border-transparent"
                             } hover:border-red-400'

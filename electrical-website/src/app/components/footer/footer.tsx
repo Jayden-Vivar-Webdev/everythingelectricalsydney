@@ -14,7 +14,7 @@ const navigation = {
     { name: "Air conditioning", href: "/services/air-conditioning" },
     {
       name: "Emergency Repairs",
-      href: "/services/sydney-emergency-electrician",
+      href: "/services/emergency-electrician",
     },
   ],
   areas: [
