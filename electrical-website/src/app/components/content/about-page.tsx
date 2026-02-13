@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 import {
   BoltIcon,
   ChatBubbleLeftRightIcon,
@@ -110,11 +111,14 @@ export default function AboutPageSection() {
         <div className="absolute inset-0"></div>
         <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-5xl pt-20 pb-16 text-center lg:pt-32 lg:pb-24">
-            <div className="mb-8">
-              <span className="inline-flex items-center rounded-full bg-red-50 px-6 py-2 text-sm font-medium text-red-700 ring-1 ring-red-600/20">
-                Sydney&apos;s Premier Electrical Contractors
-              </span>
-            </div>
+            <Link href={"/"}>
+              {" "}
+              <div className="mb-8">
+                <span className="inline-flex items-center rounded-full bg-red-50 px-6 py-2 text-sm font-medium text-red-700 ring-1 ring-red-600/20">
+                  Sydney&apos;s Premier Electrical Contractors
+                </span>
+              </div>
+            </Link>
             <h2 className="text-5xl font-bold tracking-tight text-slate-900 lg:text-7xl">
               Local, Trusted & Reliable Electricians Since 2010
               <span className="block bg-gradient-to-r from-red-600 to-red-700 bg-clip-text text-transparent pb-5">
@@ -125,11 +129,17 @@ export default function AboutPageSection() {
               <div className="h-1 w-32 bg-gradient-to-r from-red-600 to-red-700 rounded-full"></div>
             </div>
             <p className="space-y-6 mt-6 text-lg md:text-xl leading-8 text-gray-600 text-slate-600">
-              At Everything Electrical Sydney, we’ve been powering homes,
-              businesses, and communities across Sydney and the Blue Mountains
-              since 2010. Over the past decade, we’ve built our reputation on
-              one simple promise: safe, reliable, and professional electrical
-              services you can trust.
+              At{" "}
+              <Link
+                className="text-red-600 hover:text-red-800 transition-colors duration-200"
+                href={"/"}
+              >
+                Everything Electrical Sydney
+              </Link>
+              , we’ve been powering homes, businesses, and communities across
+              Sydney and the Blue Mountains since 2010. Over the past decade,
+              we’ve built our reputation on one simple promise: safe, reliable,
+              and professional electrical services you can trust.
               <br></br>
               <br></br>What started as a small local business has grown into one
               of Sydney’s most trusted electrical teams. With thousands of

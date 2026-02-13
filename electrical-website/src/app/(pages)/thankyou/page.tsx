@@ -33,6 +33,12 @@ export const metadata = {
     "Sydney electrician contact",
   ],
   authors: [{ name: "Everything Electrical Sydney" }],
+  robots: {
+    index: false,
+    follow: false,
+    nocache: true,
+    googleBot: { index: false, follow: false, noimageindex: true },
+  },
 };
 
 export default function ThankYou() {
@@ -87,10 +93,10 @@ export default function ThankYou() {
       </div>
       <div className="py-10 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 pb-10">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 pb-10">
             <span className="mr-2">Servicing Location</span>
             <span className="text-red-600">Mapped View </span>
-          </h1>
+          </h2>
           <MapLocations />
         </div>
       </div>

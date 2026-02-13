@@ -10,7 +10,7 @@ import GoogleCaptchaWrapper from "./GoogleCaptchaWrapper";
 export const metadata = {
   title: "Everything Electrical Sydney | Licensed Electricians for Sydney NSW",
   description:
-    "Everything Electricals provides expert residential and commercial electrical services in Camden, Campbelltown, Oran Park, and nearby suburbs. Emergency callouts, installations & more.",
+    "Everything Electrical Sydney provides expert residential and commercial electrical services in Camden, Campbelltown, Oran Park, and nearby suburbs. Emergency callouts, installations & more.",
   verification: {
     google: "50YV_0shYlW5h7ImZ5R9fF4VzAr51qPqkTxOWXE8eVk",
   },
@@ -24,22 +24,22 @@ export const metadata = {
     "electrical installations",
     "Camden electricians",
   ],
-  authors: [{ name: "Everything Electricals" }],
+  authors: [{ name: "Everything Electrical Sydney" }],
   openGraph: {
     type: "website",
     locale: "en_AU",
     url: "https://www.everythingelectricalsydney.com.au/",
-    siteName: "Everything Electricals",
+    siteName: "Everything Electrical Sydney",
     title:
       "Everything Electrical Sydney | Licensed Electricians for Sydney NSW",
     description:
-      "Everything Electricals provides expert residential and commercial electrical services in Camden, Campbelltown, Liverpool, and nearby suburbs. Emergency callouts, installations & more.",
+      "Everything Electrical Sydney provides expert residential and commercial electrical services in Camden, Campbelltown, Liverpool, and nearby suburbs. Emergency callouts, installations & more.",
     images: [
       {
         url: "https://www.everythingelectricalsydney.com.au/images/electrical_og.png",
         width: 1200,
         height: 630,
-        alt: "Everything Electricals - Local Electricians in Camden & Campbelltown",
+        alt: "Everything Electrical Sydney - Local Electricians in Camden & Campbelltown",
         type: "image/png",
       },
     ],

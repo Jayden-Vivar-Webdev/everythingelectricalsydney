@@ -47,8 +47,10 @@ export default async function Home() {
               Book the service that matches your site
             </h2>
             <p className="text-lg text-slate-700 leading-relaxed">
-              Whether you are fixing a fault, keeping a strata building compliant, or planning a smart home upgrade, these quick links
-              take you straight to the service detail pages so you can see scope, inclusions, and booking options.
+              Whether you are fixing a fault, keeping a strata building
+              compliant, or planning a smart home upgrade, these quick links
+              take you straight to the service detail pages so you can see
+              scope, inclusions, and booking options.
             </p>
           </div>
 
@@ -57,26 +59,22 @@ export default async function Home() {
               {
                 title: "All Electrical Services",
                 href: "/services",
-                copy:
-                  "Overview of residential, commercial, and Level 2 work, with response times across Greater Sydney.",
+                copy: "Overview of residential, commercial, and Level 2 work, with response times across Greater Sydney.",
               },
               {
                 title: "Electrical Repairs & Maintenance",
                 href: "/services/electrical-repairs-maintenance",
-                copy:
-                  "Fault finding, safety checks, RCD testing, lighting and power repairs to keep you operational.",
+                copy: "Fault finding, safety checks, RCD testing, lighting and power repairs to keep you operational.",
               },
               {
                 title: "Real Estate & Strata",
                 href: "/services/real-estate-strata",
-                copy:
-                  "Compliance-driven maintenance programs, common-area lighting, smoke alarms, and rapid callouts.",
+                copy: "Compliance-driven maintenance programs, common-area lighting, smoke alarms, and rapid callouts.",
               },
               {
                 title: "Smart Home Upgrades",
                 href: "/services/smart-home",
-                copy:
-                  "Planning and installing smart lighting, climate, security, and voice control that works together.",
+                copy: "Planning and installing smart lighting, climate, security, and voice control that works together.",
               },
             ].map((item) => (
               <Link
@@ -88,9 +86,13 @@ export default async function Home() {
                   <h3 className="text-xl font-semibold text-slate-900 group-hover:text-red-600">
                     {item.title}
                   </h3>
-                  <span className="text-red-600 transition group-hover:translate-x-1">→</span>
+                  <span className="text-red-600 transition group-hover:translate-x-1">
+                    →
+                  </span>
                 </div>
-                <p className="mt-3 text-sm text-slate-700 leading-relaxed">{item.copy}</p>
+                <p className="mt-3 text-sm text-slate-700 leading-relaxed">
+                  {item.copy}
+                </p>
                 <span className="mt-4 inline-flex text-sm font-semibold text-red-600">
                   View service
                 </span>

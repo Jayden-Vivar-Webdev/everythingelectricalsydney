@@ -41,6 +41,8 @@ const EnhancedTestimonialSection: React.FC<EnhancedTestimonialSectionProps> = ({
 
   portableTextComponents,
 }) => {
+  const hasImage = Boolean(contentInfo.image);
+
   return (
     <div
       className={`${isDarkMode ? "bg-gray-900" : "bg-white"} py-12 sm:py-16 md:py-24 lg:py-32 ${className}`}
@@ -48,32 +50,16 @@ const EnhancedTestimonialSection: React.FC<EnhancedTestimonialSectionProps> = ({
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto grid max-w-full grid-cols-1 items-start gap-x-8 gap-y-12 sm:gap-y-16 lg:mx-0 lg:grid-cols-1">
           {/* Enhanced Testimonial Card - Only show if image or quote exists */}
-          {contentInfo.image && (
+          {hasImage && (
             <div className="lg:pr-4 w-full">
-              <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 p-6 shadow-2xl ring-1 ring-white/10 sm:p-8 md:p-10">
-                {/* Background Image with Better Overlay */}
-                {contentInfo.image && (
-                  <div className="absolute inset-0 overflow-hidden rounded-2xl">
-                    <Image
-                      src={contentInfo.image.src || "/images/electrician.jpg"}
-                      alt={
-                        contentInfo.image.alt || "Everything Electrical Sydney"
-                      }
-                      fill
-                      className="object-cover opacity-20"
-                    />
-
-                    <div className="absolute inset-0 bg-gradient-to-br from-slate-900/50 via-slate-800/50 to-slate-900/90" />
-                  </div>
-                )}
-
-                {/* Refined Decorative Element */}
-                {contentInfo.image && (
-                  <>
-                    <div className="absolute -top-4 -right-4 h-32 w-32 rounded-full bg-gradient-to-br from-red-500/20 to-red-600/20 blur-2xl" />
-                    <div className="absolute -bottom-4 -left-4 h-24 w-24 rounded-full bg-gradient-to-br from-red-500/20 to-red-600/20 blur-xl" />
-                  </>
-                )}
+              <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 p-6 shadow-2xl ring-1 ring-white/10 sm:p-8 md:p-10 before:absolute before:inset-0 before:bg-gradient-to-br before:from-slate-900/60 before:via-slate-800/70 before:to-slate-900/90 before:content-[''] before:pointer-events-none">
+                <Image
+                  src={contentInfo.image?.src || "/images/electrician.jpg"}
+                  alt={contentInfo.image?.alt || "Everything Electrical Sydney"}
+                  fill
+                  className="absolute inset-0 object-cover opacity-20"
+                  priority
+                />
 
                 {/* Content */}
                 <div className="relative z-10 p-10">
