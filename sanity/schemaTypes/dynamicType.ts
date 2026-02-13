@@ -4,6 +4,8 @@ import {contentImage} from './types/content-image'
 import {serviceHeroSection} from './types/service-hero'
 import {dynamicServiceHero} from './types/service-dynamic-hero'
 import {gallerySection} from './types/gallery'
+
+//All Schemes for project
 export const customSections = defineType({
   name: 'customSections',
   title: 'Custom Section',
