@@ -9,7 +9,9 @@ import {
   PopoverButton,
   PopoverGroup,
   PopoverPanel,
+  Transition,
 } from "@headlessui/react";
+import { Fragment } from "react";
 import { ChevronDown, ChevronRight } from "lucide-react";
 import { usePathname } from "next/navigation";
 import {
@@ -166,81 +168,93 @@ export default function NavBar() {
           </div>
 
           <PopoverGroup className="hidden xl:flex items-center gap-x-10">
-            <Popover>
-              <PopoverButton
-                className={`flex items-center gap-x-1 text-sm/6 font-semibold transition-all duration-200 border-b-2 ${
-                  pathname.startsWith("/services")
-                    ? "border-red-600 text-red-700"
-                    : "border-transparent text-gray-700 hover:text-red-600 hover:border-red-300"
-                }`}
-              >
-                Services
-                <ChevronDownIcon
-                  aria-hidden="true"
-                  className="size-5 flex-none text-gray-400"
-                />
-              </PopoverButton>
+          <Popover>
+            {({ open }) => (
+              <>
+                <PopoverButton
+                  className={`flex items-center gap-x-1 text-sm/6 font-semibold transition-all duration-200 border-b-2 ${
+                    pathname.startsWith("/services")
+                      ? "border-red-600 text-red-700"
+                      : "border-transparent text-gray-700 hover:text-red-600 hover:border-red-300"
+                  }`}
+                >
+                  Services
+                  <ChevronDownIcon
+                    aria-hidden="true"
+                    className="size-5 flex-none text-gray-400"
+                  />
+                </PopoverButton>
 
-              <PopoverPanel
-                transition
-                className="absolute inset-x-0 top-20 bg-white transition data-[closed]:-translate-y-1 data-[closed]:opacity-0 data-[enter]:duration-200 data-[leave]:duration-150 data-[enter]:ease-out data-[leave]:ease-in"
-              >
-                {/* Presentational element used to render the bottom shadow, if we put the shadow on the actual panel it pokes out the top, so we use this shorter element to hide the top of the shadow */}
-                <div
-                  aria-hidden="true"
-                  className="absolute inset-0 top-1/2 bg-white shadow-lg ring-1 ring-gray-900/5"
-                />
-                <div className="relative bg-white">
-                  <div className="services-container custom-scrollbar mx-auto grid max-w-7xl grid-cols-4 gap-x-4 px-6 py-10 lg:px-8 xl:gap-x-8">
-                    {products.map((item) => (
-                      <div
-                        key={item.name}
-                        className="group relative rounded-lg p-6 text-sm/6 hover:bg-gray-50"
-                      >
-                        <div className="flex size-11 items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                          <item.icon
-                            aria-hidden="true"
-                            className="size-6 text-gray-600 group-hover:text-red-600"
-                          />
-                        </div>
-                        <a
-                          href={item.href}
-                          className={`mt-6 block font-semibold ${
-                            pathname === item.href
-                              ? "text-red-600"
-                              : "text-gray-700 hover:text-red-600"
-                          }`}
-                        >
-                          {item.name}
-                          <span className="absolute inset-0" />
-                        </a>
-
-                        <p className="mt-1 text-gray-600">{item.description}</p>
-                      </div>
-                    ))}
-                  </div>
-                  <div className="bg-red-600">
-                    <div className="mx-auto max-w-7xl px-6 lg:px-8">
-                      <div className="grid grid-cols-3 divide-x divide-gray-900/5 border-x border-gray-900/5">
-                        {callsToAction.map((item) => (
-                          <a
+                <Transition
+                  as={Fragment}
+                  show={open}
+                  enter="transition ease-out duration-200"
+                  enterFrom="opacity-0 -translate-y-1"
+                  enterTo="opacity-100 translate-y-0"
+                  leave="transition ease-in duration-150"
+                  leaveFrom="opacity-100 translate-y-0"
+                  leaveTo="opacity-0 -translate-y-1"
+                >
+                  <PopoverPanel className="absolute inset-x-0 top-20 bg-white">
+                    {/* Presentational element used to render the bottom shadow, if we put the shadow on the actual panel it pokes out the top, so we use this shorter element to hide the top of the shadow */}
+                    <div
+                      aria-hidden="true"
+                      className="absolute inset-0 top-1/2 bg-white shadow-lg ring-1 ring-gray-900/5"
+                    />
+                    <div className="relative bg-white">
+                      <div className="services-container custom-scrollbar mx-auto grid max-w-7xl grid-cols-4 gap-x-4 px-6 py-10 lg:px-8 xl:gap-x-8">
+                        {products.map((item) => (
+                          <div
                             key={item.name}
-                            href={item.href}
-                            className={`flex text-white items-center justify-center gap-x-2.5 p-3 text-sm/6 font-semibold text-gray-900 hover:bg-red-500  `}
+                            className="group relative rounded-lg p-6 text-sm/6 hover:bg-gray-50"
                           >
-                            <item.icon
-                              aria-hidden="true"
-                              className="size-5 flex-none text-white"
-                            />
-                            {item.name}
-                          </a>
+                            <div className="flex size-11 items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
+                              <item.icon
+                                aria-hidden="true"
+                                className="size-6 text-gray-600 group-hover:text-red-600"
+                              />
+                            </div>
+                            <a
+                              href={item.href}
+                              className={`mt-6 block font-semibold ${
+                                pathname === item.href
+                                  ? "text-red-600"
+                                  : "text-gray-700 hover:text-red-600"
+                              }`}
+                            >
+                              {item.name}
+                              <span className="absolute inset-0" />
+                            </a>
+
+                            <p className="mt-1 text-gray-600">{item.description}</p>
+                          </div>
                         ))}
                       </div>
+                      <div className="bg-red-600">
+                        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+                          <div className="grid grid-cols-3 divide-x divide-gray-900/5 border-x border-gray-900/5">
+                            {callsToAction.map((item) => (
+                              <a
+                                key={item.name}
+                                href={item.href}
+                                className={`flex text-white items-center justify-center gap-x-2.5 p-3 text-sm/6 font-semibold text-gray-900 hover:bg-red-500  `}
+                              >
+                                <item.icon
+                                  aria-hidden="true"
+                                  className="size-5 flex-none text-white"
+                                />
+                                {item.name}
+                              </a>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                </div>
-              </PopoverPanel>
-            </Popover>
+                  </PopoverPanel>
+                </Transition>
+              </>
+            )}
+          </Popover>
             <Link
               href="/about"
               className={`text-sm/6 font-semibold border-b-2 ${

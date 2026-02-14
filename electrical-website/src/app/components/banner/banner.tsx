@@ -17,7 +17,8 @@ export default function Banner() {
           href="tel:0449003526"
           className="hover:text-gray-300 transition-colors duration-200"
         >
-          <strong>Contact Us Now 0449 003 526</strong> <span aria-hidden="true">&rarr;</span>
+          <strong>Contact Us Now 0449 003 526</strong>{" "}
+          <span aria-hidden="true">&rarr;</span>
         </a>
       </div>
     </div>
