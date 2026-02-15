@@ -3,7 +3,7 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --primary-color: #0056D2; /* Deep, strong blue */
+  --primary-color: #0056d2; /* Deep, strong blue */
   --secondary-color: #da1818; /* Clean, energetic yellow */
   --secondary-color-light: #e53e3e;
 }
@@ -22,45 +22,78 @@
   }
 } */
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@400;600&family=Merriweather:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@400;600&family=Merriweather:wght@400;700&display=swap");
 
 /* Apply fonts globally using @layer base */
 @layer base {
   /* Headings */
   h1 {
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Montserrat", sans-serif;
   }
 
-  Subheadings
-  h2, h3, h4, h5, h6 {
-    font-family: 'Poppins', sans-serif;
+  Subheadings h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Poppins", sans-serif;
   }
 
   /* Paragraphs / Main content */
-  p, span, li, div {
-    font-family: 'Poppins', sans-serif;
+  p,
+  span,
+  li,
+  div {
+    font-family: "Poppins", sans-serif;
   }
 }
-
 
 @layer utilities {
-  .primary-bg{
-    background-color: var(--primary-color)
+  .primary-bg {
+    background-color: var(--primary-color);
   }
-  .primary-text{
+  .primary-text {
     color: var(--primary-color);
   }
-  .secondary-bg{
+  .secondary-bg {
     background-color: var(--secondary-color);
   }
-  .secondary-text{
+  .secondary-text {
     color: var(--secondary-color);
   }
-  .sectionary-bg-light{
+  .sectionary-bg-light {
     background-color: var(--secondary-color-light);
   }
-}
+  .internal-link {
+    @apply text-red-600 hover:text-red-800 underline transition-colors duration-200;
+  }
 
+  /*Article Styling*/
+  .article-section {
+    @apply w-full flex justify-center py-20 px-10 max-w-5xl flex flex-col mx-auto;
+  }
+  .article-h1 {
+    @apply text-3xl md:text-5xl font-bold mb-6 text-black leading-tight;
+  }
+  .time-date-block {
+    @apply flex flex-wrap items-center gap-4 mb-8 text-sm text-gray-600;
+  }
+  .time-block {
+    @apply inline-block px-3 py-1 font-medium text-red-600 bg-red-50 rounded-full;
+  }
+  .article-image-block {
+    @apply relative w-full h-0 pb-[66%] mb-10 rounded-lg overflow-hidden;
+  }
+  .article-image {
+    @apply object-cover transition-transform duration-300 hover:scale-105;
+  }
+  .article-card {
+    @apply mt-12 pt-8 border-t border-gray-200;
+  }
+  .article-button {
+    @apply inline-block bg-red-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-red-700 transition-colors duration-200;
+  }
+}
 
 body {
   background: var(--background);
@@ -73,7 +106,7 @@ body {
   .services-container {
     height: 45rem !important;
     overflow-y: scroll !important;
-    overflow-x: hidden !important; 
+    overflow-x: hidden !important;
     margin-bottom: 10px !important;
     margin-top: 19px !important;
   }
@@ -101,14 +134,13 @@ body {
   z-index: 100;
 }
 
-@media screen and (max-height: 972px){
+@media screen and (max-height: 972px) {
   .services-container {
     height: 40rem !important;
-  
   }
 }
 
-@media screen and (max-height: 898px){
+@media screen and (max-height: 898px) {
   .services-container {
     height: 37rem !important;
   }
@@ -119,4 +151,3 @@ body {
     bottom: 70px !important;
   }
 }
-

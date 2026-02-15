@@ -250,90 +250,96 @@ export default async function PostPage({ params }: { params: Params }) {
           }}
         />
 
-        <article className="w-full flex justify-center py-20 px-10">
-          <div className="w-full max-w-5xl flex flex-col">
-            {/* Article Header */}
-            <header className="mb-10">
-              <h1 className="text-3xl md:text-5xl font-bold mb-6 text-black leading-tight">
-                {post.title}
-              </h1>
+        <article className="article-section">
+          {/* Article Header */}
+          <header className="mb-10">
+            <h1 className="article-h1">{post.title}</h1>
 
-              {/* Article Meta */}
-              <div className="flex flex-wrap items-center gap-4 mb-8 text-sm text-gray-600">
-                <time
-                  dateTime={post.publishedAt}
-                  className="inline-block px-3 py-1 font-medium text-red-600 bg-red-50 rounded-full"
-                >
-                  {publishedDate.toLocaleDateString("en-US", {
-                    year: "numeric",
-                    month: "short",
-                    day: "numeric",
-                  })}
-                </time>
+            {/* Article details */}
+            <div className="time-date-block">
+              <time dateTime={post.publishedAt} className="time-block">
+                {publishedDate.toLocaleDateString("en-US", {
+                  year: "numeric",
+                  month: "short",
+                  day: "numeric",
+                })}
+              </time>
 
-                <span className="flex items-center gap-1">
-                  📖 {readingTime} min read
-                </span>
-              </div>
-            </header>
+              <span className="flex items-center gap-1">
+                📖 {readingTime} min read
+              </span>
+            </div>
+          </header>
 
-            {/* Featured Image */}
-            {imageUrl && (
-              <div className="relative w-full h-0 pb-[66%] mb-10 rounded-lg overflow-hidden">
-                <Image
-                  src={imageUrl}
-                  alt={post.imageAlt?.trim() || post.title}
-                  fill
-                  className="object-cover transition-transform duration-300 hover:scale-105"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
-                  priority
-                  placeholder="blur"
-                  blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
-                />
-              </div>
-            )}
-            {imageSource && (
-              <div className="pb-10">
-                <p>
-                  Source:{" "}
-                  <a
-                    className="text-red-600 hover:text-red-800 underline transition-colors duration-200"
-                    href={imageSource.url}
-                  >
-                    {imageSource.name}
-                  </a>
-                </p>
-              </div>
-            )}
-
-            {/* Article Content */}
-            <main className="prose prose-lg max-w-none">
-              <PortableText
-                value={post.body}
-                components={portableTextComponentsBlog}
+          {/* Featured Image */}
+          {imageUrl && (
+            <div className="article-image-block">
+              <Image
+                src={imageUrl}
+                alt={post.imageAlt?.trim() || post.title}
+                fill
+                className="article-image"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
+                priority
+                placeholder="blur"
+                blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
               />
-            </main>
-
-            {/* Article Footer */}
-            <footer className="mt-12 pt-8 border-t border-gray-200">
-              <div className="bg-gray-50 p-6 rounded-lg">
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                  Need Professional Electrical Services?
-                </h3>
-                <p className="text-gray-700 mb-4">
-                  Everything Electrical Sydney provides expert electrical
-                  services across Camden, Campbelltown, Oran Park and greater
-                  NSW. Contact us for reliable, professional service.
-                </p>
-                <a
-                  href="/contact"
-                  className="inline-block bg-red-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-red-700 transition-colors duration-200"
-                >
-                  Get a Quote Today
+            </div>
+          )}
+          {imageSource && (
+            <div className="pb-10">
+              <p>
+                Source:{" "}
+                <a className="internal-link" href={imageSource.url}>
+                  {imageSource.name}
                 </a>
-              </div>
-            </footer>
-          </div>
+              </p>
+            </div>
+          )}
+
+          {/* Article Content */}
+          <main className="prose prose-lg max-w-none">
+            <PortableText
+              value={post.body}
+              components={portableTextComponentsBlog}
+            />
+          </main>
+
+          {/* Article Footer */}
+          <section className="article-card">
+            <div className="bg-gray-50 p-6 rounded-lg">
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                Need Professional Electrical Services?
+              </h3>
+              <p className="text-gray-700 mb-4">
+                Everything Electrical Sydney provides expert electrical services
+                across{" "}
+                <a
+                  className="internal-link"
+                  href="/all-services?location=camden"
+                >
+                  Camden
+                </a>
+                ,{" "}
+                <a
+                  className="internal-link"
+                  href="/all-services?location=camden"
+                >
+                  Campbelltown,
+                </a>{" "}
+                <a
+                  className="internal-link"
+                  href="/all-services?location=camden"
+                >
+                  Oran Park
+                </a>{" "}
+                and greater NSW. Contact us for reliable, professional service.
+              </p>
+              <a href="/contact" className="article-button">
+                Get a Quote Today
+              </a>
+            </div>
+          </section>
         </article>
       </>
     );
