@@ -3,8 +3,8 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --primary-color: #0056d2; /* Deep, strong blue */
-  --secondary-color: #da1818; /* Clean, energetic yellow */
+  --primary-color: #0056d2;
+  --secondary-color: #da1818;
   --secondary-color-light: #e53e3e;
 }
 
@@ -15,18 +15,10 @@
   --font-mono: var(--font-geist-mono);
 }
 
-/* @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-} */
-
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@400;600&family=Merriweather:wght@400;700&display=swap");
 
 /* Apply fonts globally using @layer base */
 @layer base {
-  /* Headings */
   h1 {
     font-family: "Montserrat", sans-serif;
   }
@@ -38,8 +30,6 @@
   h6 {
     font-family: "Poppins", sans-serif;
   }
-
-  /* Paragraphs / Main content */
   p,
   span,
   li,
