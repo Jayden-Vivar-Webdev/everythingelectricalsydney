@@ -41,6 +41,7 @@ const nextConfig = {
     ],
   },
   redirects: async () => {
+    //redirects
     return [
       {
         source: "/review",
