@@ -49,6 +49,26 @@ const nextConfig = {
         permanent: true,
       },
       {
+        source: "https://everythingelectricalsydney.com.au/electrician-sydney/",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source:
+          "https://www.everythingelectricalsydney.com.au/electrician-sydney/commercial",
+        destination:
+          "https://www.everythingelectricalsydney.com.au/services/commercial-electrical",
+        permanent: true,
+      },
+      {
+        source:
+          "https://www.everythingelectricalsydney.com.au/electrician-sydney/strata",
+        destination:
+          "https://www.everythingelectricalsydney.com.au/services/real-estate-strata",
+        permanent: true,
+      },
+
+      {
         source: "/all-services/:slug",
         destination: "/all-services?location=:slug",
         permanent: true,
