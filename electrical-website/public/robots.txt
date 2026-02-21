@@ -1,6 +1,7 @@
 # *
 User-agent: *
 Allow: /
+Disallow: /thankyou
 
 # Host
 Host: https://www.everythingelectricalsydney.com.au
