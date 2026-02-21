@@ -27,7 +27,9 @@ export default function FlexGallery({ images }: Collection) {
         );
       }
       if (event.key === "ArrowLeft" && activeIndex !== null) {
-        setActiveIndex((prev) => (prev === null ? null : Math.max(prev - 1, 0)));
+        setActiveIndex((prev) =>
+          prev === null ? null : Math.max(prev - 1, 0),
+        );
       }
     };
 
@@ -44,54 +46,71 @@ export default function FlexGallery({ images }: Collection) {
               Recent Work Across Sydney
             </p>
             <h1 className="text-balance text-4xl sm:text-5xl font-semibold tracking-tight text-gray-900">
-              Everything Electrical Sydney <span className="secondary-text">Gallery</span>
+              Everything Electrical Sydney{" "}
+              <span className="secondary-text">Gallery</span>
             </h1>
             <p className="text-lg leading-relaxed text-gray-700">
-              Explore a curated mix of residential, commercial, and Level 2 electrical projects that our licensed
-              team has delivered across Greater Sydney. Every installation shown here was designed to solve a real
-              problem - modernise ageing switchboards, remove unsafe cabling, optimise lighting efficiency, and keep
-              families and businesses powered safely.
+              Explore a curated mix of residential, commercial, and Level 2
+              electrical projects that our licensed team has delivered across
+              Greater Sydney. Every installation shown here was designed to
+              solve a real problem - modernise ageing switchboards, remove
+              unsafe cabling, optimise lighting efficiency, and keep families
+              and businesses powered safely.
             </p>
             <p className="text-lg leading-relaxed text-gray-700">
-              We document each job with site notes, compliance testing, and before-and-after photos so you can see the
-              standard of workmanship we bring to strata, retail, hospitality, and new-build sites. If you are planning
-              an upgrade, this gallery doubles as a reference library for what the right electrical solution looks like
-              when it is engineered for longevity, safety, and clean finishes.
+              We document each job with site notes, compliance testing, and
+              before-and-after photos so you can see the standard of workmanship
+              we bring to strata, retail, hospitality, and new-build sites. If
+              you are planning an upgrade, this gallery doubles as a reference
+              library for what the right electrical solution looks like when it
+              is engineered for longevity, safety, and clean finishes.
             </p>
             <div className="grid sm:grid-cols-3 gap-4">
-              {[{
-                label: "Projects Completed",
-                value: "500+",
-                copy: "Switchboard upgrades, EV chargers, lighting, data, and emergency repairs delivered since 2015.",
-              },
-              {
-                label: "Industries",
-                value: "Residential / Commercial / Strata",
-                copy: "Tailored protection devices, metering, and power quality tuning for every building type.",
-              },
-              {
-                label: "Coverage",
-                value: "Greater Sydney",
-                copy: "From the CBD to the Northern Beaches, Inner West, Hills District, and Sutherland Shire.",
-              }].map((item, idx) => (
+              {[
+                {
+                  label: "Projects Completed",
+                  value: "500+",
+                  copy: "Switchboard upgrades, EV chargers, lighting, data, and emergency repairs delivered since 2015.",
+                },
+                {
+                  label: "Industries",
+                  value: "Residential / Commercial / Strata",
+                  copy: "Tailored protection devices, metering, and power quality tuning for every building type.",
+                },
+                {
+                  label: "Coverage",
+                  value: "Greater Sydney",
+                  copy: "From the CBD to the Northern Beaches, Inner West, Hills District, and Sutherland Shire.",
+                },
+              ].map((item, idx) => (
                 <div
                   key={idx}
                   className="rounded-2xl bg-white/80 backdrop-blur shadow-sm ring-1 ring-gray-200 p-4 space-y-2"
                 >
-                  <p className="text-xs font-semibold uppercase tracking-wide text-red-600">{item.label}</p>
-                  <p className="text-xl font-semibold text-gray-900 leading-tight">{item.value}</p>
-                  <p className="text-sm text-gray-700 leading-relaxed">{item.copy}</p>
+                  <p className="text-xs font-semibold uppercase tracking-wide text-red-600">
+                    {item.label}
+                  </p>
+                  <p className="text-xl font-semibold text-gray-900 leading-tight">
+                    {item.value}
+                  </p>
+                  <p className="text-sm text-gray-700 leading-relaxed">
+                    {item.copy}
+                  </p>
                 </div>
               ))}
             </div>
           </div>
 
           <div className="rounded-3xl bg-white shadow-xl ring-1 ring-gray-200 p-6 space-y-4">
-            <h2 className="text-2xl font-semibold text-gray-900">What you will see</h2>
+            <h2 className="text-2xl font-semibold text-gray-900">
+              What you will see
+            </h2>
             <p className="text-base text-gray-700 leading-relaxed">
-              Each project tile includes site photos, conduit and cable management, fixture positioning, and the tidy
-              finishes that keep plant rooms, ceilings, and facades looking intentional. Look for the way we stage work
-              to minimise downtime and keep tenants or customers moving.
+              Each project tile includes site photos, conduit and cable
+              management, fixture positioning, and the tidy finishes that keep
+              plant rooms, ceilings, and facades looking intentional. Look for
+              the way we stage work to minimise downtime and keep tenants or
+              customers moving.
             </p>
             <ul className="space-y-3 text-gray-800 text-sm">
               {[
@@ -102,15 +121,21 @@ export default function FlexGallery({ images }: Collection) {
                 "Data, Wi-Fi, and security cabling laid with clean containment",
               ].map((item, idx) => (
                 <li key={idx} className="flex gap-3">
-                  <span className="mt-1 h-2.5 w-2.5 rounded-full bg-red-600" aria-hidden />
+                  <span
+                    className="mt-1 h-2.5 w-2.5 rounded-full bg-red-600"
+                    aria-hidden
+                  />
                   <span>{item}</span>
                 </li>
               ))}
             </ul>
             <div className="rounded-2xl bg-red-50 text-red-900 border border-red-100 px-4 py-3 text-sm leading-relaxed">
               Ready to discuss a similar upgrade? Call 1300 291 148 or email
-              <span className="font-semibold"> info@everythingelectricalsydney.com.au</span> for a no-obligation scope
-              review.
+              <span className="font-semibold">
+                {" "}
+                info@everythingelectricalsydney.com.au
+              </span>{" "}
+              for a no-obligation scope review.
             </div>
           </div>
         </div>
@@ -140,7 +165,8 @@ export default function FlexGallery({ images }: Collection) {
                   />
                 </div>
                 <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent p-4 text-sm text-white">
-                  {image.alt || `Project photo ${index + 1}`} - installed by Everything Electrical Sydney.
+                  {image.alt || `Project photo ${index + 1}`} - installed by
+                  Everything Electrical Sydney.
                 </figcaption>
               </figure>
             ))}
@@ -170,24 +196,30 @@ export default function FlexGallery({ images }: Collection) {
         </div>
 
         <div className="max-w-5xl space-y-4 rounded-3xl bg-white p-8 shadow-sm ring-1 ring-gray-200">
-          <h3 className="text-2xl font-semibold text-gray-900">How we stage and sign-off each project</h3>
+          <h3 className="text-2xl font-semibold text-gray-900">
+            How we stage and sign-off each project
+          </h3>
           <p className="text-base leading-relaxed text-gray-700">
-            The work showcased here follows our five-step process: scope and design with compliant load calculations,
-            safety planning and isolation, neat installation with premium fittings, thorough testing to AS/NZS 3000,
-            and a handover pack with certificates of compliance. That documentation matters when you sell, lease, or
-            expand a property, and it is part of every job we complete.
+            The work showcased here follows our five-step process: scope and
+            design with compliant load calculations, safety planning and
+            isolation, neat installation with premium fittings, thorough testing
+            to AS/NZS 3000, and a handover pack with certificates of compliance.
+            That documentation matters when you sell, lease, or expand a
+            property, and it is part of every job we complete.
           </p>
           <p className="text-base leading-relaxed text-gray-700">
-            If you would like a similar outcome, share your drawings or photos with our estimators and we will suggest
-            options that balance budget, power quality, and future maintenance. We can also sequence works outside
-            trading hours to keep your team and customers moving while upgrades are completed.
+            If you would like a similar outcome, share your drawings or photos
+            with our estimators and we will suggest options that balance budget,
+            power quality, and future maintenance. We can also sequence works
+            outside trading hours to keep your team and customers moving while
+            upgrades are completed.
           </p>
         </div>
       </div>
 
       {activeIndex !== null && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm px-4"
+          className="fixed inset-0 z-999 flex items-center justify-center bg-black/80 backdrop-blur-sm px-4"
           role="dialog"
           aria-modal="true"
           aria-label="Expanded project image"
@@ -208,11 +240,16 @@ export default function FlexGallery({ images }: Collection) {
             <div className="overflow-hidden rounded-2xl bg-black/60 ring-1 ring-white/20 shadow-2xl">
               <img
                 src={images[activeIndex].src}
-                alt={images[activeIndex].alt || "Full screen electrical project"}
+                alt={
+                  images[activeIndex].alt || "Full screen electrical project"
+                }
                 className="w-full h-auto max-h-[80vh] object-contain bg-black"
               />
               <div className="flex items-center justify-between px-4 py-3 text-white text-sm bg-gradient-to-t from-black/80 via-black/60 to-transparent">
-                <span>{images[activeIndex].alt || `Project photo ${activeIndex + 1}`}</span>
+                <span>
+                  {images[activeIndex].alt ||
+                    `Project photo ${activeIndex + 1}`}
+                </span>
                 <div className="flex gap-2">
                   <button
                     className="rounded-full bg-white/15 px-3 py-1 hover:bg-white/25"
@@ -229,7 +266,9 @@ export default function FlexGallery({ images }: Collection) {
                     className="rounded-full bg-white/15 px-3 py-1 hover:bg-white/25"
                     onClick={() =>
                       setActiveIndex((prev) =>
-                        prev === null ? null : Math.min(prev + 1, images.length - 1),
+                        prev === null
+                          ? null
+                          : Math.min(prev + 1, images.length - 1),
                       )
                     }
                     disabled={activeIndex === images.length - 1}
