@@ -293,7 +293,7 @@ export default function Level2CampbelltownPage() {
             </p>
             <div className="flex flex-wrap gap-2 text-xs font-semibold text-slate-800">
               {[
-                "CCEW + photo pack supplied",
+                "Compliance docs + photos supplied",
                 "Endeavour Energy area",
                 "Temporary supply options",
                 "After-hours windows available",
@@ -412,9 +412,8 @@ export default function Level2CampbelltownPage() {
                 Campbelltown with arrival updates en route.
               </p>
               <p>
-                Need evidence for insurers or strata? We supply incident photos
-                and test results with your invoice and Compliance Certificate of
-                Electrical Work (CCEW).
+                Need evidence for insurers or strata? We supply incident photos,
+                test results, and compliance documentation with your invoice.
               </p>
             </div>
             <div className="mt-6 flex flex-col gap-3 sm:flex-row">

@@ -5,9 +5,9 @@ import { localBusinessData } from "@/app/data/local-business-data";
 
 export const metadata: Metadata = {
   title:
-    "Level 2 Electrician Frenchs Forest | ASP Accredited | Everything Electrical Sydney",
+    "Level 2 Electrician Frenchs Forest | Metering, Disconnects & Upgrades",
   description:
-    "Need a Level 2 electrician in Frenchs Forest? We handle Ausgrid defect notices, metering, overhead service repairs, and emergency reconnects across the Forest district.",
+    "Licensed ASP Level 2 electricians in Frenchs Forest for metering, service disconnections, overhead and underground mains, and emergency repairs across the Northern Beaches.",
   alternates: {
     canonical:
       "https://www.everythingelectricalsydney.com.au/level-2-electrician-frenches-forest",
@@ -15,9 +15,9 @@ export const metadata: Metadata = {
   openGraph: {
     url: "https://www.everythingelectricalsydney.com.au/level-2-electrician-frenches-forest",
     title:
-      "Level 2 Electrician Frenchs Forest | ASP Accredited | Everything Electrical Sydney",
+      "Level 2 Electrician Frenchs Forest | Metering, Disconnects & Upgrades",
     description:
-      "ASP Level 2 electricians for Frenchs Forest handling metering, underground and overhead mains, Ausgrid defect rectification, and urgent reconnections across the Forest and Northern Beaches.",
+      "Trusted Level 2 electricians for Frenchs Forest delivering metering, overhead and underground service line work, and rapid network repairs with Ausgrid-compliant paperwork.",
     images: [
       {
         url: "https://www.everythingelectricalsydney.com.au/images/electrical_og.png",
@@ -33,10 +33,10 @@ export const metadata: Metadata = {
     "level 2 electrician frenches forest",
     "level 2 electrician Frenchs Forest",
     "ASP level 2 Frenchs Forest",
-    "defect notice electrician Frenchs Forest",
-    "meter install Frenchs Forest",
-    "overhead service repairs Frenchs Forest",
-    "underground consumer mains Frenchs Forest",
+    "metering Frenchs Forest",
+    "service disconnect reconnect Frenchs Forest",
+    "overhead service lines Frenchs Forest",
+    "underground mains Frenchs Forest",
   ],
   authors: [{ name: "Everything Electrical Sydney" }],
   robots: {
@@ -54,47 +54,55 @@ export const metadata: Metadata = {
 
 const services = [
   {
-    title: "Metering and Solar-Ready Upgrades",
-    copy: "Smart meters, tariff changes, and meter box rebuilds compliant with Ausgrid for homes adding solar or EV chargers.",
+    title: "Meter Installation & Relocation",
+    copy: "Accurate metering for new builds, renovations, granny flats, and tariff changes with compliant meter boxes.",
   },
   {
-    title: "Overhead Service Repairs",
-    copy: "Point-of-attachment fixes, aerial service renewals, and tree-strike repairs suited to the leafy Forest canopy.",
+    title: "Service Disconnections & Reconnections",
+    copy: "Safe isolations for builders and renovators, then fast, compliant reconnections once works are ready.",
   },
   {
-    title: "Underground Consumer Mains",
-    copy: "Trenching, conduits, and mains replacements for knockdown-rebuilds in Frenchs Forest, Belrose, and nearby suburbs.",
+    title: "Overhead & Underground Service Lines",
+    copy: "Install, upgrade, or repair overhead and underground mains so supply stays reliable and compliant.",
   },
   {
-    title: "Disconnections, Reconnections, Temporary Supply",
-    copy: "Safe isolations for renovations, reconnections after upgrades, and compliant temp builders supply so projects keep moving.",
+    title: "Private Power Poles",
+    copy: "Supply, install, and maintain private poles where properties need dedicated clearances or new access points.",
   },
   {
-    title: "Switchboard and Capacity Upgrades",
-    copy: "Three-phase upgrades, surge protection, RCDs, and load balancing ready for pools, ducted air, or home workshops.",
+    title: "Emergency Network Repairs",
+    copy: "Rapid response for damaged service lines, storm impacts, or meter faults that leave you without power.",
   },
   {
-    title: "Defect Notice Rectification",
-    copy: "Priority attendance to clear Ausgrid defect notices—damaged POA, UV-brittle mains, exposed cabling, or corroded enclosures.",
+    title: "Switchboard Upgrades & Repairs",
+    copy: "Modern safety gear, increased capacity, and tidy layouts that meet today’s demand and inspection standards.",
   },
 ];
 
 const faqs = [
   {
-    q: "Which suburbs around Frenchs Forest do you cover?",
-    a: "Frenchs Forest, Forestville, Killarney Heights, Davidson, Belrose, Allambie Heights, Beacon Hill, Narraweena, Brookvale, and Dee Why.",
+    q: "What is Level 2 electrical work?",
+    a: "It covers network-level tasks like metering, overhead or underground service lines, disconnections, reconnections, and private poles. Only licensed ASP Level 2 electricians can carry out this work.",
   },
   {
-    q: "Are you authorised for Ausgrid work?",
-    a: "Yes. Our ASP Level 2 accreditation covers the network side between the street and your switchboard across the Ausgrid Northern Beaches zone, including the Forest district.",
+    q: "Why should I hire a licensed Level 2 electrician?",
+    a: "Licensed Level 2 electricians keep you safe, meet Ausgrid requirements, and provide the documentation insurers and retailers need for network works.",
   },
   {
-    q: "Can you attend after hours for a loss of power?",
-    a: "We keep same-day and after-hours slots for storm damage, tree-strike outages, or meter box failures. We isolate, make safe, and reconnect where possible.",
+    q: "Can you handle urgent Level 2 electrical repairs?",
+    a: "Yes. We reserve same-day and after-hours slots for loss of supply, damaged service lines, or meter faults in Frenchs Forest and nearby suburbs.",
   },
   {
-    q: "Will I get compliance paperwork?",
-    a: "You receive a CCEW, labelled photo pack, and test results suitable for Ausgrid, insurers, or strata managers.",
+    q: "Do you service my area?",
+    a: "We cover Frenchs Forest and the surrounding Northern Beaches. If you’re close by, call and we’ll confirm availability.",
+  },
+  {
+    q: "Is your work licensed and insured?",
+    a: "We’re ASP Level 2 accredited with full insurance. Every job includes compliance documentation and photo evidence of the completed work.",
+  },
+  {
+    q: "Do you provide upfront quotes?",
+    a: "Yes—share photos of your meter box or defect notice and we’ll outline pricing and scheduling before we attend.",
   },
 ];
 
@@ -109,7 +117,7 @@ export default function Level2FrenchsForestPage() {
             name: "Everything Electrical Sydney — Level 2 Frenchs Forest",
             url: "https://www.everythingelectricalsydney.com.au/level-2-electrician-frenches-forest",
             description:
-              "ASP Level 2 electrician for Frenchs Forest handling Ausgrid defects, metering, and mains upgrades across the Forest district.",
+              "ASP Level 2 electricians in Frenchs Forest handling metering, service line works, and emergency repairs with Ausgrid-ready compliance.",
             areaServed: "Frenchs Forest NSW and Northern Beaches",
           }),
         }}
@@ -121,13 +129,18 @@ export default function Level2FrenchsForestPage() {
           <div className="grid lg:grid-cols-[1.05fr_0.95fr] gap-10 items-center">
             <div className="space-y-6">
               <p className="text-xs uppercase tracking-[0.3em] text-red-300">
-                Level 2 Electrician Frenchs Forest
+                Metering · Disconnects · Upgrades · ASP
               </p>
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight">
-                Level 2 electricians for Frenchs Forest mains repairs, metering, and Ausgrid defect clearances
+                Trusted Level 2 electricians for Frenchs Forest and the Northern
+                Beaches
               </h1>
               <p className="text-base sm:text-lg text-slate-100 leading-relaxed">
-                Close to Warringah Road and the new tunnels, we handle bushfire-prone overheads, smart metering, and fast defect rectification with the paperwork Ausgrid expects.
+                Need a licensed Level 2 electrician for reliable work in Frenchs
+                Forest? We’re authorised for meter installs, overhead and
+                underground service lines, disconnections, reconnections, and
+                emergency repairs—always compliant with Ausgrid and Endeavour
+                Energy requirements.
               </p>
               <div className="flex flex-col sm:flex-row gap-3">
                 <Link
@@ -137,7 +150,7 @@ export default function Level2FrenchsForestPage() {
                   Book a Level 2 Electrician
                 </Link>
                 <Link
-                  href="tel:1800251652"
+                  href="tel:0449003526"
                   className="inline-flex items-center justify-center rounded-full border border-white/30 px-6 py-3 text-base font-semibold backdrop-blur transition hover:border-white hover:bg-white/10"
                 >
                   Call 0449 003 526
@@ -145,10 +158,10 @@ export default function Level2FrenchsForestPage() {
               </div>
               <div className="grid grid-cols-2 sm:flex sm:flex-wrap gap-3 text-sm text-slate-100">
                 {[
-                  "ASP Level 2 Accredited",
-                  "Ausgrid Northern Beaches area",
-                  "Tree-strike and storm ready",
-                  "Photos + CCEW supplied",
+                  "ASP Level 2 licensed",
+                  "Metering & service lines",
+                  "Ausgrid-compliant paperwork",
+                  "Emergency response slots",
                 ].map((badge) => (
                   <span
                     key={badge}
@@ -179,14 +192,18 @@ export default function Level2FrenchsForestPage() {
                       Priority
                     </p>
                     <p className="mt-2 font-semibold">Same-day outage slots</p>
-                    <p className="text-slate-200/80">Held for storm damage, tree strikes, and loss of supply.</p>
+                    <p className="text-slate-200/80">
+                      Held for storm damage, tree strikes, and loss of supply.
+                    </p>
                   </div>
                   <div className="p-4">
                     <p className="text-xs uppercase tracking-[0.2em] text-red-200">
                       Compliance
                     </p>
-                    <p className="mt-2 font-semibold">CCEW + photo pack</p>
-                    <p className="text-slate-200/80">Ready for Ausgrid inspectors, insurers, or strata.</p>
+                    <p className="mt-2 font-semibold">Compliance report + photos</p>
+                    <p className="text-slate-200/80">
+                      Ready for Ausgrid inspectors, insurers, or strata.
+                    </p>
                   </div>
                 </div>
               </div>
@@ -198,9 +215,18 @@ export default function Level2FrenchsForestPage() {
       <section className="bg-white border-b border-slate-100">
         <div className="mx-auto max-w-6xl px-4 py-6 grid gap-4 sm:grid-cols-3 text-sm sm:text-base">
           {[
-            { title: "Local crew", desc: "Based near Warringah Rd for rapid Forest district response." },
-            { title: "Network ready", desc: "Ausgrid-authorised with the documentation inspectors expect." },
-            { title: "After-hours help", desc: "Storm-season callouts for damaged POA and overhead repairs." },
+            {
+              title: "Licensed & insured",
+              desc: "ASP Level 2 electricians with $20M public liability cover.",
+            },
+            {
+              title: "Upfront quotes",
+              desc: "Clear pricing before we lock in outage windows or parts.",
+            },
+            {
+              title: "Rapid response",
+              desc: "Frenchs Forest-based crews with emergency callout capacity.",
+            },
           ].map((item) => (
             <div
               key={item.title}
@@ -219,38 +245,41 @@ export default function Level2FrenchsForestPage() {
         <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] items-start">
           <div className="rounded-3xl border border-slate-200 bg-gradient-to-br from-red-50 via-white to-slate-50 p-6 shadow-md">
             <p className="text-xs uppercase tracking-[0.3em] text-red-500">
-              Why the Forest picks us
+              Quality Level 2 electrical work
             </p>
             <h2 className="mt-3 text-2xl sm:text-3xl font-semibold text-slate-900">
-              Built for leafy blocks, steep driveways, and salt air
+              Experienced, accredited, and ready for complex network tasks
             </h2>
             <p className="mt-3 text-base leading-relaxed text-slate-700">
-              The Forest’s tall gums, coastal winds, and older switchboards mean more tree strikes and corrosion. We stock POA hardware, tiger-tails, and corrosion-resistant gear to keep Ausgrid inspectors happy the first time.
+              Since 2010, Everything Electrical Sydney has delivered safe,
+              compliant Level 2 work across Sydney. Our team handles
+              high-voltage and network-level services with the authorisations,
+              gear, and paperwork Ausgrid inspectors expect.
             </p>
             <div className="mt-6 space-y-3">
               {[
                 {
-                  title: "Inspector-friendly documentation",
-                  copy: "CCEW, labelled photos, and test results packaged for Ausgrid, insurers, or strata approvals.",
+                  title: "Compliance-first approach",
+                  copy: "Compliance report, labelled photos, and test results prepared for Ausgrid, insurers, and strata managers.",
                 },
                 {
-                  title: "Tight arrival windows",
-                  copy: "Realistic ETAs with SMS updates while we line up outages or meter exchanges around Warringah Rd traffic.",
+                  title: "Clear arrival windows",
+                  copy: "Transparent scheduling and updates while we coordinate outages or meter exchanges.",
                 },
                 {
-                  title: "Storm-season ready",
-                  copy: "POA brackets, connectors, and overhead gear stocked for rapid fixes after wind or branch damage.",
+                  title: "Prepared for emergencies",
+                  copy: "Vans stocked with POA hardware, connectors, and test gear to resolve most issues on the first visit.",
                 },
                 {
                   title: "Local and responsive",
-                  copy: "Crew based minutes from Frenchs Forest, covering Belrose, Forestville, and Killarney Heights daily.",
+                  copy: "Regularly working across Frenchs Forest, Belrose, Forestville, and neighbouring suburbs.",
                 },
               ].map(({ title, copy }) => (
                 <div
                   key={title}
                   className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm flex gap-3"
                 >
-                  <div className="h-10 w-10 rounded-full bg-red-100 text-red-700 flex items-center justify-center text-sm font-semibold">
+                  <div className="flex flex-shrink-0 h-10 w-10 rounded-full bg-red-100 text-red-700 flex items-center justify-center text-sm font-semibold">
                     ✓
                   </div>
                   <div>
@@ -267,40 +296,46 @@ export default function Level2FrenchsForestPage() {
           </div>
           <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-lg shadow-slate-200/60">
             <p className="text-xs uppercase tracking-[0.3em] text-red-500">
-              How a job runs
+              How we work
             </p>
             <h3 className="mt-2 text-xl sm:text-2xl font-semibold text-slate-900">
-              A faster, clearer response pathway
+              A straightforward process from enquiry to sign-off
             </h3>
             <div className="mt-4 space-y-4">
               {[
                 {
-                  step: "1. Quick scope",
-                  desc: "Send photos of the meter box, service line, or Ausgrid defect notice so we can price and prep parts before driving up the hill.",
+                  num: 1,
+                  step: "Quick scope",
+                  desc: "Share photos of your meter box, service line, or defect notice so we can price accurately and prep parts.",
                 },
                 {
-                  step: "2. Book the window",
-                  desc: "We lock in any Ausgrid/retailer outage slot and give you a tight arrival window with updates en route.",
+                  num: 2,
+                  step: "Book the window",
+                  desc: "We confirm outage or retailer windows and provide a clear arrival time with updates as we travel.",
                 },
                 {
-                  step: "3. Fix + test",
-                  desc: "Make safe, replace damaged gear, balance loads, and complete insulation and polarity testing before reconnecting supply.",
+                  num: 3,
+                  step: "Fix + test",
+                  desc: "Make safe, replace or upgrade equipment, balance loads, and complete required testing before reconnection.",
                 },
                 {
-                  step: "4. Sign-off",
-                  desc: "CCEW, photos of works, and capacity recommendations (EV, pool heat pumps, workshops) the same day.",
+                  num: 4,
+                  step: "Sign-off",
+                  desc: "Compliance pack, photos, and recommendations for future capacity (EVs, pools, machinery) provided the same day.",
                 },
-              ].map(({ step, desc }) => (
+              ].map(({ step, desc, num }) => (
                 <div
                   key={step}
                   className="flex gap-3 rounded-2xl border border-slate-200 bg-slate-50 p-4"
                 >
-                  <div className="h-10 w-10 rounded-full bg-red-100 text-red-700 flex items-center justify-center text-sm font-semibold">
-                    {step.split(".")[0]}
+                  <div className="flex flex-shrink-0 h-10 w-10 rounded-full bg-red-100 text-red-700 flex items-center justify-center text-sm font-semibold">
+                    {num}
                   </div>
                   <div>
                     <p className="font-semibold text-slate-900">{step}</p>
-                    <p className="text-sm text-slate-700 leading-relaxed">{desc}</p>
+                    <p className="text-sm text-slate-700 leading-relaxed">
+                      {desc}
+                    </p>
                   </div>
                 </div>
               ))}
@@ -308,9 +343,9 @@ export default function Level2FrenchsForestPage() {
             <div className="mt-6 rounded-2xl bg-red-50 p-4 text-sm text-red-900">
               <p className="font-semibold">Need it today?</p>
               <p className="mt-1">
-                Same-day emergency slots are held for loss-of-supply, damaged
-                service lines, and urgent Ausgrid defect clearances in Frenchs
-                Forest and nearby suburbs.
+                Same-day emergency slots are reserved for loss of supply,
+                damaged service lines, and urgent defect clearances in Frenchs
+                Forest and surrounding suburbs.
               </p>
             </div>
           </div>
@@ -324,16 +359,16 @@ export default function Level2FrenchsForestPage() {
               Network coordination
             </p>
             <h3 className="text-xl sm:text-2xl font-semibold text-slate-900">
-              We handle Ausgrid + retailer logistics
+              We coordinate with Ausgrid and your retailer
             </h3>
             <p className="text-sm sm:text-base text-slate-700 leading-relaxed">
               One point of contact for outage windows, meter exchanges, and
-              inspector photo requests. You get clear timelines and updates,
-              not surprise delays.
+              inspector photo requests so you get clear timelines without
+              surprise delays.
             </p>
             <div className="grid grid-cols-2 gap-2 text-xs font-semibold text-slate-800">
               {[
-                "CCEW + photo pack",
+                "Compliance pack + photos",
                 "Temporary supply options",
                 "After-hours windows",
                 "Retailer liaison",
@@ -376,30 +411,32 @@ export default function Level2FrenchsForestPage() {
                 Field ready
               </p>
               <h2 className="text-2xl font-semibold leading-tight">
-                Daily on the tools across the Forest and Beaches
+                Daily on the tools across Frenchs Forest and the Beaches
               </h2>
-              <p className="text-sm text-slate-100 max-w-xl">
-                Vans carry POA brackets, tiger-tails, meter hardware, and test gear so tree strikes, brittle VIR mains, and defect fixes are closed out in one visit wherever possible.
-              </p>
+                <p className="text-sm text-slate-100 max-w-xl">
+                  Vans carry POA brackets, tiger-tails, meter hardware, and test
+                  gear so storm damage, brittle mains, and defect fixes are closed
+                  out in one visit wherever possible.
+                </p>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="bg-slate-50 py-12 sm:py-16">
+      <section className="bg-slate-900 py-12 sm:py-16">
         <div className="mx-auto max-w-6xl px-4">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
             <div>
               <p className="text-xs uppercase tracking-[0.3em] text-red-500">
                 Level 2 Services
               </p>
-              <h2 className="mt-2 text-2xl sm:text-3xl font-semibold text-slate-900">
-                Forest district Level 2 electrical work
+              <h2 className="mt-2 text-2xl sm:text-3xl font-semibold text-white">
+                Expert Level 2 electrical services in Frenchs Forest
               </h2>
-              <p className="mt-3 max-w-3xl text-sm sm:text-base text-slate-700">
-                Fully licensed ASP Level 2 team equipped for overhead, underground,
-                and metering jobs under Ausgrid rules—tailored to Frenchs Forest’s
-                leafy blocks and Northern Beaches climate.
+              <p className="mt-3 max-w-3xl text-sm sm:text-base text-slate-200">
+                Fully licensed ASP Level 2 team equipped for overhead,
+                underground, and metering jobs under Ausgrid rules—tailored to
+                Frenchs Forest and the Northern Beaches.
               </p>
             </div>
             <Link
@@ -431,30 +468,31 @@ export default function Level2FrenchsForestPage() {
         <div className="grid gap-8 lg:grid-cols-2 items-start">
           <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-md">
             <h2 className="text-xl sm:text-2xl font-semibold text-slate-900">
-              Built for homes, businesses, and builders
+              Residential, commercial, and strata ready
             </h2>
             <ul className="mt-4 space-y-3 text-sm text-slate-700 leading-relaxed">
               <li>
-                <span className="font-semibold">Homeowners:</span> fix nuisance
-                tripping, replace brittle VIR/consumer mains, and prep switchboards
-                for EV chargers, pools, or ducted air.
+                <span className="font-semibold">Homeowners:</span> connect new
+                builds or secondary dwellings, upgrade switchboards, and resolve
+                defect notices safely.
               </li>
               <li>
-                <span className="font-semibold">Commercial:</span> meter box rebuilds,
-                load balancing for clinics, cafes, and gyms along Warringah Rd,
-                and safe isolations for fit-outs.
+                <span className="font-semibold">Commercial:</span> metering
+                changes, safe isolations for fit-outs, and load balancing for
+                clinics, cafes, and gyms.
               </li>
               <li>
-                <span className="font-semibold">Builders & strata:</span> temp builders
-                supply, service relocations, defect clearances, and photo evidence so
-                projects keep moving.
+                <span className="font-semibold">Builders & strata:</span>{" "}
+                temporary builders supply, service relocations, defect
+                clearances, and photo evidence so projects keep moving.
               </li>
             </ul>
             <div className="mt-6 rounded-2xl bg-slate-50 p-4 text-sm text-slate-800">
               <p className="font-semibold">Service area focus</p>
               <p className="mt-1">
-                Regular routes include Frenchs Forest, Forestville, Killarney Heights,
-                Belrose, Davidson, Allambie Heights, Beacon Hill, Narraweena, and Brookvale.
+                Regular routes include Frenchs Forest, Forestville, Killarney
+                Heights, Belrose, Davidson, Allambie Heights, Beacon Hill,
+                Narraweena, and Brookvale.
               </p>
             </div>
           </div>
@@ -464,17 +502,17 @@ export default function Level2FrenchsForestPage() {
             </h2>
             <div className="mt-4 space-y-3 text-sm text-slate-700 leading-relaxed">
               <p>
-                Upfront quotes from photos wherever we can, with clear pricing on
-                outage windows or Ausgrid coordination before you commit.
+                Upfront quotes from photos where possible, with clear pricing on
+                outage windows or network coordination before you commit.
               </p>
               <p>
-                Emergency calls are triaged for same-day dispatch across the Forest
-                and Beaches, with ETA updates so you know when we land.
+                Emergency calls are triaged for same-day dispatch across Frenchs
+                Forest and the Beaches, with ETA updates so you know when we
+                land.
               </p>
               <p>
-                Need proof for insurers or strata? We bundle incident photos, test
-                results, and your Compliance Certificate of Electrical Work (CCEW)
-                with the invoice.
+                Need proof for insurers or strata? We bundle incident photos,
+                test results, and compliance documentation with the invoice.
               </p>
             </div>
             <div className="mt-6 flex flex-col sm:flex-row">
@@ -503,19 +541,20 @@ export default function Level2FrenchsForestPage() {
                 Ready to go
               </p>
               <h2 className="text-2xl sm:text-3xl font-semibold">
-                Book a Frenchs Forest Level 2 electrician now
+                Book a Frenchs Forest Level 2 electrician today
               </h2>
               <p className="text-sm text-slate-200 max-w-3xl">
-                Text or upload a quick photo of your meter box or Ausgrid defect notice.
-                We’ll lock in scope, price, and the next attendance window that suits you.
+                Share a quick photo of your meter box or defect notice. We’ll
+                confirm scope, pricing, and the next attendance window that
+                suits you.
               </p>
             </div>
             <div className="flex flex-col gap-3 sm:flex-row">
               <Link
-                href="tel:1800251652"
+                href="tel:0449003526"
                 className="inline-flex justify-center rounded-full bg-white px-5 py-3 text-sm font-semibold text-slate-900 shadow-lg transition hover:-translate-y-0.5"
               >
-                Call 1800 251 652
+                Call 0449 003 526
               </Link>
               <Link
                 href="/contact"
