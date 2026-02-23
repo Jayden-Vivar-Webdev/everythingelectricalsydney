@@ -50,7 +50,7 @@ const nextConfig = {
         permanent: true,
       },
       {
-        source: "/electrician-sydney/",
+        source: "/electrician-sydney",
         destination: "/",
         permanent: true,
       },
