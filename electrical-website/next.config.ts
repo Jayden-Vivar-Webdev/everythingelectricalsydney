@@ -64,10 +64,24 @@ const nextConfig = {
         destination: "/services/real-estate-strata",
         permanent: true,
       },
-
+      {
+        source: "/electrician-sydney/:slug",
+        destination: "/all-services?location=:slug",
+        permanent: true,
+      },
+      {
+        source: "/electrician-sydney/:region/:suburb",
+        destination: "/all-services?location=:region",
+        permanent: true,
+      },
       {
         source: "/all-services/:slug",
         destination: "/all-services?location=:slug",
+        permanent: true,
+      },
+      {
+        source: "/electrician-blue-mountains/emergency",
+        destination: "/all-services?location=blue-mountains",
         permanent: true,
       },
     ];
