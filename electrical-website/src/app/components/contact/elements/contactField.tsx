@@ -51,8 +51,7 @@ export default function ContactFormInputs({
         >
           <div className="mb-8">
             <h2 className="text-3xl font-bold text-gray-800 mb-4">
-              Describe your <span className="secondary-text">electrical</span>{" "}
-              or air conditioning needs
+              Book<span className="secondary-text">Now</span>{" "}
             </h2>
             {/* Security badges */}
             <div className="flex flex-wrap gap-5 text-sm text-gray-600">
@@ -180,10 +179,10 @@ export default function ContactFormInputs({
               >
                 <option value="">Service Type</option>
                 <option value="emergency-repair">Emergency Repair</option>
-                <option value="installation">Installation</option>
-                <option value="maintenance">Maintenance</option>
-                <option value="inspection">Inspection</option>
-                <option value="replacement">Replacement</option>
+                <option value="general-electrical">General Electrical</option>
+                <option value="level-2">Level 2</option>
+                <option value="security-systems">Security Systems</option>
+                <option value="aircon">Air Conditioning</option>
                 <option value="other">Other</option>
               </select>
             </div>
