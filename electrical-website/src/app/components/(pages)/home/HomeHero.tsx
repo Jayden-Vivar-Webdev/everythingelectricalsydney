@@ -9,7 +9,7 @@ export default function HomeHero() {
       subheadline={
         "Seniors & Pensioners Discount. Get $50 Off Your First Purchase. 24/7 Emergency Electrician."
       }
-      backgroundImage="/images/cropped_image-2.png"
+      backgroundImage="/images/cropped_image-mobile.png"
       backgroundImageDesktop="/images/left_cropped.png"
       backgroundImageAlt="Everything Electrical Switchboard Installation"
       primaryCtaText="Book Now"

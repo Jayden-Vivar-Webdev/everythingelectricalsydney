@@ -51,7 +51,7 @@ function HeroMain({
   return (
     <>
       <div className="relative">
-        <div className="relative isolate overflow-hidden pt-14 pb-[10rem]">
+        <div className="relative isolate overflow-hidden pb-[10rem]">
           <picture className={`absolute inset-0 -z-10`}>
             <source media="(max-width: 1368px)" srcSet={backgroundImage} />
             <source
@@ -67,7 +67,7 @@ function HeroMain({
           </picture>
           <div className="absolute inset-0 bg-gray-900/80"></div>
 
-          <div className="relative mx-auto max-w-7xl pt-0 px-6 lg:px-8 lg:pt-0">
+          <div className="relative mx-auto max-w-7xl pt-0 px-6 lg:px-8 lg:pt-0 lg:top-0">
             <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
               {!announcementText && (
                 <div className="hidden sm:mb-8 sm:flex sm:justify-center">
