@@ -29,21 +29,18 @@ export default function ContactFormInputs({
   return (
     <>
       {/* Header */}
-      <div className="relative w-full h-[42rem] sm:h-[33rem] md:h-[28rem] lg:h-[20rem]">
+      <div className="relative w-full p-5 lg:h-[20rem]">
         {/* Form */}
         <form
           id="contact"
           onSubmit={handleSubmit}
-          className="absolute 
-        w-[90%] 
-        max-w-7xl 
-        left-1/2 
-        -translate-x-1/2 
-        space-y-6 bg-white 
-        top-1
-        -translate-y-1/4
-        sm:-translate-y-2/6
-        md:-translate-y-2/6
+          className="lg:absolute 
+        lg:w-[90%] 
+        lg:max-w-7xl 
+        lg:left-1/2 
+        lg:-translate-x-1/2 
+        lg:space-y-6 bg-white 
+        lg:-translate-y-2/6
         lg:-translate-y-3/6
         p-10 
         rounded-xl 

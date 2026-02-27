@@ -50,9 +50,17 @@ function HeroMain({
 
   return (
     <>
-      <div className="relative">
-        <div className="relative isolate overflow-hidden pb-[10rem]">
-          <picture className={`absolute inset-0 -z-10`}>
+      <div className="relative bg-gradient-to-b from-gray-950 via-gray-900 to-black lg:bg-none lg:bg-gray-900 lg:max-h-screen">
+        <div className="relative isolate overflow-hidden lg:pt-14 lg:pb-[10rem]">
+          <picture className="block lg:hidden h-82 w-full">
+            <img
+              src={backgroundImage}
+              alt={backgroundImageAlt}
+              className="h-full w-full object-cover object-[center_top]"
+              loading="eager"
+            />
+          </picture>
+          <picture className="hidden lg:block absolute inset-0 -z-10">
             <source media="(max-width: 1368px)" srcSet={backgroundImage} />
             <source
               media="(min-width: 769px)"
@@ -65,10 +73,10 @@ function HeroMain({
               loading="eager"
             />
           </picture>
-          <div className="absolute inset-0 bg-gray-900/80"></div>
+          <div className="hidden lg:block absolute inset-0 bg-gray-900/80"></div>
 
-          <div className="relative mx-auto max-w-7xl pt-0 px-6 lg:px-8 lg:pt-0 lg:top-0">
-            <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
+          <div className="relative mx-auto max-w-7xl px-6 lg:px-8 lg:pt-0 lg:top-0">
+            <div className="mx-auto max-w-2xl py-5 sm:pt-10 sm:pb-16 lg:py-56">
               {!announcementText && (
                 <div className="hidden sm:mb-8 sm:flex sm:justify-center">
                   <div className="relative rounded-full px-3 py-1 text-sm/6 text-gray-400 ring-1 ring-white/10 hover:ring-white/20">
@@ -88,11 +96,11 @@ function HeroMain({
               <div
                 className={`text-center transition-all duration-700 ease-out will-change-transform ${animation ? textAnimateClasses : ""}`}
               >
-                <h1 className="text-balance text-5xl font-semibold tracking-tight text-white sm:text-7xl">
+                <h1 className="text-balance text-4xl sm:text-6xl lg:text-7xl font-semibold leading-tight tracking-tight text-white">
                   {headline}
                 </h1>
                 {subheadline && (
-                  <div className="mt-8 flex flex-col items-center space-y-2 text-center">
+                  <div className="mt-6 sm:mt-8 flex flex-col items-center space-y-2 text-center">
                     {subheadline
                       .split(".")
                       .filter((s) => s.trim() !== "")
@@ -122,7 +130,7 @@ function HeroMain({
                 )}
 
                 {(googleRating || googleReviewCount) && (
-                  <div className="mt-6 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
+                  <div className="mt-4 sm:mt-6 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
                     <div className="flex items-center rounded-full bg-white/10 px-4 py-2 shadow-lg ring-1 ring-white/10 backdrop-blur">
                       <img
                         src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg"
@@ -142,7 +150,7 @@ function HeroMain({
                     </div>
                   </div>
                 )}
-                <div className="mt-10 flex items-center justify-center gap-x-6">
+                <div className="mt-8 sm:mt-10 flex items-center justify-center gap-x-6">
                   {primaryCtaText && (
                     <a
                       href={primaryCtaUrl}
