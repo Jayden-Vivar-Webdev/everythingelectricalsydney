@@ -22,7 +22,7 @@ interface GoogleReviewsProps {
   showViewAllButton?: boolean;
 }
 
-interface StarRatingProps {
+export interface StarRatingProps {
   rating: number;
   theme?: "light" | "dark";
 }
@@ -60,7 +60,10 @@ const defaultReviews: Review[] = [
   },
 ];
 
-const StarRating: React.FC<StarRatingProps> = ({ rating, theme = "light" }) => {
+export const StarRating: React.FC<StarRatingProps> = ({
+  rating,
+  theme = "light",
+}) => {
   return (
     <div className="flex items-center gap-1">
       {[...Array(5)].map((_, i) => (

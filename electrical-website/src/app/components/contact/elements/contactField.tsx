@@ -51,7 +51,7 @@ export default function ContactFormInputs({
         >
           <div className="mb-8">
             <h2 className="text-3xl font-bold text-gray-800 mb-4">
-              Book<span className="secondary-text">Now</span>{" "}
+              Book <span className="secondary-text"> Now</span>
             </h2>
             {/* Security badges */}
             <div className="flex flex-wrap gap-5 text-sm text-gray-600">
