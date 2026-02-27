@@ -35,8 +35,7 @@ export default function Services({ services }: ServicesProps) {
 
   return (
     <>
-      {/* <div className="pt-35 sm:pt-30 md:pt-20"></div> */}
-      <div className="bg-white py-24 sm:py-32">
+      <div className="bg-white pt-10 pb-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl lg:max-w-4xl text-center">
             <h2 className="text-balance text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
