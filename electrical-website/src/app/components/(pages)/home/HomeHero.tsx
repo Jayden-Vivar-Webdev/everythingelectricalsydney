@@ -9,8 +9,8 @@ export default function HomeHero() {
       subheadline={
         "Seniors & Pensioners Discount. Get $50 Off Your First Purchase. 24/7 Emergency Electrician."
       }
-      backgroundImage="https://cdn.sanity.io/images/8dp3bjvf/production/a0d6270d17067caeff7299b2f67651781be6f98c-5472x3648.jpg"
-      backgroundImageDesktop="/images/left_cropped.png"
+      backgroundImage="https://cdn.sanity.io/images/8dp3bjvf/production/f8180d806a89a6fbdbad13fc1480e5f5008d5820-5472x3648.jpg"
+      backgroundImageDesktop="https://cdn.sanity.io/images/8dp3bjvf/production/f8180d806a89a6fbdbad13fc1480e5f5008d5820-5472x3648.jpg"
       backgroundImageAlt="Everything Electrical Switchboard Installation"
       primaryCtaText="Book Now"
       primaryCtaUrl="#contact"
