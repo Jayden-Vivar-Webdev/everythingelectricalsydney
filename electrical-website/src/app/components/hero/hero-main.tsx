@@ -50,33 +50,26 @@ function HeroMain({
 
   return (
     <>
-      <div className="relative bg-gradient-to-b from-gray-950 via-gray-900 to-black lg:bg-none lg:bg-gray-900 lg:max-h-screen">
-        <div className="relative isolate overflow-hidden lg:pt-14 lg:pb-[10rem]">
-          <picture className="block lg:hidden h-82 w-full">
+      <div className="relative bg-gray-900 lg:max-h-screen">
+        <div className="relative isolate flex min-h-[78svh] items-center overflow-hidden lg:min-h-[88svh] lg:items-center lg:pt-14 lg:pb-[6rem]">
+          <picture className="absolute inset-0 -z-10">
+            {backgroundImageDesktop && (
+              <source
+                media="(min-width: 1024px)"
+                srcSet={backgroundImageDesktop}
+              />
+            )}
             <img
               src={backgroundImage}
               alt={backgroundImageAlt}
-              className="h-full w-full object-cover object-[center_top]"
+              className="h-full w-full object-cover object-[center_top] lg:object-[left_35%]"
               loading="eager"
             />
           </picture>
-          <picture className="hidden lg:block absolute inset-0 -z-10">
-            <source media="(max-width: 1368px)" srcSet={backgroundImage} />
-            <source
-              media="(min-width: 769px)"
-              srcSet={backgroundImageDesktop}
-            />
-            <img
-              src={backgroundImage}
-              alt={backgroundImageAlt}
-              className="h-full w-full object-cover lg:object-[left_35%]"
-              loading="eager"
-            />
-          </picture>
-          <div className="hidden lg:block absolute inset-0 bg-gray-900/80"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-gray-900/65 via-gray-900/75 to-gray-950/90 lg:bg-gradient-to-r lg:from-gray-950/90 lg:via-gray-900/80 lg:to-gray-900/45"></div>
 
-          <div className="relative mx-auto max-w-7xl px-6 lg:px-8 lg:pt-0 lg:top-0">
-            <div className="mx-auto max-w-2xl py-5 sm:pt-10 sm:pb-16 lg:py-56">
+          <div className="relative mx-auto w-full max-w-7xl px-5 sm:px-6 lg:px-8 lg:pt-0 lg:top-0">
+            <div className="mx-auto max-w-2xl py-24 sm:py-24 lg:max-w-3xl lg:py-20">
               {!announcementText && (
                 <div className="hidden sm:mb-8 sm:flex sm:justify-center">
                   <div className="relative rounded-full px-3 py-1 text-sm/6 text-gray-400 ring-1 ring-white/10 hover:ring-white/20">
@@ -94,20 +87,20 @@ function HeroMain({
                 </div>
               )}
               <div
-                className={`text-center transition-all duration-700 ease-out will-change-transform ${animation ? textAnimateClasses : ""}`}
+                className={`mx-auto max-w-xl text-center transition-all duration-700 ease-out will-change-transform lg:max-w-2xl lg:text-center ${animation ? textAnimateClasses : ""}`}
               >
-                <h1 className="text-balance text-4xl sm:text-6xl lg:text-7xl font-semibold leading-tight tracking-tight text-white">
+                <h1 className="text-balance text-[2.6rem] sm:text-6xl lg:text-7xl font-semibold leading-[1.05] tracking-tight text-white">
                   {headline}
                 </h1>
                 {subheadline && (
-                  <div className="mt-6 sm:mt-8 flex flex-col items-center space-y-2 text-center">
+                  <div className="mt-7 sm:mt-8 flex flex-col items-center space-y-2.5 text-center lg:items-center lg:text-center">
                     {subheadline
                       .split(".")
                       .filter((s) => s.trim() !== "")
                       .map((sentence, index) => (
                         <p
                           key={index}
-                          className="inline-flex items-center text-white text-sm sm:text-lg font-semibold tracking-wide"
+                          className="inline-flex items-center text-white text-base sm:text-lg font-semibold tracking-wide"
                         >
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -131,16 +124,16 @@ function HeroMain({
 
                 {(googleRating || googleReviewCount) && (
                   <div className="mt-4 sm:mt-6 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
-                    <div className="flex items-center rounded-full bg-white/10 px-4 py-2 shadow-lg ring-1 ring-white/10 backdrop-blur">
+                    <div className="flex w-full max-w-sm items-center justify-center rounded-full bg-white/10 px-4 py-2 shadow-lg ring-1 ring-white/10 backdrop-blur sm:w-auto">
                       <img
                         src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg"
                         alt="Google logo"
                         className="h-6 w-6"
                         loading="lazy"
                       />
-                      <div className="ml-3 flex items-center gap-2 text-sm font-semibold text-white">
+                      <div className="ml-3 flex flex-wrap items-center justify-center gap-2 text-sm font-semibold text-white">
                         <StarRating rating={googleRating} />
-                        <span>
+                        <span className="text-center">
                           {googleRating?.toFixed(1)} on Google
                           {googleReviewCount
                             ? ` • ${googleReviewCount}+ reviews`
@@ -150,12 +143,12 @@ function HeroMain({
                     </div>
                   </div>
                 )}
-                <div className="mt-8 sm:mt-10 flex items-center justify-center gap-x-6">
+                <div className="mt-8 sm:mt-10 flex w-full flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center sm:gap-x-6">
                   {primaryCtaText && (
                     <a
                       href={primaryCtaUrl}
                       id={primaryCtaUrl}
-                      className="rounded-md secondary-bg px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:secondary-bg-light focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-400"
+                      className="w-full rounded-md secondary-bg px-6 py-3 text-base font-semibold text-white text-center shadow-sm hover:secondary-bg-light focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-400 sm:w-auto sm:px-3.5 sm:py-2.5 sm:text-sm"
                     >
                       {primaryCtaText}
                     </a>
@@ -163,9 +156,12 @@ function HeroMain({
                   {secondaryCtaText && (
                     <a
                       href={secondaryCtaUrl}
-                      className="text-sm/6 font-semibold text-white"
+                      className="inline-flex w-full items-center justify-center rounded-md border border-white/40 px-6 py-3 text-sm font-semibold text-white hover:bg-white/10 sm:w-auto sm:border-0 sm:px-0 sm:py-0 sm:text-sm/6"
                     >
-                      {secondaryCtaText} <span aria-hidden="true">→</span>
+                      {secondaryCtaText}{" "}
+                      <span aria-hidden="true" className="ml-2">
+                        →
+                      </span>
                     </a>
                   )}
                 </div>
