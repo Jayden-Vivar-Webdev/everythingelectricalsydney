@@ -3,11 +3,12 @@ import HeroMain from "../../hero/hero-main";
 export default function HomeHero() {
   return (
     <HeroMain
-      announcementText={"test"}
-      announcementLink={"#contact"}
+      showAnnouncementText={true}
+      announcementText={"24/7 Emergency Electrician"}
+      announcementLink={"tel:0449003526"}
       headline={"All Your Power Needs in One Place"}
       subheadline={
-        "Seniors & Pensioners Discount. Get $50 Off Your First Purchase. 24/7 Emergency Electrician."
+        "Seniors & Pensioners Discount. Get $50 Off Your First Purchase."
       }
       backgroundImage="https://cdn.sanity.io/images/8dp3bjvf/production/43854d6bf5bdacf15e3d29060007836b2e57f78f-3648x5472.jpg"
       backgroundImageDesktop="https://cdn.sanity.io/images/8dp3bjvf/production/43854d6bf5bdacf15e3d29060007836b2e57f78f-3648x5472.jpg"

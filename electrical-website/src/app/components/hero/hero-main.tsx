@@ -4,6 +4,7 @@ import ContactFormCta from "../contact/contact-cta";
 import { StarRating } from "../testimonials/google-reviews";
 
 type HeroMainProps = {
+  showAnnouncementText?: boolean;
   announcementText?: string;
   announcementLink?: string;
   headline: string;
@@ -21,6 +22,7 @@ type HeroMainProps = {
 };
 
 function HeroMain({
+  showAnnouncementText = false,
   announcementText,
   announcementLink,
   headline,
@@ -47,6 +49,11 @@ function HeroMain({
   const textAnimateClasses = isVisible
     ? "opacity-100 translate-x-0"
     : "opacity-0 translate-x-8";
+  const isPhoneAnnouncementLink = announcementLink?.startsWith("tel:");
+  const announcementContainerClasses =
+    "inline-flex max-w-full flex-wrap items-center justify-center gap-2 rounded-2xl border border-white/12 bg-slate-950/55 px-3 py-2 text-center text-xs text-white/88 shadow-lg shadow-black/25 ring-1 ring-white/8 backdrop-blur-sm transition-colors duration-200 hover:border-red-400/30 hover:bg-slate-950/65 sm:gap-3 sm:rounded-full sm:text-sm";
+  const announcementLinkClasses =
+    "inline-flex items-center gap-1.5 font-semibold text-red-300 transition-colors duration-200 hover:text-white";
 
   return (
     <>
@@ -70,20 +77,70 @@ function HeroMain({
 
           <div className="relative mx-auto w-full max-w-7xl px-5 sm:px-6 lg:px-8 lg:pt-0 lg:top-0">
             <div className="mx-auto max-w-2xl py-24 sm:py-24 lg:max-w-3xl lg:py-20">
-              {!announcementText && (
-                <div className="hidden sm:mb-8 sm:flex sm:justify-center">
-                  <div className="relative rounded-full px-3 py-1 text-sm/6 text-gray-400 ring-1 ring-white/10 hover:ring-white/20">
-                    {announcementText}{" "}
-                    {announcementLink && (
-                      <a
-                        href={announcementLink}
-                        className="font-semibold text-white"
-                      >
-                        <span aria-hidden="true" className="absolute inset-0" />
-                        Contact Us <span aria-hidden="true">&rarr;</span>
-                      </a>
-                    )}
-                  </div>
+              {showAnnouncementText && announcementText && (
+                <div className="mb-6 flex justify-center sm:mb-8">
+                  {announcementLink && isPhoneAnnouncementLink ? (
+                    <a
+                      href={announcementLink}
+                      className={`${announcementContainerClasses} focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white`}
+                      aria-label={`${announcementText} - Call 24/7`}
+                    >
+                      <span
+                        aria-hidden="true"
+                        className="h-2 w-2 rounded-full bg-red-500 shadow-[0_0_12px_rgba(239,68,68,0.65)]"
+                      />
+                      <span className="font-medium tracking-[0.01em]">
+                        {announcementText}
+                      </span>
+                      <span
+                        aria-hidden="true"
+                        className="hidden h-4 w-px bg-white/12 sm:block"
+                      />
+                      <span className={announcementLinkClasses}>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          className="h-3.5 w-3.5"
+                          aria-hidden="true"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.78.63 2.62a2 2 0 0 1-.45 2.11L8 9.91a16 16 0 0 0 6.09 6.09l1.46-1.29a2 2 0 0 1 2.11-.45c.84.3 1.72.51 2.62.63A2 2 0 0 1 22 16.92Z"
+                          />
+                        </svg>
+                        Call 24/7
+                      </span>
+                    </a>
+                  ) : (
+                    <div className={announcementContainerClasses}>
+                      <span
+                        aria-hidden="true"
+                        className="h-2 w-2 rounded-full bg-red-500 shadow-[0_0_12px_rgba(239,68,68,0.65)]"
+                      />
+                      <span className="font-medium tracking-[0.01em]">
+                        {announcementText}
+                      </span>
+                      {announcementLink && (
+                        <>
+                          <span
+                            aria-hidden="true"
+                            className="hidden h-4 w-px bg-white/12 sm:block"
+                          />
+
+                          <a
+                            href={announcementLink}
+                            className={`${announcementLinkClasses} focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white`}
+                          >
+                            Contact Us
+                          </a>
+                        </>
+                      )}
+                    </div>
+                  )}
                 </div>
               )}
               <div

@@ -30,33 +30,43 @@ export interface StarRatingProps {
 const defaultReviews: Review[] = [
   {
     id: 1,
-    name: "Mel Lehne",
+    name: "Nicole Knox",
     avatar:
-      "https://lh3.googleusercontent.com/a/ACg8ocJ2XQUw5-qbMsvKR1BDsDHcLo1xRiCZobpPMmBLEtZMXOzeeQ=w180-h180-p-rp-mo-br100",
+      "https://lh3.googleusercontent.com/a-/ALV-UjUqnWoKc-i5oCeWUcNEGs828-UMDYyYkzxHbbbOm2k7f60bWKBR=w90-h90-p-rp-mo-br100",
     rating: 5,
-    timeAgo: "18th August 2025",
-    text: "We lost power late at night and Charlie from Everything Electrical Sydney was a lifesaver. He was at our place within the hour,",
+    timeAgo: "a month ago",
+    text: `the boys were great they came out straight way to do a quote and ever great at answering all my questions and they were very clean and Prompt and showed us all the work that was done and explained how to use the ducting correctly
+we would recommend them Charlie, Kosta and team`,
     helpful: 1,
   },
   {
     id: 2,
-    name: "Alicia Rigoli",
+    name: "L Mifsud",
     avatar:
-      "https://lh3.googleusercontent.com/a-/ALV-UjWT_AwqPjZ8NGHLYGoelvKNlQdnSleukuMh6gj7x94noiQKYCk8=w180-h180-p-rp-mo-br100",
+      "https://lh3.googleusercontent.com/a/ACg8ocIENYT3AJMiZQiUrzqdURMNVkE6aaUMtWBt_COU7YyNUVzE3A=w90-h90-p-rp-mo-br100",
     rating: 5,
-    timeAgo: "a year ago",
-    text: "Charlie was great to work with. He showed up on time, did the job properly, and made everything easy to understand. Really genuine",
-    helpful: 8,
+    timeAgo: "a month ago",
+    text: `Charlie was amazing.
+    Absolutely trustworthy.
+    Totally professional.
+    Said hello and showed us his trade licence without asking.
+
+    Charlie rescued us from a scam guy did all the work legally and gave us all our sign-off paperwork.
+
+    100% peace of mind.
+
+    Need a level2 electrician, Charlie's your skilled tradesman.`,
+    helpful: 15,
   },
   {
     id: 3,
-    name: "Jono T",
+    name: "FlyFoxx",
     avatar:
-      "https://lh3.googleusercontent.com/a/ACg8ocLVBVl5BN5uPbEcsXCyvRPhGMZEMd0x0sBf9IxjUA_3GmNIYw=w180-h180-p-rp-mo-br100",
+      "https://lh3.googleusercontent.com/a/ACg8ocKpouXA6TlBkCeP3hiOIg1mQrRWqXErcFYKD88uiOHZwkL-XB0=w90-h90-p-rp-mo-ba3-br100",
     rating: 5,
-    timeAgo: "a year ago",
-    text: "Called these guys up for a late night issue. Arrived quick, found the issue and gave me options for the repairs. Very honest and would",
-    helpful: 15,
+    timeAgo: "5 months ago",
+    text: `Charlie is a legend! Highly recommended- absolutely saved me on a Saturday night over the long weekend - prompt, honest and immaculate five star service, nothing is too much-will definitely be using their services again, thank you so much!`,
+    helpful: 8,
   },
 ];
 
