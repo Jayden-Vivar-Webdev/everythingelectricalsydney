@@ -316,10 +316,10 @@ export default async function PostPage({ params }: { params: Params }) {
                 across{" "}
                 <a
                   className="internal-link"
-                  href="/all-services?location=camden"
+                  href="/all-services?location=sydney"
                 >
-                  Sydney{" "}
-                </a>
+                  Sydney CBD
+                </a>{" "}
                 and greater NSW. Contact us for reliable, professional service.
               </p>
               <a href="/contact" className="article-button">
