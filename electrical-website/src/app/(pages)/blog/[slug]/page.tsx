@@ -318,21 +318,8 @@ export default async function PostPage({ params }: { params: Params }) {
                   className="internal-link"
                   href="/all-services?location=camden"
                 >
-                  Camden
+                  Sydney{" "}
                 </a>
-                ,{" "}
-                <a
-                  className="internal-link"
-                  href="/all-services?location=camden"
-                >
-                  Campbelltown,
-                </a>{" "}
-                <a
-                  className="internal-link"
-                  href="/all-services?location=camden"
-                >
-                  Oran Park
-                </a>{" "}
                 and greater NSW. Contact us for reliable, professional service.
               </p>
               <a href="/contact" className="article-button">
