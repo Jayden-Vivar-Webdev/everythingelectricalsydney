@@ -182,7 +182,6 @@ export const contentMap: PortableTextComponents = {
             height={500}
             className="rounded-xl w-full object-cover w-1/2"
             loading="lazy"
-            priority={index === 0}
             sizes="(max-width: 1500px) 100vw, 800px"
           />
         </div>

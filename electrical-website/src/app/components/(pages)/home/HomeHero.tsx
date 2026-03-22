@@ -1,6 +1,11 @@
 import HeroMain from "../../hero/hero-main";
 
 export default function HomeHero() {
+  const baseHeroImage =
+    "https://cdn.sanity.io/images/8dp3bjvf/production/43854d6bf5bdacf15e3d29060007836b2e57f78f-3648x5472.jpg";
+  const mobileHeroImage = `${baseHeroImage}?auto=format&fit=max&w=1080&q=70`;
+  const desktopHeroImage = `${baseHeroImage}?auto=format&fit=max&w=1920&q=70`;
+
   return (
     <HeroMain
       showAnnouncementText={true}
@@ -10,8 +15,8 @@ export default function HomeHero() {
       subheadline={
         "Seniors & Pensioners Discount. Get $50 Off Your First Purchase."
       }
-      backgroundImage="https://cdn.sanity.io/images/8dp3bjvf/production/43854d6bf5bdacf15e3d29060007836b2e57f78f-3648x5472.jpg"
-      backgroundImageDesktop="https://cdn.sanity.io/images/8dp3bjvf/production/43854d6bf5bdacf15e3d29060007836b2e57f78f-3648x5472.jpg"
+      backgroundImage={mobileHeroImage}
+      backgroundImageDesktop={desktopHeroImage}
       backgroundImageAlt="Everything Electrical Switchboard Installation"
       primaryCtaText="Book Now"
       primaryCtaUrl="#contact"

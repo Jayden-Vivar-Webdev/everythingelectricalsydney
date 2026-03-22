@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 type Image = {
   src: string;
   alt: string;
@@ -12,9 +12,18 @@ type Collection = {
 export default function FlexGallery({ images }: Collection) {
   const [visibleCount, setVisibleCount] = useState(6); // initially show 6 images
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const preloadedImagesRef = useRef<Set<string>>(new Set());
 
   const handleLoadMore = () => {
     setVisibleCount((prev) => prev + 6); // load 6 more each click
+  };
+
+  const preloadImage = (src: string | undefined) => {
+    if (!src || preloadedImagesRef.current.has(src)) return;
+    const img = new window.Image();
+    img.decoding = "async";
+    img.src = src;
+    preloadedImagesRef.current.add(src);
   };
 
   // Close modal on Escape
@@ -37,9 +46,19 @@ export default function FlexGallery({ images }: Collection) {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [activeIndex, images.length]);
 
+  // Preload nearby images so lightbox next/prev feels instant.
+  useEffect(() => {
+    if (activeIndex === null) return;
+
+    preloadImage(images[activeIndex]?.src);
+    preloadImage(images[activeIndex + 1]?.src);
+    preloadImage(images[activeIndex + 2]?.src);
+    preloadImage(images[activeIndex - 1]?.src);
+  }, [activeIndex, images]);
+
   return (
-    <section className="bg-gradient-to-b from-gray-50 via-white to-gray-50">
-      <div className="mx-auto max-w-7xl px-6 lg:px-10 py-16 space-y-14">
+    <section className="bg-white py-16 sm:py-24">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8 space-y-12">
         <div className="grid gap-10 lg:grid-cols-[1.2fr,0.8fr] items-start">
           <div className="space-y-5">
             <p className="text-sm font-semibold uppercase tracking-[0.22em] text-red-600">
@@ -65,7 +84,7 @@ export default function FlexGallery({ images }: Collection) {
               library for what the right electrical solution looks like when it
               is engineered for longevity, safety, and clean finishes.
             </p>
-            <div className="grid sm:grid-cols-3 gap-4">
+            <div className="grid gap-4 sm:grid-cols-3">
               {[
                 {
                   label: "Projects Completed",
@@ -85,7 +104,7 @@ export default function FlexGallery({ images }: Collection) {
               ].map((item, idx) => (
                 <div
                   key={idx}
-                  className="rounded-2xl bg-white/80 backdrop-blur shadow-sm ring-1 ring-gray-200 p-4 space-y-2"
+                  className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm transition duration-200 hover:-translate-y-0.5 hover:shadow-md"
                 >
                   <p className="text-xs font-semibold uppercase tracking-wide text-red-600">
                     {item.label}
@@ -101,18 +120,18 @@ export default function FlexGallery({ images }: Collection) {
             </div>
           </div>
 
-          <div className="rounded-3xl bg-white shadow-xl ring-1 ring-gray-200 p-6 space-y-4">
-            <h2 className="text-2xl font-semibold text-gray-900">
+          <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6 shadow-sm space-y-4">
+            <h2 className="text-2xl font-semibold text-slate-900">
               What you will see
             </h2>
-            <p className="text-base text-gray-700 leading-relaxed">
+            <p className="text-base text-slate-700 leading-relaxed">
               Each project tile includes site photos, conduit and cable
               management, fixture positioning, and the tidy finishes that keep
               plant rooms, ceilings, and facades looking intentional. Look for
               the way we stage work to minimise downtime and keep tenants or
               customers moving.
             </p>
-            <ul className="space-y-3 text-gray-800 text-sm">
+            <ul className="space-y-3 text-slate-800 text-sm">
               {[
                 "Switchboard rebuilds with surge and arc-fault protection",
                 "Metering upgrades and disconnections completed as Level 2 ASP",
@@ -122,16 +141,16 @@ export default function FlexGallery({ images }: Collection) {
               ].map((item, idx) => (
                 <li key={idx} className="flex gap-3">
                   <span
-                    className="mt-1 h-2.5 w-2.5 rounded-full bg-red-600"
+                    className="mt-1.5 h-2 w-2 rounded-full bg-red-600"
                     aria-hidden
                   />
                   <span>{item}</span>
                 </li>
               ))}
             </ul>
-            <div className="rounded-2xl bg-red-50 text-red-900 border border-red-100 px-4 py-3 text-sm leading-relaxed">
+            <div className="rounded-xl border border-red-200 bg-white px-4 py-3 text-sm leading-relaxed text-slate-700">
               Ready to discuss a similar upgrade? Call 1300 291 148 or email
-              <span className="font-semibold">
+              <span className="font-semibold text-red-700">
                 {" "}
                 info@everythingelectricalsydney.com.au
               </span>{" "}
@@ -145,7 +164,7 @@ export default function FlexGallery({ images }: Collection) {
             {images.slice(0, visibleCount).map((image, index) => (
               <figure
                 key={index}
-                className="group relative isolate overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-gray-200 transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg"
+                className="group relative isolate overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm transition duration-200 hover:-translate-y-0.5 hover:shadow-md"
                 role="button"
                 tabIndex={0}
                 onClick={() => setActiveIndex(index)}
@@ -176,7 +195,7 @@ export default function FlexGallery({ images }: Collection) {
             <div className="flex w-full items-center justify-center">
               <button
                 onClick={handleLoadMore}
-                className="group inline-flex items-center gap-2 rounded-full bg-red-600 px-6 py-3 text-md font-semibold text-white shadow-lg transition-all duration-200 hover:bg-red-700 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
+                className="group inline-flex items-center gap-2 rounded-lg bg-red-600 px-6 py-3 text-md font-semibold text-white shadow-lg transition-all duration-200 hover:bg-red-700 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
               >
                 Load more projects
               </button>
@@ -187,7 +206,7 @@ export default function FlexGallery({ images }: Collection) {
             <div className="flex w-full items-center justify-center">
               <button
                 onClick={() => setVisibleCount(6)}
-                className="group inline-flex items-center gap-2 rounded-full bg-gray-900 px-6 py-3 text-md font-semibold text-white shadow-lg transition-all duration-200 hover:bg-black focus:outline-none focus:ring-2 focus:ring-gray-700 focus:ring-offset-2"
+                className="group inline-flex items-center gap-2 rounded-lg bg-slate-900 px-6 py-3 text-md font-semibold text-white shadow-lg transition-all duration-200 hover:bg-black focus:outline-none focus:ring-2 focus:ring-slate-700 focus:ring-offset-2"
               >
                 Collapse gallery
               </button>
@@ -195,11 +214,11 @@ export default function FlexGallery({ images }: Collection) {
           )}
         </div>
 
-        <div className="max-w-5xl space-y-4 rounded-3xl bg-white p-8 shadow-sm ring-1 ring-gray-200">
-          <h3 className="text-2xl font-semibold text-gray-900">
+        <div className="max-w-full space-y-4 rounded-2xl border border-slate-200 bg-slate-50 p-8 shadow-sm">
+          <h3 className="text-2xl font-semibold text-slate-900">
             How we stage and sign-off each project
           </h3>
-          <p className="text-base leading-relaxed text-gray-700">
+          <p className="text-base leading-relaxed text-slate-700">
             The work showcased here follows our five-step process: scope and
             design with compliant load calculations, safety planning and
             isolation, neat installation with premium fittings, thorough testing
@@ -207,7 +226,7 @@ export default function FlexGallery({ images }: Collection) {
             That documentation matters when you sell, lease, or expand a
             property, and it is part of every job we complete.
           </p>
-          <p className="text-base leading-relaxed text-gray-700">
+          <p className="text-base leading-relaxed text-slate-700">
             If you would like a similar outcome, share your drawings or photos
             with our estimators and we will suggest options that balance budget,
             power quality, and future maintenance. We can also sequence works
@@ -219,7 +238,7 @@ export default function FlexGallery({ images }: Collection) {
 
       {activeIndex !== null && (
         <div
-          className="fixed inset-0 z-999 flex items-center justify-center bg-black/80 backdrop-blur-sm px-4"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm px-4"
           role="dialog"
           aria-modal="true"
           aria-label="Expanded project image"
@@ -231,7 +250,7 @@ export default function FlexGallery({ images }: Collection) {
           >
             <button
               onClick={() => setActiveIndex(null)}
-              className="absolute right-3 top-3 z-10 rounded-full bg-black/70 px-3 py-1 text-sm font-semibold text-white shadow-lg hover:bg-black"
+              className="absolute right-3 top-3 z-10 rounded-lg bg-red-600 px-3 py-1 text-sm font-semibold text-white shadow-lg hover:bg-red-700"
               aria-label="Close full screen image"
             >
               Close
@@ -244,6 +263,8 @@ export default function FlexGallery({ images }: Collection) {
                   images[activeIndex].alt || "Full screen electrical project"
                 }
                 className="w-full h-auto max-h-[80vh] object-contain bg-black"
+                loading="eager"
+                fetchPriority="high"
               />
               <div className="flex items-center justify-between px-4 py-3 text-white text-sm bg-gradient-to-t from-black/80 via-black/60 to-transparent">
                 <span>

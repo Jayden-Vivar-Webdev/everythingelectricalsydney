@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import { getImageProps } from "next/image";
 import ContactFormCta from "../contact/contact-cta";
 import { StarRating } from "../testimonials/google-reviews";
 
@@ -54,23 +55,45 @@ function HeroMain({
     "inline-flex max-w-full flex-wrap items-center justify-center gap-2 rounded-2xl border border-white/12 bg-slate-950/55 px-3 py-2 text-center text-xs text-white/88 shadow-lg shadow-black/25 ring-1 ring-white/8 backdrop-blur-sm transition-colors duration-200 hover:border-red-400/30 hover:bg-slate-950/65 sm:gap-3 sm:rounded-full sm:text-sm";
   const announcementLinkClasses =
     "inline-flex items-center gap-1.5 font-semibold text-red-300 transition-colors duration-200 hover:text-white";
+  const heroImageClassName =
+    "h-full w-full object-cover object-[center_top] lg:object-[left_35%]";
+
+  const {
+    props: { srcSet: desktopSrcSet },
+  } = getImageProps({
+    src: backgroundImageDesktop ?? backgroundImage,
+    alt: backgroundImageAlt,
+    width: 1920,
+    height: 1080,
+    quality: 75,
+    priority: true,
+    sizes: "100vw",
+    className: heroImageClassName,
+  });
+
+  const { props: mobileImageProps } = getImageProps({
+    src: backgroundImage,
+    alt: backgroundImageAlt,
+    width: 1080,
+    height: 1620,
+    quality: 75,
+    priority: true,
+    sizes: "100vw",
+    className: heroImageClassName,
+  });
 
   return (
     <>
-      <div className="relative bg-gray-900 lg:max-h-screen">
-        <div className="relative isolate flex min-h-[78svh] items-center overflow-hidden lg:min-h-[88svh] lg:items-center lg:pt-14 lg:pb-[6rem]">
+      <div className="relative bg-gray-900">
+        <div className="relative isolate flex items-center overflow-hidden lg:items-center lg:pt-14 lg:pb-[18rem]">
           <picture className="absolute inset-0 -z-10">
             {backgroundImageDesktop && (
-              <source
-                media="(min-width: 1024px)"
-                srcSet={backgroundImageDesktop}
-              />
+              <source media="(min-width: 1024px)" srcSet={desktopSrcSet} />
             )}
             <img
-              src={backgroundImage}
+              {...mobileImageProps}
               alt={backgroundImageAlt}
-              className="h-full w-full object-cover object-[center_top] lg:object-[left_35%]"
-              loading="eager"
+              fetchPriority="high"
             />
           </picture>
           <div className="absolute inset-0 bg-gradient-to-b from-gray-900/65 via-gray-900/75 to-gray-950/90 lg:bg-gradient-to-r lg:from-gray-950/90 lg:via-gray-900/80 lg:to-gray-900/45"></div>

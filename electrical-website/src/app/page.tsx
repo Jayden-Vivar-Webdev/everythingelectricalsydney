@@ -1,4 +1,3 @@
-import { client } from "@/app/sanity/client";
 import Banner from "./components/banner/banner";
 import ServiceLocations from "./components/locations/service-locations";
 import FAQ from "./components/faq/faq";
@@ -12,18 +11,7 @@ import ContentHome from "./components/(pages)/home/ContentHome";
 import GoogleReviews from "./components/testimonials/google-reviews";
 import Link from "next/link";
 
-const POST_QUERY = `*[_type == "customSections" && slug.current == $slug][0]{
-  title,
-  content,
-}`;
-
 export default async function Home() {
-  const data = await client.fetch(POST_QUERY, { slug: "/" });
-
-  if (!data) {
-    return <p>Post not found</p>;
-  }
-
   return (
     <>
       <Script
