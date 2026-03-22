@@ -58,9 +58,9 @@ export default function FlexGallery({ images }: Collection) {
 
   return (
     <section className="bg-white py-16 sm:py-24">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8 space-y-12">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-12">
         <div className="grid gap-10 lg:grid-cols-[1.2fr,0.8fr] items-start">
-          <div className="space-y-5">
+          <div className="min-w-0 space-y-5">
             <p className="text-sm font-semibold uppercase tracking-[0.22em] text-red-600">
               Recent Work Across Sydney
             </p>
@@ -68,7 +68,7 @@ export default function FlexGallery({ images }: Collection) {
               Everything Electrical Sydney{" "}
               <span className="secondary-text">Gallery</span>
             </h1>
-            <p className="text-lg leading-relaxed text-gray-700">
+            <p className="break-words text-lg leading-relaxed text-gray-700">
               Explore a curated mix of residential, commercial, and Level 2
               electrical projects that our licensed team has delivered across
               Greater Sydney. Every installation shown here was designed to
@@ -76,7 +76,7 @@ export default function FlexGallery({ images }: Collection) {
               unsafe cabling, optimise lighting efficiency, and keep families
               and businesses powered safely.
             </p>
-            <p className="text-lg leading-relaxed text-gray-700">
+            <p className="break-words text-lg leading-relaxed text-gray-700">
               We document each job with site notes, compliance testing, and
               before-and-after photos so you can see the standard of workmanship
               we bring to strata, retail, hospitality, and new-build sites. If
@@ -104,7 +104,7 @@ export default function FlexGallery({ images }: Collection) {
               ].map((item, idx) => (
                 <div
                   key={idx}
-                  className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm transition duration-200 hover:-translate-y-0.5 hover:shadow-md"
+                  className="min-w-0 rounded-xl border border-slate-200 bg-white p-4 shadow-sm transition duration-200 hover:-translate-y-0.5 hover:shadow-md"
                 >
                   <p className="text-xs font-semibold uppercase tracking-wide text-red-600">
                     {item.label}
@@ -112,7 +112,7 @@ export default function FlexGallery({ images }: Collection) {
                   <p className="text-xl font-semibold text-gray-900 leading-tight">
                     {item.value}
                   </p>
-                  <p className="text-sm text-gray-700 leading-relaxed">
+                  <p className="break-words text-sm text-gray-700 leading-relaxed">
                     {item.copy}
                   </p>
                 </div>
@@ -120,11 +120,11 @@ export default function FlexGallery({ images }: Collection) {
             </div>
           </div>
 
-          <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6 shadow-sm space-y-4">
+          <div className="min-w-0 rounded-2xl border border-slate-200 bg-slate-50 p-6 shadow-sm space-y-4">
             <h2 className="text-2xl font-semibold text-slate-900">
               What you will see
             </h2>
-            <p className="text-base text-slate-700 leading-relaxed">
+            <p className="break-words text-base text-slate-700 leading-relaxed">
               Each project tile includes site photos, conduit and cable
               management, fixture positioning, and the tidy finishes that keep
               plant rooms, ceilings, and facades looking intentional. Look for
@@ -139,12 +139,12 @@ export default function FlexGallery({ images }: Collection) {
                 "Undergrounds, mains upgrades, and EV charger-ready parking bays",
                 "Data, Wi-Fi, and security cabling laid with clean containment",
               ].map((item, idx) => (
-                <li key={idx} className="flex gap-3">
+                <li key={idx} className="min-w-0 flex gap-3">
                   <span
                     className="mt-1.5 h-2 w-2 rounded-full bg-red-600"
                     aria-hidden
                   />
-                  <span>{item}</span>
+                  <span className="break-words">{item}</span>
                 </li>
               ))}
             </ul>
@@ -164,7 +164,7 @@ export default function FlexGallery({ images }: Collection) {
             {images.slice(0, visibleCount).map((image, index) => (
               <figure
                 key={index}
-                className="group relative isolate overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm transition duration-200 hover:-translate-y-0.5 hover:shadow-md"
+                className="group relative isolate min-w-0 overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm transition duration-200 hover:-translate-y-0.5 hover:shadow-md"
                 role="button"
                 tabIndex={0}
                 onClick={() => setActiveIndex(index)}
@@ -183,7 +183,7 @@ export default function FlexGallery({ images }: Collection) {
                     loading={index > 3 ? "lazy" : undefined}
                   />
                 </div>
-                <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent p-4 text-sm text-white">
+                <figcaption className="absolute inset-x-0 bottom-0 break-words bg-gradient-to-t from-black/70 via-black/30 to-transparent p-4 text-sm text-white">
                   {image.alt || `Project photo ${index + 1}`} - installed by
                   Everything Electrical Sydney.
                 </figcaption>
@@ -214,11 +214,11 @@ export default function FlexGallery({ images }: Collection) {
           )}
         </div>
 
-        <div className="max-w-full space-y-4 rounded-2xl border border-slate-200 bg-slate-50 p-8 shadow-sm">
+        <div className="max-w-full min-w-0 space-y-4 rounded-2xl border border-slate-200 bg-slate-50 p-6 sm:p-8 shadow-sm">
           <h3 className="text-2xl font-semibold text-slate-900">
             How we stage and sign-off each project
           </h3>
-          <p className="text-base leading-relaxed text-slate-700">
+          <p className="break-words text-base leading-relaxed text-slate-700">
             The work showcased here follows our five-step process: scope and
             design with compliant load calculations, safety planning and
             isolation, neat installation with premium fittings, thorough testing
@@ -226,7 +226,7 @@ export default function FlexGallery({ images }: Collection) {
             That documentation matters when you sell, lease, or expand a
             property, and it is part of every job we complete.
           </p>
-          <p className="text-base leading-relaxed text-slate-700">
+          <p className="break-words text-base leading-relaxed text-slate-700">
             If you would like a similar outcome, share your drawings or photos
             with our estimators and we will suggest options that balance budget,
             power quality, and future maintenance. We can also sequence works
@@ -245,7 +245,7 @@ export default function FlexGallery({ images }: Collection) {
           onClick={() => setActiveIndex(null)}
         >
           <div
-            className="relative w-full max-w-5xl"
+            className="relative w-full max-w-5xl min-w-0"
             onClick={(e) => e.stopPropagation()}
           >
             <button
