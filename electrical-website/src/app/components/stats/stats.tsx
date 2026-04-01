@@ -1,6 +1,9 @@
-import { portableTextComponents } from "@/app/context-map/text-components";
 import { CheckIcon } from "@heroicons/react/24/solid";
-import { PortableText, PortableTextBlock } from "@portabletext/react";
+import {
+  PortableText,
+  PortableTextBlock,
+  PortableTextComponents,
+} from "@portabletext/react";
 
 export type featureItem = {
   id?: number;
@@ -13,6 +16,32 @@ type FeaturesProps = {
   title: string;
   description?: string;
   featureItems: featureItem[];
+};
+
+export const featuresPortableTextComponents: PortableTextComponents = {
+  // Normal blocks (paragraphs)
+  block: {
+    normal: ({ children }) => (
+      <p className="mt-0 text-sm sm:text-base text-gray-300/80 leading-relaxed font-light">
+        {children}
+      </p>
+    ),
+  },
+
+  // Marks (for hyperlinks)
+  marks: {
+    link: ({ children, value }) => {
+      const href = value?.href || "#";
+      return (
+        <a
+          href={href}
+          className="text-red-600 hover:text-red-800 underline transition-colors duration-200"
+        >
+          {children}
+        </a>
+      );
+    },
+  },
 };
 
 export default function Features({
@@ -75,7 +104,7 @@ export default function Features({
                 {item.valueRich ? (
                   <PortableText
                     value={item.valueRich}
-                    components={portableTextComponents}
+                    components={featuresPortableTextComponents}
                   />
                 ) : (
                   <p>{item.value}</p>
