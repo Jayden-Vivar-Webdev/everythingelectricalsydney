@@ -120,6 +120,7 @@ export interface FeatureSectionBlock {
   featureItems: Array<{
     name: string;
     value: string;
+    valueRich?: PortableTextBlock[];
   }>;
 }
 

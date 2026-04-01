@@ -1,10 +1,13 @@
+import { portableTextComponents } from "@/app/context-map/text-components";
 import { CheckIcon } from "@heroicons/react/24/solid";
+import { PortableText, PortableTextBlock } from "@portabletext/react";
 
-type featureItem = {
+export type featureItem = {
   id?: number;
   name?: string;
   value?: string;
   href?: string;
+  valueRich?: PortableTextBlock[];
 };
 type FeaturesProps = {
   title: string;
@@ -68,9 +71,16 @@ export default function Features({
                 )}
               </div>
 
-              <p className="relative mt-2 text-sm sm:text-base text-gray-300/80 leading-relaxed flex-grow font-light">
-                {item.value}
-              </p>
+              <div className="relative mt-2 text-sm sm:text-base text-gray-300/80 leading-relaxed flex-grow font-light">
+                {item.valueRich ? (
+                  <PortableText
+                    value={item.valueRich}
+                    components={portableTextComponents}
+                  />
+                ) : (
+                  <p>{item.value}</p>
+                )}
+              </div>
             </div>
           ))}
         </div>

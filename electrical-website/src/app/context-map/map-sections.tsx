@@ -16,6 +16,7 @@ import { PortableTextBlock } from "@portabletext/types";
 import ServicesHero from "../components/hero/hero-services";
 import { portableTextComponents } from "./text-components";
 import FlexGallery from "../components/gallery/bento-style";
+import { featureItem } from "../components/stats/stats";
 
 export type SanityBlockRenderer = (
   block: { _type: string; [key: string]: unknown },
@@ -309,13 +310,21 @@ export const contentMap: PortableTextComponents = {
 
     featureSection: ({ value, index }) => {
       const statsBlock = value as unknown as SanityTypes.FeatureSectionBlock;
+      console.log(statsBlock);
 
+      const featureItems: featureItem[] = statsBlock.featureItems.map(
+        (item) => ({
+          name: item.name,
+          value: item.value,
+          valueRich: item.valueRich as PortableTextBlock[],
+        }),
+      );
       return (
         <Stats
           key={index}
           title={statsBlock.title}
           description={statsBlock.description}
-          featureItems={statsBlock.featureItems}
+          featureItems={featureItems}
         />
       );
     },
