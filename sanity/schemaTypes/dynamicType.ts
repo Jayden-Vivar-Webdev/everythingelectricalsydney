@@ -182,6 +182,32 @@ export const customSections = defineType({
                   fields: [
                     defineField({name: 'name', title: 'Feature Title', type: 'string'}),
                     defineField({name: 'value', title: 'Feature Paragraph', type: 'text'}),
+                    defineField({
+                      name: 'valueRich',
+                      title: 'Feature Paragraph (with links)',
+                      type: 'array',
+                      of: [
+                        {
+                          type: 'block',
+                          marks: {
+                            annotations: [
+                              {
+                                name: 'link',
+                                type: 'object',
+                                title: 'Link',
+                                fields: [
+                                  {
+                                    name: 'href',
+                                    type: 'url',
+                                    title: 'URL',
+                                  },
+                                ],
+                              },
+                            ],
+                          },
+                        },
+                      ],
+                    }),
                   ],
                 },
               ],
