@@ -391,6 +391,9 @@ export const contentMap: PortableTextComponents = {
                 </div>
               );
             })}
+          descriptionLinks={
+            contentBlock.descriptionLinks as PortableTextBlock[]
+          }
           subHeader={contentBlock.subHeader}
           content={contentBlock.content
             .replace(/\r\n/g, "\n")

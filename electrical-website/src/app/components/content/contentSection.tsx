@@ -1,4 +1,9 @@
 "use client";
+import {
+  PortableText,
+  PortableTextBlock,
+  PortableTextComponents,
+} from "@portabletext/react";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 type ImageProps = {
@@ -14,6 +19,7 @@ type StatItemProps = {
 type ContentSectionProps = {
   tag: string;
   header: string;
+  descriptionLinks?: PortableTextBlock[];
   description: React.ReactNode;
   subHeader: string;
   content: React.ReactNode;
@@ -31,10 +37,37 @@ function Separator() {
   }
 }
 
+export const descriptionLinksPortableTextComponents: PortableTextComponents = {
+  // Normal blocks (paragraphs)
+  block: {
+    normal: ({ children }) => (
+      <p className="mt-6 text-lg md:text-xl leading-8 text-gray-600 text-slate-600">
+        {children}
+      </p>
+    ),
+  },
+
+  // Marks (for hyperlinks)
+  marks: {
+    link: ({ children, value }) => {
+      const href = value?.href || "#";
+      return (
+        <a
+          href={href}
+          className="text-red-600 hover:text-red-800 underline transition-colors duration-200"
+        >
+          {children}
+        </a>
+      );
+    },
+  },
+};
+
 export default function ContentSection({
   tag,
   header,
   description,
+  descriptionLinks,
   subHeader,
   content,
   images,
@@ -57,6 +90,14 @@ export default function ContentSection({
             <div className="mt-6 text-lg md:text-xl leading-8 text-gray-600 text-slate-600">
               {description}
             </div>
+            {descriptionLinks && (
+              <div className="mt-6 text-lg md:text-xl leading-8 text-gray-600 text-slate-600">
+                <PortableText
+                  value={descriptionLinks}
+                  components={descriptionLinksPortableTextComponents}
+                />
+              </div>
+            )}
           </div>
 
           {/* Main Content Grid */}

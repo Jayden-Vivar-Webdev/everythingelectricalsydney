@@ -129,6 +129,7 @@ export interface ContentSectionBlock {
   tag: string;
   header: string;
   description: string;
+  descriptionLinks?: PortableTextBlock[];
   subHeader: string;
   content: string;
   images: Array<{
