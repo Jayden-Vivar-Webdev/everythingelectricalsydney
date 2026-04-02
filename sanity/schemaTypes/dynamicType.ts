@@ -87,6 +87,32 @@ export const customSections = defineType({
               type: 'text',
             }),
             defineField({
+              name: 'descriptionLinks',
+              title: 'Description with Links',
+              type: 'array',
+              of: [
+                {
+                  type: 'block',
+                  marks: {
+                    annotations: [
+                      {
+                        name: 'link',
+                        type: 'object',
+                        title: 'URL',
+                        fields: [
+                          {
+                            name: 'href',
+                            type: 'url',
+                            title: 'URL',
+                          },
+                        ],
+                      },
+                    ],
+                  },
+                },
+              ],
+            }),
+            defineField({
               name: 'subHeader',
               title: 'Sub Header',
               type: 'string',
