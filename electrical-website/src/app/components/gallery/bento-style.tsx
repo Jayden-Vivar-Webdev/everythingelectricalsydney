@@ -13,6 +13,8 @@ export default function FlexGallery({ images }: Collection) {
   const [visibleCount, setVisibleCount] = useState(6); // initially show 6 images
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const preloadedImagesRef = useRef<Set<string>>(new Set());
+  const preloadAhead = 6;
+  const preloadBehind = 2;
 
   const handleLoadMore = () => {
     setVisibleCount((prev) => prev + 6); // load 6 more each click
@@ -26,19 +28,30 @@ export default function FlexGallery({ images }: Collection) {
     preloadedImagesRef.current.add(src);
   };
 
+  const preloadAroundIndex = (index: number) => {
+    for (let offset = -preloadBehind; offset <= preloadAhead; offset += 1) {
+      preloadImage(images[index + offset]?.src);
+    }
+  };
+
+  const navigateLightbox = (step: number) => {
+    setActiveIndex((prev) => {
+      if (prev === null) return prev;
+      const nextIndex = Math.max(0, Math.min(prev + step, images.length - 1));
+      preloadAroundIndex(nextIndex);
+      return nextIndex;
+    });
+  };
+
   // Close modal on Escape
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") setActiveIndex(null);
       if (event.key === "ArrowRight" && activeIndex !== null) {
-        setActiveIndex((prev) =>
-          prev === null ? null : Math.min(prev + 1, images.length - 1),
-        );
+        navigateLightbox(1);
       }
       if (event.key === "ArrowLeft" && activeIndex !== null) {
-        setActiveIndex((prev) =>
-          prev === null ? null : Math.max(prev - 1, 0),
-        );
+        navigateLightbox(-1);
       }
     };
 
@@ -49,11 +62,7 @@ export default function FlexGallery({ images }: Collection) {
   // Preload nearby images so lightbox next/prev feels instant.
   useEffect(() => {
     if (activeIndex === null) return;
-
-    preloadImage(images[activeIndex]?.src);
-    preloadImage(images[activeIndex + 1]?.src);
-    preloadImage(images[activeIndex + 2]?.src);
-    preloadImage(images[activeIndex - 1]?.src);
+    preloadAroundIndex(activeIndex);
   }, [activeIndex, images]);
 
   return (
@@ -167,11 +176,15 @@ export default function FlexGallery({ images }: Collection) {
                 className="group relative isolate min-w-0 overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm transition duration-200 hover:-translate-y-0.5 hover:shadow-md"
                 role="button"
                 tabIndex={0}
-                onClick={() => setActiveIndex(index)}
+                onClick={() => {
+                  setActiveIndex(index);
+                  preloadAroundIndex(index);
+                }}
                 onKeyDown={(e) => {
                   if (e.key === "Enter" || e.key === " ") {
                     e.preventDefault();
                     setActiveIndex(index);
+                    preloadAroundIndex(index);
                   }
                 }}
               >
@@ -274,24 +287,14 @@ export default function FlexGallery({ images }: Collection) {
                 <div className="flex gap-2">
                   <button
                     className="rounded-full bg-white/15 px-3 py-1 hover:bg-white/25"
-                    onClick={() =>
-                      setActiveIndex((prev) =>
-                        prev === null ? null : Math.max(prev - 1, 0),
-                      )
-                    }
+                    onClick={() => navigateLightbox(-1)}
                     disabled={activeIndex === 0}
                   >
                     Prev
                   </button>
                   <button
                     className="rounded-full bg-white/15 px-3 py-1 hover:bg-white/25"
-                    onClick={() =>
-                      setActiveIndex((prev) =>
-                        prev === null
-                          ? null
-                          : Math.min(prev + 1, images.length - 1),
-                      )
-                    }
+                    onClick={() => navigateLightbox(1)}
                     disabled={activeIndex === images.length - 1}
                   >
                     Next

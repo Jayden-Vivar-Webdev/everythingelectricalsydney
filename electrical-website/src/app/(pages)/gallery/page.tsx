@@ -49,6 +49,7 @@ export const metadata = {
 
 export default async function GalleryPage() {
   const data = await client.fetch(POST_QUERY, { slug: "/gallery" });
+  console.log(data.content);
 
   if (!data) {
     return <p>Post not found</p>;
