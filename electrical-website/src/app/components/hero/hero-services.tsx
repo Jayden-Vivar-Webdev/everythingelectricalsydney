@@ -1,5 +1,6 @@
 "use client";
-import React, { useState, useEffect, useMemo } from "react";
+import React from "react";
+import Image from "next/image";
 import {
   ArrowRightIcon,
   BuildingOffice2Icon,
@@ -23,41 +24,6 @@ export default function ServicesHero({
   backgroundImage = "/images/assets/electrical-switchbox.jpg",
   ctaText = "Request Consultation",
 }: ServicesHeroProps) {
-  const [isVisible, setIsVisible] = useState(false);
-  const [imageLoaded, setImageLoaded] = useState(false);
-
-  // Preload the image for instant loading
-  useEffect(() => {
-    const img = new window.Image();
-    img.onload = () => {
-      setImageLoaded(true);
-    };
-    img.src = backgroundImage;
-  }, [backgroundImage]);
-
-  // Memoize the background image element
-  const backgroundImageElement = useMemo(
-    () => (
-      <img
-        src={backgroundImage}
-        alt="Everything Electrical Sydney - Services"
-        className={`${imageLoaded ? "opacity-100" : "opacity-0"} object-cover w-full h-full absolute top-0 left-0 transition-opacity duration-700`}
-        sizes="100vw"
-        loading="eager"
-      />
-    ),
-    [backgroundImage, imageLoaded],
-  );
-
-  useEffect(() => {
-    // Use requestAnimationFrame for smoother animation timing
-    const timeoutId = requestAnimationFrame(() => {
-      setIsVisible(true);
-    });
-
-    return () => cancelAnimationFrame(timeoutId);
-  }, []);
-
   return (
     <div className="relative min-h-screen bg-slate-900 overflow-hidden">
       {/* Enhanced Background with Parallax Effect */}
@@ -71,7 +37,15 @@ export default function ServicesHero({
 
         {/* Optimized background image */}
         <div className="relative h-full overflow-hidden">
-          {backgroundImageElement}
+          <Image
+            src={backgroundImage}
+            alt="Everything Electrical Sydney - Services"
+            fill
+            quality={75}
+            priority
+            sizes="100vw"
+            className="absolute inset-0 h-full w-full object-cover"
+          />
         </div>
 
         {/* Enhanced overlay with subtle texture */}
@@ -83,9 +57,7 @@ export default function ServicesHero({
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center min-h-screen py-12 sm:py-16 lg:py-20">
           {/* Centered Content */}
-          <div
-            className={`w-full max-w-6xl mx-auto space-y-8 sm:space-y-12 transform transition-all duration-1000 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"}`}
-          >
+          <div className="hero-services-reveal w-full max-w-6xl mx-auto space-y-8 sm:space-y-12 transform">
             {/* Premium Badge with Glow Effect */}
             <div className="inline-flex items-center space-x-2 px-3 sm:px-4 py-2 bg-red-600 rounded-full">
               <BuildingOffice2Icon className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
@@ -143,34 +115,6 @@ export default function ServicesHero({
           </div>
         </div>
       </div>
-
-      {/* Enhanced CSS animations */}
-      <style jsx>{`
-        @keyframes shimmer {
-          0% {
-            transform: translateX(-100%);
-          }
-          100% {
-            transform: translateX(100%);
-          }
-        }
-        .animate-shimmer {
-          animation: shimmer 3s ease-in-out infinite;
-        }
-        .animate-fadeIn {
-          animation: fadeIn 0.5s ease-out;
-        }
-        @keyframes fadeIn {
-          from {
-            opacity: 0;
-            transform: translateY(10px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-      `}</style>
     </div>
   );
 }

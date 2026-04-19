@@ -102,6 +102,27 @@ body {
   }
 }
 
+@keyframes heroServicesReveal {
+  from {
+    opacity: 0;
+    transform: translateY(2rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-services-reveal {
+  animation: heroServicesReveal 1000ms ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-services-reveal {
+    animation: none;
+  }
+}
+
 /* Tailwind CSS file (e.g., global.css or inside @layer) */
 @media screen and (max-height: 1103px) {
   .services-container {
