@@ -3,6 +3,7 @@ import { PortableText } from "next-sanity";
 import ServiceLocations from "@/app/components/locations/service-locations";
 import MapLocations from "@/app/components/locations/map-locations";
 import { contentMap } from "@/app/context-map/map-sections";
+
 const POST_QUERY = `*[_type == "customSections" && slug.current == $slug][0]{
   title,
   content,

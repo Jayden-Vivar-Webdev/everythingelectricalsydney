@@ -9,6 +9,7 @@ import { Metadata } from "next";
 import { cache } from "react";
 import { Phone, Mail, MapPin } from "lucide-react";
 import validLocations from "@/app/data/location-data.json";
+import { locationMetaDetails } from "@/app/data/location-meta-details";
 export const dynamic = "force-dynamic";
 
 interface PageProps {
@@ -42,8 +43,14 @@ export async function generateMetadata({
       };
     }
 
-    const pageTitle = `Electrician in ${locationParam.location} | Everything Electrical Sydney `;
-    const pageDescription = `Everything Electrical Sydney provides comprehensive electrical services in ${locationParam.location}. Commercial, residential work, and Level 2 electrical services. 24/7 emergency electrical services available.`;
+    const metaData = locationMetaDetails[location?.slug];
+
+    const pageTitle =
+      metaData?.title ??
+      `Electrician in ${locationParam.location} | Everything Electrical Sydney`;
+    const pageDescription =
+      metaData?.description ??
+      `Everything Electrical Sydney provides comprehensive electrical services in ${locationParam.location}. Commercial, residential work, and Level 2 electrical services. 24/7 emergency electrical services available.`;
 
     return {
       title: pageTitle,

@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { Metadata } from "next";
 import { cache } from "react";
 import { localBusinessData } from "@/app/data/local-business-data";
+import { serviceMetaDetails } from "@/app/data/service-meta-details";
 
 type Params = Promise<{ slug: string }>;
 
@@ -65,6 +66,7 @@ export async function generateMetadata({
   try {
     const { slug } = await params;
     const fullSlug = `/services/${slug}`;
+    console.log(fullSlug);
     const post = await getCachedPost(fullSlug);
 
     if (!post) {
@@ -74,8 +76,8 @@ export async function generateMetadata({
       };
     }
 
-    const pageTitle = `Everything Electrical Sydney — ${String(post.title)}`;
-    const pageDescription = `Discover how Everything Electrical Sydney helps with ${post.title} for clients across Camden, Campbelltown, Oran Park and NSW.`;
+    const pageTitle = `${serviceMetaDetails[slug]?.title}`;
+    const pageDescription = `${serviceMetaDetails[slug]?.description}`;
 
     return {
       title: pageTitle,
